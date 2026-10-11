@@ -1,0 +1,4812 @@
+[
+  {
+    "id": "abu_dhabi",
+    "city": "Abu Dhabi",
+    "country": "United Arab Emirates",
+    "iso2": "AE",
+    "continent": "asia",
+    "lat": 24.4511,
+    "lng": 54.3969,
+    "timezone": "Asia/Dubai",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9c/Abu_dhabi_skylines_2014.jpg/960px-Abu_dhabi_skylines_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "amman",
+    "city": "Amman",
+    "country": "Jordan",
+    "iso2": "JO",
+    "continent": "asia",
+    "lat": 31.931,
+    "lng": 35.9261,
+    "timezone": "Asia/Amman",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/24/New_Abdali_2024.png/960px-New_Abdali_2024.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Scappa Lounge",
+      "address": "Al-Kuroum St. 25, Amman, Jordan",
+      "mapsUrl": "https://www.google.com/maps/place/Scappa+Lounge/@31.9577742,35.7545742,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Amman!3m6!1s0x151ca12ce9a93a1d:0x476867ab4703e54b!8m2!3d31.9577742!4d35.9070095!15sCg9zYWxzYSBiYXIgQW1tYW5aESIPc2Fsc2EgYmFyIGFtbWFukgEGbG91bmdlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwb2JGWnVTa3RWVmtKNFZVY3hUbUZGWkV0VGJscERUa1UxUWsxV1JSQULgAQD6AQQIABBI!16s%2Fg%2F11y97p3j0s?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+962 7 9055 5919",
+      "website": "https://www.instagram.com/scappa.amman",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Lounge bar. On Wednesday 30 Sep 2026, early morning Amman time, the map said Closed, opening at 4 PM. Review topics name salsa night (4). No bachata or kizomba topic. Dancing and dance floor were not counted.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "12 AM–12 PM, 4 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "4 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ankara",
+    "city": "Ankara",
+    "country": "Türkiye",
+    "iso2": "TR",
+    "continent": "asia",
+    "lat": 39.9358,
+    "lng": 32.8387,
+    "timezone": "Europe/Istanbul",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Ataturk%27s_Mausoleum_%286225341313%29.jpg/960px-Ataturk%27s_Mausoleum_%286225341313%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "ashgabat",
+    "city": "Ashgabat",
+    "country": "Turkmenistan",
+    "iso2": "TM",
+    "continent": "asia",
+    "lat": 37.95,
+    "lng": 58.3833,
+    "timezone": "Asia/Ashgabat",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/View_of_Ashgabat_%2842376779291%29.jpg/960px-View_of_Ashgabat_%2842376779291%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "astana",
+    "city": "Astana",
+    "country": "Kazakhstan",
+    "iso2": "KZ",
+    "continent": "asia",
+    "lat": 51.1333,
+    "lng": 71.4333,
+    "timezone": "Asia/Almaty",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/34/Astana_Esil_view.jpg/960px-Astana_Esil_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "baghdad",
+    "city": "Baghdad",
+    "country": "Iraq",
+    "iso2": "IQ",
+    "continent": "asia",
+    "lat": 33.3153,
+    "lng": 44.3661,
+    "timezone": "Asia/Baghdad",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/%D9%86%D8%B5%D8%A8_%D8%A7%D9%84%D8%B4%D9%87%D9%8A%D8%AF_2024.jpg/960px-%D9%86%D8%B5%D8%A8_%D8%A7%D9%84%D8%B4%D9%87%D9%8A%D8%AF_2024.jpg",
+    "venue": null
+  },
+  {
+    "id": "baku",
+    "city": "Baku",
+    "country": "Azerbaijan",
+    "iso2": "AZ",
+    "continent": "asia",
+    "lat": 40.3667,
+    "lng": 49.8352,
+    "timezone": "Asia/Baku",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/Baku_Montage.jpg/960px-Baku_Montage.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bandar_seri_begawan",
+    "city": "Bandar Seri Begawan",
+    "country": "Brunei",
+    "iso2": "BN",
+    "continent": "asia",
+    "lat": 4.9167,
+    "lng": 114.9167,
+    "timezone": "Asia/Brunei",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/2/2b/Sultan_Omar_Ali_Saifuddin_Mosque_with_the_ceremonial_ship.jpg",
+    "venue": null
+  },
+  {
+    "id": "bangkok",
+    "city": "Bangkok",
+    "country": "Thailand",
+    "iso2": "TH",
+    "continent": "asia",
+    "lat": 13.7563,
+    "lng": 100.5018,
+    "timezone": "Asia/Bangkok",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Bangkok_skyline_at_sunset%2C_Bangkok%2C_Thailand.jpg/960px-Bangkok_skyline_at_sunset%2C_Bangkok%2C_Thailand.jpg",
+    "venue": null
+  },
+  {
+    "id": "beijing",
+    "city": "Beijing",
+    "country": "China",
+    "iso2": "CN",
+    "continent": "asia",
+    "lat": 39.904,
+    "lng": 116.4075,
+    "timezone": "Asia/Shanghai",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg/960px-Skyline_of_Beijing_CBD_with_B-5906_approaching_%2820211016171955%29_%281%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "beirut",
+    "city": "Beirut",
+    "country": "Lebanon",
+    "iso2": "LB",
+    "continent": "asia",
+    "lat": 33.8869,
+    "lng": 35.5131,
+    "timezone": "Asia/Beirut",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/ea/Beyrouth_vue_a%C3%A9rienne.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "bishkek",
+    "city": "Bishkek",
+    "country": "Kyrgyzstan",
+    "iso2": "KG",
+    "continent": "asia",
+    "lat": 42.8667,
+    "lng": 74.5667,
+    "timezone": "Asia/Bishkek",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/42/Bishkek_City%27s_business_center.jpg/960px-Bishkek_City%27s_business_center.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "damascus",
+    "city": "Damascus",
+    "country": "Syria",
+    "iso2": "SY",
+    "continent": "asia",
+    "lat": 33.513,
+    "lng": 36.292,
+    "timezone": "Asia/Damascus",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Damascus%2C_Syria%2C_Panoramic_view_of_Damascus.jpg/960px-Damascus%2C_Syria%2C_Panoramic_view_of_Damascus.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "dhaka",
+    "city": "Dhaka",
+    "country": "Bangladesh",
+    "iso2": "BD",
+    "continent": "asia",
+    "lat": 23.7289,
+    "lng": 90.3944,
+    "timezone": "Asia/Dhaka",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/National_Assembly_of_Bangladesh_%2810%29.jpg/960px-National_Assembly_of_Bangladesh_%2810%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "dili",
+    "city": "Dili",
+    "country": "Timor-Leste",
+    "iso2": "TL",
+    "continent": "asia",
+    "lat": -8.5536,
+    "lng": 125.5783,
+    "timezone": "Asia/Dili",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Government_Palace%2C_Dili%2C_2023_%2802%29.jpg/960px-Government_Palace%2C_Dili%2C_2023_%2802%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "doha",
+    "city": "Doha",
+    "country": "Qatar",
+    "iso2": "QA",
+    "continent": "asia",
+    "lat": 25.2861,
+    "lng": 51.5294,
+    "timezone": "Asia/Qatar",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Doha_skyline_in_the_morning_%2812544910974%29_%28cropped%29.jpg/960px-Doha_skyline_in_the_morning_%2812544910974%29_%28cropped%29.jpg",
+    "venue": {
+      "name": "La Vista 55",
+      "address": "InterContinental Doha The City, Off Al Wahda Road, Doha, Qatar",
+      "mapsUrl": "https://www.google.com/maps/place/La+Vista+55/@25.29,51.53,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Doha!3m6!1s0x3e45c5eb03278d4d:0xb793d08386467ab6!8m2!3d25.3266689!4d51.5248777!15sCg5zYWxzYSBiYXIgRG9oYVoQIg5zYWxzYSBiYXIgZG9oYZIBA2JhcpoBJENoZERTVWhOTUc5blMwVkpRMEZuVFVSdmFrOWhVbnBSUlJBQuABAPoBBAgAEDo!16s%2Fg%2F11gxr37pw_?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+974 7021 8765",
+      "website": "http://bit.ly/LaVistaDoha",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar at InterContinental Doha The City. On Wednesday 30 Sep 2026, morning Doha time, the map said Closed, opening at 5 PM. Review topics name salsa dancing (2). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–2 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dushanbe",
+    "city": "Dushanbe",
+    "country": "Tajikistan",
+    "iso2": "TJ",
+    "continent": "asia",
+    "lat": 38.5731,
+    "lng": 68.7864,
+    "timezone": "Asia/Dushanbe",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5c/Panorama_with_buildings%2C_Dushanbe.jpg/960px-Panorama_with_buildings%2C_Dushanbe.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "hanoi",
+    "city": "Hanoi",
+    "country": "Vietnam",
+    "iso2": "VN",
+    "continent": "asia",
+    "lat": 21.0245,
+    "lng": 105.8412,
+    "timezone": "Asia/Ho_Chi_Minh",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8e/Hanoi_skyline_with_Ba_Vi_Mountain.jpg/960px-Hanoi_skyline_with_Ba_Vi_Mountain.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "La Habanera “Casa del Ron”",
+      "address": "81C Đ. Xuân Diệu, Tây Hồ, Hà Nội, Vietnam",
+      "mapsUrl": "https://www.google.com/maps/place/La+Habanera+%E2%80%9CCasa+del+Ron%E2%80%9D/@21.0676142,105.6735779,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Hanoi!3m6!1s0x3135ab183732c8bf:0x8c58739f3750a828!8m2!3d21.0676142!4d105.8260132!15sCg9zYWxzYSBiYXIgSGFub2laESIPc2Fsc2EgYmFyIGhhbm9pkgEDcHVimgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU0zYTNWNWMwdEJFQUXgAQD6AQQIABBC!16s%2Fg%2F11jh8tvw10?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+84 353 207 220",
+      "website": "https://lahabanerahanoi.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Pub in Tay Ho, Hanoi. On Wednesday 30 Sep 2026, morning Hanoi time, the map said Closed, opening at 6 PM. Review topics name bachata (5). No salsa or kizomba topic. Dancing and latin music were not counted.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–2 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "islamabad",
+    "city": "Islamabad",
+    "country": "Pakistan",
+    "iso2": "PK",
+    "continent": "asia",
+    "lat": 33.6989,
+    "lng": 73.0369,
+    "timezone": "Asia/Karachi",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/eb/Faisal_Mosque%2C_Islamabad_III.jpg/960px-Faisal_Mosque%2C_Islamabad_III.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "jakarta",
+    "city": "Jakarta",
+    "country": "Indonesia",
+    "iso2": "ID",
+    "continent": "asia",
+    "lat": -6.1753,
+    "lng": 106.8269,
+    "timezone": "Asia/Jakarta",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a2/Jakarta_Indonesia_National-Monument-02.jpg/960px-Jakarta_Indonesia_National-Monument-02.jpg",
+    "venue": {
+      "name": "Amigos Bar & Cantina Kemang",
+      "address": "Kemang Club Villas, Jl. Kemang Selatan I, RT.8/RW.3, Bangka, Mampang Prapatan, South Jakarta City, Jakarta 12730, Indonesia",
+      "mapsUrl": "https://www.google.com/maps/place/Amigos+Bar+%26+Cantina+Kemang/@-6.2653227,106.8203703,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f340b95fec27:0x921852f1d6b22a7d!8m2!3d-6.2653227!4d106.8203703!16s%2Fg%2F1thlqcpp?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+62 822-9782-9855",
+      "website": "http://www.amigos-resto.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Tex-Mex restaurant in South Jakarta. On Wednesday 30 Sep 2026, morning Jakarta time, the map said Closed, opening at 10 AM. Review topics name salsa night (39). No bachata or kizomba topic. Live music, latin music, and dance music were not counted.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "10 AM–10 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "10 AM–10 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "10 AM–10 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "10 AM–10 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 AM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "jerusalem",
+    "city": "Jerusalem",
+    "country": "Israel",
+    "iso2": "IL",
+    "continent": "asia",
+    "lat": 31.7767,
+    "lng": 35.2342,
+    "timezone": "Asia/Jerusalem",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Temple_Mount_%28Aerial_view%2C_2007%29_07.jpg/960px-Temple_Mount_%28Aerial_view%2C_2007%29_07.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "kabul",
+    "city": "Kabul",
+    "country": "Afghanistan",
+    "iso2": "AF",
+    "continent": "asia",
+    "lat": 34.5328,
+    "lng": 69.1658,
+    "timezone": "Asia/Kabul",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/4/43/Kabul%2C_Afghanistan_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "kathmandu",
+    "city": "Kathmandu",
+    "country": "Nepal",
+    "iso2": "NP",
+    "continent": "asia",
+    "lat": 27.71,
+    "lng": 85.32,
+    "timezone": "Asia/Kathmandu",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/35/Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg/960px-Kathmandu-Durbar_Square-06-Mahavishnu-Kuh-Vishnu-Pratapamalla-Jagannath-2007-gje.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "kuala_lumpur",
+    "city": "Kuala Lumpur",
+    "country": "Malaysia",
+    "iso2": "MY",
+    "continent": "asia",
+    "lat": 3.1478,
+    "lng": 101.6953,
+    "timezone": "Asia/Kuala_Lumpur",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Petronas_Panorama_II.jpg/960px-Petronas_Panorama_II.jpg",
+    "venue": null
+  },
+  {
+    "id": "kuwait_city",
+    "city": "Kuwait City",
+    "country": "Kuwait",
+    "iso2": "KW",
+    "continent": "asia",
+    "lat": 29.375,
+    "lng": 47.98,
+    "timezone": "Asia/Kuwait",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fa/Kuwait_City_Skyline_1.jpg/960px-Kuwait_City_Skyline_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "male",
+    "city": "Malé",
+    "country": "Maldives",
+    "iso2": "MV",
+    "continent": "asia",
+    "lat": 4.175,
+    "lng": 73.5083,
+    "timezone": "Indian/Maldives",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/83/Mal%C3%A9.jpg/960px-Mal%C3%A9.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "manama",
+    "city": "Manama",
+    "country": "Bahrain",
+    "iso2": "BH",
+    "continent": "asia",
+    "lat": 26.2167,
+    "lng": 50.5833,
+    "timezone": "Asia/Bahrain",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Manama%2C_Bahrain_Decembre_2014.jpg/960px-Manama%2C_Bahrain_Decembre_2014.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Iguana Lounge",
+      "address": "Bahrain, Juffair, Juffair Boulevard, ground floor, Bahrain",
+      "mapsUrl": "https://www.google.com/maps/place/Iguana+Lounge/@26.22,50.58,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Manama!3m6!1s0x3e49a9e2c65ab6e3:0xcaa70d6e84f73017!8m2!3d26.218642!4d50.6071375!15sChBzYWxzYSBiYXIgTWFuYW1hWhIiEHNhbHNhIGJhciBtYW5hbWGSAQZsb3VuZ2WaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUm9iVGRMWTBGUkVBReABAPoBBAgiEEw!16s%2Fg%2F11rw6hmhb4?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+973 3352 3522",
+      "website": "https://www.instagram.com/iguana.bh",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Lounge bar in Juffair, Manama. On Wednesday 30 Sep 2026, morning Bahrain time, the map said Closed, opening at 6 PM. Review topics name salsa night (7). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6 PM–2:30 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–2:30 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "manila",
+    "city": "Manila",
+    "country": "Philippines",
+    "iso2": "PH",
+    "continent": "asia",
+    "lat": 14.5958,
+    "lng": 120.9772,
+    "timezone": "Asia/Manila",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Cityscape_of_Manila%2C_2025_%2801%29.jpg/960px-Cityscape_of_Manila%2C_2025_%2801%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "muscat",
+    "city": "Muscat",
+    "country": "Oman",
+    "iso2": "OM",
+    "continent": "asia",
+    "lat": 23.6139,
+    "lng": 58.5922,
+    "timezone": "Asia/Muscat",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Al_Alam_Palace.jpg/960px-Al_Alam_Palace.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "naypyidaw",
+    "city": "Naypyidaw",
+    "country": "Myanmar",
+    "iso2": "MM",
+    "continent": "asia",
+    "lat": 19.7475,
+    "lng": 96.115,
+    "timezone": "Asia/Yangon",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/9/99/Naypyidaw_--_Uppatasanti_Pagoda.JPG/960px-Naypyidaw_--_Uppatasanti_Pagoda.JPG",
+    "venue": null
+  },
+  {
+    "id": "new_delhi",
+    "city": "New Delhi",
+    "country": "India",
+    "iso2": "IN",
+    "continent": "asia",
+    "lat": 28.6139,
+    "lng": 77.2089,
+    "timezone": "Asia/Kolkata",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Forecourt%2C_Rashtrapati_Bhavan_-_1.jpg/960px-Forecourt%2C_Rashtrapati_Bhavan_-_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "phnom_penh",
+    "city": "Phnom Penh",
+    "country": "Cambodia",
+    "iso2": "KH",
+    "continent": "asia",
+    "lat": 11.5696,
+    "lng": 104.921,
+    "timezone": "Asia/Phnom_Penh",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/84/Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg/960px-Phnom_Penh_skyline_from_TK_district_Dec_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "CanCan, Restaurant, Dancing, Live-Music & DJs",
+      "address": "14C Street 308, Phnom Penh 12301, Cambodia",
+      "mapsUrl": "https://www.google.com/maps/place/CanCan,+Restaurant,+Dancing,+Live-Music+%26+DJs/@11.56,104.92,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Phnom+Penh!3m6!1s0x310951d8db962975:0x5520992fb9b99d97!8m2!3d11.553169!4d104.9300925!15sChRzYWxzYSBiYXIgUGhub20gUGVuaFoWIhRzYWxzYSBiYXIgcGhub20gcGVuaJIBCm5pZ2h0X2NsdWKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFHUW1FemFIcFpiVTUyVkVjMWRtUnVWbmRQU0VJeVZHNUNNbUpIWXhBQuABAPoBBAgSEDI!16s%2Fg%2F11q40b4jhb?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+855 88 277 7907",
+      "website": "https://bassacstreet.com/cancan/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics: salsa dancing night 5, bachata 3. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–1 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pyongyang",
+    "city": "Pyongyang",
+    "country": "North Korea",
+    "iso2": "KP",
+    "continent": "asia",
+    "lat": 39.0167,
+    "lng": 125.7475,
+    "timezone": "Asia/Pyongyang",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e7/The_Arch_of_Triumph_%2811360607534%29.jpg/960px-The_Arch_of_Triumph_%2811360607534%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "riyadh",
+    "city": "Riyadh",
+    "country": "Saudi Arabia",
+    "iso2": "SA",
+    "continent": "asia",
+    "lat": 24.65,
+    "lng": 46.71,
+    "timezone": "Asia/Riyadh",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/20/Riyadh_Skyline.jpg/960px-Riyadh_Skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "sanaa",
+    "city": "Sanaa",
+    "country": "Yemen",
+    "iso2": "YE",
+    "continent": "asia",
+    "lat": 15.35,
+    "lng": 44.2,
+    "timezone": "Asia/Aden",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Sana%27a_%282286825748%29.jpg/960px-Sana%27a_%282286825748%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "seoul",
+    "city": "Seoul",
+    "country": "South Korea",
+    "iso2": "KR",
+    "continent": "asia",
+    "lat": 37.5665,
+    "lng": 126.978,
+    "timezone": "Asia/Seoul",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Seoul_night_skyline_2018.jpg/960px-Seoul_night_skyline_2018.jpg",
+    "venue": {
+      "name": "Top Salsa Bar",
+      "address": "616-2 Sinsa-dong, Gangnam District, Seoul",
+      "mapsUrl": "https://www.google.com/maps/place/Top+Salsa+Bar/data=!3m1!4b1!4m4!3m3!1s0x357ca385818372d3:0x35359f90d95a48d5!16s%2Fg%2F11c5wmx2z6!20s8Q99G2HJ%2BCV2VR93",
+      "phone": "010-6719-9001",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "At about 7:30 PM the map said Open, closing at 2 AM. Saturday 3 Oct 2026 is National Foundation Day, and Google says those hours might differ.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 1,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 0,
+          "text": "9 PM–1 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "singapore",
+    "city": "Singapore",
+    "country": "Singapore",
+    "iso2": "SG",
+    "continent": "asia",
+    "lat": 1.3,
+    "lng": 103.8,
+    "timezone": "Asia/Singapore",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/16/Marina_Bay_Singapore-3499.jpg/960px-Marina_Bay_Singapore-3499.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Cuba Libre Café & Bar",
+      "address": "3E River Valley Rd 01-03/04 @, Clarke Quay, The Circuit, Singapore 179024",
+      "mapsUrl": "https://www.google.com/maps/place/Cuba+Libre+Caf%C3%A9+%26+Bar/@1.290247,103.8464495,17z/data=!3m1!4b1!4m6!3m5!1s0x31da19a0305e11af:0xa8ef9d178c8d9093!8m2!3d1.290247!4d103.8464495!16s%2Fg%2F1w10_qg6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+65 8418 0203",
+      "website": "https://cubalibre.asia/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Cuban restaurant. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics name bachata (6). No salsa or kizomba topic.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5:30 PM–3 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "5 PM–3 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–3 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–3 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–3 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sri_jayawardenepura_kotte",
+    "city": "Sri Jayawardenepura Kotte",
+    "country": "Sri Lanka",
+    "iso2": "LK",
+    "continent": "asia",
+    "lat": 6.9,
+    "lng": 79.9164,
+    "timezone": "Asia/Colombo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5f/New_Sri_Lankan_Parliament_in_Kotte.jpg/960px-New_Sri_Lankan_Parliament_in_Kotte.jpg",
+    "venue": null
+  },
+  {
+    "id": "tashkent",
+    "city": "Tashkent",
+    "country": "Uzbekistan",
+    "iso2": "UZ",
+    "continent": "asia",
+    "lat": 41.3111,
+    "lng": 69.2797,
+    "timezone": "Asia/Tashkent",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/33/Tashkent_skyline_2019.jpg/960px-Tashkent_skyline_2019.jpg",
+    "venue": null
+  },
+  {
+    "id": "tbilisi",
+    "city": "Tbilisi",
+    "country": "Georgia",
+    "iso2": "GE",
+    "continent": "asia",
+    "lat": 41.7225,
+    "lng": 44.7925,
+    "timezone": "Asia/Tbilisi",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg/960px-View_of_Tbilisi_from_Tabori_Church_2023-10-08-2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "tehran",
+    "city": "Tehran",
+    "country": "Iran",
+    "iso2": "IR",
+    "continent": "asia",
+    "lat": 35.6889,
+    "lng": 51.3897,
+    "timezone": "Asia/Tehran",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/North_of_Tehran_Skyline_view.jpg/960px-North_of_Tehran_Skyline_view.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "thimphu",
+    "city": "Thimphu",
+    "country": "Bhutan",
+    "iso2": "BT",
+    "continent": "asia",
+    "lat": 27.4714,
+    "lng": 89.6337,
+    "timezone": "Asia/Thimphu",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9d/Tashich%C3%B6dzong_Thimphu-2008-01-23.jpg/960px-Tashich%C3%B6dzong_Thimphu-2008-01-23.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "tokyo",
+    "city": "Tokyo",
+    "country": "Japan",
+    "iso2": "JP",
+    "continent": "asia",
+    "lat": 35.6762,
+    "lng": 139.6503,
+    "timezone": "Asia/Tokyo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Tokyo_-_Sunset_Skyline.jpg/960px-Tokyo_-_Sunset_Skyline.jpg",
+    "venue": {
+      "name": "Las Risas - Ginza Latin Bar",
+      "address": "Japan, 〒104-0061 Tokyo, Chuo City, Ginza, 8 Chome−12−6 小野里小野商ビル ｢小野里小野商ビル/B1F ｣",
+      "mapsUrl": "https://www.google.com/maps/place/Las+Risas+-+Ginza+Latin+Bar/@35.6673558,139.7629019,17z/data=!3m2!4b1!5s0x60188be7e0de49dd:0x438a5e21c94ac0dd!4m14!1m7!3m6!1s0x60188d1f0455d9ed:0x48765bc3609c9439!2sLatin+Club+Leon!8m2!3d35.6930362!4d139.7058494!16s%2Fg%2F11tjcwypmg!3m5!1s0x60188be7e1246bdb:0x5ef006c39fdd2e7d!8m2!3d35.6673558!4d139.7629019!16s%2Fg%2F1hm1tvnsn?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+81 3-3541-3303",
+      "website": "http://www.lasrisas.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check, about 10:20 PM, the map said Open, closing at 11:30 PM. Google labels the place a salsa bar. The address line says B1F, and a separate line says Floor 1.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "1–11:30 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "7–11:30 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "1–11:30 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "7–11:30 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "7–11:30 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "7–11:30 PM"
+        },
+        {
+          "weekday": 6,
+          "text": "7–11:30 PM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ulaanbaatar",
+    "city": "Ulaanbaatar",
+    "country": "Mongolia",
+    "iso2": "MN",
+    "continent": "asia",
+    "lat": 47.9214,
+    "lng": 106.9055,
+    "timezone": "Asia/Ulaanbaatar",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c9/Chinggis_Square.jpg/960px-Chinggis_Square.jpg",
+    "venue": null
+  },
+  {
+    "id": "vientiane",
+    "city": "Vientiane",
+    "country": "Laos",
+    "iso2": "LA",
+    "continent": "asia",
+    "lat": 17.98,
+    "lng": 102.63,
+    "timezone": "Asia/Vientiane",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/2/28/Vientiane_-_Patuxai_-_0003.jpg/960px-Vientiane_-_Patuxai_-_0003.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "The Blues Box Vientiane",
+      "address": "Rue Pangkham, Vientiane, Laos",
+      "mapsUrl": "https://www.google.com/maps/place/The+Blues+Box+Vientiane/@17.9647287,102.5321914,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Vientiane!3m6!1s0x312469006929ff1f:0x4956cd15034ca13b!8m2!3d17.9647287!4d102.6084091!15sChNzYWxzYSBiYXIgVmllbnRpYW5lWhUiE3NhbHNhIGJhciB2aWVudGlhbmWSAQZsb3VuZ2WaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFPYmxGNmJEUlZiWEJTV2pBd01VNXVhM1JhZWxKellrTXhTRlpIWXhBQuABAPoBBAgAEDY!16s%2Fg%2F11vsw8v8qf?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+856 30 51 65 340",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Lounge bar. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics name salsa night (2). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "yerevan",
+    "city": "Yerevan",
+    "country": "Armenia",
+    "iso2": "AM",
+    "continent": "asia",
+    "lat": 40.1814,
+    "lng": 44.5144,
+    "timezone": "Asia/Yerevan",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Mount_Ararat_and_the_Yerevan_skyline_%28June_2018%29.jpg/960px-Mount_Ararat_and_the_Yerevan_skyline_%28June_2018%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Las Noches Dance & Bar",
+      "address": "128 Nalbandyan St, Yerevan, Armenia",
+      "mapsUrl": "https://www.google.com/maps/place/Las+Noches+Dance+%26+Bar/@40.18,44.51,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Yerevan!3m6!1s0x406abd507b386dd1:0x272d5b0bc2b5fa7b!8m2!3d40.1833199!4d44.525213!15sChFzYWxzYSBiYXIgWWVyZXZhbloTIhFzYWxzYSBiYXIgeWVyZXZhbpIBCmRhbmNlX2NsdWKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnhzVTFOWWNGZE9NRnBZV2xoYVJGWnFhRzVQV0dSU1VXNXdOazFZWXhBQuABAPoBBAgAEDk!16s%2Fg%2F11vlt_80gm?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+374 77 971007",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening at 10 PM. Review topics: bachata 3, salsa 2, kizomba 2.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "amsterdam",
+    "city": "Amsterdam",
+    "country": "Netherlands",
+    "iso2": "NL",
+    "continent": "europe",
+    "lat": 52.3667,
+    "lng": 4.8833,
+    "timezone": "Europe/Amsterdam",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/57/Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png/960px-Imagen_de_los_canales_conc%C3%A9ntricos_en_%C3%81msterdam.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "El Punto Latino",
+      "address": "Lange Leidsedwarsstraat 35, 1017 NG Amsterdam, Netherlands",
+      "mapsUrl": "https://www.google.com/maps/place/El+Punto+Latino/@52.3641667,4.8844444,17z/data=!3m1!4b1!4m6!3m5!1s0x47c609e9016e06e3:0x15a1d4cb9cc165ed!8m2!3d52.3641667!4d4.8844444!16s%2Fg%2F1tfp1nky?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+31 6 15463516",
+      "website": "http://elpuntolatinoams.nl/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. On Tuesday night, 30 Sep 2026, the map said Open, closing at 4 AM. Review topics name bachata (12). No salsa or kizomba topic.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "andorra_la_vella",
+    "city": "Andorra la Vella",
+    "country": "Andorra",
+    "iso2": "AD",
+    "continent": "europe",
+    "lat": 42.5072,
+    "lng": 1.5222,
+    "timezone": "Europe/Andorra",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/d/da/Casa_de_la_Vall_4.JPG/960px-Casa_de_la_Vall_4.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "athens",
+    "city": "Athens",
+    "country": "Greece",
+    "iso2": "GR",
+    "continent": "europe",
+    "lat": 37.9842,
+    "lng": 23.7281,
+    "timezone": "Europe/Athens",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/68/Athens_Acropolis_at_Daybreak.jpg/960px-Athens_Acropolis_at_Daybreak.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "FELICES AT TROPICANA LATIN BAR ATHENS",
+      "address": "Evelpidon 4, Athina 114 74, Greece",
+      "mapsUrl": "https://www.google.com/maps/place/FELICES+AT+TROPICANA+LATIN+BAR+ATHENS/@37.9953353,23.7401563,17z/data=!3m1!4b1!4m6!3m5!1s0x14a1a330067f80c9:0xb809d30bd103e6a2!8m2!3d37.9953353!4d23.7401563!16s%2Fg%2F11t0vy7mn5?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+30 697 979 1065",
+      "website": "https://instagram.com/tropicanalatinbar?igshid=YmMyMTA2M2Y=",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. On Wednesday 30 Sep 2026 the map said Closed, opening at 10:30 PM Saturday. Saturday the door is open. The other days the door stays shut. Review topics: bachata 12, salsa bachata party 4. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "Closed"
+        },
+        {
+          "weekday": 6,
+          "text": "10:30 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "belgrade",
+    "city": "Belgrade",
+    "country": "Serbia",
+    "iso2": "RS",
+    "continent": "europe",
+    "lat": 44.8178,
+    "lng": 20.4569,
+    "timezone": "Europe/Belgrade",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Panorama_Belgrad.jpg/960px-Panorama_Belgrad.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Barrio Latino",
+      "address": "Dobračina 30a, Beograd, Serbia",
+      "mapsUrl": "https://www.google.com/maps/place/Barrio+Latino/@44.81,20.46,12z/data=!3m1!5s0x475a7ab467af3251:0xb9753d622993d18b!4m10!1m2!2m1!1ssalsa+bar+Belgrade!3m6!1s0x475a7ab47031d657:0x6224ee677bac8579!8m2!3d44.8193477!4d20.4625647!15sChJzYWxzYSBiYXIgQmVsZ3JhZGVaFCISc2Fsc2EgYmFyIGJlbGdyYWRlkgEDYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJDTVdFM1UxSlJFQUXgAQD6AQQIABAu!16s%2Fg%2F11hbsjrh46?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+381 60 4538580",
+      "website": "https://www.instagram.com/barrio_latino_belgrade/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics: salsa 12, bachata 4. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "8 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "berlin",
+    "city": "Berlin",
+    "country": "Germany",
+    "iso2": "DE",
+    "continent": "europe",
+    "lat": 52.5167,
+    "lng": 13.3833,
+    "timezone": "Europe/Berlin",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f7/Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg/960px-Museumsinsel_Berlin_Juli_2021_1_%28cropped%29_b.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Havanna",
+      "address": "Hauptstraße 30, 10827 Berlin-Bezirk Tempelhof-Schöneberg, Germany",
+      "mapsUrl": "https://www.google.com/maps/place/Havanna/@52.485115,13.353549,17z/data=!3m1!4b1!4m6!3m5!1s0x47a85041b6302bc7:0x6493424658fe5283!8m2!3d52.485115!4d13.353549!16s%2Fg%2F1tg4kdx0?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+49 30 78899655",
+      "website": "https://www.havanna-berlin.de/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. On Wednesday 30 Sep 2026, early morning Berlin time, the map said Closed, opening at 7 PM. Review topics: salsa 81, bachata 12. No kizomba. Saturday 3 Oct 2026 is German Unity Day, and Google says those hours might differ.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–8 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "7 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–7 AM, 10 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bern",
+    "city": "Bern",
+    "country": "Switzerland",
+    "iso2": "CH",
+    "continent": "europe",
+    "lat": 46.948,
+    "lng": 7.4474,
+    "timezone": "Europe/Zurich",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Bundeshaus_Bern_2009%2C_Flooffy.jpg/960px-Bundeshaus_Bern_2009%2C_Flooffy.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bratislava",
+    "city": "Bratislava",
+    "country": "Slovakia",
+    "iso2": "SK",
+    "continent": "europe",
+    "lat": 48.1517,
+    "lng": 17.1093,
+    "timezone": "Europe/Bratislava",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4e/Slovakia_bratislava.jpg/960px-Slovakia_bratislava.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Casa del Havana",
+      "address": "Michalská 1484/26, 811 03 Staré Mesto, Slovakia",
+      "mapsUrl": "https://www.google.com/maps/place/Casa+del+Havana/@48.15,17.11,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Bratislava!3m6!1s0x476c895cbe2a9f4d:0x194a19ba046fef5d!8m2!3d48.1452126!4d17.1067847!15sChRzYWxzYSBiYXIgQnJhdGlzbGF2YVoWIhRzYWxzYSBiYXIgYnJhdGlzbGF2YZIBDmxpdmVfbXVzaWNfYmFymgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVE1TlUxbGR6WlJSUkFC4AEA-gEECA0QOA!16s%2Fg%2F1tg_vwzc?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+421 910 797 222",
+      "website": "http://www.havanacafe.sk/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Live music bar in Stare Mesto. On Wednesday 30 Sep 2026 the map said Closed, opening at 4 PM. Review topics name salsa (11). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "4–10 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "4–10 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "4–10 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "4 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "4 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "4 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "4 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "brussels",
+    "city": "Brussels",
+    "country": "Belgium",
+    "iso2": "BE",
+    "continent": "europe",
+    "lat": 50.8467,
+    "lng": 4.3517,
+    "timezone": "Europe/Brussels",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ae/Grand_Place_Bruselas_2.jpg/960px-Grand_Place_Bruselas_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Salsa Bar Cartagena",
+      "address": "Rue du Marché au Charbon 70, 1000 Bruxelles, Belgium",
+      "mapsUrl": "https://www.google.com/maps/place/Salsa+Bar+Cartagena/@50.8459791,4.3485548,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c47850ce2691:0x146ca8ec7c6d04f3!8m2!3d50.8459791!4d4.3485548!16s%2Fg%2F1tf39pxb?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+32 2 808 73 22",
+      "website": "https://www.privateaser.com/lieu/46623-cartagena-salsa-bar",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. On Wednesday 30 Sep 2026, early morning Brussels time, the map said Closed, opening at 6 PM. Google says the business updated these hours 9 weeks ago. Review topics: salsa classes 10, bachata 9. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–6 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12–4 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12–4 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 6 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "bucharest",
+    "city": "Bucharest",
+    "country": "Romania",
+    "iso2": "RO",
+    "continent": "europe",
+    "lat": 44.4134,
+    "lng": 26.0978,
+    "timezone": "Europe/Bucharest",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/1/18/Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg/960px-Bucharest_-_Palace_of_the_Parliament_%282024%29_%282%29.jpg",
+    "venue": {
+      "name": "Rio Club Bucharest",
+      "address": "Strada Bărăției 31, 030167 București, Romania",
+      "mapsUrl": "https://www.google.com/maps/place/Rio+Club+Bucharest/@44.43,26.1,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Bucharest!3m6!1s0x40b1ff4f32939cc1:0x54b7821c99dc3ed1!8m2!3d44.430558!4d26.104537!15sChNzYWxzYSBiYXIgQnVjaGFyZXN0WhUiE3NhbHNhIGJhciBidWNoYXJlc3SSAQpkYW5jZV9jbHVimgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJDZDNaUGFsOW5SUkFC4AEA-gEECAAQRw!16s%2Fg%2F11j8630j7v?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+40 760 876 008",
+      "website": "https://rioclub.ro/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics: salsa 30, bachata 29, kizomba 20.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "budapest",
+    "city": "Budapest",
+    "country": "Hungary",
+    "iso2": "HU",
+    "continent": "europe",
+    "lat": 47.4983,
+    "lng": 19.0408,
+    "timezone": "Europe/Budapest",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg/960px-View_from_Gell%C3%A9rt_Hill_to_the_Danube%2C_Hungary_-_Budapest_%2828493220635%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "El Cañonazo de la Habana",
+      "address": "Budapest, Ó u. 24-26, 1066 Hungary",
+      "mapsUrl": "https://www.google.com/maps/place/El+Ca%C3%B1onazo+de+la+Habana/@47.5041288,19.0579591,17z/data=!3m1!4b1!4m6!3m5!1s0x4741dc12c728282f:0x46e517b2bdbc423a!8m2!3d47.5041288!4d19.0579591!16s%2Fg%2F11gbk4_g3z?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+36 30 251 3733",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Cuban restaurant. On Wednesday 30 Sep 2026, early morning Budapest time, the map said Closed, opening at 5:30 PM. Review topics: salsa dancing 8, bachata dancing 3. No kizomba topic. Google has no website.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "5:30 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5:30 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5:30 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5:30 PM–1 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5:30 PM–1 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "chisinau",
+    "city": "Chișinău",
+    "country": "Moldova",
+    "iso2": "MD",
+    "continent": "europe",
+    "lat": 47.0228,
+    "lng": 28.8353,
+    "timezone": "Europe/Chisinau",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Consiliul_Municipal_Chi%C8%99in%C4%83u_%28cropped%29.jpg/960px-Consiliul_Municipal_Chi%C8%99in%C4%83u_%28cropped%29.jpg",
+    "venue": {
+      "name": "Salsa House Club Café",
+      "address": "Strada Alexandru cel Bun 83, Chișinău, Moldova",
+      "mapsUrl": "https://www.google.com/maps/place/Salsa+House+Club+Caf%C3%A9/@47.02,28.83,13z/data=!4m6!3m5!1s0x40c97c359b61d34f:0xfdd7450cb0144461!8m2!3d47.0278318!4d28.8359401!16s%2Fg%2F11c70cmdfm?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+373 760 00 111",
+      "website": "https://instagram.com/salsahousecafe",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Cafe in Chișinău. Review topics: salsa 4, bachata 4, kizomba 6. Door hours are daytime except Friday night.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "10 AM–4 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "10 AM–4 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "10 AM–4 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "10 AM–4 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "Closed"
+        }
+      ]
+    }
+  },
+  {
+    "id": "copenhagen",
+    "city": "Copenhagen",
+    "country": "Denmark",
+    "iso2": "DK",
+    "continent": "europe",
+    "lat": 55.6761,
+    "lng": 12.5689,
+    "timezone": "Europe/Copenhagen",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/2018_-_Christiansborg_from_the_Marble_Bridge.jpg/960px-2018_-_Christiansborg_from_the_Marble_Bridge.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Club Mambo",
+      "address": "Vester Voldgade 85, 1552 København, Denmark",
+      "mapsUrl": "https://www.google.com/maps/place/Club+Mambo/@55.68,12.57,13z/data=!3m1!5s0x4652531baabb548f:0xd5154a9c20d82706!4m10!1m2!2m1!1ssalsa+bar+Copenhagen!3m6!1s0x46525312368e9b1b:0x608fee50191fe01a!8m2!3d55.6750278!4d12.5722614!15sChRzYWxzYSBiYXIgQ29wZW5oYWdlbloWIhRzYWxzYSBiYXIgY29wZW5oYWdlbpIBCm5pZ2h0X2NsdWKaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUlNhR0pVTVVKM0VBReABAPoBBAgAEEg!16s%2Fg%2F1q6j8f7kx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+45 33 11 97 66",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics name salsa dancing (8). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–5 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "dublin",
+    "city": "Dublin",
+    "country": "Ireland",
+    "iso2": "IE",
+    "continent": "europe",
+    "lat": 53.3497,
+    "lng": -6.2603,
+    "timezone": "Europe/Dublin",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/92/Dublin_-_aerial_-_2025-07-07_01.jpg/960px-Dublin_-_aerial_-_2025-07-07_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "helsinki",
+    "city": "Helsinki",
+    "country": "Finland",
+    "iso2": "FI",
+    "continent": "europe",
+    "lat": 60.1708,
+    "lng": 24.9375,
+    "timezone": "Europe/Helsinki",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3e/Suomenlinna_%28cropped%29.jpg/960px-Suomenlinna_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "kyiv",
+    "city": "Kyiv",
+    "country": "Ukraine",
+    "iso2": "UA",
+    "continent": "europe",
+    "lat": 50.45,
+    "lng": 30.5236,
+    "timezone": "Europe/Kyiv",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg/960px-%D0%91%D1%83%D0%B4%D0%B8%D0%BD%D0%BE%D0%BA_%D0%B7_%D1%85%D0%B8%D0%BC%D0%B5%D1%80%D0%B0%D0%BC%D0%B8%2C_%D1%81%D0%B5%D1%80%D0%BF%D0%B5%D0%BD%D1%8C_2019.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Buena Vista",
+      "address": "Velyka Zhytomyrska St, 8/14, Kyiv, Ukraine, 01025",
+      "mapsUrl": "https://www.google.com/maps/place/Buena+Vista/@50.45,30.52,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Kyiv!3m6!1s0x40d4cf20ec3a948f:0x69a9e87605c78366!8m2!3d50.4556007!4d30.5164642!15sCg5zYWxzYSBiYXIgS3lpdloQIg5zYWxzYSBiYXIga3lpdpIBEGN1YmFuX3Jlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTmFjazE2ZFc1UlJSQULgAQD6AQQIABAa!16s%2Fg%2F11bt_jdxn1?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+380 50 344 4812",
+      "website": "https://m.facebook.com/buenavista.kyiv",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Review topics name bachata (9). A review mentions Tuesday salsa, but salsa is not a topic chip. Thursday is Ukraine Defender Day and Google says hours might differ.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "9 AM–10 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "8 AM–10 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "8 AM–10 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "8 AM–10 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "8 AM–10 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "8 AM–10 PM"
+        },
+        {
+          "weekday": 6,
+          "text": "9 AM–10 PM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "lisbon",
+    "city": "Lisbon",
+    "country": "Portugal",
+    "iso2": "PT",
+    "continent": "europe",
+    "lat": 38.7223,
+    "lng": -9.1393,
+    "timezone": "Europe/Lisbon",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Lisbon_W_Ponte_25_De_Abril_%28256368647%29.jpeg/960px-Lisbon_W_Ponte_25_De_Abril_%28256368647%29.jpeg",
+    "venue": {
+      "name": "Barrio Latino",
+      "address": "Edifício 78, Santos, R. da Cintura do Porto de Lisboa Armazem i, 1200-109 Lisboa, Portugal",
+      "mapsUrl": "https://www.google.com/maps/place/Barrio+Latino/@38.7057939,-9.1904156,13z/data=!4m10!1m2!2m1!1skizomba+salsa+Lisbon!3m6!1s0xd193484e7c86f7b:0x1463b7ecbacf51b!8m2!3d38.7057939!4d-9.1553967!15sChRraXpvbWJhIHNhbHNhIExpc2JvbloWIhRraXpvbWJhIHNhbHNhIGxpc2JvbpIBCmRhbmNlX2NsdWKaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVTXRlWFJZTFVsbkVBReABAPoBBAhPEDg!16s%2Fg%2F11bxb9qhyr?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+351 937 284 559",
+      "website": "https://www.facebook.com/BarrioLatinoPT/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check the map said Closed, opening Friday at 11 PM. Tuesday, Wednesday, and Thursday the door stays shut.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 1,
+          "text": "12–6 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "11 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 11 PM–12 AM"
+        },
+        {
+          "weekday": 0,
+          "text": "12–6 AM, 11 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "ljubljana",
+    "city": "Ljubljana",
+    "country": "Slovenia",
+    "iso2": "SI",
+    "continent": "europe",
+    "lat": 46.0514,
+    "lng": 14.5061,
+    "timezone": "Europe/Ljubljana",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/Ljubljanski_grad_in_Grajski_gri%C4%8D.jpg/960px-Ljubljanski_grad_in_Grajski_gri%C4%8D.jpg",
+    "venue": null
+  },
+  {
+    "id": "london",
+    "city": "London",
+    "country": "United Kingdom",
+    "iso2": "GB",
+    "continent": "europe",
+    "lat": 51.5072,
+    "lng": -0.1275,
+    "timezone": "Europe/London",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/67/London_Skyline_%28125508655%29.jpeg/960px-London_Skyline_%28125508655%29.jpeg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "La Pollera Colora",
+      "address": "4-6 London Bridge St, London SE1 9SG, United Kingdom",
+      "mapsUrl": "https://www.google.com/maps/place/La+Pollera+Colora/@51.5054504,-0.0885496,17z/data=!3m1!4b1!4m6!3m5!1s0x48760350b056812d:0x3142c10788e6b66c!8m2!3d51.5054504!4d-0.0885496!16s%2Fg%2F1tdw7jcf?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+44 20 3355 3684",
+      "website": "http://www.lapolleracolora.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. On Wednesday 30 Sep 2026, early morning London time, the map said Closed, opening at 10 PM Thursday. Wednesday the door stays shut. Review topics: salsa dancing 22, bachata 9. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "10 PM–3 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "luxembourg",
+    "city": "Luxembourg",
+    "country": "Luxembourg",
+    "iso2": "LU",
+    "continent": "europe",
+    "lat": 49.6114,
+    "lng": 6.13,
+    "timezone": "Europe/Luxembourg",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/db/Luxembourg_Grand_Ducal_Palace_01.jpg/960px-Luxembourg_Grand_Ducal_Palace_01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Brasserie de l'Arrêt (Cubana Café)",
+      "address": "365 Rte de Longwy, 1941 Märel Luxembourg",
+      "mapsUrl": "https://www.google.com/maps/place/Brasserie+de+l%27Arr%C3%AAt+(Cubana+Caf%C3%A9)/@49.6033866,6.0158315,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Luxembourg!3m6!1s0x479549500e6e94c7:0x58ffdbcf60b3aff6!8m2!3d49.6033866!4d6.0920492!15sChRzYWxzYSBiYXIgTHV4ZW1ib3VyZ1oWIhRzYWxzYSBiYXIgbHV4ZW1ib3VyZ5IBCnJlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTnNOWEpQV1hkQlJSQULgAQD6AQQIABBJ!16s%2Fg%2F1tgx0yyw?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+352 26 45 84 59",
+      "website": "https://m.facebook.com/profile.php?id=168350416558392",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Restaurant in Märel, Luxembourg City. Review topics: salsa night 6, bachata 4. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "madrid",
+    "city": "Madrid",
+    "country": "Spain",
+    "iso2": "ES",
+    "continent": "europe",
+    "lat": 40.4168,
+    "lng": -3.7038,
+    "timezone": "Europe/Madrid",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Madrid-skyline-230510.jpg/960px-Madrid-skyline-230510.jpg",
+    "venue": {
+      "name": "The Host Club",
+      "address": "C. de Ferraz, 38, Moncloa - Aravaca, 28008 Madrid, Spain",
+      "mapsUrl": "https://www.google.com/maps/place/The+Host+Club/@40.4263181,-3.7172868,17z/data=!3m1!4b1!4m6!3m5!1s0xd42286e9658c117:0x5eeb31aec1666a2f",
+      "phone": "+34 636 07 78 27",
+      "website": "https://thehostclub.es",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the afternoon of that check, the door was shut until 9:30 PM.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "9:30 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "12–3 AM, 9:30 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12–3 AM, 9:30 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12–3 AM, 9:30 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 11:55 PM–12 AM"
+        },
+        {
+          "weekday": 0,
+          "text": "12–6 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "minsk",
+    "city": "Minsk",
+    "country": "Belarus",
+    "iso2": "BY",
+    "continent": "europe",
+    "lat": 53.9022,
+    "lng": 27.5618,
+    "timezone": "Europe/Minsk",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/40/View_of_Minsk_%28180819%29_09.jpg/960px-View_of_Minsk_%28180819%29_09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "monaco",
+    "city": "Monaco",
+    "country": "Monaco",
+    "iso2": "MC",
+    "continent": "europe",
+    "lat": 43.7311,
+    "lng": 7.42,
+    "timezone": "Europe/Monaco",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1b/Fuerstenhof_zu_Monaco.jpg/960px-Fuerstenhof_zu_Monaco.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "moscow",
+    "city": "Moscow",
+    "country": "Russia",
+    "iso2": "RU",
+    "continent": "europe",
+    "lat": 55.7506,
+    "lng": 37.6175,
+    "timezone": "Europe/Moscow",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/85/Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg/960px-Saint_Basil%27s_Cathedral_and_the_Red_Square.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Club Liberty",
+      "address": "Slavyanskaya Square, 2/5/4 стр.3, Moscow, Russia, 109074",
+      "mapsUrl": "https://www.google.com/maps/place/Club+Liberty/@55.75,37.62,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Moscow!3m6!1s0x46b54af6391ab319:0x7ab621136bac2665!8m2!3d55.753052!4d37.635141!15sChBzYWxzYSBiYXIgTW9zY293WhIiEHNhbHNhIGJhciBtb3Njb3eSAQ5saXZlX211c2ljX2JhcuABAA!16s%2Fg%2F11cjk88gl6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+7 985 883-81-85",
+      "website": "http://clubliberty.ru/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Live music bar. Review topics: salsa 30, bachata 8. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–6 AM, 5 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "12 PM–11 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "12 PM–11 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "12 PM–11 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "12 PM–11 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "12 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 5 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "nicosia",
+    "city": "Nicosia",
+    "country": "Cyprus",
+    "iso2": "CY",
+    "continent": "europe",
+    "lat": 35.1725,
+    "lng": 33.365,
+    "timezone": "Asia/Nicosia",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a3/Nicosia%27s_skyline_2024.jpg/960px-Nicosia%27s_skyline_2024.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "oslo",
+    "city": "Oslo",
+    "country": "Norway",
+    "iso2": "NO",
+    "continent": "europe",
+    "lat": 59.9133,
+    "lng": 10.7389,
+    "timezone": "Europe/Oslo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9a/Nationaltheatret_evening.jpg/960px-Nationaltheatret_evening.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Cafe Sør",
+      "address": "Torggata 11, 0181 Oslo, Norway",
+      "mapsUrl": "https://www.google.com/maps/place/Cafe+S%C3%B8r/@59.91,10.75,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Oslo!3m6!1s0x46416e6244d6a8f9:0xdae2b2f8dc6eb06e!8m2!3d59.9141819!4d10.7483536!15sCg5zYWxzYSBiYXIgT3Nsb1oQIg5zYWxzYSBiYXIgb3Nsb5IBC2NvZmZlZV9zaG9wmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJHTWpSbWJESjNSUkFC4AEA-gEECAAQPw!16s%2Fg%2F1tggm6yx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": null,
+      "website": "http://www.cafesor.no/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Review topics name kizomba (9). A review mentions Tuesday salsa and bachata, but those are not topic chips.",
+      "dances": [
+        "kizomba"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12 PM–1:30 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "12 PM–1:30 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "12 PM–2:30 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "12 PM–2:30 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12 PM–2:30 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12 PM–3:30 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12 PM–3:30 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "paris",
+    "city": "Paris",
+    "country": "France",
+    "iso2": "FR",
+    "continent": "europe",
+    "lat": 48.8566,
+    "lng": 2.3522,
+    "timezone": "Europe/Paris",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Eiffel_Tower_sunset_skyline_%28Unsplash%29.jpg/960px-Eiffel_Tower_sunset_skyline_%28Unsplash%29.jpg",
+    "venue": {
+      "name": "AGUA Party Paris",
+      "address": "Peniche Concorde Atlantique, 23 Quai Anatole France, 75007 Paris, France",
+      "mapsUrl": "https://www.google.com/maps/place/AGUA+Party+Paris/@48.8616939,2.2517063,12z/data=!4m10!1m2!2m1!1ssalsa+bachata+kizomba+Paris!3m6!1s0x47e66fee812046e1:0xda8e3adf1c529134!8m2!3d48.8616939!4d2.3217441!15sChtzYWxzYSBiYWNoYXRhIGtpem9tYmEgUGFyaXNaHSIbc2Fsc2EgYmFjaGF0YSBraXpvbWJhIHBhcmlzkgEJc2Fsc2FfYmFy4AEA!16s%2Fg%2F11mdck6181?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "website": "http://aguapartyparis.fr/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check, about 4:30 PM Paris time, the map said Closed, opening at 6:45 PM. Tuesday the door is open. The other days the door stays shut. Google has no phone number for this place.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "6:45 PM–1 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "Closed"
+        },
+        {
+          "weekday": 6,
+          "text": "Closed"
+        }
+      ]
+    }
+  },
+  {
+    "id": "podgorica",
+    "city": "Podgorica",
+    "country": "Montenegro",
+    "iso2": "ME",
+    "continent": "europe",
+    "lat": 42.4414,
+    "lng": 19.2628,
+    "timezone": "Europe/Podgorica",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f5/P064720-426794_-_Panoramic_view_of_Podgorica.jpg/960px-P064720-426794_-_Panoramic_view_of_Podgorica.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "prague",
+    "city": "Prague",
+    "country": "Czechia",
+    "iso2": "CZ",
+    "continent": "europe",
+    "lat": 50.0875,
+    "lng": 14.4214,
+    "timezone": "Europe/Prague",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Prague_%286365119737%29.jpg/960px-Prague_%286365119737%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "La Macumba Music Latino bar",
+      "address": "Štefánikova 230/7, 150 00 Praha 5-Anděl, Czechia",
+      "mapsUrl": "https://www.google.com/maps/place/La+Macumba+Music+Latino+bar/@50.0728529,14.4037201,17z/data=!3m1!4b1!4m6!3m5!1s0x470b94f88213dae5:0xed494c91d0fd1632!8m2!3d50.0728529!4d14.4037201!16s%2Fg%2F1pp2x55tq?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+420 776 795 166",
+      "website": "http://www.lamacumba.cz/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance club. On Wednesday 30 Sep 2026, about 2:45 AM Prague time, the map said it closes soon at 3 AM. Review topics: salsa 110, bachata 57, kizomba 22.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "6 PM–3 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "6 PM–3 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–3 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–3 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "pristina",
+    "city": "Pristina",
+    "country": "Kosovo",
+    "iso2": "XK",
+    "continent": "europe",
+    "lat": 42.6667,
+    "lng": 21.1667,
+    "timezone": "Europe/Belgrade",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/View_of_Prishtina.jpg/960px-View_of_Prishtina.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "reykjavik",
+    "city": "Reykjavík",
+    "country": "Iceland",
+    "iso2": "IS",
+    "continent": "europe",
+    "lat": 64.1475,
+    "lng": -21.935,
+    "timezone": "Atlantic/Reykjavik",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg/960px-Reykjav%C3%ADk%2C_view_from_Hallgr%C3%ADmskirkja_%282%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "riga",
+    "city": "Riga",
+    "country": "Latvia",
+    "iso2": "LV",
+    "continent": "europe",
+    "lat": 56.9475,
+    "lng": 24.1069,
+    "timezone": "Europe/Riga",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Riga_%2833844464828%29.jpg/960px-Riga_%2833844464828%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Cuba Cafe",
+      "address": "Jauniela 15, Centra rajons, Rīga, LV-1050, Latvia",
+      "mapsUrl": "https://www.google.com/maps/place/Cuba+Cafe/@56.95,24.11,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Riga!3m6!1s0x46eecfd73c7ec7ef:0x54c0e0af867ebdf9!8m2!3d56.948923!4d24.1060217!15sCg5zYWxzYSBiYXIgUmlnYVoQIg5zYWxzYSBiYXIgcmlnYZIBDGNvY2t0YWlsX2JhcpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSd2NFeHRjelJSUlJBQuABAPoBBAgAEBA!16s%2Fg%2F11dxj0flyp?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+371 67 224 362",
+      "website": "http://www.cubacaferiga.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Cocktail bar. Review topics name salsa (12). No bachata or kizomba topic. A separate 4–6 PM hour line was ignored.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "12 PM–12 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "12 PM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "12 PM–1 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "rome",
+    "city": "Rome",
+    "country": "Italy",
+    "iso2": "IT",
+    "continent": "europe",
+    "lat": 41.8931,
+    "lng": 12.4828,
+    "timezone": "Europe/Rome",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7e/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/960px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Los Compadres",
+      "address": "Via degli Ausoni, 84, 00185 Roma RM, Italy",
+      "mapsUrl": "https://www.google.com/maps/place/Los+Compadres/@41.8964955,12.5183979,17z/data=!3m1!4b1!4m6!3m5!1s0x132f61852bb4ac61:0x9e5993f2ee170f83!8m2!3d41.8964955!4d12.5183979!16s%2Fg%2F11css_znlm?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+39 339 666 1040",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance hall. On Wednesday 30 Sep 2026 the map said Closed, opening at 10 PM Friday. Friday and Saturday the door is open. Review topics name salsa (9). No bachata or kizomba topic. Google has no website.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "11 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "san_marino",
+    "city": "San Marino",
+    "country": "San Marino",
+    "iso2": "SM",
+    "continent": "europe",
+    "lat": 43.932,
+    "lng": 12.4485,
+    "timezone": "Europe/San_Marino",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/San_marino%2C_veduta_del_monte_titano_02.jpg/960px-San_marino%2C_veduta_del_monte_titano_02.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "sarajevo",
+    "city": "Sarajevo",
+    "country": "Bosnia and Herzegovina",
+    "iso2": "BA",
+    "continent": "europe",
+    "lat": 43.8564,
+    "lng": 18.4131,
+    "timezone": "Europe/Sarajevo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/Sarajevo_City_Panorama.JPG/960px-Sarajevo_City_Panorama.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "skopje",
+    "city": "Skopje",
+    "country": "North Macedonia",
+    "iso2": "MK",
+    "continent": "europe",
+    "lat": 41.9961,
+    "lng": 21.4317,
+    "timezone": "Europe/Skopje",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/Skopje_view_from_Kale_3.jpg/960px-Skopje_view_from_Kale_3.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "sofia",
+    "city": "Sofia",
+    "country": "Bulgaria",
+    "iso2": "BG",
+    "continent": "europe",
+    "lat": 42.6979,
+    "lng": 23.3217,
+    "timezone": "Europe/Sofia",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2f/Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg/960px-Panoramic_view_over_central_Sofia_and_the_Vitosha_Mountain_2017-10-08.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "club *MIXTAPE 5*",
+      "address": "Podlez @ Vitamin B, bul. Galeriya, Blvd. \"Cherni vrah\", 1142 Sofia, Bulgaria",
+      "mapsUrl": "https://www.google.com/maps/place/club+*MIXTAPE+5*/@42.7,23.32,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Sofia!3m6!1s0x40aa8505c2e4228d:0xf07f33a1c892df52!8m2!3d42.6831049!4d23.3210966!15sCg9zYWxzYSBiYXIgU29maWFaESIPc2Fsc2EgYmFyIHNvZmlhkgEFZGlzY2-aAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRTWVZWSE1XaE5ibFpUVjBVNE1tVnRPWEZOVmpsU1VXMTRjbUpHUlJBQuABAPoBBAgAEBs!16s%2Fg%2F1vn9ml9c?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+359 87 929 5965",
+      "website": "https://www.facebook.com/mixtape5",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. Review topics name salsa parties (29). A review mentions bachata, but bachata is not a topic chip. Google lists no weekly hours.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": null
+    }
+  },
+  {
+    "id": "stockholm",
+    "city": "Stockholm",
+    "country": "Sweden",
+    "iso2": "SE",
+    "continent": "europe",
+    "lat": 59.3294,
+    "lng": 18.0686,
+    "timezone": "Europe/Stockholm",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/14/Stockholms_Stadshuset_City_Hall_Stockholm_2016_01.jpg/960px-Stockholms_Stadshuset_City_Hall_Stockholm_2016_01.jpg",
+    "venue": null
+  },
+  {
+    "id": "tallinn",
+    "city": "Tallinn",
+    "country": "Estonia",
+    "iso2": "EE",
+    "continent": "europe",
+    "lat": 59.4372,
+    "lng": 24.745,
+    "timezone": "Europe/Tallinn",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Raekoja_plats_at_night.jpg/960px-Raekoja_plats_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "tirana",
+    "city": "Tirana",
+    "country": "Albania",
+    "iso2": "AL",
+    "continent": "europe",
+    "lat": 41.3283,
+    "lng": 19.8181,
+    "timezone": "Europe/Tirane",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Skanderbeg_square_tirana_2016.jpg/960px-Skanderbeg_square_tirana_2016.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "The Bar Velvet",
+      "address": "8RC8+9FW, Rruga Vaso Pasha, Tiranë, Albania",
+      "mapsUrl": "https://www.google.com/maps/place/The+Bar+Velvet/@41.33,19.82,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Tirana!3m6!1s0x135031628b8379cd:0x78de22837592b509!8m2!3d41.3209909!4d19.8162007!15sChBzYWxzYSBiYXIgVGlyYW5hWhIiEHNhbHNhIGJhciB0aXJhbmGSAQpuaWdodF9jbHVimgEkQ2hkRFNVaE5NRzluUzBWSllrNTZjMnBSZFY5VVRXaFJSUkFC4AEA-gEECEgQNA!16s%2Fg%2F11hzc8dkf8?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+355 69 991 1753",
+      "website": "https://thevelvetbar.lovable.app/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. Review topics: bachata 9, salsa 8. A review mentions kizomba, but kizomba is not a topic chip. Google says Add hours.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": null
+    }
+  },
+  {
+    "id": "vaduz",
+    "city": "Vaduz",
+    "country": "Liechtenstein",
+    "iso2": "LI",
+    "continent": "europe",
+    "lat": 47.1406,
+    "lng": 9.5222,
+    "timezone": "Europe/Vaduz",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/9b/View_of_Vaduz.jpg/960px-View_of_Vaduz.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "valletta",
+    "city": "Valletta",
+    "country": "Malta",
+    "iso2": "MT",
+    "continent": "europe",
+    "lat": 35.8978,
+    "lng": 14.5125,
+    "timezone": "Europe/Malta",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/St_Sebastian_Curtain_%28cropped%29.jpg/960px-St_Sebastian_Curtain_%28cropped%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "vatican_city",
+    "city": "Vatican City",
+    "country": "Vatican City",
+    "iso2": "VA",
+    "continent": "europe",
+    "lat": 41.904,
+    "lng": 12.453,
+    "timezone": "Europe/Vatican",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d6/St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg/960px-St_Peter%27s_Square%2C_Vatican_City_-_April_2007.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "vienna",
+    "city": "Vienna",
+    "country": "Austria",
+    "iso2": "AT",
+    "continent": "europe",
+    "lat": 48.2083,
+    "lng": 16.3725,
+    "timezone": "Europe/Vienna",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Schoenbrunn_philharmoniker_2012.jpg/960px-Schoenbrunn_philharmoniker_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Danzon",
+      "address": "Johannesgasse 3, 1010 Wien, Austria",
+      "mapsUrl": "https://www.google.com/maps/place/Danzon/@48.2053122,16.3715212,17z/data=!3m1!4b1!4m6!3m5!1s0x476d079e9e1f9257:0xc916a5de83235d6a!8m2!3d48.2053122!4d16.3715212!16s%2Fg%2F11b6vc6qhx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+43 676 5505840",
+      "website": "https://www.danzon.club/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance hall. On Wednesday 30 Sep 2026, early morning Vienna time, the map said Closed, opening at 6 PM. Review topics: salsa 38, bachata 3. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–6 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12–4 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12–4 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 6 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "vilnius",
+    "city": "Vilnius",
+    "country": "Lithuania",
+    "iso2": "LT",
+    "continent": "europe",
+    "lat": 54.6872,
+    "lng": 25.28,
+    "timezone": "Europe/Vilnius",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2a/Vilnius_old_town_by_Augustas_Didzgalvis.jpg/960px-Vilnius_old_town_by_Augustas_Didzgalvis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Mojitos Casa de Cuba Bar",
+      "address": "Totorių g. 11, Vilnius, 01121 Vilniaus m. sav., Lithuania",
+      "mapsUrl": "https://www.google.com/maps/place/Mojitos+Casa+de+Cuba+Bar/@54.69,25.28,15z/data=!4m6!3m5!1s0x46dd941111cee607:0x14ec0d621464659!8m2!3d54.684909!4d25.2822145!16s%2Fg%2F11bccm0951?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+370 654 77575",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Review topics: salsa 14, bachata 5. No kizomba topic. Pabo Latino topics are latino music only.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–5 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "9 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 10 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "warsaw",
+    "city": "Warsaw",
+    "country": "Poland",
+    "iso2": "PL",
+    "continent": "europe",
+    "lat": 52.23,
+    "lng": 21.0111,
+    "timezone": "Europe/Warsaw",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b0/Pa%C5%82ac_Kultury_i_Nauki_2019.jpg/960px-Pa%C5%82ac_Kultury_i_Nauki_2019.jpg",
+    "venue": {
+      "name": "Dos Mundos",
+      "address": "Al. Jerozolimskie 123A, 02-017 Warszawa, Poland",
+      "mapsUrl": "https://www.google.com/maps/place/Dos+Mundos/@52.2247441,20.9912153,17z/data=!3m1!4b1!4m6!3m5!1s0x471ecc912d0d95b9:0x146c911302a47633!8m2!3d52.2247441!4d20.9912153!16s%2Fg%2F11g8f7pqxx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": null,
+      "website": "https://www.akademiatanca.com.pl/dos-mundos/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening at 10:15 PM Friday. Review topics: salsa 45, bachata 41, kizomba 32. Google has no phone number for this place.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "10:15 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12:15–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "zagreb",
+    "city": "Zagreb",
+    "country": "Croatia",
+    "iso2": "HR",
+    "continent": "europe",
+    "lat": 45.8131,
+    "lng": 15.9772,
+    "timezone": "Europe/Zagreb",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Trg_bana_Jelacica_Zagreb_30102012_2_roberta_f.jpg",
+    "venue": {
+      "name": "Beleza bar",
+      "address": "Ulica Grge Tuškana 37, 10000, Zagreb, Croatia",
+      "mapsUrl": "https://www.google.com/maps/place/Beleza+bar/@45.81,15.98,14z/data=!4m6!3m5!1s0x4765d64d42756631:0x3016be8bf6937a3f!8m2!3d45.8100675!4d15.9983785!16s%2Fg%2F1trrbzwy?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+385 1 4660 365",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Review topics name a bachata event (3). No salsa or kizomba topic. Buena Vista Club has no dance topics and Google says Add hours.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "9 AM–10 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "7:30 AM–10 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "7:30 AM–10 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "7:30 AM–10 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "7:30 AM–10 PM"
+        },
+        {
+          "weekday": 5,
+          "text": "7:30 AM–10 PM"
+        },
+        {
+          "weekday": 6,
+          "text": "9 AM–10 PM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "abuja",
+    "city": "Abuja",
+    "country": "Nigeria",
+    "iso2": "NG",
+    "continent": "africa",
+    "lat": 9.0556,
+    "lng": 7.4914,
+    "timezone": "Africa/Lagos",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/ca/Aso_Rock_as_seen_from_the_IBB_golf_course_in_Abuja%2C_Nigeria.jpg/960px-Aso_Rock_as_seen_from_the_IBB_golf_course_in_Abuja%2C_Nigeria.jpg",
+    "venue": {
+      "name": "Barracuda Resto Pub",
+      "address": "111 Adetokunbo Ademola Cres, Wuse, Abuja 904101, Federal Capital Territory, Nigeria",
+      "mapsUrl": "https://www.google.com/maps/place/Barracuda+Resto+Pub/@9.0726035,7.32325,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Abuja!3m6!1s0x104e0ba40485c389:0x3c0ca2b0325e45f7!8m2!3d9.0726035!4d7.4756853!15sCg9zYWxzYSBiYXIgQWJ1amFaESIPc2Fsc2EgYmFyIGFidWphkgEDYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVF0TTBsRFVscFJFQUXgAQD6AQQIABBA!16s%2Fg%2F11qqx80k2x?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+234 912 235 6336",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar in Wuse, Abuja. Review topics name salsa (67) and salsa nights (7). No bachata or kizomba topic. Thursday is Nigerian Independence Day and Google says hours might differ.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "10 AM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 AM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "accra",
+    "city": "Accra",
+    "country": "Ghana",
+    "iso2": "GH",
+    "continent": "africa",
+    "lat": 5.556,
+    "lng": -0.1969,
+    "timezone": "Africa/Accra",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/53/Independence_Square%2C_Accra%2C_Ghana.JPG/960px-Independence_Square%2C_Accra%2C_Ghana.JPG",
+    "venue": null
+  },
+  {
+    "id": "addis_ababa",
+    "city": "Addis Ababa",
+    "country": "Ethiopia",
+    "iso2": "ET",
+    "continent": "africa",
+    "lat": 9.0358,
+    "lng": 38.7525,
+    "timezone": "Africa/Addis_Ababa",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Addis_in_night.jpg/960px-Addis_in_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "algiers",
+    "city": "Algiers",
+    "country": "Algeria",
+    "iso2": "DZ",
+    "continent": "africa",
+    "lat": 36.7764,
+    "lng": 3.0586,
+    "timezone": "Africa/Algiers",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/cc/La_baie_d%27Alger_%28cropped%29.jpg/960px-La_baie_d%27Alger_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "antananarivo",
+    "city": "Antananarivo",
+    "country": "Madagascar",
+    "iso2": "MG",
+    "continent": "africa",
+    "lat": -18.91,
+    "lng": 47.525,
+    "timezone": "Indian/Antananarivo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Lake_Anosy%2C_Central_Antananarivo%2C_Capital_of_Madagascar%2C_Photo_by_Sascha_Grabow.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "asmara",
+    "city": "Asmara",
+    "country": "Eritrea",
+    "iso2": "ER",
+    "continent": "africa",
+    "lat": 15.3333,
+    "lng": 38.9167,
+    "timezone": "Africa/Asmara",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/87/Asmara_Montage.png/960px-Asmara_Montage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bamako",
+    "city": "Bamako",
+    "country": "Mali",
+    "iso2": "ML",
+    "continent": "africa",
+    "lat": 12.6458,
+    "lng": -7.9922,
+    "timezone": "Africa/Bamako",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/77/Place_de_la_libert%C3%A9_-_Bamako.jpg/960px-Place_de_la_libert%C3%A9_-_Bamako.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bangui",
+    "city": "Bangui",
+    "country": "Central African Republic",
+    "iso2": "CF",
+    "continent": "africa",
+    "lat": 4.3733,
+    "lng": 18.5628,
+    "timezone": "Africa/Bangui",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/Bangui_collage.png/960px-Bangui_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "banjul",
+    "city": "Banjul",
+    "country": "Gambia",
+    "iso2": "GM",
+    "continent": "africa",
+    "lat": 13.4531,
+    "lng": -16.5775,
+    "timezone": "Africa/Banjul",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bb/Gambia%2C_Banjul%2C_Arch_22.jpg/960px-Gambia%2C_Banjul%2C_Arch_22.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bissau",
+    "city": "Bissau",
+    "country": "Guinea-Bissau",
+    "iso2": "GW",
+    "continent": "africa",
+    "lat": 11.86,
+    "lng": -15.5833,
+    "timezone": "Africa/Bissau",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/44/Bissau-Stroossenzeen--w.jpg/960px-Bissau-Stroossenzeen--w.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "brazzaville",
+    "city": "Brazzaville",
+    "country": "Congo",
+    "iso2": "CG",
+    "continent": "africa",
+    "lat": -4.2694,
+    "lng": 15.2711,
+    "timezone": "Africa/Brazzaville",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/43/Les_lieux_de_Brazzaville_03.jpg/960px-Les_lieux_de_Brazzaville_03.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "cairo",
+    "city": "Cairo",
+    "country": "Egypt",
+    "iso2": "EG",
+    "continent": "africa",
+    "lat": 30.0444,
+    "lng": 31.2357,
+    "timezone": "Africa/Cairo",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Cairo_skyline%2C_Nile_River%2C_Egypt.jpg/960px-Cairo_skyline%2C_Nile_River%2C_Egypt.jpg",
+    "venue": null
+  },
+  {
+    "id": "ciudad_de_la_paz",
+    "city": "Ciudad de la Paz",
+    "country": "Equatorial Guinea",
+    "iso2": "GQ",
+    "continent": "africa",
+    "lat": 1.5917,
+    "lng": 10.8222,
+    "timezone": "Africa/Malabo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/23/Universidad_Afro-Americana_de_%C3%81frica_Central_%28AAUCA%29.png/960px-Universidad_Afro-Americana_de_%C3%81frica_Central_%28AAUCA%29.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "conakry",
+    "city": "Conakry",
+    "country": "Guinea",
+    "iso2": "GN",
+    "continent": "africa",
+    "lat": 9.5092,
+    "lng": -13.7122,
+    "timezone": "Africa/Conakry",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/51/Ville_de_Conaky.jpg/960px-Ville_de_Conaky.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "dakar",
+    "city": "Dakar",
+    "country": "Senegal",
+    "iso2": "SN",
+    "continent": "africa",
+    "lat": 14.7167,
+    "lng": -17.4677,
+    "timezone": "Africa/Dakar",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Dakar_skyline_da_gor%C3%A8_2.jpg/960px-Dakar_skyline_da_gor%C3%A8_2.jpg",
+    "venue": {
+      "name": "Restaurant New Africa",
+      "address": "9794, Dakar 00000, Senegal",
+      "mapsUrl": "https://www.google.com/maps/place/Restaurant+New+Africa/@14.7184625,-17.4673507,17z/data=!3m1!4b1!4m6!3m5!1s0xec172b1d3cf811d:0xeba4d80a66a59f96!8m2!3d14.7184625!4d-17.4673507!16s%2Fg%2F11b7hlqy_7?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+221 33 827 53 71",
+      "website": "http://www.newafricarestaurant.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check the map said Closed, opening at 6:30 PM. Google labels the place a restaurant. Review topics name salsa and kizomba. Karaoke is also a topic. No bachata topic.",
+      "dances": [
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "6:30 PM–12 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "6:30 PM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "6:30 PM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6:30 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6:30 PM–2 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6:30 PM–2 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "djibouti",
+    "city": "Djibouti",
+    "country": "Djibouti",
+    "iso2": "DJ",
+    "continent": "africa",
+    "lat": 11.595,
+    "lng": 43.1481,
+    "timezone": "Africa/Djibouti",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Djibcapital.jpg/960px-Djibcapital.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "dodoma",
+    "city": "Dodoma",
+    "country": "Tanzania",
+    "iso2": "TZ",
+    "continent": "africa",
+    "lat": -6.1835,
+    "lng": 35.746,
+    "timezone": "Africa/Dar_es_Salaam",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a4/Gaddafi_mosque_Dodoma.jpg/960px-Gaddafi_mosque_Dodoma.jpg",
+    "venue": null
+  },
+  {
+    "id": "freetown",
+    "city": "Freetown",
+    "country": "Sierra Leone",
+    "iso2": "SL",
+    "continent": "africa",
+    "lat": 8.4872,
+    "lng": -13.2356,
+    "timezone": "Africa/Freetown",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4c/Freetown-aerialview.jpg/960px-Freetown-aerialview.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "gaborone",
+    "city": "Gaborone",
+    "country": "Botswana",
+    "iso2": "BW",
+    "continent": "africa",
+    "lat": -24.6569,
+    "lng": 25.9086,
+    "timezone": "Africa/Gaborone",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/31/View_from_I-Tower_SE_20200712.jpg/960px-View_from_I-Tower_SE_20200712.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "gitega",
+    "city": "Gitega",
+    "country": "Burundi",
+    "iso2": "BI",
+    "continent": "africa",
+    "lat": -3.4283,
+    "lng": 29.925,
+    "timezone": "Africa/Bujumbura",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Dioc%C3%A8se_Gitega_y.jpg/960px-Dioc%C3%A8se_Gitega_y.jpg",
+    "venue": null
+  },
+  {
+    "id": "harare",
+    "city": "Harare",
+    "country": "Zimbabwe",
+    "iso2": "ZW",
+    "continent": "africa",
+    "lat": -17.8292,
+    "lng": 31.0522,
+    "timezone": "Africa/Harare",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Nationalhelden-Denkmal_%2840153835081%29.jpg/960px-Nationalhelden-Denkmal_%2840153835081%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "juba",
+    "city": "Juba",
+    "country": "South Sudan",
+    "iso2": "SS",
+    "continent": "africa",
+    "lat": 4.8539,
+    "lng": 31.5825,
+    "timezone": "Africa/Juba",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/John_Garang_Mausoleum_Square_in_Juba.JPG/960px-John_Garang_Mausoleum_Square_in_Juba.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "kampala",
+    "city": "Kampala",
+    "country": "Uganda",
+    "iso2": "UG",
+    "continent": "africa",
+    "lat": 0.3136,
+    "lng": 32.5811,
+    "timezone": "Africa/Kampala",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/09/Urban_Rising%2C_KAMPALA%2C_Uganda.jpg/960px-Urban_Rising%2C_KAMPALA%2C_Uganda.jpg",
+    "venue": null
+  },
+  {
+    "id": "khartoum",
+    "city": "Khartoum",
+    "country": "Sudan",
+    "iso2": "SD",
+    "continent": "africa",
+    "lat": 15.6031,
+    "lng": 32.5265,
+    "timezone": "Africa/Khartoum",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/%C2%A9Nile-Project_-Sari_Omer_0025.jpg/960px-%C2%A9Nile-Project_-Sari_Omer_0025.jpg",
+    "venue": null
+  },
+  {
+    "id": "kigali",
+    "city": "Kigali",
+    "country": "Rwanda",
+    "iso2": "RW",
+    "continent": "africa",
+    "lat": -1.9525,
+    "lng": 30.115,
+    "timezone": "Africa/Kigali",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/7/78/KCC_Wallpaper_by_Mudahunga.jpg/960px-KCC_Wallpaper_by_Mudahunga.jpg",
+    "venue": {
+      "name": "Chillax Lounge",
+      "address": "KG 13 Ave, Kigali, Rwanda",
+      "mapsUrl": "https://www.google.com/maps/place/Chillax+Lounge/@-1.9430715,30.0235738,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Kigali!3m6!1s0x19dca6e8609a702b:0x694f886bf92052f!8m2!3d-1.9430715!4d30.0997915!15sChBzYWxzYSBiYXIgS2lnYWxpWhIiEHNhbHNhIGJhciBraWdhbGmSAQZsb3VuZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUjRhbGxxVFd4blJSQULgAQD6AQQIABAn!16s%2Fg%2F11cmyzrn5w?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+250 738 858 888",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Lounge bar. Review topics name salsa night (2). No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–2 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "kinshasa",
+    "city": "Kinshasa",
+    "country": "DR Congo",
+    "iso2": "CD",
+    "continent": "africa",
+    "lat": -4.3219,
+    "lng": 15.3119,
+    "timezone": "Africa/Kinshasa",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/18/La_Gombe%2C_Kinshasa%2C_RDC_%28cropped%29.jpg/960px-La_Gombe%2C_Kinshasa%2C_RDC_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "libreville",
+    "city": "Libreville",
+    "country": "Gabon",
+    "iso2": "GA",
+    "continent": "africa",
+    "lat": 0.4078,
+    "lng": 9.4403,
+    "timezone": "Africa/Libreville",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Libreville_frond_de_mer.jpg/960px-Libreville_frond_de_mer.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "lilongwe",
+    "city": "Lilongwe",
+    "country": "Malawi",
+    "iso2": "MW",
+    "continent": "africa",
+    "lat": -13.9864,
+    "lng": 33.7681,
+    "timezone": "Africa/Blantyre",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/K.a.r-.clocktower-in-lilongwe.jpg/960px-K.a.r-.clocktower-in-lilongwe.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "lome",
+    "city": "Lomé",
+    "country": "Togo",
+    "iso2": "TG",
+    "continent": "africa",
+    "lat": 6.13,
+    "lng": 1.2158,
+    "timezone": "Africa/Lome",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/32/C%E2%80%99est_Lom%C3%A9.jpg/960px-C%E2%80%99est_Lom%C3%A9.jpg",
+    "venue": null
+  },
+  {
+    "id": "luanda",
+    "city": "Luanda",
+    "country": "Angola",
+    "iso2": "AO",
+    "continent": "africa",
+    "lat": -8.8383,
+    "lng": 13.2344,
+    "timezone": "Africa/Luanda",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Luanda_2025_focused_%28cropped%29.jpg/960px-Luanda_2025_focused_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "lusaka",
+    "city": "Lusaka",
+    "country": "Zambia",
+    "iso2": "ZM",
+    "continent": "africa",
+    "lat": -15.4167,
+    "lng": 28.2833,
+    "timezone": "Africa/Lusaka",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/15/Downtown_Lusaka.JPG/960px-Downtown_Lusaka.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "maputo",
+    "city": "Maputo",
+    "country": "Mozambique",
+    "iso2": "MZ",
+    "continent": "africa",
+    "lat": -25.9689,
+    "lng": 32.5733,
+    "timezone": "Africa/Maputo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/36/Maputo_seen_from_southeast_-_October_2006_%28cropped%29.jpg/960px-Maputo_seen_from_southeast_-_October_2006_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "maseru",
+    "city": "Maseru",
+    "country": "Lesotho",
+    "iso2": "LS",
+    "continent": "africa",
+    "lat": -29.31,
+    "lng": 27.48,
+    "timezone": "Africa/Maseru",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/29/Maseru_City_CBD.jpg/960px-Maseru_City_CBD.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "mbabane",
+    "city": "Mbabane",
+    "country": "Eswatini",
+    "iso2": "SZ",
+    "continent": "africa",
+    "lat": -26.3167,
+    "lng": 31.1333,
+    "timezone": "Africa/Mbabane",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/74/Mbabane_%286035476964%29.jpg/960px-Mbabane_%286035476964%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "mogadishu",
+    "city": "Mogadishu",
+    "country": "Somalia",
+    "iso2": "SO",
+    "continent": "africa",
+    "lat": 2.0392,
+    "lng": 45.3419,
+    "timezone": "Africa/Mogadishu",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Lido_beach_from_the_sea_in_Mogadishu.jpg/960px-Lido_beach_from_the_sea_in_Mogadishu.jpg",
+    "venue": null
+  },
+  {
+    "id": "monrovia",
+    "city": "Monrovia",
+    "country": "Liberia",
+    "iso2": "LR",
+    "continent": "africa",
+    "lat": 6.3106,
+    "lng": -10.8047,
+    "timezone": "Africa/Monrovia",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Grand_Masonic_Temple_in_Monrovia.jpg/960px-Grand_Masonic_Temple_in_Monrovia.jpg",
+    "venue": null
+  },
+  {
+    "id": "moroni",
+    "city": "Moroni",
+    "country": "Comoros",
+    "iso2": "KM",
+    "continent": "africa",
+    "lat": -11.7036,
+    "lng": 43.2536,
+    "timezone": "Indian/Comoro",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Moroni-Harbour.jpg/960px-Moroni-Harbour.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "ndjamena",
+    "city": "N'Djamena",
+    "country": "Chad",
+    "iso2": "TD",
+    "continent": "africa",
+    "lat": 12.11,
+    "lng": 15.05,
+    "timezone": "Africa/Ndjamena",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2e/Building_of_National_Assembly_DJAMENA.jpg/960px-Building_of_National_Assembly_DJAMENA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "nairobi",
+    "city": "Nairobi",
+    "country": "Kenya",
+    "iso2": "KE",
+    "continent": "africa",
+    "lat": -1.2921,
+    "lng": 36.8219,
+    "timezone": "Africa/Nairobi",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/A_clash_of_worlds_-_Nairobi_skyline_from_the_Nairobi_National_park.jpg/960px-A_clash_of_worlds_-_Nairobi_skyline_from_the_Nairobi_National_park.jpg",
+    "venue": null
+  },
+  {
+    "id": "niamey",
+    "city": "Niamey",
+    "country": "Niger",
+    "iso2": "NE",
+    "continent": "africa",
+    "lat": 13.515,
+    "lng": 2.1175,
+    "timezone": "Africa/Niamey",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/26/Niamey_from_grand_mosque_theatre_2006.jpg/960px-Niamey_from_grand_mosque_theatre_2006.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "nouakchott",
+    "city": "Nouakchott",
+    "country": "Mauritania",
+    "iso2": "MR",
+    "continent": "africa",
+    "lat": 18.0858,
+    "lng": -15.9785,
+    "timezone": "Africa/Nouakchott",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6f/Nouakchott.jpg/960px-Nouakchott.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "ouagadougou",
+    "city": "Ouagadougou",
+    "country": "Burkina Faso",
+    "iso2": "BF",
+    "continent": "africa",
+    "lat": 12.3686,
+    "lng": -1.5275,
+    "timezone": "Africa/Ouagadougou",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f3/Ouagadougou_Skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "port_louis",
+    "city": "Port Louis",
+    "country": "Mauritius",
+    "iso2": "MU",
+    "continent": "africa",
+    "lat": -20.1619,
+    "lng": 57.4989,
+    "timezone": "Indian/Mauritius",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/d/d9/Port_Louis_Skyline.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "porto_novo",
+    "city": "Porto-Novo",
+    "country": "Benin",
+    "iso2": "BJ",
+    "continent": "africa",
+    "lat": 6.4833,
+    "lng": 2.6167,
+    "timezone": "Africa/Porto-Novo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d9/Grande_Mosquee_Porto-Novo_Benin_Joseph_Herve_Ahissou.jpg/960px-Grande_Mosquee_Porto-Novo_Benin_Joseph_Herve_Ahissou.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "BAR LE ZOUGLOU",
+      "address": "Bd Tokpota 2, Porto-Novo, Benin",
+      "mapsUrl": "https://www.google.com/maps/place/BAR+LE+ZOUGLOU/@6.4891201,2.5249429,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Porto-Novo!3m6!1s0x103b517b01485b1d:0xe6eabd74957a72d9!8m2!3d6.4891201!4d2.6011606!15sChRzYWxzYSBiYXIgUG9ydG8tTm92b1oWIhRzYWxzYSBiYXIgcG9ydG8gbm92b5IBCXNhbHNhX2JhcuABAA!16s%2Fg%2F11j9pshnwn?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+229 97079066",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Google category is Salsa bar. Open 24 hours. No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 1,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 2,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 3,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 4,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 5,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 6,
+          "text": "Open 24 hours"
+        }
+      ]
+    }
+  },
+  {
+    "id": "praia",
+    "city": "Praia",
+    "country": "Cape Verde",
+    "iso2": "CV",
+    "continent": "africa",
+    "lat": 14.9177,
+    "lng": -23.5092,
+    "timezone": "Atlantic/Cape_Verde",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Pal%C3%A1cio_da_Cultura%2C_Praia%2C_Cape_Verde.jpg/960px-Pal%C3%A1cio_da_Cultura%2C_Praia%2C_Cape_Verde.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "pretoria",
+    "city": "Pretoria",
+    "country": "South Africa",
+    "iso2": "ZA",
+    "continent": "africa",
+    "lat": -25.7464,
+    "lng": 28.1881,
+    "timezone": "Africa/Johannesburg",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Uniegebou.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "rabat",
+    "city": "Rabat",
+    "country": "Morocco",
+    "iso2": "MA",
+    "continent": "africa",
+    "lat": 34.0211,
+    "lng": -6.8414,
+    "timezone": "Africa/Casablanca",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7d/%22Eine_beeindruckende_Festung%22._09.jpg/960px-%22Eine_beeindruckende_Festung%22._09.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "sao_tome",
+    "city": "São Tomé",
+    "country": "São Tomé and Príncipe",
+    "iso2": "ST",
+    "continent": "africa",
+    "lat": 0.3375,
+    "lng": 6.7283,
+    "timezone": "Africa/Sao_Tome",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/2012SaoTome-8_%288042889363%29.jpg/960px-2012SaoTome-8_%288042889363%29.jpg",
+    "venue": {
+      "name": "Discoteca Kizomba",
+      "address": "8PVF+958, Rua Padre Martinho Pinto da Rocha, Rua do Padre Martinho Pinto da Rocha, São Tomé, Rua do Padre Martinho Pinto da Rocha, São Tomé, São Tomé & Príncipe",
+      "mapsUrl": "https://www.google.com/maps/place/Discoteca+Kizomba/@0.3375,6.7283,13z/data=!4m6!3m5!1s0x10766a5ca6a1bad5:0x2a0f5573562d9b6a!8m2!3d0.3434195!4d6.7229558!16s%2Fg%2F11dd_r6cgv?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": null,
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. Topic kizomba 2. No salsa or bachata topic. Phone and website not listed.",
+      "dances": [
+        "kizomba"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "Open 24 hours"
+        },
+        {
+          "weekday": 6,
+          "text": "Open 24 hours"
+        }
+      ]
+    }
+  },
+  {
+    "id": "tripoli",
+    "city": "Tripoli",
+    "country": "Libya",
+    "iso2": "LY",
+    "continent": "africa",
+    "lat": 32.8875,
+    "lng": 13.1875,
+    "timezone": "Africa/Tripoli",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Tripoli_at_night.jpg/960px-Tripoli_at_night.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "tunis",
+    "city": "Tunis",
+    "country": "Tunisia",
+    "iso2": "TN",
+    "continent": "africa",
+    "lat": 36.8008,
+    "lng": 10.18,
+    "timezone": "Africa/Tunis",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg/960px-Minaret_et_patio_de_la_mosqu%C3%A9e_Zitouna_au_centre_de_la_M%C3%A9dina_de_Tunis.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "victoria",
+    "city": "Victoria",
+    "country": "Seychelles",
+    "iso2": "SC",
+    "continent": "africa",
+    "lat": -4.6236,
+    "lng": 55.4544,
+    "timezone": "Indian/Mahe",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Victoria_clock_tower.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "windhoek",
+    "city": "Windhoek",
+    "country": "Namibia",
+    "iso2": "NA",
+    "continent": "africa",
+    "lat": -22.57,
+    "lng": 17.0836,
+    "timezone": "Africa/Windhoek",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/70/Christ_Church_in_Windhoek%2C_Namibia.jpg/960px-Christ_Church_in_Windhoek%2C_Namibia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "yamoussoukro",
+    "city": "Yamoussoukro",
+    "country": "Ivory Coast",
+    "iso2": "CI",
+    "continent": "africa",
+    "lat": 6.8161,
+    "lng": -5.2742,
+    "timezone": "Africa/Abidjan",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Yamoussoukro_panorama.jpg/960px-Yamoussoukro_panorama.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "yaounde",
+    "city": "Yaoundé",
+    "country": "Cameroon",
+    "iso2": "CM",
+    "continent": "africa",
+    "lat": 3.8578,
+    "lng": 11.5181,
+    "timezone": "Africa/Douala",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/1/10/Yaound%C3%A9_1.jpg",
+    "venue": null
+  },
+  {
+    "id": "basseterre",
+    "city": "Basseterre",
+    "country": "Saint Kitts and Nevis",
+    "iso2": "KN",
+    "continent": "north_america",
+    "lat": 17.2983,
+    "lng": -62.7342,
+    "timezone": "America/St_Kitts",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a0/Basseterre_-_Memorial_Clocktower.jpg/960px-Basseterre_-_Memorial_Clocktower.jpg",
+    "venue": null
+  },
+  {
+    "id": "belmopan",
+    "city": "Belmopan",
+    "country": "Belize",
+    "iso2": "BZ",
+    "continent": "north_america",
+    "lat": 17.25,
+    "lng": -88.7675,
+    "timezone": "America/Belize",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f9/National_Assembly_Building%2C_Belize.png/960px-National_Assembly_Building%2C_Belize.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bridgetown",
+    "city": "Bridgetown",
+    "country": "Barbados",
+    "iso2": "BB",
+    "continent": "north_america",
+    "lat": 13.0975,
+    "lng": -59.6167,
+    "timezone": "America/Barbados",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4f/Bridgetown_aerial.JPG/960px-Bridgetown_aerial.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "castries",
+    "city": "Castries",
+    "country": "Saint Lucia",
+    "iso2": "LC",
+    "continent": "north_america",
+    "lat": 14.0108,
+    "lng": -60.9894,
+    "timezone": "America/St_Lucia",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a5/View_of_Castries_Saint_Lucia_Day248bdriveb.jpg/960px-View_of_Castries_Saint_Lucia_Day248bdriveb.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "guatemala_city",
+    "city": "Guatemala City",
+    "country": "Guatemala",
+    "iso2": "GT",
+    "continent": "north_america",
+    "lat": 14.6417,
+    "lng": -90.5133,
+    "timezone": "America/Guatemala",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/90/Ciudad_de_Guatemala%2C_CA.jpg/960px-Ciudad_de_Guatemala%2C_CA.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "havana",
+    "city": "Havana",
+    "country": "Cuba",
+    "iso2": "CU",
+    "continent": "north_america",
+    "lat": 23.1136,
+    "lng": -82.3666,
+    "timezone": "America/Havana",
+    "image": "https://images.unsplash.com/photo-1500759285222-a95626b934cb?auto=format&fit=crop&w=1400&q=70",
+    "venue": null
+  },
+  {
+    "id": "kingston",
+    "city": "Kingston",
+    "country": "Jamaica",
+    "iso2": "JM",
+    "continent": "north_america",
+    "lat": 17.9714,
+    "lng": -76.7931,
+    "timezone": "America/Jamaica",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/9/99/PortofKingston.jpg",
+    "venue": {
+      "name": "Club Cubana",
+      "address": "75 Hope Rd, Kingston, Jamaica",
+      "mapsUrl": "https://www.google.com/maps/place/Club+Cubana/@17.9714,-76.7931,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Kingston+Jamaica!3m6!1s0x8edb3f0a265a5bdd:0xeb8f4c15a1b788b7!8m2!3d18.0195879!4d-76.7775369!15sChpzYWxzYSBiYXIgS2luZ3N0b24gSmFtYWljYVocIhpzYWxzYSBiYXIga2luZ3N0b24gamFtYWljYZIBA2JhcpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMUdNMWRWZEhaUlZsSnFURlZvVjA5Rk5ETk9SRlpZVXpKMFZsTXlZeEFC4AEA-gEECAAQNg!16s%2Fg%2F11t1b5h833?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+1 876-631-7777",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Topic salsa dancing 9. Salsa lessons chip is not a dance. No bachata or kizomba topic. Website not listed.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "11 AM–12 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "11 AM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "11 AM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "11 AM–2:30 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "7 PM–2:30 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "kingstown",
+    "city": "Kingstown",
+    "country": "Saint Vincent and the Grenadines",
+    "iso2": "VC",
+    "continent": "north_america",
+    "lat": 13.1553,
+    "lng": -61.2274,
+    "timezone": "America/St_Vincent",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Kingstown.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "managua",
+    "city": "Managua",
+    "country": "Nicaragua",
+    "iso2": "NI",
+    "continent": "north_america",
+    "lat": 12.1547,
+    "lng": -86.2737,
+    "timezone": "America/Managua",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80_%D0%B2_%D0%9C%D0%B0%D0%BD%D0%B0%D0%B3%D1%83%D0%B0_%28cropped%29.jpg/960px-%D0%9A%D0%B0%D1%84%D0%B5%D0%B4%D1%80%D0%B0%D0%BB%D1%8C%D0%BD%D1%8B%D0%B9_%D1%81%D0%BE%D0%B1%D0%BE%D1%80_%D0%B2_%D0%9C%D0%B0%D0%BD%D0%B0%D0%B3%D1%83%D0%B0_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Swing Latino's",
+      "address": "5Q29+Q6J, Managua 11012, Nicaragua",
+      "mapsUrl": "https://www.google.com/maps/place/Swing+Latino's/@12.1547,-86.2737,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Managua!3m6!1s0x8f73fd6b83317c85:0xd37f70a1b5859e79!8m2!3d12.1519718!4d-86.2319859!15sChFzYWxzYSBiYXIgTWFuYWd1YZIBBWRpc2Nv4AEA!16s%2Fg%2F11fqzmj58m?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": null,
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. Topic salsa 2. No bachata or kizomba topic. Phone and website not listed.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "8:30 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "8 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "8 AM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "mexico_city",
+    "city": "Mexico City",
+    "country": "Mexico",
+    "iso2": "MX",
+    "continent": "north_america",
+    "lat": 19.4326,
+    "lng": -99.1332,
+    "timezone": "America/Mexico_City",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Mexico_City_Skyline_%2832507119557%29.jpg/960px-Mexico_City_Skyline_%2832507119557%29.jpg",
+    "venue": {
+      "name": "El Babalú",
+      "address": "C. Río Lerma 218, Cuauhtémoc, 06500 Ciudad de México, CDMX, Mexico",
+      "mapsUrl": "https://www.google.com/maps/place/El+Babal%C3%BA/@19.4271905,-99.2064621,13z/data=!4m10!1m2!2m1!1ssalsa+nightclub+Mexico+City!3m6!1s0x85d1ff97ad161de9:0x988e98e55303b3e1!8m2!3d19.4271905!4d-99.1714432!15sChtzYWxzYSBuaWdodGNsdWIgTWV4aWNvIENpdHlaHSIbc2Fsc2EgbmlnaHRjbHViIG1leGljbyBjaXR5kgEKbmlnaHRfY2x1YpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSNk5YRnlkMnRCUlJBQuABAPoBBAgTEDg!16s%2Fg%2F11gh6tlbny?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+52 55 7447 3610",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check, about 8:40 AM Mexico City time, the map said Open, closing at 2 AM. Review topics name salsa and bachata. No kizomba topic. Google has no website.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "8 AM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "7:30 AM–12 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "12:30–2 AM, 8:30 PM–3 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "8:30 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "8:30 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "nassau",
+    "city": "Nassau",
+    "country": "Bahamas",
+    "iso2": "BS",
+    "continent": "north_america",
+    "lat": 25.0781,
+    "lng": -77.3386,
+    "timezone": "America/Nassau",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/88/Nassau%2C_Bahamas_aerial_view_%28cropped%29.jpg/960px-Nassau%2C_Bahamas_aerial_view_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "ottawa",
+    "city": "Ottawa",
+    "country": "Canada",
+    "iso2": "CA",
+    "continent": "north_america",
+    "lat": 45.4247,
+    "lng": -75.695,
+    "timezone": "America/Toronto",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/22/Parliament-Ottawa.jpg/960px-Parliament-Ottawa.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "RAHIM SALSA FRIDAY",
+      "address": "275 Elgin St, Ottawa, ON K2P 0H8, Canada",
+      "mapsUrl": "https://www.google.com/maps/place/RAHIM+SALSA+FRIDAY/@45.4247,-75.695,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Ottawa!3m6!1s0x4cce05a940f8a083:0xc16c7d1c1ed79263!8m2!3d45.4177003!4d-75.6897964!15sChBzYWxzYSBiYXIgT3R0YXdhWhIiEHNhbHNhIGJhciBvdHRhd2GSAQpkYW5jZV9oYWxsmgEkQ2hkRFNVaE5NRzluUzBWSmNXOXljamRZZG5RMmREaFJSUkFC4AEA-gEECAAQRA!16s%2Fg%2F11b6hsq3hy?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+1 613-295-5038",
+      "website": "https://www.rahimsalsa.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Dance hall. Topics salsa dancing 14, bachata 8. Wednesday is National Day for Truth and Reconciliation and Google says hours might differ. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "7 PM–11 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "7:30 PM–12:30 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "Closed"
+        }
+      ]
+    }
+  },
+  {
+    "id": "panama_city",
+    "city": "Panama City",
+    "country": "Panama",
+    "iso2": "PA",
+    "continent": "north_america",
+    "lat": 8.9711,
+    "lng": -79.5347,
+    "timezone": "America/Panama",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d1/Panama_City_Skyline_1.jpg/960px-Panama_City_Skyline_1.jpg",
+    "venue": null
+  },
+  {
+    "id": "port_of_spain",
+    "city": "Port of Spain",
+    "country": "Trinidad and Tobago",
+    "iso2": "TT",
+    "continent": "north_america",
+    "lat": 10.6667,
+    "lng": -61.5167,
+    "timezone": "America/Port_of_Spain",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/e/eb/POS_at_night_Skyline.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "port_au_prince",
+    "city": "Port-au-Prince",
+    "country": "Haiti",
+    "iso2": "HT",
+    "continent": "north_america",
+    "lat": 18.5469,
+    "lng": -72.3403,
+    "timezone": "America/Port-au-Prince",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Iron_Market%2C_Haiti.jpg/960px-Iron_Market%2C_Haiti.jpg",
+    "venue": null
+  },
+  {
+    "id": "roseau",
+    "city": "Roseau",
+    "country": "Dominica",
+    "iso2": "DM",
+    "continent": "north_america",
+    "lat": 15.3,
+    "lng": -61.3833,
+    "timezone": "America/Dominica",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/d2/Roseau_Dominica.jpg/960px-Roseau_Dominica.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "saint_johns",
+    "city": "Saint John's",
+    "country": "Antigua and Barbuda",
+    "iso2": "AG",
+    "continent": "north_america",
+    "lat": 17.1211,
+    "lng": -61.8447,
+    "timezone": "America/Antigua",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/St_Johns_Antigua_2012.jpg/960px-St_Johns_Antigua_2012.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "san_jose",
+    "city": "San José",
+    "country": "Costa Rica",
+    "iso2": "CR",
+    "continent": "north_america",
+    "lat": 9.9327,
+    "lng": -84.0796,
+    "timezone": "America/Costa_Rica",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/f/f6/Ciudad_de_San_Jos%C3%A9.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": {
+      "name": "Salsa 54",
+      "address": "Calle 3 Avenida, San José, El Carmen, 10101, Costa Rica",
+      "mapsUrl": "https://www.google.com/maps/place/Salsa+54/@9.9327,-84.0796,12z/data=!3m1!5s0x8fa0e3611bbc59fb:0xf6a931d5836fb463!4m10!1m2!2m1!1ssalsa+bar+San+Jos%C3%A9+Costa+Rica!3m6!1s0x8fa0e3a59dd37fbd:0x620235059976bb5b!8m2!3d9.9352922!4d-84.077202!15sCh5zYWxzYSBiYXIgU2FuIEpvc8OpIENvc3RhIFJpY2FaICIec2Fsc2EgYmFyIHNhbiBqb3PDqSBjb3N0YSByaWNhkgEJc2Fsc2FfYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJLYWkxaGRHRm5FQUXgAQD6AQQIABAX!16s%2Fg%2F11hzyh6tsz?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+506 2233 3814",
+      "website": "https://www.facebook.com/Salsa54discotheque",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Google category is Salsa bar. Topics are dance and place to dance. No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "2 PM–5 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–5 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–5 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "san_salvador",
+    "city": "San Salvador",
+    "country": "El Salvador",
+    "iso2": "SV",
+    "continent": "north_america",
+    "lat": 13.6976,
+    "lng": -89.1912,
+    "timezone": "America/El_Salvador",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/37/Monumento_al_Salvador_del_Mundo_1.jpg/960px-Monumento_al_Salvador_del_Mundo_1.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "santo_domingo",
+    "city": "Santo Domingo",
+    "country": "Dominican Republic",
+    "iso2": "DO",
+    "continent": "north_america",
+    "lat": 18.4625,
+    "lng": -69.9361,
+    "timezone": "America/Santo_Domingo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e3/SantoDomingoedit.JPG/960px-SantoDomingoedit.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "El Sartén",
+      "address": "C. Hostos 153, Santo Domingo 10210, Dominican Republic",
+      "mapsUrl": "https://www.google.com/maps/place/El+Sart%C3%A9n/@18.4625,-69.9361,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Santo+Domingo!3m6!1s0x8eaf883da28934a5:0x162417444e81c0d6!8m2!3d18.4728605!4d-69.8851418!15sChdzYWxzYSBiYXIgU2FudG8gRG9taW5nb1oZIhdzYWxzYSBiYXIgc2FudG8gZG9taW5nb5IBA2JhcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVSM09FeFFUbEJSRUFF4AEA-gEECAAQKg!16s%2Fg%2F1tn028p9?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+1 829-763-6888",
+      "website": "https://www.facebook.com/elsartenRD",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Bar. Topic bachata 15. Merengue is not listed. A review mentions salsa, which is not a topic chip.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "7 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "7 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "st_georges",
+    "city": "St. George's",
+    "country": "Grenada",
+    "iso2": "GD",
+    "continent": "north_america",
+    "lat": 12.0525,
+    "lng": -61.7531,
+    "timezone": "America/Grenada",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Townscape_of_St_George%27s_and_Fort_George_C_IMG_0531.JPG/960px-Townscape_of_St_George%27s_and_Fort_George_C_IMG_0531.JPG",
+    "venue": null
+  },
+  {
+    "id": "tegucigalpa",
+    "city": "Tegucigalpa",
+    "country": "Honduras",
+    "iso2": "HN",
+    "continent": "north_america",
+    "lat": 14.1058,
+    "lng": -87.2047,
+    "timezone": "America/Tegucigalpa",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/56/Tegucigalpa_downtown_panoramic_2026.jpg/960px-Tegucigalpa_downtown_panoramic_2026.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "washington",
+    "city": "Washington",
+    "country": "United States",
+    "iso2": "US",
+    "continent": "north_america",
+    "lat": 38.9072,
+    "lng": -77.0369,
+    "timezone": "America/New_York",
+    "image": "https://images.unsplash.com/photo-1617581629397-a72507c3de9e?auto=format&fit=crop&w=1400&q=70",
+    "venue": {
+      "name": "Cafe Citron",
+      "address": "1343 Connecticut Ave NW, Washington, DC 20036, United States",
+      "mapsUrl": "https://www.google.com/maps/place/Cafe+Citron/@38.9084154,-78.1630423,8z/data=!4m10!1m2!2m1!1ssalsa+bachata+kizomba+Washington+DC!3m6!1s0x89b7b7c7a10f2947:0x213ff111dfaac0a2!8m2!3d38.9084154!4d-77.0424368!15sCiNzYWxzYSBiYWNoYXRhIGtpem9tYmEgV2FzaGluZ3RvbiBEQ1olIiNzYWxzYSBiYWNoYXRhIGtpem9tYmEgd2FzaGluZ3RvbiBkY5IBA2JhcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuU1VSVU1tSlhRMDlSRUFF4AEA-gEECBIQTA!16s%2Fg%2F1th0nsy6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+1 202-422-3005",
+      "website": "http://www.cafecitrondc.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check, about 10:40 AM Washington time, the map said Closed, opening Wednesday at 7:30 PM. Sunday, Monday, and Tuesday the door stays shut. Google says the business updated the hours 11 weeks ago. Review topics name bachata and salsa classes. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "7:30 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "7 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "7 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6:30 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "asuncion",
+    "city": "Asunción",
+    "country": "Paraguay",
+    "iso2": "PY",
+    "continent": "south_america",
+    "lat": -25.28,
+    "lng": -57.6344,
+    "timezone": "America/Asuncion",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/47/Palacio_de_los_L%C3%B3pez_Asunci%C3%B3n_2.jpg/960px-Palacio_de_los_L%C3%B3pez_Asunci%C3%B3n_2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "bogota",
+    "city": "Bogotá",
+    "country": "Colombia",
+    "iso2": "CO",
+    "continent": "south_america",
+    "lat": 4.711,
+    "lng": -74.0721,
+    "timezone": "America/Bogota",
+    "image": "https://images.unsplash.com/photo-1568632234157-ce7aecd03d0d?auto=format&fit=crop&w=1400&q=70",
+    "venue": {
+      "name": "Sandunguera The temple of classical salsa",
+      "address": "Cl. 64 #13-52, Chapinero, Bogotá, Cundinamarca, Colombia",
+      "mapsUrl": "https://www.google.com/maps/place/Sandunguera+The+temple+of+classical+salsa/@4.6513286,-74.1338538,12z/data=!4m10!1m2!2m1!1ssalsa+bachata+kizomba+Bogot%C3%A1!3m6!1s0x8e3f9a2f4a932891:0x529a9865191c422!8m2!3d4.6513286!4d-74.063816!15sCh1zYWxzYSBiYWNoYXRhIGtpem9tYmEgQm9nb3TDoVofIh1zYWxzYSBiYWNoYXRhIGtpem9tYmEgYm9nb3TDoZIBBWRpc2NvmgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU5hWnpkdE5HSlJFQUXgAQD6AQQIABBK!16s%2Fg%2F1ptz2vs_x?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+57 317 6392533",
+      "website": "http://sandunguera.epizy.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check the map said Closed, opening Thursday at 6 PM. Sunday, Monday, Tuesday, and Wednesday the door stays shut. Review topics name salsa. No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–5 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "6 PM–5 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "6 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "brasilia",
+    "city": "Brasília",
+    "country": "Brazil",
+    "iso2": "BR",
+    "continent": "south_america",
+    "lat": -15.7939,
+    "lng": -47.8828,
+    "timezone": "America/Sao_Paulo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2d/Planalto_Central_%28cropped%29.jpg/960px-Planalto_Central_%28cropped%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "buenos_aires",
+    "city": "Buenos Aires",
+    "country": "Argentina",
+    "iso2": "AR",
+    "continent": "south_america",
+    "lat": -34.6037,
+    "lng": -58.3816,
+    "timezone": "America/Argentina/Buenos_Aires",
+    "image": "https://images.unsplash.com/photo-1612294037637-ec328d0e075e?auto=format&fit=crop&w=1400&q=70",
+    "venue": {
+      "name": "La Salsera",
+      "address": "Yatay 961, C1184ADQ Cdad. Autónoma de Buenos Aires, Argentina",
+      "mapsUrl": "https://www.google.com/maps/place/La+Salsera/@-34.6003721,-76.3578482,4z/data=!4m10!1m2!2m1!1ssalsa+nightclub+Buenos+Aires!3m6!1s0x95bcca7aaf1b5129:0xaa4bf7635851a4d0!8m2!3d-34.6003721!4d-58.4281607!15sChxzYWxzYSBuaWdodGNsdWIgQnVlbm9zIEFpcmVzWh4iHHNhbHNhIG5pZ2h0Y2x1YiBidWVub3MgYWlyZXOSAQ9kYW5jZV9wYXZpbGxpb26aASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUXhNa3g2Y0VkbkVBReABAPoBBAheEDI!16s%2Fg%2F1tdx0r41?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyMy4wIKXMDSoASAFQAw%3D%3D",
+      "phone": "+54 11 3372-0000",
+      "website": "http://lasalsera.com/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-29",
+      "sourceNote": "On the Tuesday of that check, about 11:40 AM Buenos Aires time, the map said Closed, opening at 8 PM. Review topics name salsa and bachata. No kizomba topic.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "8–11:30 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "8–10 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "8–10 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "8–10 PM"
+        },
+        {
+          "weekday": 4,
+          "text": "8 PM–5 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "7 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "8 PM–5 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "caracas",
+    "city": "Caracas",
+    "country": "Venezuela",
+    "iso2": "VE",
+    "continent": "south_america",
+    "lat": 10.5061,
+    "lng": -66.9144,
+    "timezone": "America/Caracas",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Caracas_desde_el_%C3%A1vila.jpg/960px-Caracas_desde_el_%C3%A1vila.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Bar de Morales",
+      "address": "1010, Distrito Capital, Venezuela",
+      "mapsUrl": "https://www.google.com/maps/place/Bar+de+Morales/@10.5156213,-66.9247842,17z/data=!3m1!4b1!4m6!3m5!1s0x8c2a5fc14c572a6b:0xe0d557fce2c5c69c!8m2!3d10.5156213!4d-66.9247842!16s%2Fg%2F11hzy6vl_m?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": null,
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Google category is Salsa bar. Phone and website not listed. No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "12–6 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "12–6 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–12 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "12–6 AM, 6 PM–12 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "12–6 AM, 6 PM–12 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "georgetown",
+    "city": "Georgetown",
+    "country": "Guyana",
+    "iso2": "GY",
+    "continent": "south_america",
+    "lat": 6.8058,
+    "lng": -58.1508,
+    "timezone": "America/Guyana",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Guyana_Parliament_Building.jpg/960px-Guyana_Parliament_Building.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "lima",
+    "city": "Lima",
+    "country": "Peru",
+    "iso2": "PE",
+    "continent": "south_america",
+    "lat": -12.0464,
+    "lng": -77.0428,
+    "timezone": "America/Lima",
+    "image": "https://images.unsplash.com/photo-1531968455001-5c5272a41129?auto=format&fit=crop&w=1400&q=70",
+    "venue": {
+      "name": "Son de Cuba",
+      "address": "Pje. San Ramón 277, Miraflores 15074, Peru",
+      "mapsUrl": "https://www.google.com/maps/place/Son+de+Cuba/@-12.0672166,-77.0532155,12z/data=!4m10!1m2!2m1!1ssalsa+nightclub+Lima+Peru!3m6!1s0x9105c81858cdee95:0x2e5942645ff275ab!8m2!3d-12.1216667!4d-77.0316667!15sChlzYWxzYSBuaWdodGNsdWIgTGltYSBQZXJ1WhsiGXNhbHNhIG5pZ2h0Y2x1YiBsaW1hIHBlcnWSAQpkYW5jZV9jbHVimgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVF6TUV0MllYZDNSUkFC4AEA-gEECAAQPg!16s%2Fg%2F1tmbx5cd?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+51 1 3731916",
+      "website": "https://www.facebook.com/sondecubarestaurante",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "On the Tuesday evening of that check, about 7 PM Lima time, the map said Open, closing at 2 AM. Google labels the place a dance club. Review topics name salsa. No bachata or kizomba topic.",
+      "dances": [
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 1,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "montevideo",
+    "city": "Montevideo",
+    "country": "Uruguay",
+    "iso2": "UY",
+    "continent": "south_america",
+    "lat": -34.9059,
+    "lng": -56.1913,
+    "timezone": "America/Montevideo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/59/PALACIO_LEGISLATIVO_01.JPG/960px-PALACIO_LEGISLATIVO_01.JPG?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "La Bodeguita del Sur",
+      "address": "Soriano 840, 11100 Montevideo, Departamento de Montevideo, Uruguay",
+      "mapsUrl": "https://www.google.com/maps/place/La+Bodeguita+del+Sur/@-34.9084328,-56.198165,17z/data=!3m1!4b1!4m6!3m5!1s0x959f81d4a87a3921:0xb8c19665ac4aefe4!8m2!3d-34.9084328!4d-56.198165!16s%2Fg%2F1tcxkyq3?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+598 99 009 465",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. On Tuesday night, 30 Sep 2026 Montevideo time, the map said Closed, opening at 11:30 PM Friday. Review topics: bachata 19, dancing salsa 9, salsa 3. No kizomba topic. Google has no website.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "Closed"
+        },
+        {
+          "weekday": 3,
+          "text": "Closed"
+        },
+        {
+          "weekday": 4,
+          "text": "Closed"
+        },
+        {
+          "weekday": 5,
+          "text": "11:30 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "10 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "paramaribo",
+    "city": "Paramaribo",
+    "country": "Suriname",
+    "iso2": "SR",
+    "continent": "south_america",
+    "lat": 5.8667,
+    "lng": -55.1667,
+    "timezone": "America/Paramaribo",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/d/de/Paramaribo_city_collage.png/960px-Paramaribo_city_collage.png?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "quito",
+    "city": "Quito",
+    "country": "Ecuador",
+    "iso2": "EC",
+    "continent": "south_america",
+    "lat": -0.22,
+    "lng": -78.5125,
+    "timezone": "America/Guayaquil",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg/960px-FACHADA_ASAMBLEA_NACIONAL._QUITO%2C_20_DE_FEBRERO_2020._01.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Lavoe Salsa Danceclub",
+      "address": "170135 Quito, Ecuador",
+      "mapsUrl": "https://www.google.com/maps/place/Lavoe+Salsa+Danceclub/@-0.1747557,-78.48723,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a8fee42805d:0xd0d2dfb16a2a44bc!8m2!3d-0.1747557!4d-78.48723!16s%2Fg%2F1pp2x7px9?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+593 96 400 4478",
+      "website": "https://lavoe.ec/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Disco club. On Tuesday evening, 30 Sep 2026 Quito time, the map said it closes soon at 9 PM and opens Wednesday at 6 PM. Review topics: bachata 103, salsa 95, kizomba dancing 11. Google's address is the postal code only, with no street.",
+      "dances": [
+        "bachata",
+        "kizomba",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "3–8 PM"
+        },
+        {
+          "weekday": 1,
+          "text": "6–9 PM"
+        },
+        {
+          "weekday": 2,
+          "text": "6–9 PM"
+        },
+        {
+          "weekday": 3,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "6 PM–2 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "9 PM–3 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "2–6 PM, 7 PM–3 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "santiago",
+    "city": "Santiago",
+    "country": "Chile",
+    "iso2": "CL",
+    "continent": "south_america",
+    "lat": -33.4375,
+    "lng": -70.65,
+    "timezone": "America/Santiago",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/21/Palacio_de_La_Moneda_-_miguelreflex.jpg/960px-Palacio_de_La_Moneda_-_miguelreflex.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": {
+      "name": "Club Orixas",
+      "address": "Tarapacá 755, 8330170 Santiago, Región Metropolitana, Chile",
+      "mapsUrl": "https://www.google.com/maps/place/Club+Orixas/@-33.4464674,-70.6464441,17z/data=!3m1!4b1!4m6!3m5!1s0x9662c50ab878a0ff:0x1bbd01276b7ca702!8m2!3d-33.4464674!4d-70.6464441!16s%2Fg%2F1tkp0zzt?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+      "phone": "+56 2 2638 0561",
+      "website": null,
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Night club. On Tuesday night, 30 Sep 2026 Santiago time, the map said Open, closing at 2:30 AM. Review topics: bachata 119, cuban salsa 53, salsa club 16. No kizomba topic. Google has no website.",
+      "dances": [
+        "bachata",
+        "salsa"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "7:30 PM–2:30 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "7:30 PM–2:30 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "7 PM–3 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "7:30 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "7:30 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "sucre",
+    "city": "Sucre",
+    "country": "Bolivia",
+    "iso2": "BO",
+    "continent": "south_america",
+    "lat": -19.0475,
+    "lng": -65.26,
+    "timezone": "America/La_Paz",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/72/Sucre%2C_Capital_de_Bolivia.jpg/960px-Sucre%2C_Capital_de_Bolivia.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "apia",
+    "city": "Apia",
+    "country": "Samoa",
+    "iso2": "WS",
+    "continent": "oceania",
+    "lat": -13.8333,
+    "lng": -171.8333,
+    "timezone": "Pacific/Apia",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/a/a8/WS-apia-regierg.jpg/960px-WS-apia-regierg.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "canberra",
+    "city": "Canberra",
+    "country": "Australia",
+    "iso2": "AU",
+    "continent": "oceania",
+    "lat": -35.2809,
+    "lng": 149.13,
+    "timezone": "Australia/Sydney",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Parliament_House_at_dusk%2C_Canberra_ACT.jpg/960px-Parliament_House_at_dusk%2C_Canberra_ACT.jpg",
+    "venue": null
+  },
+  {
+    "id": "funafuti",
+    "city": "Funafuti",
+    "country": "Tuvalu",
+    "iso2": "TV",
+    "continent": "oceania",
+    "lat": -8.5048,
+    "lng": 179.1174,
+    "timezone": "Pacific/Funafuti",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/91/Funafuti_airport_-_Fiji_Airways.jpg/960px-Funafuti_airport_-_Fiji_Airways.jpg",
+    "venue": null
+  },
+  {
+    "id": "honiara",
+    "city": "Honiara",
+    "country": "Solomon Islands",
+    "iso2": "SB",
+    "continent": "oceania",
+    "lat": -9.4333,
+    "lng": 159.95,
+    "timezone": "Pacific/Guadalcanal",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3a/Honiara_View.jpg/960px-Honiara_View.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "majuro",
+    "city": "Majuro",
+    "country": "Marshall Islands",
+    "iso2": "MH",
+    "continent": "oceania",
+    "lat": 7.0918,
+    "lng": 171.3802,
+    "timezone": "Pacific/Majuro",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/Eneko_Islet_02.JPG/960px-Eneko_Islet_02.JPG",
+    "venue": null
+  },
+  {
+    "id": "ngerulmud",
+    "city": "Ngerulmud",
+    "country": "Palau",
+    "iso2": "PW",
+    "continent": "oceania",
+    "lat": 7.5006,
+    "lng": 134.6242,
+    "timezone": "Pacific/Palau",
+    "image": "https://thumb.wikimedia.org/wikipedia/en/thumb/8/8f/Capitol%2C_Melekeok%2C_Palau.jpg/960px-Capitol%2C_Melekeok%2C_Palau.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "nukualofa",
+    "city": "Nukuʻalofa",
+    "country": "Tonga",
+    "iso2": "TO",
+    "continent": "oceania",
+    "lat": -21.1343,
+    "lng": -175.2018,
+    "timezone": "Pacific/Tongatapu",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/94/Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg/960px-Royal_Palace%2C_Nuku%27alofa%2C_Nov_18.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "palikir",
+    "city": "Palikir",
+    "country": "Micronesia",
+    "iso2": "FM",
+    "continent": "oceania",
+    "lat": 6.9178,
+    "lng": 158.185,
+    "timezone": "Pacific/Pohnpei",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/2/28/Palikir_2025-Presidential2.jpg/960px-Palikir_2025-Presidential2.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "port_moresby",
+    "city": "Port Moresby",
+    "country": "Papua New Guinea",
+    "iso2": "PG",
+    "continent": "oceania",
+    "lat": -9.4789,
+    "lng": 147.1494,
+    "timezone": "Pacific/Port_Moresby",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Port_Moresby_Town2_Mschlauch.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail_unscaled",
+    "venue": null
+  },
+  {
+    "id": "port_vila",
+    "city": "Port Vila",
+    "country": "Vanuatu",
+    "iso2": "VU",
+    "continent": "oceania",
+    "lat": -17.7333,
+    "lng": 168.3167,
+    "timezone": "Pacific/Efate",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e8/Port_Vila_aerial.jpg/960px-Port_Vila_aerial.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "south_tarawa",
+    "city": "South Tarawa",
+    "country": "Kiribati",
+    "iso2": "KI",
+    "continent": "oceania",
+    "lat": 1.3333,
+    "lng": 172.9667,
+    "timezone": "Pacific/Tarawa",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b5/South_Tarawa_from_the_air.jpg/960px-South_Tarawa_from_the_air.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  },
+  {
+    "id": "suva",
+    "city": "Suva",
+    "country": "Fiji",
+    "iso2": "FJ",
+    "continent": "oceania",
+    "lat": -18.1416,
+    "lng": 178.4419,
+    "timezone": "Pacific/Fiji",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Suva_Harbour%2C_Viti_Levu%2C_Fiji_%2821067800123%29.jpg/960px-Suva_Harbour%2C_Viti_Levu%2C_Fiji_%2821067800123%29.jpg",
+    "venue": null
+  },
+  {
+    "id": "wellington",
+    "city": "Wellington",
+    "country": "New Zealand",
+    "iso2": "NZ",
+    "continent": "oceania",
+    "lat": -41.2865,
+    "lng": 174.7762,
+    "timezone": "Pacific/Auckland",
+    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Wellington_Waterfront_and_Skylined.jpg/960px-Wellington_Waterfront_and_Skylined.jpg",
+    "venue": {
+      "name": "El Barrio",
+      "address": "35 Dixon Street, Te Aro, Wellington 6011, New Zealand",
+      "mapsUrl": "https://www.google.com/maps/place/El+Barrio/@-41.2921237,174.777502,17z/data=!3m1!4b1!4m6!3m5!1s0x6d38af2bf91b96a5:0xff7466a7ff60f930!8m2!3d-41.2921237!4d174.777502!16s%2Fg%2F11flbry4jb?hl=en",
+      "phone": "+64 4 333 0261",
+      "website": "https://www.elbarrio.nz/",
+      "status": "operating",
+      "source": "google_maps",
+      "sourceChecked": "2026-09-30",
+      "sourceNote": "Topic bachata 2. A review mentions Tuesday salsa, which is not a topic chip. No kizomba topic.",
+      "dances": [
+        "bachata"
+      ],
+      "hours": [
+        {
+          "weekday": 0,
+          "text": "Closed"
+        },
+        {
+          "weekday": 1,
+          "text": "Closed"
+        },
+        {
+          "weekday": 2,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 3,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 4,
+          "text": "5 PM–1 AM"
+        },
+        {
+          "weekday": 5,
+          "text": "5 PM–4 AM"
+        },
+        {
+          "weekday": 6,
+          "text": "5 PM–4 AM"
+        }
+      ]
+    }
+  },
+  {
+    "id": "yaren_district",
+    "city": "Yaren District",
+    "country": "Nauru",
+    "iso2": "NR",
+    "continent": "oceania",
+    "lat": -0.5477,
+    "lng": 166.9209,
+    "timezone": "Pacific/Nauru",
+    "image": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/45/Parliament_%2815403802091%29.jpg/960px-Parliament_%2815403802091%29.jpg?utm_source=en.wikipedia.org&utm_campaign=api&utm_content=thumbnail",
+    "venue": null
+  }
+]

@@ -1,0 +1,599 @@
+:root {
+  --paper: #f3efe6;
+  --card: #fffdf8;
+  --ink: #1b1714;
+  --muted: #6f675e;
+  --line: #e3dacb;
+  --wine: #8d2c2c;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: "Outfit", sans-serif;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button,
+a {
+  font: inherit;
+}
+
+h1,
+h2 {
+  font-family: "Fraunces", serif;
+  font-weight: 560;
+  letter-spacing: -0.03em;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 22px 24px 0;
+}
+
+.top a {
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+.top > span {
+  display: flex;
+  gap: 16px;
+  align-items: baseline;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.top a.top-tonight {
+  color: var(--muted);
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 28px 24px 72px;
+}
+
+.hero h1 {
+  margin: 8px 0 0;
+  font-size: clamp(48px, 8vw, 84px);
+  line-height: 0.95;
+}
+
+.floor-entry {
+  display: inline;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: inherit;
+}
+
+.kicker,
+.lede,
+.count {
+  color: var(--muted);
+}
+
+.kicker {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.lede {
+  margin: 14px 0 0;
+  font-size: 18px;
+}
+
+.filters {
+  display: grid;
+  gap: 16px;
+  margin-top: 36px;
+}
+
+.filter {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+}
+
+.filter legend {
+  min-width: 88px;
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.pills button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 999px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.pills button[aria-pressed="true"] {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.pills button:focus-visible,
+.card:focus-visible,
+.back:focus-visible,
+.top a:focus-visible {
+  outline: 2px solid var(--wine);
+  outline-offset: 2px;
+}
+
+.count {
+  margin: 22px 0 12px;
+  font-size: 14px;
+}
+
+.grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.card {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #231f1c;
+  text-decoration: none;
+  color: #fff;
+}
+
+.card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.card:hover img {
+  transform: scale(1.045);
+}
+
+.card-shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.12) 0%,
+    rgba(0, 0, 0, 0.02) 42%,
+    rgba(0, 0, 0, 0.62) 100%
+  );
+}
+
+.card-body {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 18px 16px;
+}
+
+.card-city {
+  font-size: clamp(26px, 2.2vw, 34px);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+}
+
+.card-country {
+  margin-top: 2px;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 14px;
+}
+
+.card-status {
+  margin-top: 12px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.empty,
+.soon {
+  margin: 8px 0 0;
+  padding: 28px 0;
+  max-width: 42rem;
+  color: var(--ink);
+}
+
+.detail-top .back {
+  margin-bottom: 16px;
+}
+
+.detail-hero {
+  position: relative;
+  height: 320px;
+  max-width: 1080px;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #231f1c;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-hero-copy {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 22px;
+  color: #fff;
+}
+
+.detail-hero .kicker,
+.detail-hero h1,
+.detail-hero p {
+  color: #fff;
+}
+
+.detail-hero h1 {
+  margin: 6px 0 0;
+  font-size: clamp(44px, 7vw, 72px);
+  line-height: 0.95;
+}
+
+.detail-hero p {
+  margin: 8px 0 0;
+}
+
+.detail h1 {
+  margin: 8px 0 0;
+  font-size: clamp(44px, 7vw, 72px);
+  line-height: 0.95;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 28px;
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.venue {
+  padding-top: 28px;
+  max-width: 36rem;
+}
+
+.venue h2 {
+  margin: 6px 0 0;
+  font-size: 36px;
+}
+
+.venue-dances,
+.venue-address {
+  margin: 8px 0 0;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 14px;
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.venue h3 {
+  margin: 28px 0 0;
+  font-family: "Outfit", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.nights {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.nights li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.nights li span:first-child {
+  font-weight: 600;
+}
+
+.venue-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filter {
+    flex-direction: column;
+    gap: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card img {
+    transition: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .top .top-note {
+    display: none;
+  }
+}
+
+.admin {
+  max-width: 40rem;
+  padding-bottom: 64px;
+}
+
+.admin h1 {
+  margin: 12px 0 0;
+  font-size: 40px;
+}
+
+.admin h2 {
+  margin: 28px 0 0;
+  font-size: 28px;
+}
+
+.admin label,
+.admin legend {
+  display: block;
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.admin input[type="text"],
+.admin input[type="url"],
+.admin input[type="date"],
+.admin input[type="time"],
+.admin select,
+.admin textarea {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.admin fieldset {
+  margin: 16px 0 0;
+  padding: 0;
+  border: 0;
+}
+
+.admin .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.admin .check input {
+  width: auto;
+  margin: 0;
+}
+
+.admin .day {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.admin .day input[type="time"] {
+  width: 8.5rem;
+}
+
+.admin .day span {
+  font-weight: 600;
+}
+
+.admin .day .check {
+  margin-top: 0;
+}
+
+.admin button.save,
+.admin a.save {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 18px;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.admin .filters {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+.admin .bar-list {
+  list-style: none;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.admin .bar-list li {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.admin .bar-list h2 {
+  margin: 4px 0 0;
+  font-size: 32px;
+}
+
+.admin .bar-list a {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.tonight h1 {
+  margin: 8px 0 0;
+  font-size: clamp(44px, 7vw, 72px);
+  line-height: 0.95;
+}
+
+.tonight-city {
+  display: grid;
+  gap: 6px;
+  max-width: 320px;
+  margin-top: 28px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tonight-city select {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.tonight .pills {
+  margin-top: 8px;
+}
+
+.tonight-list {
+  list-style: none;
+  max-width: 36rem;
+  margin: 8px 0 0;
+  padding: 0;
+}
+
+.tonight-list li {
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.tonight-list h2 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.tonight-list p {
+  margin: 8px 0 0;
+}
+
+.tonight-now,
+.tonight-later {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+}
+
+.tonight-now {
+  color: #2f6b45;
+}
+
+.tonight-later {
+  color: #8a5a12;
+}
+
+.tonight-list a {
+  display: inline-block;
+  margin-top: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}

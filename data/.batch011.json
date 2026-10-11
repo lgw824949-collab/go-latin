@@ -1,0 +1,1846 @@
+{
+  "checked": "2026-09-30",
+  "empty": [
+    {
+      "id": "bern",
+      "note": "Salsa results were dance schools. Cuba Bar topics are latino music and dancing, not salsa, bachata, or kizomba. A bar named Salsa Bern has no reviews. Left empty."
+    },
+    {
+      "id": "andorra_la_vella",
+      "note": "Salsa search returned restaurants and a disco. Bachata and kizomba search returned dance schools. A pub is permanently closed. Left empty."
+    },
+    {
+      "id": "abu_dhabi",
+      "note": "Salsa bar and salsa nightclub searches returned dance schools or clubs whose review topics do not name salsa, bachata, or kizomba. WHITE Abu Dhabi topics are DJs, music, and a dance floor. Left empty."
+    },
+    {
+      "id": "ankara",
+      "note": "Salsa bar and salsa nightclub searches were dance schools. Havana Club is a night club in Cankaya with no salsa, bachata, or kizomba review topics. Left empty."
+    },
+    {
+      "id": "ashgabat",
+      "note": "Salsa bar search returned restaurants and a night club with no dance names. Bachata and kizomba search opened a permanently closed dance studio. Left empty."
+    },
+    {
+      "id": "astana",
+      "note": "Salsa bar search returned ordinary bars. Bachata, kizomba, and salsa club search returned karaoke and permanently closed dance schools, including a salsa studio. Left empty."
+    },
+    {
+      "id": "baghdad",
+      "note": "The only place categorized Salsa bar is an unclaimed appetizer shop with a plus-code address, one review, and no hours. Bachata and kizomba search returned a music school and a hotel. Left empty."
+    },
+    {
+      "id": "baku",
+      "note": "Salsa and bachata searches were dance schools. Badi Kuba Salsa Club is a night club with a plus-code address, no hours, and no salsa, bachata, or kizomba review topics. Left empty."
+    },
+    {
+      "id": "ulaanbaatar",
+      "note": "976 Restaurant mentions Latin dance in a snippet, but the review topics do not name salsa, bachata, or kizomba. Bachata and kizomba search returned dance schools. Left empty."
+    },
+    {
+      "id": "thimphu",
+      "note": "Salsa search returned ordinary clubs. Bachata and kizomba search returned dance studios. Mojo Park is temporarily closed. Left empty."
+    },
+    {
+      "id": "tehran",
+      "note": "La Salsa is a Mexican restaurant. Salsa bahman is permanently closed. An unclaimed place categorized Salsa bar has no reviews and no hours. Left empty."
+    },
+    {
+      "id": "tbilisi",
+      "note": "Bachata Community is a bar, but its topics are dancing and latin music, not salsa, bachata, or kizomba. Salsa Sunrise topics are lessons. SaLSa Bar has no reviews. Left empty."
+    },
+    {
+      "id": "tashkent",
+      "note": "Salsa bar search returned ordinary bars. Bachata and kizomba search returned dance schools. A salsa class listing is permanently closed. Left empty."
+    },
+    {
+      "id": "sri_jayawardenepura_kotte",
+      "note": "Playtrix has a salsa night topic but the address is Colombo. Mathika is categorized Salsa bar and is also in Colombo. X-Arena is a dance school. Left empty."
+    },
+    {
+      "id": "sanaa",
+      "note": "Salsa search returned hotels and restaurants. Bachata search returned a school and a hotel. Left empty."
+    },
+    {
+      "id": "riyadh",
+      "note": "Salsa search returned restaurants, a jeans shop, and a gym. Bachata and kizomba search opened a dance school. Left empty."
+    },
+    {
+      "id": "pyongyang",
+      "note": "The salsa search returned a club with no reviews and a permanently closed diplomatic club. Left empty."
+    },
+    {
+      "id": "new_delhi",
+      "note": "Salsa results were dance schools. Dear Donna and Club Cuba do not have salsa, bachata, or kizomba review topics. Left empty."
+    },
+    {
+      "id": "naypyidaw",
+      "note": "Salsa bar search returned ordinary bars with no dance names. Left empty."
+    },
+    {
+      "id": "muscat",
+      "note": "Al Ghazal Pub has a review mentioning salsa and bachata nights, but the review topics do not name those dances. Other results are dance schools. Left empty."
+    },
+    {
+      "id": "male",
+      "note": "Salsa bar search returned restaurants and lounges. Bachata and kizomba search returned only the city. Left empty."
+    },
+    {
+      "id": "kuwait_city",
+      "note": "Salsa searches returned dance schools and restaurants. Kuwait Bachata Club has no reviews. Left empty."
+    },
+    {
+      "id": "kathmandu",
+      "note": "An unclaimed place named Salsa Bar has no reviews and no hours. Bachata and kizomba search returned dance schools. Left empty."
+    },
+    {
+      "id": "kabul",
+      "note": "Salsa bar search returned ordinary shops and bars with no dance names. Left empty."
+    },
+    {
+      "id": "jerusalem",
+      "note": "JLMambo is categorized as a night club, but its review topics are salsa lessons and instructors. Capital Latina is a dance school. Other results are ordinary bars. Left empty."
+    },
+    {
+      "id": "islamabad",
+      "note": "Two places categorized Salsa bar are a property office and an unreviewed shop, with no dance topics. Bachata and kizomba search returned a gym, a club, a yoga studio, and a mall. Left empty."
+    },
+    {
+      "id": "dushanbe",
+      "note": "Salsa bar search returned ordinary bars. A Mexican restaurant named Salsa is permanently closed. Bachata and kizomba search returned an office and a dance school. Left empty."
+    },
+    {
+      "id": "dili",
+      "note": "Salsa bar search returned restaurants and bars with no dance names. Bachata and kizomba search returned only the city. Left empty."
+    },
+    {
+      "id": "dhaka",
+      "note": "Places named salsa are local drink bars, including an ayurvedic salsa shop. Leftfoot Salsa Dhaka is a dance school. Latino Beats is a dance club with one review, no address, no hours, and no salsa, bachata, or kizomba topics. Left empty."
+    },
+    {
+      "id": "damascus",
+      "note": "Salsa bar search was ordinary bars plus one dance school. Bachata and kizomba search was a dance school and a permanently closed school. Left empty."
+    },
+    {
+      "id": "bishkek",
+      "note": "Salsa bar search returned ordinary bars. Bachata and kizomba search returned dance schools. BStyle is a dance studio, and its topics do not name salsa, bachata, or kizomba. Left empty."
+    },
+    {
+      "id": "beirut",
+      "note": "Salsa and bachata searches were dance schools or places outside Beirut. b-flat bar in Mansourieh has salsa and bachata topics. El Paseo in Badaro is temporarily closed. Left empty."
+    },
+    {
+      "id": "beijing",
+      "note": "Salsa bar, salsa nightclub, and bachata searches returned thin or generic bars. Salsa Club, Caribe, and La Social have no hours and no salsa, bachata, or kizomba review topics. Left empty."
+    },
+    {
+      "id": "bandar_seri_begawan",
+      "note": "Salsa search returned restaurants and lounges. The only salsa mention was a pasta sauce. Bachata and kizomba search returned dance schools. Left empty."
+    },
+    {
+      "id": "dublin",
+      "note": "Schools only. Latin Fever night club topics are latin music, not a named dance."
+    },
+    {
+      "id": "helsinki",
+      "note": "Schools. Barcelo and El Patron do not name a dance in review topics."
+    },
+    {
+      "id": "ljubljana",
+      "note": "Dance schools only. Bars and Mexican restaurants do not name a dance."
+    },
+    {
+      "id": "minsk",
+      "note": "Dance schools only. Bars do not name a dance."
+    },
+    {
+      "id": "monaco",
+      "note": "Generic nightclubs. Dance-name search returned dance schools only."
+    },
+    {
+      "id": "nicosia",
+      "note": "Schools in the south. San Telmo is Lefkosa and does not name a dance."
+    },
+    {
+      "id": "podgorica",
+      "note": "Sonrisa dance club has no dance topics. Buena Vista is a school."
+    },
+    {
+      "id": "pristina",
+      "note": "Ordinary bars. Dance-name search returned dance schools only."
+    },
+    {
+      "id": "reykjavik",
+      "note": "Pablo Discobar topics are dance floors only. Other hits are a dance hall, school, and dance company."
+    },
+    {
+      "id": "san_marino",
+      "note": "Ordinary bars. Dance-name search returned dance schools, including places outside San Marino."
+    },
+    {
+      "id": "sarajevo",
+      "note": "Mash Lounge salsa-night mention is not a topic. El Paso is a school. Astorija has no dance topics."
+    },
+    {
+      "id": "skopje",
+      "note": "LaFe dance mention is not a topic. Cuban Cocktail Bar topics are latino music and dance. Schools rejected. Unreviewed Salsa bar omitted."
+    },
+    {
+      "id": "tallinn",
+      "note": "Schools. Bailabaila topics are latin music only."
+    },
+    {
+      "id": "vaduz",
+      "note": "Salsita is in Schaan and has no dance topics. Other hits are ordinary bars and a restaurant."
+    },
+    {
+      "id": "valletta",
+      "note": "Barrio Latino is in Sliema. Babel Bistro in Valletta does not name a dance in topics."
+    },
+    {
+      "id": "vatican_city",
+      "note": "Results are in Rome, not Vatican City. Salsa hits are classes."
+    },
+    {
+      "id": "addis_ababa",
+      "note": "Salsa classes and a dance school only."
+    },
+    {
+      "id": "algiers",
+      "note": "PianoPiano salsa-night mention is not a topic. Dance school and a temporarily closed restaurant."
+    },
+    {
+      "id": "antananarivo",
+      "note": "Ordinary bars. Dance-name search returned dance schools and a pole studio."
+    },
+    {
+      "id": "asmara",
+      "note": "Ordinary bars. A bachata search opened Asmara Cocktailbar in Tubingen, Germany."
+    },
+    {
+      "id": "bamako",
+      "note": "Ordinary bars. Dance-name search returned no dance venue."
+    },
+    {
+      "id": "bangui",
+      "note": "Ordinary bars and clubs. No dance-name topics."
+    },
+    {
+      "id": "banjul",
+      "note": "Ordinary bars, many outside Banjul. Dance-name search returned no dance venue."
+    },
+    {
+      "id": "bissau",
+      "note": "Ordinary bars and clubs. Dance-name search opened Tabanka, which has no dance topics and Google says Add hours."
+    },
+    {
+      "id": "brazzaville",
+      "note": "Ordinary clubs. Dance-name search opened Cdac Congo, a dance school with no reviews."
+    },
+    {
+      "id": "ciudad_de_la_paz",
+      "note": "A salsa search opened a dance school in La Paz, Mexico. A retry returned bars in Malabo, not Ciudad de la Paz, and none name a dance."
+    },
+    {
+      "id": "conakry",
+      "note": "Night clubs and lounges. None name a dance."
+    },
+    {
+      "id": "djibouti",
+      "note": "Ordinary bars. Dance-name search returned a dance school."
+    },
+    {
+      "id": "dodoma",
+      "note": "Havana Night Club has no dance topics. Other clubs do not name a dance."
+    },
+    {
+      "id": "freetown",
+      "note": "Salone Cubana has no dance topics. Dance-name search returned a band and a music school."
+    },
+    {
+      "id": "gaborone",
+      "note": "Ordinary bars. Dibini Tota is a dance club with no address and no dance topics. Other hits are dance schools."
+    },
+    {
+      "id": "gitega",
+      "note": "Ordinary bars. A dance-name search opened the city page only."
+    },
+    {
+      "id": "harare",
+      "note": "Ordinary nightclubs. Olympus Lounge has no dance topics. Other hits are dance schools."
+    },
+    {
+      "id": "juba",
+      "note": "Club Caliente has no dance topics. Dance-name search returned dance schools."
+    },
+    {
+      "id": "kampala",
+      "note": "Unclaimed place named salsa bar has no reviews and Google says Add hours. Other hits are dance schools."
+    },
+    {
+      "id": "khartoum",
+      "note": "A salsa search opened a rooftop lounge with no dance topics. A dance-name search returned no places."
+    },
+    {
+      "id": "kinshasa",
+      "note": "Ordinary lounges. Dance-name search returned dance schools and Chacha Bar, which does not name salsa, bachata, or kizomba."
+    },
+    {
+      "id": "libreville",
+      "note": "Ordinary bars. Sunrise Danceclub has no dance topics. Other hits are dance schools."
+    },
+    {
+      "id": "lilongwe",
+      "note": "Ordinary clubs. Dance-name search returned dance schools."
+    },
+    {
+      "id": "lome",
+      "note": "City Star topics include kizomba but also adult classes, and the door opens at 8 AM. Other hits are dance schools."
+    },
+    {
+      "id": "luanda",
+      "note": "Ped Salsa restaurant has no dance topics. Ped Salsa is a dance school with lesson topics."
+    },
+    {
+      "id": "lusaka",
+      "note": "Brickhouse class mention is not a topic. Lusaka Salsa is at a fitness centre and opens at 8 AM. Other hits are classes."
+    },
+    {
+      "id": "maputo",
+      "note": "Ordinary bars. Dance-name search returned dance schools only."
+    },
+    {
+      "id": "maseru",
+      "note": "Ordinary clubs. A dance-name search opened Global Guest House."
+    },
+    {
+      "id": "mbabane",
+      "note": "Ordinary restaurants and bars. Dance-name search returned a sports club and hotels."
+    },
+    {
+      "id": "mogadishu",
+      "note": "Salsabiil is a restaurant name, not the dance. A dance-name search opened a charity."
+    },
+    {
+      "id": "monrovia",
+      "note": "Ordinary nightclubs. Dance-name search returned dance schools."
+    },
+    {
+      "id": "moroni",
+      "note": "Restaurants and hotels. A dance-name search opened Retaj Moroni Hotel."
+    },
+    {
+      "id": "ndjamena",
+      "note": "Cubana Cafe and dancing bars do not name a dance. Dance-name search returned ordinary bars."
+    },
+    {
+      "id": "niamey",
+      "note": "Ordinary bars. Afro Latin Danse is a dance school."
+    },
+    {
+      "id": "nouakchott",
+      "note": "Ordinary restaurants. A dance-name search opened Nouakchott Night, which has no dance topics."
+    },
+    {
+      "id": "ouagadougou",
+      "note": "Ordinary bars. Dance-name search returned a festival, a dance school, and a nonprofit."
+    },
+    {
+      "id": "port_louis",
+      "note": "Ordinary restaurants. A dance-name search opened a dance school in Beau Bassin-Rose Hill."
+    },
+    {
+      "id": "praia",
+      "note": "Havana's Bar is permanently closed. Dance-name search returned a dance school."
+    },
+    {
+      "id": "pretoria",
+      "note": "Club Havana and Latino's Bistro do not name a dance. Other hits are dance schools."
+    },
+    {
+      "id": "rabat",
+      "note": "El Barrio Latino has no dance topics. Other hits are dance schools."
+    },
+    {
+      "id": "tripoli",
+      "note": "Salsa hits are a beauty salon and a restaurant. Dance-name search opened a dance school in Tripoli, Lebanon."
+    },
+    {
+      "id": "tunis",
+      "note": "Le Taboo has no dance topics. Other hits are dance schools and a dance company."
+    },
+    {
+      "id": "victoria",
+      "note": "Trader Vic's is in Beau Vallon and the topic is live music. Dance-name search returned classes and dance schools."
+    },
+    {
+      "id": "windhoek",
+      "note": "Ordinary bars and clubs do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "yamoussoukro",
+      "note": "Ordinary bars do not name a dance. Dance-name search opened Alliance Française, which has no dance topics."
+    },
+    {
+      "id": "yaounde",
+      "note": "La Salsa is a restaurant. Cubana Lounge has no dance topics."
+    },
+    {
+      "id": "basseterre",
+      "note": "Mojitos Cuban Lounge has no dance topics. Dance-name search returned no dance venue."
+    },
+    {
+      "id": "belmopan",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "bridgetown",
+      "note": "The salsa and kizomba listing is an event venue with no topic chips. Other hits are dance schools."
+    },
+    {
+      "id": "castries",
+      "note": "SalsaKiz is salsa classes in Corinth. Other hits do not name a dance."
+    },
+    {
+      "id": "guatemala_city",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools and salsa classes."
+    },
+    {
+      "id": "kingstown",
+      "note": "Ordinary bars do not name a dance. Dance-name search opened a dance school in Saint-Vincent-de-Paul, France."
+    },
+    {
+      "id": "nassau",
+      "note": "W2 Dance Club has no dance topics. Other hits are dance schools."
+    },
+    {
+      "id": "port_of_spain",
+      "note": "Police Mess salsa mention is not a topic. Other hits are dance schools."
+    },
+    {
+      "id": "port_au_prince",
+      "note": "Esquina Latina is in Pétion-Ville and has no dance topics. V-cha has no reviews. Other hit is a dance school."
+    },
+    {
+      "id": "roseau",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned a night club with no reviews."
+    },
+    {
+      "id": "saint_johns",
+      "note": "Ordinary bars do not name a dance. Dance-name search opened a salsa school in Antigua Guatemala."
+    },
+    {
+      "id": "san_salvador",
+      "note": "Club La Dalia salsa mention is not a topic. Dance-name search returned dance schools."
+    },
+    {
+      "id": "st_georges",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned a gym, a dance school, and a martial arts school."
+    },
+    {
+      "id": "tegucigalpa",
+      "note": "Sol en Salsa and La Salsa are restaurants. Dance-name search returned dance schools."
+    },
+    {
+      "id": "asuncion",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "georgetown",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "paramaribo",
+      "note": "Salsa Les Suriname has no dance topics and Google says Add hours. Other hits are dance schools."
+    },
+    {
+      "id": "sucre",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "apia",
+      "note": "Ordinary bars and clubs do not name a dance. Dance-name search opened a hotel."
+    },
+    {
+      "id": "canberra",
+      "note": "Loquita topics are food. SOS Salsa on Saturday has no topic chips and Google says Add hours. Other hits are dance schools and salsa classes."
+    },
+    {
+      "id": "funafuti",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned hotels."
+    },
+    {
+      "id": "honiara",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned hotels."
+    },
+    {
+      "id": "majuro",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned no places."
+    },
+    {
+      "id": "ngerulmud",
+      "note": "The salsa search opened the capitol. Dance-name search returned no places."
+    },
+    {
+      "id": "nukualofa",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned no places."
+    },
+    {
+      "id": "palikir",
+      "note": "Nearby bars are in Kolonia and do not name a dance. Dance-name search returned no places."
+    },
+    {
+      "id": "port_moresby",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned dance schools."
+    },
+    {
+      "id": "port_vila",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned no dance venue."
+    },
+    {
+      "id": "south_tarawa",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned no dance venue."
+    },
+    {
+      "id": "suva",
+      "note": "Ordinary bars do not name a dance. Dance-name search returned no places."
+    },
+    {
+      "id": "yaren_district",
+      "note": "The salsa search opened a general store. Dance-name search opened a dance school in Daegu."
+    }
+  ],
+  "capitals": [
+    {
+      "id": "wellington",
+      "city": "Wellington",
+      "venue": {
+        "name": "El Barrio",
+        "address": "35 Dixon Street, Te Aro, Wellington 6011, New Zealand",
+        "mapsUrl": "https://www.google.com/maps/place/El+Barrio/@-41.2921237,174.777502,17z/data=!3m1!4b1!4m6!3m5!1s0x6d38af2bf91b96a5:0xff7466a7ff60f930!8m2!3d-41.2921237!4d174.777502!16s%2Fg%2F11flbry4jb?hl=en",
+        "phone": "+64 4 333 0261",
+        "website": "https://www.elbarrio.nz/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Topic bachata 2. A review mentions Tuesday salsa, which is not a topic chip. No kizomba topic.",
+        "dances": ["bachata"],
+        "hours": [
+          { "weekday": 0, "text": "Closed" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "5 PM–1 AM" },
+          { "weekday": 3, "text": "5 PM–1 AM" },
+          { "weekday": 4, "text": "5 PM–1 AM" },
+          { "weekday": 5, "text": "5 PM–4 AM" },
+          { "weekday": 6, "text": "5 PM–4 AM" }
+        ]
+      }
+    },
+    {
+      "id": "caracas",
+      "city": "Caracas",
+      "venue": {
+        "name": "Bar de Morales",
+        "address": "1010, Distrito Capital, Venezuela",
+        "mapsUrl": "https://www.google.com/maps/place/Bar+de+Morales/@10.5156213,-66.9247842,17z/data=!3m1!4b1!4m6!3m5!1s0x8c2a5fc14c572a6b:0xe0d557fce2c5c69c!8m2!3d10.5156213!4d-66.9247842!16s%2Fg%2F11hzy6vl_m?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": null,
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Google category is Salsa bar. Phone and website not listed. No bachata or kizomba topic.",
+        "dances": ["salsa"],
+        "hours": [
+          { "weekday": 0, "text": "12–6 AM, 6 PM–12 AM" },
+          { "weekday": 1, "text": "12–6 AM" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "Closed" },
+          { "weekday": 4, "text": "6 PM–12 AM" },
+          { "weekday": 5, "text": "12–6 AM, 6 PM–12 AM" },
+          { "weekday": 6, "text": "12–6 AM, 6 PM–12 AM" }
+        ]
+      }
+    },
+    {
+      "id": "santo_domingo",
+      "city": "Santo Domingo",
+      "venue": {
+        "name": "El Sartén",
+        "address": "C. Hostos 153, Santo Domingo 10210, Dominican Republic",
+        "mapsUrl": "https://www.google.com/maps/place/El+Sart%C3%A9n/@18.4625,-69.9361,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Santo+Domingo!3m6!1s0x8eaf883da28934a5:0x162417444e81c0d6!8m2!3d18.4728605!4d-69.8851418!15sChdzYWxzYSBiYXIgU2FudG8gRG9taW5nb1oZIhdzYWxzYSBiYXIgc2FudG8gZG9taW5nb5IBA2JhcpoBI0NoWkRTVWhOTUc5blMwVkpRMEZuVFVSM09FeFFUbEJSRUFF4AEA-gEECAAQKg!16s%2Fg%2F1tn028p9?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+1 829-763-6888",
+        "website": "https://www.facebook.com/elsartenRD",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Topic bachata 15. Merengue is not listed. A review mentions salsa, which is not a topic chip.",
+        "dances": ["bachata"],
+        "hours": [
+          { "weekday": 0, "text": "6 PM–2 AM" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "7 PM–2 AM" },
+          { "weekday": 4, "text": "7 PM–2 AM" },
+          { "weekday": 5, "text": "7 PM–3 AM" },
+          { "weekday": 6, "text": "7 PM–3 AM" }
+        ]
+      }
+    },
+    {
+      "id": "san_jose",
+      "city": "San José",
+      "venue": {
+        "name": "Salsa 54",
+        "address": "Calle 3 Avenida, San José, El Carmen, 10101, Costa Rica",
+        "mapsUrl": "https://www.google.com/maps/place/Salsa+54/@9.9327,-84.0796,12z/data=!3m1!5s0x8fa0e3611bbc59fb:0xf6a931d5836fb463!4m10!1m2!2m1!1ssalsa+bar+San+Jos%C3%A9+Costa+Rica!3m6!1s0x8fa0e3a59dd37fbd:0x620235059976bb5b!8m2!3d9.9352922!4d-84.077202!15sCh5zYWxzYSBiYXIgU2FuIEpvc8OpIENvc3RhIFJpY2FaICIec2Fsc2EgYmFyIHNhbiBqb3PDqSBjb3N0YSByaWNhkgEJc2Fsc2FfYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJLYWkxaGRHRm5FQUXgAQD6AQQIABAX!16s%2Fg%2F11hzyh6tsz?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+506 2233 3814",
+        "website": "https://www.facebook.com/Salsa54discotheque",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Google category is Salsa bar. Topics are dance and place to dance. No bachata or kizomba topic.",
+        "dances": ["salsa"],
+        "hours": [
+          { "weekday": 0, "text": "2 PM–5 AM" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "Closed" },
+          { "weekday": 4, "text": "5 PM–5 AM" },
+          { "weekday": 5, "text": "5 PM–5 AM" },
+          { "weekday": 6, "text": "5 PM–5 AM" }
+        ]
+      }
+    },
+    {
+      "id": "ottawa",
+      "city": "Ottawa",
+      "venue": {
+        "name": "RAHIM SALSA FRIDAY",
+        "address": "275 Elgin St, Ottawa, ON K2P 0H8, Canada",
+        "mapsUrl": "https://www.google.com/maps/place/RAHIM+SALSA+FRIDAY/@45.4247,-75.695,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Ottawa!3m6!1s0x4cce05a940f8a083:0xc16c7d1c1ed79263!8m2!3d45.4177003!4d-75.6897964!15sChBzYWxzYSBiYXIgT3R0YXdhWhIiEHNhbHNhIGJhciBvdHRhd2GSAQpkYW5jZV9oYWxsmgEkQ2hkRFNVaE5NRzluUzBWSmNXOXljamRZZG5RMmREaFJSUkFC4AEA-gEECAAQRA!16s%2Fg%2F11b6hsq3hy?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+1 613-295-5038",
+        "website": "https://www.rahimsalsa.com/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance hall. Topics salsa dancing 14, bachata 8. Wednesday is National Day for Truth and Reconciliation and Google says hours might differ. No kizomba topic.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          { "weekday": 0, "text": "Closed" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "7 PM–11 PM" },
+          { "weekday": 4, "text": "Closed" },
+          { "weekday": 5, "text": "7:30 PM–12:30 AM" },
+          { "weekday": 6, "text": "Closed" }
+        ]
+      }
+    },
+    {
+      "id": "managua",
+      "city": "Managua",
+      "venue": {
+        "name": "Swing Latino's",
+        "address": "5Q29+Q6J, Managua 11012, Nicaragua",
+        "mapsUrl": "https://www.google.com/maps/place/Swing+Latino's/@12.1547,-86.2737,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Managua!3m6!1s0x8f73fd6b83317c85:0xd37f70a1b5859e79!8m2!3d12.1519718!4d-86.2319859!15sChFzYWxzYSBiYXIgTWFuYWd1YZIBBWRpc2Nv4AEA!16s%2Fg%2F11fqzmj58m?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": null,
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Disco club. Topic salsa 2. No bachata or kizomba topic. Phone and website not listed.",
+        "dances": ["salsa"],
+        "hours": [
+          { "weekday": 0, "text": "Closed" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "Closed" },
+          { "weekday": 4, "text": "8:30 PM–12 AM" },
+          { "weekday": 5, "text": "8 PM–12 AM" },
+          { "weekday": 6, "text": "8 AM–12 AM" }
+        ]
+      }
+    },
+    {
+      "id": "kingston",
+      "city": "Kingston",
+      "venue": {
+        "name": "Club Cubana",
+        "address": "75 Hope Rd, Kingston, Jamaica",
+        "mapsUrl": "https://www.google.com/maps/place/Club+Cubana/@17.9714,-76.7931,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Kingston+Jamaica!3m6!1s0x8edb3f0a265a5bdd:0xeb8f4c15a1b788b7!8m2!3d18.0195879!4d-76.7775369!15sChpzYWxzYSBiYXIgS2luZ3N0b24gSmFtYWljYVocIhpzYWxzYSBiYXIga2luZ3N0b24gamFtYWljYZIBA2JhcpoBRENpOURRVWxSUVVOdlpFTm9kSGxqUmpsdlQyMUdNMWRWZEhaUlZsSnFURlZvVjA5Rk5ETk9SRlpZVXpKMFZsTXlZeEFC4AEA-gEECAAQNg!16s%2Fg%2F11t1b5h833?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+1 876-631-7777",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Topic salsa dancing 9. Salsa lessons chip is not a dance. No bachata or kizomba topic. Website not listed.",
+        "dances": ["salsa"],
+        "hours": [
+          { "weekday": 0, "text": "Closed" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "11 AM–12 AM" },
+          { "weekday": 3, "text": "11 AM–12 AM" },
+          { "weekday": 4, "text": "11 AM–12 AM" },
+          { "weekday": 5, "text": "11 AM–2:30 AM" },
+          { "weekday": 6, "text": "7 PM–2:30 AM" }
+        ]
+      }
+    },
+    {
+      "id": "sao_tome",
+      "city": "São Tomé",
+      "venue": {
+        "name": "Discoteca Kizomba",
+        "address": "8PVF+958, Rua Padre Martinho Pinto da Rocha, Rua do Padre Martinho Pinto da Rocha, São Tomé, Rua do Padre Martinho Pinto da Rocha, São Tomé, São Tomé & Príncipe",
+        "mapsUrl": "https://www.google.com/maps/place/Discoteca+Kizomba/@0.3375,6.7283,13z/data=!4m6!3m5!1s0x10766a5ca6a1bad5:0x2a0f5573562d9b6a!8m2!3d0.3434195!4d6.7229558!16s%2Fg%2F11dd_r6cgv?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": null,
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Disco club. Topic kizomba 2. No salsa or bachata topic. Phone and website not listed.",
+        "dances": ["kizomba"],
+        "hours": [
+          { "weekday": 0, "text": "Closed" },
+          { "weekday": 1, "text": "Closed" },
+          { "weekday": 2, "text": "Closed" },
+          { "weekday": 3, "text": "Open 24 hours" },
+          { "weekday": 4, "text": "Closed" },
+          { "weekday": 5, "text": "Open 24 hours" },
+          { "weekday": 6, "text": "Open 24 hours" }
+        ]
+      }
+    },
+    {
+      "id": "porto_novo",
+      "city": "Porto-Novo",
+      "venue": {
+        "name": "BAR LE ZOUGLOU",
+        "address": "Bd Tokpota 2, Porto-Novo, Benin",
+        "mapsUrl": "https://www.google.com/maps/place/BAR+LE+ZOUGLOU/@6.4891201,2.5249429,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Porto-Novo!3m6!1s0x103b517b01485b1d:0xe6eabd74957a72d9!8m2!3d6.4891201!4d2.6011606!15sChRzYWxzYSBiYXIgUG9ydG8tTm92b1oWIhRzYWxzYSBiYXIgcG9ydG8gbm92b5IBCXNhbHNhX2JhcuABAA!16s%2Fg%2F11j9pshnwn?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+229 97079066",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Google category is Salsa bar. Open 24 hours. No bachata or kizomba topic.",
+        "dances": ["salsa"],
+        "hours": [
+          { "weekday": 0, "text": "Open 24 hours" },
+          { "weekday": 1, "text": "Open 24 hours" },
+          { "weekday": 2, "text": "Open 24 hours" },
+          { "weekday": 3, "text": "Open 24 hours" },
+          { "weekday": 4, "text": "Open 24 hours" },
+          { "weekday": 5, "text": "Open 24 hours" },
+          { "weekday": 6, "text": "Open 24 hours" }
+        ]
+      }
+    },
+    {
+      "id": "kigali",
+      "city": "Kigali",
+      "venue": {
+        "name": "Chillax Lounge",
+        "address": "KG 13 Ave, Kigali, Rwanda",
+        "mapsUrl": "https://www.google.com/maps/place/Chillax+Lounge/@-1.9430715,30.0235738,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Kigali!3m6!1s0x19dca6e8609a702b:0x694f886bf92052f!8m2!3d-1.9430715!4d30.0997915!15sChBzYWxzYSBiYXIgS2lnYWxpWhIiEHNhbHNhIGJhciBraWdhbGmSAQZsb3VuZ2WaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVUjRhbGxxVFd4blJSQULgAQD6AQQIABAn!16s%2Fg%2F11cmyzrn5w?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+250 738 858 888",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Lounge bar. Review topics name salsa night (2). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "5 PM–2 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "abuja",
+      "city": "Abuja",
+      "venue": {
+        "name": "Barracuda Resto Pub",
+        "address": "111 Adetokunbo Ademola Cres, Wuse, Abuja 904101, Federal Capital Territory, Nigeria",
+        "mapsUrl": "https://www.google.com/maps/place/Barracuda+Resto+Pub/@9.0726035,7.32325,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Abuja!3m6!1s0x104e0ba40485c389:0x3c0ca2b0325e45f7!8m2!3d9.0726035!4d7.4756853!15sCg9zYWxzYSBiYXIgQWJ1amFaESIPc2Fsc2EgYmFyIGFidWphkgEDYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVF0TTBsRFVscFJFQUXgAQD6AQQIABBA!16s%2Fg%2F11qqx80k2x?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+234 912 235 6336",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar in Wuse, Abuja. Review topics name salsa (67) and salsa nights (7). No bachata or kizomba topic. Thursday is Nigerian Independence Day and Google says hours might differ.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "12 PM–12 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 AM–12 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "zagreb",
+      "city": "Zagreb",
+      "venue": {
+        "name": "Beleza bar",
+        "address": "Ulica Grge Tuškana 37, 10000, Zagreb, Croatia",
+        "mapsUrl": "https://www.google.com/maps/place/Beleza+bar/@45.81,15.98,14z/data=!4m6!3m5!1s0x4765d64d42756631:0x3016be8bf6937a3f!8m2!3d45.8100675!4d15.9983785!16s%2Fg%2F1trrbzwy?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+385 1 4660 365",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Review topics name a bachata event (3). No salsa or kizomba topic. Buena Vista Club has no dance topics and Google says Add hours.",
+        "dances": [
+          "bachata"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "9 AM–10 PM"
+          },
+          {
+            "weekday": 1,
+            "text": "7:30 AM–10 PM"
+          },
+          {
+            "weekday": 2,
+            "text": "7:30 AM–10 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "7:30 AM–10 PM"
+          },
+          {
+            "weekday": 4,
+            "text": "7:30 AM–10 PM"
+          },
+          {
+            "weekday": 5,
+            "text": "7:30 AM–10 PM"
+          },
+          {
+            "weekday": 6,
+            "text": "9 AM–10 PM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vilnius",
+      "city": "Vilnius",
+      "venue": {
+        "name": "Mojitos Casa de Cuba Bar",
+        "address": "Totorių g. 11, Vilnius, 01121 Vilniaus m. sav., Lithuania",
+        "mapsUrl": "https://www.google.com/maps/place/Mojitos+Casa+de+Cuba+Bar/@54.69,25.28,15z/data=!4m6!3m5!1s0x46dd941111cee607:0x14ec0d621464659!8m2!3d54.684909!4d25.2822145!16s%2Fg%2F11bccm0951?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+370 654 77575",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Review topics: salsa 14, bachata 5. No kizomba topic. Pabo Latino topics are latino music only.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "12–5 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "Closed"
+          },
+          {
+            "weekday": 3,
+            "text": "Closed"
+          },
+          {
+            "weekday": 4,
+            "text": "9 PM–12 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "10 PM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "12–6 AM, 10 PM–12 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "tirana",
+      "city": "Tirana",
+      "venue": {
+        "name": "The Bar Velvet",
+        "address": "8RC8+9FW, Rruga Vaso Pasha, Tiranë, Albania",
+        "mapsUrl": "https://www.google.com/maps/place/The+Bar+Velvet/@41.33,19.82,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Tirana!3m6!1s0x135031628b8379cd:0x78de22837592b509!8m2!3d41.3209909!4d19.8162007!15sChBzYWxzYSBiYXIgVGlyYW5hWhIiEHNhbHNhIGJhciB0aXJhbmGSAQpuaWdodF9jbHVimgEkQ2hkRFNVaE5NRzluUzBWSllrNTZjMnBSZFY5VVRXaFJSUkFC4AEA-gEECEgQNA!16s%2Fg%2F11hzc8dkf8?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+355 69 991 1753",
+        "website": "https://thevelvetbar.lovable.app/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Night club. Review topics: bachata 9, salsa 8. A review mentions kizomba, but kizomba is not a topic chip. Google says Add hours.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": null
+      }
+    },
+    {
+      "id": "sofia",
+      "city": "Sofia",
+      "venue": {
+        "name": "club *MIXTAPE 5*",
+        "address": "Podlez @ Vitamin B, bul. Galeriya, Blvd. \"Cherni vrah\", 1142 Sofia, Bulgaria",
+        "mapsUrl": "https://www.google.com/maps/place/club+*MIXTAPE+5*/@42.7,23.32,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Sofia!3m6!1s0x40aa8505c2e4228d:0xf07f33a1c892df52!8m2!3d42.6831049!4d23.3210966!15sCg9zYWxzYSBiYXIgU29maWFaESIPc2Fsc2EgYmFyIHNvZmlhkgEFZGlzY2-aAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnRTWVZWSE1XaE5ibFpUVjBVNE1tVnRPWEZOVmpsU1VXMTRjbUpHUlJBQuABAPoBBAgAEBs!16s%2Fg%2F1vn9ml9c?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+359 87 929 5965",
+        "website": "https://www.facebook.com/mixtape5",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Disco club. Review topics name salsa parties (29). A review mentions bachata, but bachata is not a topic chip. Google lists no weekly hours.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": null
+      }
+    },
+    {
+      "id": "riga",
+      "city": "Riga",
+      "venue": {
+        "name": "Cuba Cafe",
+        "address": "Jauniela 15, Centra rajons, Rīga, LV-1050, Latvia",
+        "mapsUrl": "https://www.google.com/maps/place/Cuba+Cafe/@56.95,24.11,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Riga!3m6!1s0x46eecfd73c7ec7ef:0x54c0e0af867ebdf9!8m2!3d56.948923!4d24.1060217!15sCg5zYWxzYSBiYXIgUmlnYVoQIg5zYWxzYSBiYXIgcmlnYZIBDGNvY2t0YWlsX2JhcpoBJENoZERTVWhOTUc5blMwVkpRMEZuU1VSd2NFeHRjelJSUlJBQuABAPoBBAgAEBA!16s%2Fg%2F11dxj0flyp?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+371 67 224 362",
+        "website": "http://www.cubacaferiga.com/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Cocktail bar. Review topics name salsa (12). No bachata or kizomba topic. A separate 4–6 PM hour line was ignored.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "12 PM–12 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "12 PM–12 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "12 PM–2 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "12 PM–1 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "12 PM–2 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "12 PM–3 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "12 PM–3 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "oslo",
+      "city": "Oslo",
+      "venue": {
+        "name": "Cafe Sør",
+        "address": "Torggata 11, 0181 Oslo, Norway",
+        "mapsUrl": "https://www.google.com/maps/place/Cafe+S%C3%B8r/@59.91,10.75,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Oslo!3m6!1s0x46416e6244d6a8f9:0xdae2b2f8dc6eb06e!8m2!3d59.9141819!4d10.7483536!15sCg5zYWxzYSBiYXIgT3Nsb1oQIg5zYWxzYSBiYXIgb3Nsb5IBC2NvZmZlZV9zaG9wmgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJHTWpSbWJESjNSUkFC4AEA-gEECAAQPw!16s%2Fg%2F1tggm6yx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": null,
+        "website": "http://www.cafesor.no/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Review topics name kizomba (9). A review mentions Tuesday salsa and bachata, but those are not topic chips.",
+        "dances": [
+          "kizomba"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "12 PM–1:30 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "12 PM–1:30 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "12 PM–2:30 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "12 PM–2:30 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "12 PM–2:30 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "12 PM–3:30 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "12 PM–3:30 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "moscow",
+      "city": "Moscow",
+      "venue": {
+        "name": "Club Liberty",
+        "address": "Slavyanskaya Square, 2/5/4 стр.3, Moscow, Russia, 109074",
+        "mapsUrl": "https://www.google.com/maps/place/Club+Liberty/@55.75,37.62,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Moscow!3m6!1s0x46b54af6391ab319:0x7ab621136bac2665!8m2!3d55.753052!4d37.635141!15sChBzYWxzYSBiYXIgTW9zY293WhIiEHNhbHNhIGJhciBtb3Njb3eSAQ5saXZlX211c2ljX2JhcuABAA!16s%2Fg%2F11cjk88gl6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+7 985 883-81-85",
+        "website": "http://clubliberty.ru/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Live music bar. Review topics: salsa 30, bachata 8. No kizomba topic.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "12–6 AM, 5 PM–12 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "12 PM–11 PM"
+          },
+          {
+            "weekday": 2,
+            "text": "12 PM–11 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "12 PM–11 PM"
+          },
+          {
+            "weekday": 4,
+            "text": "12 PM–11 PM"
+          },
+          {
+            "weekday": 5,
+            "text": "12 PM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "12–6 AM, 5 PM–12 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "luxembourg",
+      "city": "Luxembourg",
+      "venue": {
+        "name": "Brasserie de l'Arrêt (Cubana Café)",
+        "address": "365 Rte de Longwy, 1941 Märel Luxembourg",
+        "mapsUrl": "https://www.google.com/maps/place/Brasserie+de+l%27Arr%C3%AAt+(Cubana+Caf%C3%A9)/@49.6033866,6.0158315,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Luxembourg!3m6!1s0x479549500e6e94c7:0x58ffdbcf60b3aff6!8m2!3d49.6033866!4d6.0920492!15sChRzYWxzYSBiYXIgTHV4ZW1ib3VyZ1oWIhRzYWxzYSBiYXIgbHV4ZW1ib3VyZ5IBCnJlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTnNOWEpQV1hkQlJSQULgAQD6AQQIABBJ!16s%2Fg%2F1tgx0yyw?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+352 26 45 84 59",
+        "website": "https://m.facebook.com/profile.php?id=168350416558392",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Restaurant in Märel, Luxembourg City. Review topics: salsa night 6, bachata 4. No kizomba topic.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "Closed"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "6 PM–12 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "6 PM–12 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "6 PM–12 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "6 PM–3 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "6 PM–3 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "kyiv",
+      "city": "Kyiv",
+      "venue": {
+        "name": "Buena Vista",
+        "address": "Velyka Zhytomyrska St, 8/14, Kyiv, Ukraine, 01025",
+        "mapsUrl": "https://www.google.com/maps/place/Buena+Vista/@50.45,30.52,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Kyiv!3m6!1s0x40d4cf20ec3a948f:0x69a9e87605c78366!8m2!3d50.4556007!4d30.5164642!15sCg5zYWxzYSBiYXIgS3lpdloQIg5zYWxzYSBiYXIga3lpdpIBEGN1YmFuX3Jlc3RhdXJhbnSaASRDaGREU1VoTk1HOW5TMFZKUTBGblNVTmFjazE2ZFc1UlJSQULgAQD6AQQIABAa!16s%2Fg%2F11bt_jdxn1?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+380 50 344 4812",
+        "website": "https://m.facebook.com/buenavista.kyiv",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. Review topics name bachata (9). A review mentions Tuesday salsa, but salsa is not a topic chip. Thursday is Ukraine Defender Day and Google says hours might differ.",
+        "dances": [
+          "bachata"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "9 AM–10 PM"
+          },
+          {
+            "weekday": 1,
+            "text": "8 AM–10 PM"
+          },
+          {
+            "weekday": 2,
+            "text": "8 AM–10 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "8 AM–10 PM"
+          },
+          {
+            "weekday": 4,
+            "text": "8 AM–10 PM"
+          },
+          {
+            "weekday": 5,
+            "text": "8 AM–10 PM"
+          },
+          {
+            "weekday": 6,
+            "text": "9 AM–10 PM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "copenhagen",
+      "city": "Copenhagen",
+      "venue": {
+        "name": "Club Mambo",
+        "address": "Vester Voldgade 85, 1552 København, Denmark",
+        "mapsUrl": "https://www.google.com/maps/place/Club+Mambo/@55.68,12.57,13z/data=!3m1!5s0x4652531baabb548f:0xd5154a9c20d82706!4m10!1m2!2m1!1ssalsa+bar+Copenhagen!3m6!1s0x46525312368e9b1b:0x608fee50191fe01a!8m2!3d55.6750278!4d12.5722614!15sChRzYWxzYSBiYXIgQ29wZW5oYWdlbloWIhRzYWxzYSBiYXIgY29wZW5oYWdlbpIBCm5pZ2h0X2NsdWKaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUlNhR0pVTVVKM0VBReABAPoBBAgAEEg!16s%2Fg%2F1q6j8f7kx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+45 33 11 97 66",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Night club. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics name salsa dancing (8). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "Closed"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "Closed"
+          },
+          {
+            "weekday": 3,
+            "text": "Closed"
+          },
+          {
+            "weekday": 4,
+            "text": "Closed"
+          },
+          {
+            "weekday": 5,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 PM–5 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chisinau",
+      "city": "Chișinău",
+      "venue": {
+        "name": "Salsa House Club Café",
+        "address": "Strada Alexandru cel Bun 83, Chișinău, Moldova",
+        "mapsUrl": "https://www.google.com/maps/place/Salsa+House+Club+Caf%C3%A9/@47.02,28.83,13z/data=!4m6!3m5!1s0x40c97c359b61d34f:0xfdd7450cb0144461!8m2!3d47.0278318!4d28.8359401!16s%2Fg%2F11c70cmdfm?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+373 760 00 111",
+        "website": "https://instagram.com/salsahousecafe",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Cafe in Chișinău. Review topics: salsa 4, bachata 4, kizomba 6. Door hours are daytime except Friday night.",
+        "dances": [
+          "bachata",
+          "kizomba",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "Closed"
+          },
+          {
+            "weekday": 1,
+            "text": "10 AM–4 PM"
+          },
+          {
+            "weekday": 2,
+            "text": "10 AM–4 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "10 AM–4 PM"
+          },
+          {
+            "weekday": 4,
+            "text": "10 AM–4 PM"
+          },
+          {
+            "weekday": 5,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "Closed"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bucharest",
+      "city": "Bucharest",
+      "venue": {
+        "name": "Rio Club Bucharest",
+        "address": "Strada Bărăției 31, 030167 București, Romania",
+        "mapsUrl": "https://www.google.com/maps/place/Rio+Club+Bucharest/@44.43,26.1,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Bucharest!3m6!1s0x40b1ff4f32939cc1:0x54b7821c99dc3ed1!8m2!3d44.430558!4d26.104537!15sChNzYWxzYSBiYXIgQnVjaGFyZXN0WhUiE3NhbHNhIGJhciBidWNoYXJlc3SSAQpkYW5jZV9jbHVimgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVJDZDNaUGFsOW5SUkFC4AEA-gEECAAQRw!16s%2Fg%2F11j8630j7v?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+40 760 876 008",
+        "website": "https://rioclub.ro/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics: salsa 30, bachata 29, kizomba 20.",
+        "dances": [
+          "bachata",
+          "kizomba",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "Closed"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "Closed"
+          },
+          {
+            "weekday": 3,
+            "text": "Closed"
+          },
+          {
+            "weekday": 4,
+            "text": "Closed"
+          },
+          {
+            "weekday": 5,
+            "text": "10 PM–4 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 PM–4 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bratislava",
+      "city": "Bratislava",
+      "venue": {
+        "name": "Casa del Havana",
+        "address": "Michalská 1484/26, 811 03 Staré Mesto, Slovakia",
+        "mapsUrl": "https://www.google.com/maps/place/Casa+del+Havana/@48.15,17.11,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Bratislava!3m6!1s0x476c895cbe2a9f4d:0x194a19ba046fef5d!8m2!3d48.1452126!4d17.1067847!15sChRzYWxzYSBiYXIgQnJhdGlzbGF2YVoWIhRzYWxzYSBiYXIgYnJhdGlzbGF2YZIBDmxpdmVfbXVzaWNfYmFymgEkQ2hkRFNVaE5NRzluUzBWSlEwRm5TVVE1TlUxbGR6WlJSUkFC4AEA-gEECA0QOA!16s%2Fg%2F1tg_vwzc?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+421 910 797 222",
+        "website": "http://www.havanacafe.sk/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Live music bar in Stare Mesto. On Wednesday 30 Sep 2026 the map said Closed, opening at 4 PM. Review topics name salsa (11). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "4–10 PM"
+          },
+          {
+            "weekday": 1,
+            "text": "4–10 PM"
+          },
+          {
+            "weekday": 2,
+            "text": "4–10 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "4 PM–2 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "4 PM–3 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "4 PM–3 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "belgrade",
+      "city": "Belgrade",
+      "venue": {
+        "name": "Barrio Latino",
+        "address": "Dobračina 30a, Beograd, Serbia",
+        "mapsUrl": "https://www.google.com/maps/place/Barrio+Latino/@44.81,20.46,12z/data=!3m1!5s0x475a7ab467af3251:0xb9753d622993d18b!4m10!1m2!2m1!1ssalsa+bar+Belgrade!3m6!1s0x475a7ab47031d657:0x6224ee677bac8579!8m2!3d44.8193477!4d20.4625647!15sChJzYWxzYSBiYXIgQmVsZ3JhZGVaFCISc2Fsc2EgYmFyIGJlbGdyYWRlkgEDYmFymgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVVJDTVdFM1UxSlJFQUXgAQD6AQQIABAu!16s%2Fg%2F11hbsjrh46?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+381 60 4538580",
+        "website": "https://www.instagram.com/barrio_latino_belgrade/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. On Wednesday 30 Sep 2026 the map said Closed, opening Friday at 10 PM. Review topics: salsa 12, bachata 4. No kizomba topic.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "8 PM–2 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "Closed"
+          },
+          {
+            "weekday": 3,
+            "text": "Closed"
+          },
+          {
+            "weekday": 4,
+            "text": "Closed"
+          },
+          {
+            "weekday": 5,
+            "text": "10 PM–3 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 PM–3 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yerevan",
+      "city": "Yerevan",
+      "venue": {
+        "name": "Las Noches Dance & Bar",
+        "address": "128 Nalbandyan St, Yerevan, Armenia",
+        "mapsUrl": "https://www.google.com/maps/place/Las+Noches+Dance+%26+Bar/@40.18,44.51,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Yerevan!3m6!1s0x406abd507b386dd1:0x272d5b0bc2b5fa7b!8m2!3d40.1833199!4d44.525213!15sChFzYWxzYSBiYXIgWWVyZXZhbloTIhFzYWxzYSBiYXIgeWVyZXZhbpIBCmRhbmNlX2NsdWKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMnhzVTFOWWNGZE9NRnBZV2xoYVJGWnFhRzVQV0dSU1VXNXdOazFZWXhBQuABAPoBBAgAEDk!16s%2Fg%2F11vlt_80gm?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+374 77 971007",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening at 10 PM. Review topics: bachata 3, salsa 2, kizomba 2.",
+        "dances": [
+          "bachata",
+          "kizomba",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "10 PM–5 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 PM–5 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "vientiane",
+      "city": "Vientiane",
+      "venue": {
+        "name": "The Blues Box Vientiane",
+        "address": "Rue Pangkham, Vientiane, Laos",
+        "mapsUrl": "https://www.google.com/maps/place/The+Blues+Box+Vientiane/@17.9647287,102.5321914,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Vientiane!3m6!1s0x312469006929ff1f:0x4956cd15034ca13b!8m2!3d17.9647287!4d102.6084091!15sChNzYWxzYSBiYXIgVmllbnRpYW5lWhUiE3NhbHNhIGJhciB2aWVudGlhbmWSAQZsb3VuZ2WaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFPYmxGNmJEUlZiWEJTV2pBd01VNXVhM1JhZWxKellrTXhTRlpIWXhBQuABAPoBBAgAEDY!16s%2Fg%2F11vsw8v8qf?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+856 30 51 65 340",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Lounge bar. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics name salsa night (2). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "5 PM–12 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "Closed"
+          },
+          {
+            "weekday": 2,
+            "text": "5 PM–12 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "5 PM–12 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "5 PM–12 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "5 PM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "5 PM–12 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "phnom_penh",
+      "city": "Phnom Penh",
+      "venue": {
+        "name": "CanCan, Restaurant, Dancing, Live-Music & DJs",
+        "address": "14C Street 308, Phnom Penh 12301, Cambodia",
+        "mapsUrl": "https://www.google.com/maps/place/CanCan,+Restaurant,+Dancing,+Live-Music+%26+DJs/@11.56,104.92,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Phnom+Penh!3m6!1s0x310951d8db962975:0x5520992fb9b99d97!8m2!3d11.553169!4d104.9300925!15sChRzYWxzYSBiYXIgUGhub20gUGVuaFoWIhRzYWxzYSBiYXIgcGhub20gcGVuaJIBCm5pZ2h0X2NsdWKaAURDaTlEUVVsUlFVTnZaRU5vZEhsalJqbHZUMjFHUW1FemFIcFpiVTUyVkVjMWRtUnVWbmRQU0VJeVZHNUNNbUpIWXhBQuABAPoBBAgSEDI!16s%2Fg%2F11q40b4jhb?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+855 88 277 7907",
+        "website": "https://bassacstreet.com/cancan/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Night club. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics: salsa dancing night 5, bachata 3. No kizomba topic.",
+        "dances": [
+          "bachata",
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "5 PM–1 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "5 PM–1 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "manama",
+      "city": "Manama",
+      "venue": {
+        "name": "Iguana Lounge",
+        "address": "Bahrain, Juffair, Juffair Boulevard, ground floor, Bahrain",
+        "mapsUrl": "https://www.google.com/maps/place/Iguana+Lounge/@26.22,50.58,13z/data=!4m10!1m2!2m1!1ssalsa+bar+Manama!3m6!1s0x3e49a9e2c65ab6e3:0xcaa70d6e84f73017!8m2!3d26.218642!4d50.6071375!15sChBzYWxzYSBiYXIgTWFuYW1hWhIiEHNhbHNhIGJhciBtYW5hbWGSAQZsb3VuZ2WaASNDaFpEU1VoTk1HOW5TMFZKUTBGblNVUm9iVGRMWTBGUkVBReABAPoBBAgiEEw!16s%2Fg%2F11rw6hmhb4?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+973 3352 3522",
+        "website": "https://www.instagram.com/iguana.bh",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Lounge bar in Juffair, Manama. On Wednesday 30 Sep 2026, morning Bahrain time, the map said Closed, opening at 6 PM. Review topics name salsa night (7). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "6 PM–2:30 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "6 PM–2:30 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hanoi",
+      "city": "Hanoi",
+      "venue": {
+        "name": "La Habanera “Casa del Ron”",
+        "address": "81C Đ. Xuân Diệu, Tây Hồ, Hà Nội, Vietnam",
+        "mapsUrl": "https://www.google.com/maps/place/La+Habanera+%E2%80%9CCasa+del+Ron%E2%80%9D/@21.0676142,105.6735779,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Hanoi!3m6!1s0x3135ab183732c8bf:0x8c58739f3750a828!8m2!3d21.0676142!4d105.8260132!15sCg9zYWxzYSBiYXIgSGFub2laESIPc2Fsc2EgYmFyIGhhbm9pkgEDcHVimgEjQ2haRFNVaE5NRzluUzBWSlEwRm5TVU0zYTNWNWMwdEJFQUXgAQD6AQQIABBC!16s%2Fg%2F11jh8tvw10?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+84 353 207 220",
+        "website": "https://lahabanerahanoi.com/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Pub in Tay Ho, Hanoi. On Wednesday 30 Sep 2026, morning Hanoi time, the map said Closed, opening at 6 PM. Review topics name bachata (5). No salsa or kizomba topic. Dancing and latin music were not counted.",
+        "dances": [
+          "bachata"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "6 PM–2 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "6 PM–2 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "doha",
+      "city": "Doha",
+      "venue": {
+        "name": "La Vista 55",
+        "address": "InterContinental Doha The City, Off Al Wahda Road, Doha, Qatar",
+        "mapsUrl": "https://www.google.com/maps/place/La+Vista+55/@25.29,51.53,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Doha!3m6!1s0x3e45c5eb03278d4d:0xb793d08386467ab6!8m2!3d25.3266689!4d51.5248777!15sCg5zYWxzYSBiYXIgRG9oYVoQIg5zYWxzYSBiYXIgZG9oYZIBA2JhcpoBJENoZERTVWhOTUc5blMwVkpRMEZuVFVSdmFrOWhVbnBSUlJBQuABAPoBBAgAEDo!16s%2Fg%2F11gxr37pw_?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+974 7021 8765",
+        "website": "http://bit.ly/LaVistaDoha",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar at InterContinental Doha The City. On Wednesday 30 Sep 2026, morning Doha time, the map said Closed, opening at 5 PM. Review topics name salsa dancing (2). No bachata or kizomba topic.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "5 PM–2 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "5 PM–2 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "amman",
+      "city": "Amman",
+      "venue": {
+        "name": "Scappa Lounge",
+        "address": "Al-Kuroum St. 25, Amman, Jordan",
+        "mapsUrl": "https://www.google.com/maps/place/Scappa+Lounge/@31.9577742,35.7545742,12z/data=!4m10!1m2!2m1!1ssalsa+bar+Amman!3m6!1s0x151ca12ce9a93a1d:0x476867ab4703e54b!8m2!3d31.9577742!4d35.9070095!15sCg9zYWxzYSBiYXIgQW1tYW5aESIPc2Fsc2EgYmFyIGFtbWFukgEGbG91bmdlmgFEQ2k5RFFVbFJRVU52WkVOb2RIbGpSamx2VDJwb2JGWnVTa3RWVmtKNFZVY3hUbUZGWkV0VGJscERUa1UxUWsxV1JSQULgAQD6AQQIABBI!16s%2Fg%2F11y97p3j0s?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+962 7 9055 5919",
+        "website": "https://www.instagram.com/scappa.amman",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Lounge bar. On Wednesday 30 Sep 2026, early morning Amman time, the map said Closed, opening at 4 PM. Review topics name salsa night (4). No bachata or kizomba topic. Dancing and dance floor were not counted.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 1,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "12 AM–12 PM, 4 PM–12 AM"
+          },
+          {
+            "weekday": 3,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 4,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 5,
+            "text": "4 PM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "4 PM–12 AM"
+          }
+        ]
+      }
+    },
+    {
+      "id": "jakarta",
+      "city": "Jakarta",
+      "venue": {
+        "name": "Amigos Bar & Cantina Kemang",
+        "address": "Kemang Club Villas, Jl. Kemang Selatan I, RT.8/RW.3, Bangka, Mampang Prapatan, South Jakarta City, Jakarta 12730, Indonesia",
+        "mapsUrl": "https://www.google.com/maps/place/Amigos+Bar+%26+Cantina+Kemang/@-6.2653227,106.8203703,17z/data=!3m1!4b1!4m6!3m5!1s0x2e69f340b95fec27:0x921852f1d6b22a7d!8m2!3d-6.2653227!4d106.8203703!16s%2Fg%2F1thlqcpp?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+62 822-9782-9855",
+        "website": "http://www.amigos-resto.com/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Tex-Mex restaurant in South Jakarta. On Wednesday 30 Sep 2026, morning Jakarta time, the map said Closed, opening at 10 AM. Review topics name salsa night (39). No bachata or kizomba topic. Live music, latin music, and dance music were not counted.",
+        "dances": [
+          "salsa"
+        ],
+        "hours": [
+          {
+            "weekday": 0,
+            "text": "10 AM–10 PM"
+          },
+          {
+            "weekday": 1,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 2,
+            "text": "10 AM–10 PM"
+          },
+          {
+            "weekday": 3,
+            "text": "10 AM–10 PM"
+          },
+          {
+            "weekday": 4,
+            "text": "10 AM–10 PM"
+          },
+          {
+            "weekday": 5,
+            "text": "10 AM–12 AM"
+          },
+          {
+            "weekday": 6,
+            "text": "10 AM–12 AM"
+          }
+        ]
+      }
+    }
+  ]
+}

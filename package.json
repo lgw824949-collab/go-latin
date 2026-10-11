@@ -1,0 +1,12 @@
+{
+  "name": "go-latin",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node data/check.js && node data/to-seed.js",
+    "dev": "npm run dev --prefix web"
+  },
+  "dependencies": {
+    "geo-tz": "^8.1.9"
+  }
+}

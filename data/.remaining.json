@@ -1,0 +1,281 @@
+{
+  "checked": "2026-09-30",
+  "empty": [
+    {
+      "id": "stockholm",
+      "note": "Searches for salsa nightclub, latin dance bar, and kizomba returned dance schools. Paladar de Cuba topics are rum and food, not salsa, bachata, or kizomba. Left empty."
+    },
+    {
+      "id": "kuala_lumpur",
+      "note": "Salsa nightclub search was mostly dance schools. Havana Bar & Grill topics are crowd, pool, live music, and a dance floor, not salsa, bachata, or kizomba. Latin Tropical Yoko’s topics are latin music and a band, not those dance names. Left empty."
+    },
+    {
+      "id": "manila",
+      "note": "Salsa and bachata searches in Manila mostly returned Makati dance schools or restaurants using salsa as a sauce. Club ZZYZX in Malate is a night club, but review topics are music, DJs, and dancing, not salsa, bachata, or kizomba. Left empty."
+    },
+    {
+      "id": "brasilia",
+      "note": "Salsa nightclub and bachata searches returned dance schools or bars whose snippets do not name salsa, bachata, or kizomba. Caribeño is permanently closed. Left empty."
+    },
+    {
+      "id": "panama_city",
+      "note": "Sama Sky Lounge and Casa Jaguar do not have salsa, bachata, or kizomba review topics. Bachata search results were dance schools. La Bachata Panama is a Sunday social with classes and has no review topics. Left empty."
+    },
+    {
+      "id": "accra",
+      "note": "Salsa and kizomba results were dance schools. Corazón Night Club has six reviews and no dance topics, and Google places it at a school plus code. Left empty."
+    }
+  ],
+  "capitals": [
+    {
+      "id": "brussels",
+      "city": "Brussels",
+      "venue": {
+        "name": "Salsa Bar Cartagena",
+        "address": "Rue du Marché au Charbon 70, 1000 Bruxelles, Belgium",
+        "mapsUrl": "https://www.google.com/maps/place/Salsa+Bar+Cartagena/@50.8459791,4.3485548,17z/data=!3m1!4b1!4m6!3m5!1s0x47c3c47850ce2691:0x146ca8ec7c6d04f3!8m2!3d50.8459791!4d4.3485548!16s%2Fg%2F1tf39pxb?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+32 2 808 73 22",
+        "website": "https://www.privateaser.com/lieu/46623-cartagena-salsa-bar",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. On Wednesday 30 Sep 2026, early morning Brussels time, the map said Closed, opening at 6 PM. Google says the business updated these hours 9 weeks ago. Review topics: salsa classes 10, bachata 9. No kizomba topic.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "12–6 AM, 6 PM–12 AM"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "Closed"},
+          {"weekday": 3, "text": "6 PM–12 AM"},
+          {"weekday": 4, "text": "12–4 AM, 6 PM–12 AM"},
+          {"weekday": 5, "text": "12–4 AM, 6 PM–12 AM"},
+          {"weekday": 6, "text": "12–6 AM, 6 PM–12 AM"}
+        ]
+      }
+    },
+    {
+      "id": "vienna",
+      "city": "Vienna",
+      "venue": {
+        "name": "Danzon",
+        "address": "Johannesgasse 3, 1010 Wien, Austria",
+        "mapsUrl": "https://www.google.com/maps/place/Danzon/@48.2053122,16.3715212,17z/data=!3m1!4b1!4m6!3m5!1s0x476d079e9e1f9257:0xc916a5de83235d6a!8m2!3d48.2053122!4d16.3715212!16s%2Fg%2F11b6vc6qhx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+43 676 5505840",
+        "website": "https://www.danzon.club/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance hall. On Wednesday 30 Sep 2026, early morning Vienna time, the map said Closed, opening at 6 PM. Review topics: salsa 38, bachata 3. No kizomba topic.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "12–6 AM"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "Closed"},
+          {"weekday": 3, "text": "6 PM–12 AM"},
+          {"weekday": 4, "text": "12–4 AM, 6 PM–12 AM"},
+          {"weekday": 5, "text": "12–4 AM, 6 PM–12 AM"},
+          {"weekday": 6, "text": "12–6 AM, 6 PM–12 AM"}
+        ]
+      }
+    },
+    {
+      "id": "prague",
+      "city": "Prague",
+      "venue": {
+        "name": "La Macumba Music Latino bar",
+        "address": "Štefánikova 230/7, 150 00 Praha 5-Anděl, Czechia",
+        "mapsUrl": "https://www.google.com/maps/place/La+Macumba+Music+Latino+bar/@50.0728529,14.4037201,17z/data=!3m1!4b1!4m6!3m5!1s0x470b94f88213dae5:0xed494c91d0fd1632!8m2!3d50.0728529!4d14.4037201!16s%2Fg%2F1pp2x55tq?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+420 776 795 166",
+        "website": "http://www.lamacumba.cz/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance club. On Wednesday 30 Sep 2026, about 2:45 AM Prague time, the map said it closes soon at 3 AM. Review topics: salsa 110, bachata 57, kizomba 22.",
+        "dances": ["bachata", "kizomba", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "6 PM–3 AM"},
+          {"weekday": 2, "text": "6 PM–3 AM"},
+          {"weekday": 3, "text": "6 PM–3 AM"},
+          {"weekday": 4, "text": "6 PM–3 AM"},
+          {"weekday": 5, "text": "6 PM–4 AM"},
+          {"weekday": 6, "text": "6 PM–4 AM"}
+        ]
+      }
+    },
+    {
+      "id": "warsaw",
+      "city": "Warsaw",
+      "venue": {
+        "name": "Dos Mundos",
+        "address": "Al. Jerozolimskie 123A, 02-017 Warszawa, Poland",
+        "mapsUrl": "https://www.google.com/maps/place/Dos+Mundos/@52.2247441,20.9912153,17z/data=!3m1!4b1!4m6!3m5!1s0x471ecc912d0d95b9:0x146c911302a47633!8m2!3d52.2247441!4d20.9912153!16s%2Fg%2F11g8f7pqxx?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": null,
+        "website": "https://www.akademiatanca.com.pl/dos-mundos/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Dance club. On Wednesday 30 Sep 2026 the map said Closed, opening at 10:15 PM Friday. Review topics: salsa 45, bachata 41, kizomba 32. Google has no phone number for this place.",
+        "dances": ["bachata", "kizomba", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "Closed"},
+          {"weekday": 3, "text": "Closed"},
+          {"weekday": 4, "text": "Closed"},
+          {"weekday": 5, "text": "10:15 PM–12 AM"},
+          {"weekday": 6, "text": "12:15–3 AM"}
+        ]
+      }
+    },
+    {
+      "id": "budapest",
+      "city": "Budapest",
+      "venue": {
+        "name": "El Cañonazo de la Habana",
+        "address": "Budapest, Ó u. 24-26, 1066 Hungary",
+        "mapsUrl": "https://www.google.com/maps/place/El+Ca%C3%B1onazo+de+la+Habana/@47.5041288,19.0579591,17z/data=!3m1!4b1!4m6!3m5!1s0x4741dc12c728282f:0x46e517b2bdbc423a!8m2!3d47.5041288!4d19.0579591!16s%2Fg%2F11gbk4_g3z?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+36 30 251 3733",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Cuban restaurant. On Wednesday 30 Sep 2026, early morning Budapest time, the map said Closed, opening at 5:30 PM. Review topics: salsa dancing 8, bachata dancing 3. No kizomba topic. Google has no website.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "5:30 PM–12 AM"},
+          {"weekday": 3, "text": "5:30 PM–12 AM"},
+          {"weekday": 4, "text": "5:30 PM–12 AM"},
+          {"weekday": 5, "text": "5:30 PM–1 AM"},
+          {"weekday": 6, "text": "5:30 PM–1 AM"}
+        ]
+      }
+    },
+    {
+      "id": "athens",
+      "city": "Athens",
+      "venue": {
+        "name": "FELICES AT TROPICANA LATIN BAR ATHENS",
+        "address": "Evelpidon 4, Athina 114 74, Greece",
+        "mapsUrl": "https://www.google.com/maps/place/FELICES+AT+TROPICANA+LATIN+BAR+ATHENS/@37.9953353,23.7401563,17z/data=!3m1!4b1!4m6!3m5!1s0x14a1a330067f80c9:0xb809d30bd103e6a2!8m2!3d37.9953353!4d23.7401563!16s%2Fg%2F11t0vy7mn5?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+30 697 979 1065",
+        "website": "https://instagram.com/tropicanalatinbar?igshid=YmMyMTA2M2Y=",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Bar. On Wednesday 30 Sep 2026 the map said Closed, opening at 10:30 PM Saturday. Saturday the door is open. The other days the door stays shut. Review topics: bachata 12, salsa bachata party 4. No kizomba topic.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "Closed"},
+          {"weekday": 3, "text": "Closed"},
+          {"weekday": 4, "text": "Closed"},
+          {"weekday": 5, "text": "Closed"},
+          {"weekday": 6, "text": "10:30 PM–5 AM"}
+        ]
+      }
+    },
+    {
+      "id": "singapore",
+      "city": "Singapore",
+      "venue": {
+        "name": "Cuba Libre Café & Bar",
+        "address": "3E River Valley Rd 01-03/04 @, Clarke Quay, The Circuit, Singapore 179024",
+        "mapsUrl": "https://www.google.com/maps/place/Cuba+Libre+Caf%C3%A9+%26+Bar/@1.290247,103.8464495,17z/data=!3m1!4b1!4m6!3m5!1s0x31da19a0305e11af:0xa8ef9d178c8d9093!8m2!3d1.290247!4d103.8464495!16s%2Fg%2F1w10_qg6?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+65 8418 0203",
+        "website": "https://cubalibre.asia/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Cuban restaurant. On Wednesday 30 Sep 2026 the map said Closed, opening at 5 PM. Review topics name bachata (6). No salsa or kizomba topic.",
+        "dances": ["bachata"],
+        "hours": [
+          {"weekday": 0, "text": "5:30 PM–3 AM"},
+          {"weekday": 1, "text": "5 PM–3 AM"},
+          {"weekday": 2, "text": "5 PM–3 AM"},
+          {"weekday": 3, "text": "5 PM–3 AM"},
+          {"weekday": 4, "text": "5 PM–3 AM"},
+          {"weekday": 5, "text": "5 PM–3 AM"},
+          {"weekday": 6, "text": "5 PM–4 AM"}
+        ]
+      }
+    },
+    {
+      "id": "santiago",
+      "city": "Santiago",
+      "venue": {
+        "name": "Club Orixas",
+        "address": "Tarapacá 755, 8330170 Santiago, Región Metropolitana, Chile",
+        "mapsUrl": "https://www.google.com/maps/place/Club+Orixas/@-33.4464674,-70.6464441,17z/data=!3m1!4b1!4m6!3m5!1s0x9662c50ab878a0ff:0x1bbd01276b7ca702!8m2!3d-33.4464674!4d-70.6464441!16s%2Fg%2F1tkp0zzt?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+56 2 2638 0561",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Night club. On Tuesday night, 30 Sep 2026 Santiago time, the map said Open, closing at 2:30 AM. Review topics: bachata 119, cuban salsa 53, salsa club 16. No kizomba topic. Google has no website.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "7:30 PM–2:30 AM"},
+          {"weekday": 3, "text": "7:30 PM–2:30 AM"},
+          {"weekday": 4, "text": "7 PM–3 AM"},
+          {"weekday": 5, "text": "7:30 PM–4 AM"},
+          {"weekday": 6, "text": "7:30 PM–4 AM"}
+        ]
+      }
+    },
+    {
+      "id": "montevideo",
+      "city": "Montevideo",
+      "venue": {
+        "name": "La Bodeguita del Sur",
+        "address": "Soriano 840, 11100 Montevideo, Departamento de Montevideo, Uruguay",
+        "mapsUrl": "https://www.google.com/maps/place/La+Bodeguita+del+Sur/@-34.9084328,-56.198165,17z/data=!3m1!4b1!4m6!3m5!1s0x959f81d4a87a3921:0xb8c19665ac4aefe4!8m2!3d-34.9084328!4d-56.198165!16s%2Fg%2F1tcxkyq3?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+598 99 009 465",
+        "website": null,
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Night club. On Tuesday night, 30 Sep 2026 Montevideo time, the map said Closed, opening at 11:30 PM Friday. Review topics: bachata 19, dancing salsa 9, salsa 3. No kizomba topic. Google has no website.",
+        "dances": ["bachata", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "Closed"},
+          {"weekday": 1, "text": "Closed"},
+          {"weekday": 2, "text": "Closed"},
+          {"weekday": 3, "text": "Closed"},
+          {"weekday": 4, "text": "Closed"},
+          {"weekday": 5, "text": "11:30 PM–4 AM"},
+          {"weekday": 6, "text": "10 PM–4 AM"}
+        ]
+      }
+    },
+    {
+      "id": "quito",
+      "city": "Quito",
+      "venue": {
+        "name": "Lavoe Salsa Danceclub",
+        "address": "170135 Quito, Ecuador",
+        "mapsUrl": "https://www.google.com/maps/place/Lavoe+Salsa+Danceclub/@-0.1747557,-78.48723,17z/data=!3m1!4b1!4m6!3m5!1s0x91d59a8fee42805d:0xd0d2dfb16a2a44bc!8m2!3d-0.1747557!4d-78.48723!16s%2Fg%2F1pp2x7px9?hl=en&entry=ttu&g_ep=EgoyMDI2MDkyNy4xIKXMDSoASAFQAw%3D%3D",
+        "phone": "+593 96 400 4478",
+        "website": "https://lavoe.ec/",
+        "status": "operating",
+        "source": "google_maps",
+        "sourceChecked": "2026-09-30",
+        "sourceNote": "Disco club. On Tuesday evening, 30 Sep 2026 Quito time, the map said it closes soon at 9 PM and opens Wednesday at 6 PM. Review topics: bachata 103, salsa 95, kizomba dancing 11. Google's address is the postal code only, with no street.",
+        "dances": ["bachata", "kizomba", "salsa"],
+        "hours": [
+          {"weekday": 0, "text": "3–8 PM"},
+          {"weekday": 1, "text": "6–9 PM"},
+          {"weekday": 2, "text": "6–9 PM"},
+          {"weekday": 3, "text": "6 PM–2 AM"},
+          {"weekday": 4, "text": "6 PM–2 AM"},
+          {"weekday": 5, "text": "9 PM–3 AM"},
+          {"weekday": 6, "text": "2–6 PM, 7 PM–3 AM"}
+        ]
+      }
+    }
+  ]
+}
