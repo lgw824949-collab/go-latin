@@ -24,7 +24,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Implement authenticated organizer submission; prevent forged poster paths.
 - [x] Added read-only admin review queue UI and admin-read SQL policy draft (NOT applied/tested).
 - [x] Drafted atomic approval/rejection RPC with admin JWT check, pending-only transition and audit insert (SQL ONLY; NOT applied/tested).
-- [ ] Implement and test secured moderation workflow end to end.
+- [x] Wired admin review buttons to guarded review_quick_party RPC with confirmation and feedback (code only).
+- [ ] Test secured moderation workflow end to end against isolated database.
 - [ ] Add venue picker / reuse of prior organizer SNS and recurring-event copy.
 
 ## GL-PARTY-002 — Approved-only upcoming-party lookup
@@ -76,6 +77,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Connected approve/reject buttons to review_quick_party RPC. Backend SQL remains unapplied and runtime tests pending.
 - 2026-10-19: Added DRAFT_quick_party_review_rpc.sql. Admin decision and audit transaction are draft only; no production DB mutation.
 - 2026-10-19: Added read-only /admin/party-review and DRAFT_quick_party_moderation.sql. No moderation writes enabled. Build/security tests pending.
 - 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
