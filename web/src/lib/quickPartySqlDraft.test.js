@@ -21,7 +21,7 @@ test("poster storage is private and scoped to the organizer folder", () => {
 });
 test("submission RPC checks user, storage owner, quota lock and future city time", () => {
   assert.match(submit, /security definer/i);
-  assert.match(submit, /v_user := auth\.uid\(\)/);
+  assert.match(submit, /v_user\s+uuid\s*:=\s*auth\.uid\(\)/);
   assert.match(submit, /pg_advisory_xact_lock/i);
   assert.match(submit, /owner_id = v_user::text/i);
   assert.match(submit, /p_start_time <= v_city_now/i);
