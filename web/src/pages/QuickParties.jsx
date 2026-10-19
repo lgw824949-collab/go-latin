@@ -187,7 +187,7 @@ export default function QuickParties() {
           {notice ? <p role="status">{notice}</p> : null}
         </form>
         </section>
-      )
+      )}
       <p className="quick-muted"><Link to="/">Back to directory</Link></p>
     </main>
   );
