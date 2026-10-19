@@ -44,8 +44,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 
 ## GL-PARTY-003 — Validation and security
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
-- [x] Added GitHub Actions workflow to run Node 22 quick-party unit tests on relevant changes (workflow code committed; execution result not verified).
-- [x] Added unit test source for local clocks, city filtering, approval state, real dates/times and form validation (NOT executed yet).
+- [x] GitHub Actions Node 22 quick-party unit tests passed (run #39208005049, job `unit`, conclusion success; checked 2026-10-19).
+- [x] Added unit tests for local clocks, city filtering, approval state, real dates/times and form validation; GitHub Actions job passed.
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
 - [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).
 - [ ] Verify poster storage permissions and no public access to unapproved images in test project.
@@ -70,7 +70,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 2. The draft SQL has NOT been executed; `quick_party_submissions` may not exist in the runtime database.
 3. Query errors are shown as unavailable, not as confirmed zero events.
 4. Poster preview uses a local object URL; image is not uploaded or stored.
-5. No build, lint, integration, or security tests have been run as part of this work.
+5. Quick-party unit tests passed in GitHub Actions run #39208005049; full build, lint, integration, and security tests remain unverified.
 6. The first version of the draft SQL does not define a poster storage bucket, secure upload RPC, or admin approval policies. Do not apply it as a complete production migration.
 7. The date filter now excludes events whose local start time is earlier than the current minute, but runtime testing is pending.
 
@@ -81,6 +81,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Verified GitHub Actions run #39208005049 and `unit` job success, including Quick-party unit tests step; full build and database tests still pending.
 - 2026-10-19: Fixed poster object URL lifecycle and precise form errors. Browser runtime testing pending.
 - 2026-10-19: Added client-side genre and date filters to pilot listings; build and runtime checks pending.
 - 2026-10-19: Added .github/workflows/quick-party-tests.yml for automated Node unit checks; no passing CI run claimed.
