@@ -1,0 +1,27 @@
+name: Quick party unit tests
+on:
+  pull_request:
+    paths:
+      - 'web/src/lib/quickPartyRules.js'
+      - 'web/src/lib/quickPartyRules.test.js'
+      - '.github/workflows/quick-party-tests.yml'
+  push:
+    branches:
+      - feature/quick-parties-3-cities
+    paths:
+      - 'web/src/lib/quickPartyRules.js'
+      - 'web/src/lib/quickPartyRules.test.js'
+      - '.github/workflows/quick-party-tests.yml'
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Quick-party unit tests
+        working-directory: web
+        run: node --test src/lib/quickPartyRules.test.js
