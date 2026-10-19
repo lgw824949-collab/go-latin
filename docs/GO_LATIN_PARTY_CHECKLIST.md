@@ -84,6 +84,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Fixed approved-party pagination so the Load more decision uses the original database page length before city-local filtering; added two offline regression checks to CI. No production data or deployment changed.
 - 2026-10-19: Removed direct INSERT policy from the initial schema draft (guarded RPC only), strengthened array constraints, added SQL regression checks, and created docs/GO_LATIN_PARTY_STAGING_ACCEPTANCE.md for isolated end-to-end tests. No staging or production database was changed.
 - 2026-10-19: Added read-only approved-party pagination (50 records/page, deterministic order) and Load more UI. Development branch only; CI verification pending. No organizer write flow enabled.
 - 2026-10-19: CI #39213426986 passed (13 checks, lint, offline build). Hardened draft organizer RPC against null genre array elements and empty poster filenames; extended static safety assertions. Awaiting latest CI. No database migrations applied.
