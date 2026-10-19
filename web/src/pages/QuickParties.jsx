@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { loadQuickParties } from "../lib/quickPartyData.js";
 import { Link, useSearchParams } from "react-router-dom";
 import "./QuickParties.css";
 
@@ -21,6 +22,18 @@ export default function QuickParties() {
   const [sns, setSns] = useState("");
   const [tab, setTab] = useState("events");
   const [notice, setNotice] = useState("");
+  const [upcoming, setUpcoming] = useState({ status: "loading", rows: [], error: "" });
+
+  useEffect(() => {
+    let active = true;
+    setUpcoming({ status: "loading", rows: [], error: "" });
+    loadQuickParties(selectedCity.id).then((rows) => {
+      if (active) setUpcoming({ status: "ready", rows, error: "" });
+    }).catch((error) => {
+      if (active) setUpcoming({ status: "error", rows: [], error: error.message });
+    });
+    return () => { active = false; };
+  }, [selectedCity.id]);
 
   function selectPoster(file) {
     if (preview) URL.revokeObjectURL(preview);
@@ -66,8 +79,11 @@ export default function QuickParties() {
       </div>
       {tab === "events" ? (
         <section aria-label="Upcoming parties">
-          <p className="quick-empty">No approved upcoming parties are connected yet for {selectedCity.label}. This pilot does not invent or import events.</p>
-          <p className="quick-muted">Dates will be interpreted in {selectedCity.timezone} after the data service is connected.</p>
+          {upcoming.status === "loading" ? <p className="quick-muted">Loading approved parties...</p> : null}
+          {upcoming.status === "error" ? <p role="alert" className="quick-empty">Party listings are not available yet. The pilot database may not be configured. No event availability can be confirmed.</p> : null}
+          {upcoming.status === "ready" && upcoming.rows.length === 0 ? <p className="quick-empty">No approved upcoming parties listed for {selectedCity.label}.</p> : null}
+          {upcoming.status === "ready" ? <ul className="quick-results">{upcoming.rows.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
+          <p className="quick-muted">Event dates use {selectedCity.timezone}. Posters will appear after secure storage is configured.</p>
           <button type="button" onClick={() => setTab("register")}>Post your event</button>
         </section>
       ) : (
