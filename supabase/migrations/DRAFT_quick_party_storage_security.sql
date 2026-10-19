@@ -27,7 +27,7 @@ create or replace function public.quick_party_validate_poster_path()
 returns trigger language plpgsql set search_path = ''
 as $$
 begin
-  if new.poster_path not like new.submitted_by::text || '/%' then
+  if new.poster_path not like (new.submitted_by::text || '/%') then
     raise exception 'Poster must belong to submitting organizer';
   end if;
   return new;
