@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { loadQuickParties, QUICK_PARTY_PAGE_SIZE } from "../lib/quickPartyData.js";
+import { loadQuickParties } from "../lib/quickPartyData.js";
 import { validateQuickParty } from "../lib/quickPartyRules.js";
 import { adminClient } from "../lib/admin.js";
 import { Link, useSearchParams } from "react-router-dom";
@@ -35,8 +35,8 @@ export default function QuickParties() {
 
   useEffect(() => {
     let active = true;
-    loadQuickParties(selectedCity.id, new Date(), page).then((rows) => {
-      if (active) setUpcoming((old) => ({ status: "ready", rows: page === 0 ? rows : [...old.rows, ...rows], error: "", hasMore: rows.length === QUICK_PARTY_PAGE_SIZE }));
+    loadQuickParties(selectedCity.id, new Date(), page).then(({ rows, hasMore }) => {
+      if (active) setUpcoming((old) => ({ status: "ready", rows: page === 0 ? rows : [...old.rows, ...rows], error: "", hasMore }));
     }).catch((error) => {
       if (active) setUpcoming((old) => ({ ...old, status: "error", error: error.message }));
     });
