@@ -84,6 +84,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: CI #39213426986 passed (13 checks, lint, offline build). Hardened draft organizer RPC against null genre array elements and empty poster filenames; extended static safety assertions. Awaiting latest CI. No database migrations applied.
 - 2026-10-19: Added four static SQL-draft safety regression checks and included them in GitHub Actions. These inspect draft code only; they do not replace isolated Supabase integration/security tests. CI run #39213327488 queued at last check.
 - 2026-10-19: Hardened draft submission RPC to reject events already started in the destination city's timezone; added poster-path reuse guard and unique index. SQL not applied; isolated integration tests pending.
 - 2026-10-19: Added organizer-scoped transaction lock for concurrent submission quotas and city-local event date checks to draft RPC. SQL remains unexecuted; isolated integration/security tests pending.
