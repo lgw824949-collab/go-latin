@@ -43,7 +43,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Verify listing does not display unverifiable or rejected events against test DB.
 
 ## GL-PARTY-003 — Validation and security
-- [ ] Verify `npm ci`, `npm run lint`, and `npm run build` succeed in CI (workflow configured; results pending).
+- [x] GitHub Actions run #39210299581: `npm ci`, 7 unit tests, lint (0 errors, 6 warnings), and Vite compilation passed.
+- [ ] Verify updated offline `npx vite build` workflow succeeds; full `npm run build` requires GO_LATIN_SITE_ORIGIN and Supabase data for Seoul prerender.
 - [x] GitHub Actions Node 22 quick-party unit tests passed (run #39208005049, job `unit`, conclusion success; checked 2026-10-19).
 - [x] Added unit tests for local clocks, city filtering, approval state, real dates/times and form validation; GitHub Actions job passed.
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
@@ -81,6 +82,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: CI run #39210299581: install/tests/lint/Vite compilation passed; prerender failed for missing GO_LATIN_SITE_ORIGIN. Switched CI to offline Vite build; next run pending.
 - 2026-10-19: Expanded GitHub Actions to npm ci, unit tests, lint, and production build on web changes; results not yet verified.
 - 2026-10-19: Verified GitHub Actions run #39208005049 and `unit` job success, including Quick-party unit tests step; full build and database tests still pending.
 - 2026-10-19: Fixed poster object URL lifecycle and precise form errors. Browser runtime testing pending.
