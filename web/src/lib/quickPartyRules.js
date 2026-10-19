@@ -18,7 +18,7 @@ export function isUpcomingParty(party, city, now = new Date()) {
   if (party.city_slug !== city) return false;
   if (party.status !== "approved") return false;
   const clock = cityNowParts(city, now);
-  if (!/^\d{4}-\d{2}-\d{2}$/.test(party.event_date ?? "") || !/^\d{2}:\d{2}(:\d{2})?$/.test(party.start_time ?? "")) return false;
+  if (!isValidDate(party.event_date) || !isValidTime(party.start_time)) return false;
   return party.event_date > clock.date || (party.event_date === clock.date && party.start_time.slice(0, 5) >= clock.time);
 }
 export function isValidDate(value) {
@@ -27,9 +27,9 @@ export function isValidDate(value) {
   return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === value;
 }
 export function isValidTime(value) {
-  if (typeof value !== "string" || !/^\d{2}:\d{2}$/.test(value)) return false;
-  const [hour, minute] = value.split(":").map(Number);
-  return hour < 24 && minute < 60;
+  if (typeof value !== "string" || !/^\d{2}:\d{2}(:\d{2})?$/.test(value)) return false;
+  const [hour, minute, second = 0] = value.split(":").map(Number);
+  return hour < 24 && minute < 60 && second < 60;
 }
 export function validateQuickParty(form, now = new Date()) {
   const errors = [];
@@ -37,7 +37,7 @@ export function validateQuickParty(form, now = new Date()) {
   if (!form.poster || !["image/jpeg", "image/png", "image/webp"].includes(form.poster.type) || form.poster.size > 5 * 1024 * 1024 || form.poster.size <= 0) errors.push("Choose a JPG, PNG or WEBP poster up to 5 MB.");
   if (!isValidDate(form.date) || !isValidTime(form.time)) errors.push("Enter a valid date and time.");
   else if (PILOT_TIMEZONES[form.city] && !isUpcomingParty({ city_slug: form.city, status: "approved", event_date: form.date, start_time: form.time }, form.city, now)) errors.push("Choose a future start time in the event city's timezone.");
-  if (!Array.isArray(form.genres) || !form.genres.length || form.genres.some((genre) => !ALLOWED_GENRES.includes(genre.toLowerCase()))) errors.push("Choose at least one valid genre.");
+  if (!Array.isArray(form.genres) || !form.genres.length || form.genres.some((genre) => typeof genre !== "string" || !ALLOWED_GENRES.includes(genre.toLowerCase()))) errors.push("Choose at least one valid genre.");
   if (!form.venue?.trim() || form.venue.trim().length > 160) errors.push("Enter a venue name (up to 160 characters).");
   if (!form.sns?.trim() || form.sns.trim().length > 500) errors.push("Enter a contact SNS (up to 500 characters).");
   return errors;
