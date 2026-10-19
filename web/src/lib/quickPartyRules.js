@@ -36,7 +36,7 @@ export function validateQuickParty(form, now = new Date()) {
   if (!PILOT_TIMEZONES[form.city]) errors.push("Choose a supported city.");
   if (!form.poster || !["image/jpeg", "image/png", "image/webp"].includes(form.poster.type) || form.poster.size > 5 * 1024 * 1024 || form.poster.size <= 0) errors.push("Choose a JPG, PNG or WEBP poster up to 5 MB.");
   if (!isValidDate(form.date) || !isValidTime(form.time)) errors.push("Enter a valid date and time.");
-  else if (PILOT_TIMEZONES[form.city] && !isUpcomingParty({ city_slug: form.city, event_date: form.date, start_time: form.time }, form.city, now)) errors.push("Choose a future start time in the event city's timezone.");
+  else if (PILOT_TIMEZONES[form.city] && !isUpcomingParty({ city_slug: form.city, status: "approved", event_date: form.date, start_time: form.time }, form.city, now)) errors.push("Choose a future start time in the event city's timezone.");
   if (!Array.isArray(form.genres) || !form.genres.length || form.genres.some((genre) => !ALLOWED_GENRES.includes(genre.toLowerCase()))) errors.push("Choose at least one valid genre.");
   if (!form.venue?.trim() || form.venue.trim().length > 160) errors.push("Enter a venue name (up to 160 characters).");
   if (!form.sns?.trim() || form.sns.trim().length > 500) errors.push("Enter a contact SNS (up to 500 characters).");
