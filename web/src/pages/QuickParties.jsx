@@ -44,18 +44,26 @@ export default function QuickParties() {
     return matchGenre && matchDate;
   });
 
+  useEffect(() => {
+    if (!poster) {
+      setPreview("");
+      return;
+    }
+    const url = URL.createObjectURL(poster);
+    setPreview(url);
+    return () => URL.revokeObjectURL(url);
+  }, [poster]);
+
   function selectPoster(file) {
-    if (preview) URL.revokeObjectURL(preview);
     setPoster(null);
-    setPreview("");
     if (!file) return;
-    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024) {
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) || file.size > 5 * 1024 * 1024 || file.size <= 0) {
       setNotice("Use JPG, PNG or WEBP up to 5 MB.");
       return;
     }
     setNotice("");
     setPoster(file);
-    setPreview(URL.createObjectURL(file));
+
   }
   function changeCity(city) {
     const next = new URLSearchParams(params);
@@ -64,8 +72,9 @@ export default function QuickParties() {
   }
   function submit(event) {
     event.preventDefault();
-    if (validateQuickParty({ city: selectedCity.id, poster, date, time, genres, venue, sns }).length) {
-      setNotice("Complete all fields to preview your submission.");
+    const errors = validateQuickParty({ city: selectedCity.id, poster, date, time, genres, venue, sns });
+    if (errors.length) {
+      setNotice(errors.join(" "));
       return;
     }
     // Deliberately no writes until migration, storage and moderation are approved.
