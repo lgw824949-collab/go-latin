@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { loadQuickParties } from "../lib/quickPartyData.js";
 import { validateQuickParty } from "../lib/quickPartyRules.js";
+import { adminClient } from "../lib/admin.js";
 import { Link, useSearchParams } from "react-router-dom";
 import "./QuickParties.css";
 
@@ -15,6 +16,10 @@ export default function QuickParties() {
   const [params, setParams] = useSearchParams();
   const selectedCity = CITIES.find((item) => item.id === params.get("city")) ?? CITIES[0];
   const [poster, setPoster] = useState(null);
+  const [organizer, setOrganizer] = useState(null);
+  const [organizerEmail, setOrganizerEmail] = useState("");
+  const [authBusy, setAuthBusy] = useState(false);
+  const [authNotice, setAuthNotice] = useState("");
   const [preview, setPreview] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -37,6 +42,43 @@ export default function QuickParties() {
     });
     return () => { active = false; };
   }, [selectedCity.id]);
+
+  useEffect(() => {
+    let active = true;
+    let unsubscribe = () => {};
+    try {
+      const client = adminClient();
+      client.auth.getUser().then(({ data, error }) => {
+        if (active) setOrganizer(error ? null : data.user ?? null);
+      }).catch(() => { if (active) setOrganizer(null); });
+      const { data } = client.auth.onAuthStateChange((_event, session) => {
+        if (active) setOrganizer(session?.user ?? null);
+      });
+      unsubscribe = () => data.subscription.unsubscribe();
+    } catch (error) {
+      setAuthNotice(error.message);
+    }
+    return () => { active = false; unsubscribe(); };
+  }, []);
+
+  async function sendOrganizerLink(event) {
+    event.preventDefault();
+    if (authBusy) return;
+    setAuthBusy(true);
+    setAuthNotice("");
+    try {
+      const { error } = await adminClient().auth.signInWithOtp({
+        email: organizerEmail.trim(),
+        options: { shouldCreateUser: true },
+      });
+      if (error) throw error;
+      setAuthNotice("Check your email for a sign-in link. Party submission is still preview-only.");
+    } catch (error) {
+      setAuthNotice(`Sign-in failed: ${error.message}`);
+    } finally {
+      setAuthBusy(false);
+    }
+  }
 
   const visibleParties = upcoming.rows.filter((party) => {
     const matchGenre = genreFilter === "all" || party.dance_genres?.includes(genreFilter);
@@ -116,6 +158,16 @@ export default function QuickParties() {
           <button type="button" onClick={() => setTab("register")}>Post your event</button>
         </section>
       ) : (
+        <section aria-label="Organizer registration">
+          {organizer ? <p className="quick-muted">Signed in as {organizer.email}. Event submission is not yet enabled.</p> : (
+            <form className="quick-form" onSubmit={sendOrganizerLink}>
+              <label className="quick-field">Organizer email
+                <input type="email" value={organizerEmail} onChange={(event) => setOrganizerEmail(event.target.value)} autoComplete="email" required placeholder="you@example.com" />
+              </label>
+              <button type="submit" disabled={authBusy}>{authBusy ? "Sending…" : "Email me a sign-in link"}</button>
+            </form>
+          )}
+          {authNotice ? <p role="status">{authNotice}</p> : null}
         <form className="quick-form" onSubmit={submit}>
           <label className="quick-field">Poster (one image)
             <input type="file" accept="image/jpeg,image/png,image/webp" onChange={(e) => selectPoster(e.target.files?.[0])} />
@@ -134,7 +186,8 @@ export default function QuickParties() {
           <button type="submit">Check submission (preview only)</button>
           {notice ? <p role="status">{notice}</p> : null}
         </form>
-      )}
+        </section>
+      )
       <p className="quick-muted"><Link to="/">Back to directory</Link></p>
     </main>
   );
