@@ -38,11 +38,12 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Added city-local start-time filtering for events that already started today (code only).
 - [ ] Connect securely served approved poster images; check that public reads cannot access pending posters.
 - [ ] Verify city isolation and date logic for all three timezones.
-- [ ] Verify listing does not display unverifiable or rejected events.
+- [x] Changed client listing filter to fail closed unless status is explicitly approved (code review only).
+- [ ] Verify listing does not display unverifiable or rejected events against test DB.
 
 ## GL-PARTY-003 — Validation and security
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
-- [x] Added automated unit test source for local clocks, city filtering, rejected visibility and form validation (NOT executed yet).
+- [x] Added unit test source for local clocks, city filtering, approval state, real dates/times and form validation (NOT executed yet).
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
 - [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).
 - [ ] Verify poster storage permissions and no public access to unapproved images in test project.
@@ -77,6 +78,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Hardened approval status filter and date/time validation; added regression tests. Runtime tests and build still pending.
 - 2026-10-19: Connected approve/reject buttons to review_quick_party RPC. Backend SQL remains unapplied and runtime tests pending.
 - 2026-10-19: Added DRAFT_quick_party_review_rpc.sql. Admin decision and audit transaction are draft only; no production DB mutation.
 - 2026-10-19: Added read-only /admin/party-review and DRAFT_quick_party_moderation.sql. No moderation writes enabled. Build/security tests pending.
