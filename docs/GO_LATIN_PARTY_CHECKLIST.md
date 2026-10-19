@@ -50,6 +50,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).
 - [ ] Verify poster storage permissions and no public access to unapproved images in test project.
 - [ ] Add anti-spam and organizer identity verification appropriate to pilot.
+- [x] Added poster preview URL cleanup on replacement/unmount and detailed form validation feedback (code only).
 - [ ] Test mobile layout, form accessibility and error recovery.
 
 ## GL-PARTY-004 — Release gates (explicit user approval required)
@@ -80,6 +81,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Fixed poster object URL lifecycle and precise form errors. Browser runtime testing pending.
 - 2026-10-19: Added client-side genre and date filters to pilot listings; build and runtime checks pending.
 - 2026-10-19: Added .github/workflows/quick-party-tests.yml for automated Node unit checks; no passing CI run claimed.
 - 2026-10-19: Hardened approval status filter and date/time validation; added regression tests. Runtime tests and build still pending.
