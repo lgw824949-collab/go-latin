@@ -22,6 +22,8 @@ export default function QuickParties() {
   const [venue, setVenue] = useState("");
   const [sns, setSns] = useState("");
   const [tab, setTab] = useState("events");
+  const [genreFilter, setGenreFilter] = useState("all");
+  const [dateFilter, setDateFilter] = useState("");
   const [notice, setNotice] = useState("");
   const [upcoming, setUpcoming] = useState({ status: "loading", rows: [], error: "" });
 
@@ -35,6 +37,12 @@ export default function QuickParties() {
     });
     return () => { active = false; };
   }, [selectedCity.id]);
+
+  const visibleParties = upcoming.rows.filter((party) => {
+    const matchGenre = genreFilter === "all" || party.dance_genres?.includes(genreFilter);
+    const matchDate = !dateFilter || party.event_date === dateFilter;
+    return matchGenre && matchDate;
+  });
 
   function selectPoster(file) {
     if (preview) URL.revokeObjectURL(preview);
@@ -80,10 +88,21 @@ export default function QuickParties() {
       </div>
       {tab === "events" ? (
         <section aria-label="Upcoming parties">
+          <div className="quick-pair">
+            <label className="quick-field">Filter by genre
+              <select value={genreFilter} onChange={(event) => setGenreFilter(event.target.value)}>
+                <option value="all">All genres</option>
+                {GENRES.map((genre) => <option key={genre} value={genre.toLowerCase()}>{genre}</option>)}
+              </select>
+            </label>
+            <label className="quick-field">Filter by date
+              <input type="date" value={dateFilter} onChange={(event) => setDateFilter(event.target.value)} />
+            </label>
+          </div>
           {upcoming.status === "loading" ? <p className="quick-muted">Loading approved parties...</p> : null}
           {upcoming.status === "error" ? <p role="alert" className="quick-empty">Party listings are not available yet. The pilot database may not be configured. No event availability can be confirmed.</p> : null}
-          {upcoming.status === "ready" && upcoming.rows.length === 0 ? <p className="quick-empty">No approved upcoming parties listed for {selectedCity.label}.</p> : null}
-          {upcoming.status === "ready" ? <ul className="quick-results">{upcoming.rows.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
+          {upcoming.status === "ready" && visibleParties.length === 0 ? <p className="quick-empty">No approved upcoming parties match your filters in {selectedCity.label}.</p> : null}
+          {upcoming.status === "ready" ? <ul className="quick-results">{visibleParties.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
           <p className="quick-muted">Event dates use {selectedCity.timezone}. Posters will appear after secure storage is configured.</p>
           <button type="button" onClick={() => setTab("register")}>Post your event</button>
         </section>
