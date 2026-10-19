@@ -26,6 +26,9 @@ test("submission RPC checks user, storage owner, quota lock and future city time
   assert.match(submit, /owner_id = v_user::text/i);
   assert.match(submit, /p_start_time <= v_city_now/i);
   assert.match(submit, /v_recent_count >= 5/i);
+  assert.match(submit, /array_position\(p_dance_genres, null\) is not null/i);
+  assert.match(submit, /left\(p_poster_path, length\(v_user::text\) \+ 1\)/i);
+  assert.match(submit, /length\(p_poster_path\) <= length\(v_user::text\) \+ 1/i);
   assert.match(submit, /'pending', v_user/);
   assert.match(submit, /revoke all on function public\.submit_quick_party[\s\S]*from public, anon/i);
 });
