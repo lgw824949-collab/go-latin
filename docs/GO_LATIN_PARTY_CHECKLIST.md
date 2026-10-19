@@ -19,7 +19,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] UI supports poster preview, date, time, multi-genre, venue and SNS entry.
 - [x] Submission button explicitly indicates preview-only; no database write occurs.
 - [ ] Confirm SQL compatibility and policies against actual project schema in a safe test environment.
-- [ ] Add server-side file type/size validation, private poster bucket, secure upload flow and rate limits.
+- [x] Drafted private poster bucket and authenticated owner-folder upload policy in separate SQL (NOT applied).\n- [ ] Implement server-side file validation, secure upload flow and rate limits.
 - [ ] Implement authenticated organizer submission; prevent forged poster paths.
 - [ ] Implement authorized moderation and approval workflow.
 - [ ] Add venue picker / reuse of prior organizer SNS and recurring-event copy.
@@ -39,7 +39,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
 - [x] Added automated unit test source for local clocks, city filtering, rejected visibility and form validation (NOT executed yet).
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
-- [ ] Confirm poster storage permissions and no public access to unapproved images.
+- [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).\n- [ ] Verify poster storage permissions and no public access to unapproved images in test project.
 - [ ] Add anti-spam and organizer identity verification appropriate to pilot.
 - [ ] Test mobile layout, form accessibility and error recovery.
 
@@ -67,7 +67,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 ## Next action (without modifying production)
 1. Implement safe testable local validation and timezone-aware upcoming filtering.
 2. Add unit tests for date and status handling.
-3. Draft secure storage/moderation migration additions without executing SQL.
+3. Draft secure moderation workflow and test private storage policies in a nonproduction project.
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log\n- 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
