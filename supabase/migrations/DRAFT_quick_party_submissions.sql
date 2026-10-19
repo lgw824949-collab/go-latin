@@ -16,6 +16,7 @@ create table if not exists public.quick_party_submissions (
   constraint poster_path_nonempty check (length(trim(poster_path)) > 0)
 );
 create index if not exists quick_party_public_lookup_idx on public.quick_party_submissions (city_slug, event_date, start_time) where status = 'approved';
+create unique index if not exists quick_party_unique_poster_idx on public.quick_party_submissions (poster_path);
 create index if not exists quick_party_owner_idx on public.quick_party_submissions (submitted_by, created_at desc);
 alter table public.quick_party_submissions enable row level security;
 -- Public can only view approved entries. No anonymous inserts.
