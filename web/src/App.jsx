@@ -4,6 +4,7 @@ import Capital from "./pages/Capital.jsx";
 import Home from "./pages/Home.jsx";
 import Manage from "./pages/Manage.jsx";
 import Tonight from "./pages/Tonight.jsx";
+import QuickParties from "./pages/QuickParties.jsx";
 
 export default function App() {
   return (
@@ -18,6 +19,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tonight" element={<Tonight />} />
+        <Route path="/parties" element={<QuickParties />} />
         <Route path="/c/:id" element={<Capital />} />
         <Route path="/admin" element={<Manage />} />
         <Route path="/admin/:id" element={<Admin />} />
