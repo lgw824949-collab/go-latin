@@ -12,6 +12,8 @@ test("draft submissions are RLS protected, approved-only public, and poster-uniq
   assert.match(submissions, /enable row level security/i);
   assert.match(submissions, /for select to anon, authenticated using \(status = 'approved'\)/i);
   assert.match(submissions, /unique index[^;]+\(poster_path\)/i);
+  assert.doesNotMatch(submissions, /create policy[^;]+for insert to authenticated/i);
+  assert.match(submissions, /array_position\(dance_genres, null\) is null/i);
   assert.match(submit, /drop policy if exists "authenticated submit own pending quick parties"/i);
 });
 test("poster storage is private and scoped to the organizer folder", () => {
