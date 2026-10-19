@@ -23,6 +23,8 @@ declare
   v_object_count integer;
   v_recent_count integer;
   v_city_today date;
+  v_city_now time without time zone;
+  v_tz text;
 begin
   if v_user is null then
     raise exception 'Organizer sign-in required' using errcode = '42501';
@@ -30,15 +32,18 @@ begin
   -- Serialize submissions by the same organizer to avoid concurrent quota bypass.
   perform pg_catalog.pg_advisory_xact_lock(pg_catalog.hashtextextended(v_user::text, 0));
 
-  v_city_today := (now() at time zone case p_city_slug
+  v_tz := case p_city_slug
     when 'seoul' then 'Asia/Seoul'
     when 'bangkok' then 'Asia/Bangkok'
     when 'hanoi' then 'Asia/Ho_Chi_Minh'
-    else 'UTC' end)::date;
+    else 'UTC' end;
+  v_city_today := (now() at time zone v_tz)::date;
+  v_city_now := (now() at time zone v_tz)::time;
 
   if p_city_slug is null or p_city_slug not in ('seoul','bangkok','hanoi')
     or p_event_date is null or p_start_time is null
     or p_event_date < v_city_today
+    or (p_event_date = v_city_today and p_start_time <= v_city_now)
     or p_event_date > v_city_today + 365
     or p_dance_genres is null or cardinality(p_dance_genres) not between 1 and 4
     or not (p_dance_genres <@ array['salsa','bachata','kizomba','mixed']::text[])
@@ -58,6 +63,14 @@ begin
   then
     raise exception 'Invalid poster path' using errcode = '22023';
   end if;
+  -- One uploaded poster can belong to only one submitted event.
+  if exists (
+    select 1 from public.quick_party_submissions
+    where poster_path = p_poster_path
+  ) then
+    raise exception 'Poster already used for another submission' using errcode = '22023';
+  end if;
+
   select count(*) into v_object_count
   from storage.objects
   where bucket_id = 'quick-party-posters'
@@ -100,6 +113,6 @@ grant execute on function public.submit_quick_party(
 -- 2. Test anonymous, forged user, missing object, duplicate object, quota race,
 --    invalid dates, malicious payload, and RLS bypass in isolated project.
 -- 3. Add server-verified MIME/magic-byte checks, anti-spam and orphan cleanup.
--- 4. Prevent reuse of a poster_path across multiple submissions and verify
---    ownership policy under real storage API behavior.
+-- 4. Verify poster reuse prevention and ownership policy under real storage
+--    API behavior. Add a unique poster_path index before enabling submissions.
 -- 5. Do not grant browser INSERT access to the submissions table.
