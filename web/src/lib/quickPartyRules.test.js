@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { cityNowParts, isUpcomingParty, validateQuickParty } from "./quickPartyRules.js";
+import { cityNowParts, isUpcomingParty, validateQuickParty, isValidDate, isValidTime } from "./quickPartyRules.js";
 
 const now = new Date("2026-10-19T16:30:00Z");
 test("city-local clocks cross midnight independently", () => {
@@ -9,8 +9,8 @@ test("city-local clocks cross midnight independently", () => {
   assert.deepEqual(cityNowParts("hanoi", now), { date: "2026-10-19", time: "23:30" });
 });
 test("past today excluded and future local time included", () => {
-  assert.equal(isUpcomingParty({city_slug:"seoul",event_date:"2026-10-20",start_time:"01:29:00"}, "seoul", now), false);
-  assert.equal(isUpcomingParty({city_slug:"seoul",event_date:"2026-10-20",start_time:"01:31:00"}, "seoul", now), true);
+  assert.equal(isUpcomingParty({city_slug:"seoul",event_date:"2026-10-20",status:"approved",start_time:"01:29:00"}, "seoul", now), false);
+  assert.equal(isUpcomingParty({city_slug:"seoul",event_date:"2026-10-20",status:"approved",start_time:"01:31:00"}, "seoul", now), true);
 });
 test("other city and rejected party excluded", () => {
   assert.equal(isUpcomingParty({city_slug:"hanoi",event_date:"2026-10-21",start_time:"20:00"}, "seoul", now), false);
@@ -23,4 +23,16 @@ test("validation catches missing poster, venue and genres", () => {
 test("valid preview payload passes", () => {
   const errors = validateQuickParty({city:"bangkok",date:"2026-10-21",time:"20:00",genres:["bachata"],venue:"Dance Hall",sns:"@organizer",poster:{type:"image/png",size:1200}}, now);
   assert.deepEqual(errors, []);
+});
+
+test("unapproved or missing status is excluded", () => {
+  for (const status of [undefined, "pending", "rejected", "cancelled"]) {
+    assert.equal(isUpcomingParty({ city_slug:"seoul", status, event_date:"2026-10-21", start_time:"20:00" }, "seoul", now), false);
+  }
+});
+test("invalid dates and times are rejected", () => {
+  assert.equal(isValidDate("2026-02-30"), false);
+  assert.equal(isValidDate("2026-02-28"), true);
+  assert.equal(isValidTime("25:10"), false);
+  assert.equal(isValidTime("23:59"), true);
 });
