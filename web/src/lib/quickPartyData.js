@@ -16,7 +16,10 @@ export function localDate(timezone, now = new Date()) {
   return `${get("year")}-${get("month")}-${get("day")}`;
 }
 
-export async function loadQuickParties(city, now = new Date()) {
+export const QUICK_PARTY_PAGE_SIZE = 50;
+
+export async function loadQuickParties(city, now = new Date(), page = 0) {
+  if (!Number.isSafeInteger(page) || page < 0) throw new Error("Invalid party page.");
   const selected = QUICK_CITIES.find((row) => row.id === city);
   if (!selected) throw new Error("Unsupported pilot city.");
   const { data, error } = await adminClient()
@@ -27,7 +30,8 @@ export async function loadQuickParties(city, now = new Date()) {
     .gte("event_date", cityNowParts(city, now).date)
     .order("event_date", { ascending: true })
     .order("start_time", { ascending: true })
-    .limit(100);
+    .order("id", { ascending: true })
+    .range(page * QUICK_PARTY_PAGE_SIZE, (page + 1) * QUICK_PARTY_PAGE_SIZE - 1);
   if (error) throw new Error(error.message);
   return (data ?? []).filter((party) => isUpcomingParty(party, city, now));
 }
