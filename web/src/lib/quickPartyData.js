@@ -33,5 +33,9 @@ export async function loadQuickParties(city, now = new Date(), page = 0) {
     .order("id", { ascending: true })
     .range(page * QUICK_PARTY_PAGE_SIZE, (page + 1) * QUICK_PARTY_PAGE_SIZE - 1);
   if (error) throw new Error(error.message);
-  return (data ?? []).filter((party) => isUpcomingParty(party, city, now));
+  return {
+    rows: (data ?? []).filter((party) => isUpcomingParty(party, city, now)),
+    // Pagination is based on database rows, not rows filtered out as already started.
+    hasMore: (data ?? []).length === QUICK_PARTY_PAGE_SIZE,
+  };
 }
