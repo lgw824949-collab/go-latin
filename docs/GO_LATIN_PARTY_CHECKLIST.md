@@ -19,9 +19,11 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] UI supports poster preview, date, time, multi-genre, venue and SNS entry.
 - [x] Submission button explicitly indicates preview-only; no database write occurs.
 - [ ] Confirm SQL compatibility and policies against actual project schema in a safe test environment.
-- [x] Drafted private poster bucket and authenticated owner-folder upload policy in separate SQL (NOT applied).\n- [ ] Implement server-side file validation, secure upload flow and rate limits.
+- [x] Drafted private poster bucket and authenticated owner-folder upload policy in separate SQL (NOT applied).
+- [ ] Implement server-side file validation, secure upload flow and rate limits.
 - [ ] Implement authenticated organizer submission; prevent forged poster paths.
-- [ ] Implement authorized moderation and approval workflow.
+- [x] Added read-only admin review queue UI and admin-read SQL policy draft (NOT applied/tested).
+- [ ] Implement secured server-side approval/rejection workflow and audit trail.
 - [ ] Add venue picker / reuse of prior organizer SNS and recurring-event copy.
 
 ## GL-PARTY-002 — Approved-only upcoming-party lookup
@@ -30,7 +32,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Query sorts by event date and start time and limits to 100 rows.
 - [x] UI distinguishes loading, error, no results, and returned results.
 - [ ] Run query against test DB after draft migration review and safe application.
-- [ ] Add pagination if more than 100 events; review overnight events.\n- [x] Added city-local start-time filtering for events that already started today (code only).
+- [ ] Add pagination if more than 100 events; review overnight events.
+- [x] Added city-local start-time filtering for events that already started today (code only).
 - [ ] Connect securely served approved poster images; check that public reads cannot access pending posters.
 - [ ] Verify city isolation and date logic for all three timezones.
 - [ ] Verify listing does not display unverifiable or rejected events.
@@ -39,7 +42,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
 - [x] Added automated unit test source for local clocks, city filtering, rejected visibility and form validation (NOT executed yet).
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
-- [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).\n- [ ] Verify poster storage permissions and no public access to unapproved images in test project.
+- [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).
+- [ ] Verify poster storage permissions and no public access to unapproved images in test project.
 - [ ] Add anti-spam and organizer identity verification appropriate to pilot.
 - [ ] Test mobile layout, form accessibility and error recovery.
 
@@ -70,5 +74,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 3. Draft secure moderation workflow and test private storage policies in a nonproduction project.
 4. Verify with build/lint and update each checkbox based on actual results.
 
-## Change log\n- 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
+## Change log
+- 2026-10-19: Added read-only /admin/party-review and DRAFT_quick_party_moderation.sql. No moderation writes enabled. Build/security tests pending.
+- 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
 - 2026-10-19: initial status audit from GitHub development branch. Five files confirmed present; no runtime tests or production changes claimed.
