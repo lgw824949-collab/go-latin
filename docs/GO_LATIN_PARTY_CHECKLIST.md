@@ -43,6 +43,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 
 ## GL-PARTY-003 — Validation and security
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
+- [x] Added GitHub Actions workflow to run Node 22 quick-party unit tests on relevant changes (workflow code committed; execution result not verified).
 - [x] Added unit test source for local clocks, city filtering, approval state, real dates/times and form validation (NOT executed yet).
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
 - [x] Drafted no-public-read storage policy and owner path guard (code only; NOT security-tested).
@@ -78,6 +79,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Added .github/workflows/quick-party-tests.yml for automated Node unit checks; no passing CI run claimed.
 - 2026-10-19: Hardened approval status filter and date/time validation; added regression tests. Runtime tests and build still pending.
 - 2026-10-19: Connected approve/reject buttons to review_quick_party RPC. Backend SQL remains unapplied and runtime tests pending.
 - 2026-10-19: Added DRAFT_quick_party_review_rpc.sql. Admin decision and audit transaction are draft only; no production DB mutation.
