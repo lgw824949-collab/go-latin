@@ -84,6 +84,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Hardened draft submission RPC to reject events already started in the destination city's timezone; added poster-path reuse guard and unique index. SQL not applied; isolated integration tests pending.
 - 2026-10-19: Added organizer-scoped transaction lock for concurrent submission quotas and city-local event date checks to draft RPC. SQL remains unexecuted; isolated integration/security tests pending.
 - 2026-10-19: Verified latest party validation CI run #39211894831 succeeded. Added DRAFT_quick_party_submit_rpc.sql with pending-only insert and storage ownership guard; no DB changes. Quota race and file-content validation remain release blockers.
 - 2026-10-19: Organizer UI JSX fix CI run #39211276863 passed. Hardened public party filter against impossible dates/times and invalid genre values; added regression tests (new run pending).
