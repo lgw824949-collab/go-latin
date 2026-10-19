@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { loadQuickParties } from "../lib/quickPartyData.js";
+import { validateQuickParty } from "../lib/quickPartyRules.js";
 import { Link, useSearchParams } from "react-router-dom";
 import "./QuickParties.css";
 
@@ -55,7 +56,7 @@ export default function QuickParties() {
   }
   function submit(event) {
     event.preventDefault();
-    if (!poster || !date || !time || !genres.length || !venue.trim() || !sns.trim()) {
+    if (validateQuickParty({ city: selectedCity.id, poster, date, time, genres, venue, sns }).length) {
       setNotice("Complete all fields to preview your submission.");
       return;
     }
