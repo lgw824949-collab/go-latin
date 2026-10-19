@@ -36,3 +36,23 @@ test("invalid dates and times are rejected", () => {
   assert.equal(isValidTime("25:10"), false);
   assert.equal(isValidTime("23:59"), true);
 });
+
+test("approved events with invalid calendar dates or times are hidden", () => {
+  for (const [event_date, start_time] of [
+    ["2026-02-30", "20:00:00"],
+    ["2026-10-21", "24:00:00"],
+    ["2026-10-21", "20:60:00"],
+    ["2026-10-21", "20:00:60"],
+  ]) {
+    assert.equal(isUpcomingParty({city_slug:"seoul",status:"approved",event_date,start_time}, "seoul", now), false);
+  }
+});
+test("database time with seconds is accepted and bad genre types return validation errors", () => {
+  assert.equal(isValidTime("23:59:59"), true);
+  assert.equal(isValidTime("23:59:60"), false);
+  const errors = validateQuickParty({
+    city:"seoul",date:"2026-10-21",time:"20:00",genres:[null],
+    venue:"Dance Hall",sns:"@organizer",poster:{type:"image/png",size:1200},
+  }, now);
+  assert.ok(errors.includes("Choose at least one valid genre."));
+});
