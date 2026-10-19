@@ -31,6 +31,8 @@ jobs:
       - name: Web lint
         working-directory: web
         run: npm run lint
-      - name: Web production build
+      - name: Verify Vite application build (offline CI)
         working-directory: web
-        run: npm run build
+        run: npx vite build
+      # Full npm run build additionally prerenders Seoul against live Supabase.
+      # Do not put production URL/keys into this untrusted PR workflow.
