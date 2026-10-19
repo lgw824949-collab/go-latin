@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { loadQuickParties } from "../lib/quickPartyData.js";
+import { loadQuickParties, QUICK_PARTY_PAGE_SIZE } from "../lib/quickPartyData.js";
 import { validateQuickParty } from "../lib/quickPartyRules.js";
 import { adminClient } from "../lib/admin.js";
 import { Link, useSearchParams } from "react-router-dom";
@@ -30,18 +30,18 @@ export default function QuickParties() {
   const [genreFilter, setGenreFilter] = useState("all");
   const [dateFilter, setDateFilter] = useState("");
   const [notice, setNotice] = useState("");
-  const [upcoming, setUpcoming] = useState({ status: "loading", rows: [], error: "" });
+  const [upcoming, setUpcoming] = useState({ status: "loading", rows: [], error: "", hasMore: false });
+  const [page, setPage] = useState(0);
 
   useEffect(() => {
     let active = true;
-    setUpcoming({ status: "loading", rows: [], error: "" });
-    loadQuickParties(selectedCity.id).then((rows) => {
-      if (active) setUpcoming({ status: "ready", rows, error: "" });
+    loadQuickParties(selectedCity.id, new Date(), page).then((rows) => {
+      if (active) setUpcoming((old) => ({ status: "ready", rows: page === 0 ? rows : [...old.rows, ...rows], error: "", hasMore: rows.length === QUICK_PARTY_PAGE_SIZE }));
     }).catch((error) => {
-      if (active) setUpcoming({ status: "error", rows: [], error: error.message });
+      if (active) setUpcoming((old) => ({ ...old, status: "error", error: error.message }));
     });
     return () => { active = false; };
-  }, [selectedCity.id]);
+  }, [selectedCity.id, page]);
 
   useEffect(() => {
     let active = true;
@@ -110,6 +110,8 @@ export default function QuickParties() {
   function changeCity(city) {
     const next = new URLSearchParams(params);
     next.set("city", city);
+    setUpcoming({ status: "loading", rows: [], error: "", hasMore: false });
+    setPage(0);
     setParams(next);
   }
   function submit(event) {
@@ -153,7 +155,8 @@ export default function QuickParties() {
           {upcoming.status === "loading" ? <p className="quick-muted">Loading approved parties...</p> : null}
           {upcoming.status === "error" ? <p role="alert" className="quick-empty">Party listings are not available yet. The pilot database may not be configured. No event availability can be confirmed.</p> : null}
           {upcoming.status === "ready" && visibleParties.length === 0 ? <p className="quick-empty">No approved upcoming parties match your filters in {selectedCity.label}.</p> : null}
-          {upcoming.status === "ready" ? <ul className="quick-results">{visibleParties.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
+          {(upcoming.status === "ready" || (upcoming.status === "loading" && upcoming.rows.length > 0)) ? <ul className="quick-results">{visibleParties.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
+          {upcoming.status === "ready" && upcoming.hasMore ? <button type="button" onClick={() => { setUpcoming((old) => ({ ...old, status: "loading" })); setPage((old) => old + 1); }}>Load more parties</button> : null}
           <p className="quick-muted">Event dates use {selectedCity.timezone}. Posters will appear after secure storage is configured.</p>
           <button type="button" onClick={() => setTab("register")}>Post your event</button>
         </section>
