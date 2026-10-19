@@ -46,7 +46,8 @@ begin
     or (p_event_date = v_city_today and p_start_time <= v_city_now)
     or p_event_date > v_city_today + 365
     or p_dance_genres is null or cardinality(p_dance_genres) not between 1 and 4
-    or not (p_dance_genres <@ array['salsa','bachata','kizomba','mixed']::text[])
+    or array_position(p_dance_genres, null) is not null
+    or not coalesce(p_dance_genres <@ array['salsa','bachata','kizomba','mixed']::text[], false)
     or p_venue_name is null or length(btrim(p_venue_name)) not between 1 and 160
     or p_contact_sns is null or length(btrim(p_contact_sns)) not between 1 and 500
   then
@@ -57,7 +58,8 @@ begin
   -- A storage.objects row alone does not validate file magic bytes; server-side
   -- scanning, quotas, signed delivery and orphan cleanup are still required.
   if p_poster_path is null
-    or p_poster_path not like (v_user::text || '/%')
+    or left(p_poster_path, length(v_user::text) + 1) <> (v_user::text || '/')
+    or length(p_poster_path) <= length(v_user::text) + 1
     or p_poster_path like '%..%'
     or length(p_poster_path) > 300
   then
@@ -114,5 +116,5 @@ grant execute on function public.submit_quick_party(
 --    invalid dates, malicious payload, and RLS bypass in isolated project.
 -- 3. Add server-verified MIME/magic-byte checks, anti-spam and orphan cleanup.
 -- 4. Verify poster reuse prevention and ownership policy under real storage
---    API behavior. Add a unique poster_path index before enabling submissions.
+--    API behavior; the submissions draft includes a unique poster_path index.
 -- 5. Do not grant browser INSERT access to the submissions table.
