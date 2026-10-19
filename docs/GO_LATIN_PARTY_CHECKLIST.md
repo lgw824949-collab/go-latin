@@ -34,6 +34,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Query sorts by event date and start time and limits to 100 rows.
 - [x] UI distinguishes loading, error, no results, and returned results.
 - [ ] Run query against test DB after draft migration review and safe application.
+- [x] Added UI filtering by genre and exact date (client-side; code only).
 - [ ] Add pagination if more than 100 events; review overnight events.
 - [x] Added city-local start-time filtering for events that already started today (code only).
 - [ ] Connect securely served approved poster images; check that public reads cannot access pending posters.
@@ -79,6 +80,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Added client-side genre and date filters to pilot listings; build and runtime checks pending.
 - 2026-10-19: Added .github/workflows/quick-party-tests.yml for automated Node unit checks; no passing CI run claimed.
 - 2026-10-19: Hardened approval status filter and date/time validation; added regression tests. Runtime tests and build still pending.
 - 2026-10-19: Connected approve/reject buttons to review_quick_party RPC. Backend SQL remains unapplied and runtime tests pending.
