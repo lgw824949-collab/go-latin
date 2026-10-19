@@ -30,14 +30,14 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Query sorts by event date and start time and limits to 100 rows.
 - [x] UI distinguishes loading, error, no results, and returned results.
 - [ ] Run query against test DB after draft migration review and safe application.
-- [ ] Add pagination if more than 100 events; review time boundary and overnight events.
+- [ ] Add pagination if more than 100 events; review overnight events.\n- [x] Added city-local start-time filtering for events that already started today (code only).
 - [ ] Connect securely served approved poster images; check that public reads cannot access pending posters.
 - [ ] Verify city isolation and date logic for all three timezones.
 - [ ] Verify listing does not display unverifiable or rejected events.
 
 ## GL-PARTY-003 — Validation and security
 - [ ] Run local `npm install`, `npm run build`, and `npm run lint` in `web/`.
-- [ ] Add automated tests for local-date logic, city filtering, pending visibility and form validation.
+- [x] Added automated unit test source for local clocks, city filtering, rejected visibility and form validation (NOT executed yet).
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
 - [ ] Confirm poster storage permissions and no public access to unapproved images.
 - [ ] Add anti-spam and organizer identity verification appropriate to pilot.
@@ -62,7 +62,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Poster preview uses a local object URL; image is not uploaded or stored.
 5. No build, lint, integration, or security tests have been run as part of this work.
 6. The first version of the draft SQL does not define a poster storage bucket, secure upload RPC, or admin approval policies. Do not apply it as a complete production migration.
-7. The date filter is date-level; events earlier today may still appear. Fix before calling this a strict upcoming-only list.
+7. The date filter now excludes events whose local start time is earlier than the current minute, but runtime testing is pending.
 
 ## Next action (without modifying production)
 1. Implement safe testable local validation and timezone-aware upcoming filtering.
@@ -70,5 +70,5 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 3. Draft secure storage/moderation migration additions without executing SQL.
 4. Verify with build/lint and update each checkbox based on actual results.
 
-## Change log
+## Change log\n- 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
 - 2026-10-19: initial status audit from GitHub development branch. Five files confirmed present; no runtime tests or production changes claimed.
