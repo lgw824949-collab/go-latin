@@ -23,7 +23,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Implement server-side file validation, secure upload flow and rate limits.
 - [ ] Implement authenticated organizer submission; prevent forged poster paths.
 - [x] Added read-only admin review queue UI and admin-read SQL policy draft (NOT applied/tested).
-- [ ] Implement secured server-side approval/rejection workflow and audit trail.
+- [x] Drafted atomic approval/rejection RPC with admin JWT check, pending-only transition and audit insert (SQL ONLY; NOT applied/tested).
+- [ ] Implement and test secured moderation workflow end to end.
 - [ ] Add venue picker / reuse of prior organizer SNS and recurring-event copy.
 
 ## GL-PARTY-002 — Approved-only upcoming-party lookup
@@ -71,10 +72,11 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 ## Next action (without modifying production)
 1. Implement safe testable local validation and timezone-aware upcoming filtering.
 2. Add unit tests for date and status handling.
-3. Draft secure moderation workflow and test private storage policies in a nonproduction project.
+3. Test draft moderation RPC, private storage policies and JWT/RLS in a nonproduction project.
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Added DRAFT_quick_party_review_rpc.sql. Admin decision and audit transaction are draft only; no production DB mutation.
 - 2026-10-19: Added read-only /admin/party-review and DRAFT_quick_party_moderation.sql. No moderation writes enabled. Build/security tests pending.
 - 2026-10-19: GL-PARTY-003 in progress: added quickPartyRules.js, quickPartyRules.test.js, wired time filtering and form validation. Tests are not yet executed.
 - 2026-10-19: initial status audit from GitHub development branch. Five files confirmed present; no runtime tests or production changes claimed.
