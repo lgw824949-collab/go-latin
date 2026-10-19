@@ -27,7 +27,7 @@ jobs:
         run: npm ci
       - name: Quick-party unit tests
         working-directory: web
-        run: node --test src/lib/quickPartyRules.test.js src/lib/quickPartySqlDraft.test.js
+        run: node --test src/lib/quickPartyRules.test.js src/lib/quickPartySqlDraft.test.js src/lib/quickPartyData.test.js
       - name: Web lint
         working-directory: web
         run: npm run lint
