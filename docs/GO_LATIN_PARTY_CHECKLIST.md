@@ -83,6 +83,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Organizer UI JSX fix CI run #39211276863 passed. Hardened public party filter against impossible dates/times and invalid genre values; added regression tests (new run pending).
 - 2026-10-19: Organizer login UI CI run #39211012869 failed lint due to missing JSX `}` at QuickParties.jsx:191; fixed in commit 375e4f4. Follow-up CI pending.
 - 2026-10-19: Verified CI run #39210406663 successful, and added organizer magic-link login UI while keeping submission preview-only. New UI awaits CI validation.
 - 2026-10-19: CI run #39210299581: install/tests/lint/Vite compilation passed; prerender failed for missing GO_LATIN_SITE_ORIGIN. Switched CI to offline Vite build; next run pending.
