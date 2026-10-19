@@ -1,3 +1,4 @@
+import { cityNowParts, isUpcomingParty } from "./quickPartyRules.js";
 import { adminClient } from "./admin.js";
 
 export const QUICK_CITIES = [
@@ -20,13 +21,13 @@ export async function loadQuickParties(city, now = new Date()) {
   if (!selected) throw new Error("Unsupported pilot city.");
   const { data, error } = await adminClient()
     .from("quick_party_submissions")
-    .select("id, city_slug, event_date, start_time, dance_genres, venue_name, contact_sns")
+    .select("id, city_slug, status, event_date, start_time, dance_genres, venue_name, contact_sns")
     .eq("city_slug", selected.id)
     .eq("status", "approved")
-    .gte("event_date", localDate(selected.timezone, now))
+    .gte("event_date", cityNowParts(city, now).date)
     .order("event_date", { ascending: true })
     .order("start_time", { ascending: true })
     .limit(100);
   if (error) throw new Error(error.message);
-  return data ?? [];
+  return (data ?? []).filter((party) => isUpcomingParty(party, city, now));
 }
