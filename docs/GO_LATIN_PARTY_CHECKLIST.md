@@ -21,6 +21,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [ ] Confirm SQL compatibility and policies against actual project schema in a safe test environment.
 - [x] Drafted private poster bucket and authenticated owner-folder upload policy in separate SQL (NOT applied).
 - [ ] Implement server-side file validation, secure upload flow and rate limits.
+- [x] Added organizer email OTP/magic-link login UI (code only; Supabase email configuration and callback not tested).
 - [ ] Implement authenticated organizer submission; prevent forged poster paths.
 - [x] Added read-only admin review queue UI and admin-read SQL policy draft (NOT applied/tested).
 - [x] Drafted atomic approval/rejection RPC with admin JWT check, pending-only transition and audit insert (SQL ONLY; NOT applied/tested).
@@ -44,7 +45,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 
 ## GL-PARTY-003 — Validation and security
 - [x] GitHub Actions run #39210299581: `npm ci`, 7 unit tests, lint (0 errors, 6 warnings), and Vite compilation passed.
-- [ ] Verify updated offline `npx vite build` workflow succeeds; full `npm run build` requires GO_LATIN_SITE_ORIGIN and Supabase data for Seoul prerender.
+- [x] Verified offline `npx vite build` workflow success (run #39210406663: install, tests, lint and Vite build all passed). Full `npm run build` requires GO_LATIN_SITE_ORIGIN and Supabase data for Seoul prerender.
 - [x] GitHub Actions Node 22 quick-party unit tests passed (run #39208005049, job `unit`, conclusion success; checked 2026-10-19).
 - [x] Added unit tests for local clocks, city filtering, approval state, real dates/times and form validation; GitHub Actions job passed.
 - [ ] Validate RLS using anonymous, organizer, and admin identities.
@@ -82,6 +83,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Verified CI run #39210406663 successful, and added organizer magic-link login UI while keeping submission preview-only. New UI awaits CI validation.
 - 2026-10-19: CI run #39210299581: install/tests/lint/Vite compilation passed; prerender failed for missing GO_LATIN_SITE_ORIGIN. Switched CI to offline Vite build; next run pending.
 - 2026-10-19: Expanded GitHub Actions to npm ci, unit tests, lint, and production build on web changes; results not yet verified.
 - 2026-10-19: Verified GitHub Actions run #39208005049 and `unit` job success, including Quick-party unit tests step; full build and database tests still pending.
