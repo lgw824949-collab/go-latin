@@ -22,7 +22,8 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 - [x] Drafted private poster bucket and authenticated owner-folder upload policy in separate SQL (NOT applied).
 - [ ] Implement server-side file validation, secure upload flow and rate limits.
 - [x] Added organizer email OTP/magic-link login UI (code only; Supabase email configuration and callback not tested).
-- [ ] Implement authenticated organizer submission; prevent forged poster paths.
+- [x] Drafted guarded organizer submission RPC checking sign-in, poster object ownership, valid fields and a best-effort quota; not applied or security-tested.
+- [ ] Connect frontend to authenticated submission only after isolated-project security tests and poster scanning/rate limits; prevent forged poster paths.
 - [x] Added read-only admin review queue UI and admin-read SQL policy draft (NOT applied/tested).
 - [x] Drafted atomic approval/rejection RPC with admin JWT check, pending-only transition and audit insert (SQL ONLY; NOT applied/tested).
 - [x] Wired admin review buttons to guarded review_quick_party RPC with confirmation and feedback (code only).
@@ -83,6 +84,7 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 4. Verify with build/lint and update each checkbox based on actual results.
 
 ## Change log
+- 2026-10-19: Verified latest party validation CI run #39211894831 succeeded. Added DRAFT_quick_party_submit_rpc.sql with pending-only insert and storage ownership guard; no DB changes. Quota race and file-content validation remain release blockers.
 - 2026-10-19: Organizer UI JSX fix CI run #39211276863 passed. Hardened public party filter against impossible dates/times and invalid genre values; added regression tests (new run pending).
 - 2026-10-19: Organizer login UI CI run #39211012869 failed lint due to missing JSX `}` at QuickParties.jsx:191; fixed in commit 375e4f4. Follow-up CI pending.
 - 2026-10-19: Verified CI run #39210406663 successful, and added organizer magic-link login UI while keeping submission preview-only. New UI awaits CI validation.
