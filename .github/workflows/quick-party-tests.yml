@@ -2,15 +2,15 @@ name: Quick party unit tests
 on:
   pull_request:
     paths:
-      - 'web/src/lib/quickPartyRules.js'
-      - 'web/src/lib/quickPartyRules.test.js'
+      - 'web/**'
+      - 'supabase/migrations/DRAFT_quick_party_*.sql'
       - '.github/workflows/quick-party-tests.yml'
   push:
     branches:
       - feature/quick-parties-3-cities
     paths:
-      - 'web/src/lib/quickPartyRules.js'
-      - 'web/src/lib/quickPartyRules.test.js'
+      - 'web/**'
+      - 'supabase/migrations/DRAFT_quick_party_*.sql'
       - '.github/workflows/quick-party-tests.yml'
 permissions:
   contents: read
@@ -22,6 +22,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Install locked dependencies
+        working-directory: web
+        run: npm ci
       - name: Quick-party unit tests
         working-directory: web
         run: node --test src/lib/quickPartyRules.test.js
+      - name: Web lint
+        working-directory: web
+        run: npm run lint
+      - name: Web production build
+        working-directory: web
+        run: npm run build
