@@ -1,0 +1,38 @@
+name: Quick party unit tests
+on:
+  pull_request:
+    paths:
+      - 'web/**'
+      - 'supabase/migrations/DRAFT_quick_party_*.sql'
+      - '.github/workflows/quick-party-tests.yml'
+  push:
+    branches:
+      - feature/quick-parties-3-cities
+    paths:
+      - 'web/**'
+      - 'supabase/migrations/DRAFT_quick_party_*.sql'
+      - '.github/workflows/quick-party-tests.yml'
+permissions:
+  contents: read
+jobs:
+  unit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install locked dependencies
+        working-directory: web
+        run: npm ci
+      - name: Quick-party unit tests
+        working-directory: web
+        run: node --test src/lib/quickPartyRules.test.js src/lib/quickPartySqlDraft.test.js src/lib/quickPartyData.test.js
+      - name: Web lint
+        working-directory: web
+        run: npm run lint
+      - name: Verify Vite application build (offline CI)
+        working-directory: web
+        run: npx vite build
+      # Full npm run build additionally prerenders Seoul against live Supabase.
+      # Do not put production URL/keys into this untrusted PR workflow.
