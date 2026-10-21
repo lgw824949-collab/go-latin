@@ -1,9 +1,16 @@
 # GO LATIN — 3-city quick-party implementation checklist
 
-Updated: 2026-10-19
-Scope: Seoul / Bangkok / Hanoi only.
+Updated: 2026-10-21
+Scope: **Asia-first**. Initial pilot: Seoul / Bangkok / Hanoi only. Europe expansion is deferred, not deleted.
 Branch: `feature/quick-parties-3-cities` (draft PR #1).
 Rule: do not alter legacy `parties`, BAR tables, existing production records, or deploy without separate approval.
+
+## Asia-first rollout strategy (2026-10-21)
+- Phase A: finish the existing Seoul, Bangkok and Hanoi pilot without expanding scope mid-build.
+- Phase B: evaluate other Asian cities only after verified pilot registration, moderation, public listings and security tests.
+- European city expansion is on hold; preserve existing code and data, do not collect or publish unverified Europe events.
+- Safety and actual local event availability must be verified city by city before a new market is enabled.
+- No production database changes, merge or deployment under this strategy update.
 
 ## Status key
 - [x] Code/file exists in development branch (NOT a claim of runtime verification).
@@ -33,11 +40,11 @@ Rule: do not alter legacy `parties`, BAR tables, existing production records, or
 ## GL-PARTY-002 — Approved-only upcoming-party lookup
 - [x] Added `web/src/lib/quickPartyData.js`.
 - [x] Query restricts city, status=approved, and local-date lower bound.
-- [x] Query sorts by event date and start time and limits to 100 rows.
+- [x] Query sorts by event date, start time and stable ID; paginated at 50 database rows per page.
 - [x] UI distinguishes loading, error, no results, and returned results.
 - [ ] Run query against test DB after draft migration review and safe application.
 - [x] Added UI filtering by genre and exact date (client-side; code only).
-- [ ] Add pagination if more than 100 events; review overnight events.
+- [x] Added 50-row pagination and Load more control (code only); overnight-event policy still requires review.
 - [x] Added city-local start-time filtering for events that already started today (code only).
 - [ ] Connect securely served approved poster images; check that public reads cannot access pending posters.
 - [ ] Verify city isolation and date logic for all three timezones.
