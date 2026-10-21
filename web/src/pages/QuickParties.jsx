@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
-import { loadQuickParties } from "../lib/quickPartyData.js";
+import { loadQuickParties, QUICK_CITIES } from "../lib/quickPartyData.js";
 import { validateQuickParty } from "../lib/quickPartyRules.js";
 import { adminClient } from "../lib/admin.js";
 import { Link, useSearchParams } from "react-router-dom";
 import "./QuickParties.css";
 
-const CITIES = [
-  { id: "seoul", label: "Seoul", timezone: "Asia/Seoul" },
-  { id: "bangkok", label: "Bangkok", timezone: "Asia/Bangkok" },
-  { id: "hanoi", label: "Hanoi", timezone: "Asia/Ho_Chi_Minh" },
-];
+const CITIES = QUICK_CITIES;
 const GENRES = ["Salsa", "Bachata", "Kizomba", "Mixed"];
 
 export default function QuickParties() {
@@ -156,7 +152,8 @@ export default function QuickParties() {
           </div>
           {upcoming.status === "loading" ? <p className="quick-muted">Loading approved parties...</p> : null}
           {upcoming.status === "error" ? <div><p role="alert" className="quick-empty">Party listings are not available yet. The pilot database may not be configured. No event availability can be confirmed.</p><button type="button" onClick={() => { setUpcoming((old) => ({ ...old, status: "loading" })); setRetry((value) => value + 1); }}>Retry loading parties</button></div> : null}
-          {upcoming.status === "ready" && visibleParties.length === 0 ? <p className="quick-empty">No approved upcoming parties match your filters in {selectedCity.label}.</p> : null}
+          {upcoming.status === "ready" && visibleParties.length === 0 && upcoming.hasMore ? <p className="quick-muted">No matching events on the pages loaded so far. Load more to check older pages of upcoming events.</p> : null}
+          {upcoming.status === "ready" && visibleParties.length === 0 && !upcoming.hasMore ? <p className="quick-empty">No approved upcoming parties match your filters in {selectedCity.label}.</p> : null}
           {(upcoming.status === "ready" || (upcoming.status === "loading" && upcoming.rows.length > 0)) ? <ul className="quick-results">{visibleParties.map((party) => <li key={party.id}><strong>{party.venue_name}</strong><p>{party.event_date} · {party.start_time.slice(0, 5)} ({selectedCity.label} local time)</p><p>{party.dance_genres.join(" · ")}</p><p>Contact: {party.contact_sns}</p></li>)}</ul> : null}
           {upcoming.status === "ready" && upcoming.hasMore ? <button type="button" onClick={() => { setUpcoming((old) => ({ ...old, status: "loading" })); setPage((old) => old + 1); }}>Load more parties</button> : null}
           <p className="quick-muted">Event dates use {selectedCity.timezone}. Posters will appear after secure storage is configured.</p>
