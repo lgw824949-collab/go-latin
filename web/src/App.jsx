@@ -6,6 +6,7 @@ import Countries from "./pages/Countries.jsx";
 import Country from "./pages/Country.jsx";
 import Home from "./pages/Home.jsx";
 import Manage from "./pages/Manage.jsx";
+import PasswordRecovery from "./pages/PasswordRecovery.jsx";
 import SimplePartyManage from "./pages/SimplePartyManage.jsx";
 import Tonight from "./pages/Tonight.jsx";
 import { countryDocument } from "./lib/countries.js";
@@ -115,6 +116,7 @@ export default function App() {
         <Route path="/parties/:id" element={<NotFound />} />
         <Route path="/p/:id" element={<NotFound />} />
         <Route path="/admin" element={<Manage />} />
+        <Route path="/admin/reset-password" element={<PasswordRecovery />} />
         <Route path="/admin/party" element={<SimplePartyManage />} />
         <Route path="/admin/ads" element={<NotFound />} />
         <Route path="/admin/:id" element={<Admin />} />
