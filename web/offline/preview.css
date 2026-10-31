@@ -1,0 +1,36 @@
+.offline-tools {
+  padding: 0 12px;
+  background: #fff2bd;
+  color: #111;
+  font: 13px/1.4 system-ui, sans-serif;
+  overflow-wrap: anywhere;
+}
+
+.offline-tools summary {
+  min-height: 44px;
+  padding-block: 12px;
+  cursor: pointer;
+}
+
+.offline-tools p {
+  margin: 0 0 8px;
+}
+
+.offline-tools-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding-bottom: 8px;
+}
+
+.offline-tools-actions button,
+.offline-tools-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  min-width: 44px;
+  max-width: 100%;
+  padding: 8px;
+  font: inherit;
+  white-space: normal;
+}

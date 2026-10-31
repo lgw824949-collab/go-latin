@@ -1,15 +1,56 @@
 import { useEffect, useState } from "react";
 import { createClient } from "@supabase/supabase-js";
 import { CONTINENTS, DANCES } from "./filterCapitals.js";
+import { cityVenueList } from "./venueList.js";
 
-const url = import.meta.env.VITE_SUPABASE_URL;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const env = import.meta.env ?? {};
+const url = env.VITE_SUPABASE_URL;
+const anonKey = env.VITE_SUPABASE_ANON_KEY;
 
-let pending;
+export const HOME_CAPITAL_SELECT = `
+  id, city, country, iso2, continent, image,
+  venues (
+    id, capital_id, name, status,
+    venue_dances (dance)
+  )
+`;
+
+export const CITY_CAPITAL_SELECT = `
+  id, city, country, continent, timezone, image,
+  venues (
+    id, capital_id, name, address, phone, website, instagram_url, maps_url,
+    source, source_url, source_checked, source_note, status,
+    venue_dances (dance),
+    venue_hours (weekday, hours_text, opens, closes, is_closed),
+    venue_night_dances (weekday, dance),
+    venue_sources (kind, url, checked_at)
+  )
+`;
+
+let supabase;
+const listLoads = new Map();
+const cityLoads = new Map();
+
+export function loadCached(store, key, create) {
+  const existing = store.get(key);
+  if (existing) return existing;
+  const pending = Promise.resolve().then(create).then(
+    (value) => value,
+    (error) => {
+      if (store.get(key) === pending) store.delete(key);
+      throw error;
+    },
+  );
+  store.set(key, pending);
+  return pending;
+}
 
 export function loadCapitals() {
-  if (!pending) pending = fetchCapitals();
-  return pending;
+  return loadCached(listLoads, "list", fetchCapitalList);
+}
+
+export function loadCapital(id) {
+  return loadCached(cityLoads, id, () => fetchCapital(id));
 }
 
 export function useCapitals() {
@@ -32,38 +73,53 @@ export function useCapitals() {
   return state;
 }
 
-async function fetchCapitals() {
-  if (!url || !anonKey) {
-    throw new Error("Add the Project URL and anon key to web/.env.local, then restart the dev server.");
-  }
+export function useCapital(id) {
+  const [state, setState] = useState({ id, status: "loading", capital: null, error: "" });
+  const current = state.id === id ? state : { id, status: "loading", capital: null, error: "" };
 
-  const supabase = createClient(url, anonKey);
-  const { data, error } = await supabase.from("capitals").select(`
-    id, city, country, iso2, continent, lat, lng, timezone, image,
-    venues (
-      id, name, address, maps_url, phone, website, instagram_url, latitude, longitude,
-      source, source_url, source_checked, source_note, status, confidence,
-      venue_dances (dance),
-      venue_hours (weekday, hours_text, opens, closes, is_closed),
-      venue_night_dances (weekday, dance),
-      venue_sources (kind, url, checked_at)
-    )
-  `);
+  useEffect(() => {
+    let live = true;
+    setState({ id, status: "loading", capital: null, error: "" });
+    loadCapital(id)
+      .then((capital) => {
+        if (live) setState({ id, status: "ready", capital, error: "" });
+      })
+      .catch((error) => {
+        if (live) setState({ id, status: "error", capital: null, error: error.message });
+      });
+    return () => {
+      live = false;
+    };
+  }, [id]);
 
-  if (error) throw new Error(error.message);
-  return (data ?? []).map(shapeCapital).sort(byDirectoryOrder);
+  return current;
 }
 
-function shapeCapital(row) {
-  const venues = venueList(row.venues).map(shapeVenue).sort(byVenueName);
+export function shapeCapitalList(rows) {
+  return (rows ?? []).map(shapeHomeCapital).sort(byDirectoryOrder);
+}
+
+export function shapeHomeCapital(row) {
+  const venues = publicVenueRows(row.id, row.venues).map(shapeHomeVenue);
   return {
     id: row.id,
     city: row.city,
     country: row.country,
-    iso2: String(row.iso2).trim(),
+    iso2: typeof row.iso2 === "string" ? row.iso2.trim().toUpperCase() : "",
     continent: row.continent,
-    lat: row.lat,
-    lng: row.lng,
+    image: row.image,
+    venue: venues[0] ?? null,
+    venues,
+  };
+}
+
+export function shapeCityCapital(row) {
+  const venues = publicVenueRows(row.id, row.venues).map(shapeCityVenue);
+  return {
+    id: row.id,
+    city: row.city,
+    country: row.country,
+    continent: row.continent,
     timezone: row.timezone,
     image: row.image,
     venue: venues[0] ?? null,
@@ -71,27 +127,61 @@ function shapeCapital(row) {
   };
 }
 
-function shapeVenue(venue) {
-  const danceRank = new Map(DANCES.map((dance, index) => [dance.id, index]));
-  const dances = (venue.venue_dances ?? [])
-    .map((row) => row.dance)
-    .sort((a, b) => (danceRank.get(a) ?? 9) - (danceRank.get(b) ?? 9));
+export async function readCapital(id, query) {
+  const { data, error } = await query.eq("id", id).maybeSingle();
+  if (error) throw new Error(error.message);
+  if (!data) return null;
+  return shapeCityCapital(data);
+}
+
+async function fetchCapitalList() {
+  const { data, error } = await client().from("capitals").select(HOME_CAPITAL_SELECT);
+  if (error) throw new Error(error.message);
+  return shapeCapitalList(data);
+}
+
+async function fetchCapital(id) {
+  return readCapital(id, client().from("capitals").select(CITY_CAPITAL_SELECT));
+}
+
+function client() {
+  if (!url || !anonKey) {
+    throw new Error("Add the Project URL and anon key to web/.env.local, then restart the dev server.");
+  }
+  if (!supabase) supabase = createClient(url, anonKey);
+  return supabase;
+}
+
+function publicVenueRows(capitalId, venues) {
+  return cityVenueList(capitalId, venues).filter((venue) => venue?.status !== "permanently_closed");
+}
+
+function shapeHomeVenue(venue) {
+  return {
+    id: venue.id,
+    name: venue.name ?? "",
+    status: venue.status,
+    dances: danceIds(venue.venue_dances),
+  };
+}
+
+function shapeCityVenue(venue) {
   const hours = (venue.venue_hours ?? [])
     .map((row) => ({
       weekday: row.weekday,
       text: row.hours_text,
-      opens: row.opens,
-      closes: row.closes,
-      closed: row.is_closed,
+      opens: row.opens ?? null,
+      closes: row.closes ?? null,
+      closed: row.is_closed === true,
     }))
     .sort((a, b) => a.weekday - b.weekday);
   const nightDances = (venue.venue_night_dances ?? [])
     .map((row) => ({ weekday: row.weekday, dance: row.dance }))
-    .sort((a, b) => a.weekday - b.weekday || a.dance.localeCompare(b.dance));
+    .sort((a, b) => a.weekday - b.weekday || String(a.dance).localeCompare(String(b.dance)));
   const sources = (venue.venue_sources ?? []).map((row) => ({
     kind: row.kind,
-    url: row.url,
-    checkedAt: row.checked_at,
+    ...(row.url != null ? { url: row.url } : {}),
+    ...(row.checked_at != null ? { checkedAt: row.checked_at } : {}),
   }));
 
   return {
@@ -102,31 +192,23 @@ function shapeVenue(venue) {
     phone: venue.phone,
     website: venue.website,
     instagram: venue.instagram_url,
-    latitude: venue.latitude,
-    longitude: venue.longitude,
     source: venue.source,
     sourceUrl: venue.source_url,
     sourceChecked: venue.source_checked,
     sourceNote: venue.source_note,
     status: venue.status,
-    confidence: venue.confidence,
-    dances,
+    dances: danceIds(venue.venue_dances),
     hours,
     nightDances,
     sources,
   };
 }
 
-function venueList(value) {
-  if (Array.isArray(value)) return value;
-  if (value) return [value];
-  return [];
-}
-
-function byVenueName(a, b) {
-  const name = a.name.localeCompare(b.name);
-  if (name !== 0) return name;
-  return String(a.id ?? "").localeCompare(String(b.id ?? ""));
+function danceIds(rows) {
+  const danceRank = new Map(DANCES.map((dance, index) => [dance.id, index]));
+  return (rows ?? [])
+    .map((row) => row.dance)
+    .sort((a, b) => (danceRank.get(a) ?? 9) - (danceRank.get(b) ?? 9));
 }
 
 function byDirectoryOrder(a, b) {

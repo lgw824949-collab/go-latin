@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { DANCES } from "../lib/filterCapitals.js";
+import { cityCardPath, DANCES } from "../lib/filterCapitals.js";
 
-export default function CapitalCard({ capital }) {
+export default function CapitalCard({ capital, dance }) {
   return (
-    <Link className="card" to={`/c/${capital.id}`}>
+    <Link className="card" to={cityCardPath(capital.id, dance)}>
       <img src={capital.image} alt="" />
       <span className="card-shade" aria-hidden="true" />
       <span className="card-body">

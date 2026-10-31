@@ -1,16 +1,21 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { loadCapital } from "../lib/directory.js";
 import { DANCES } from "../lib/filterCapitals.js";
-import { assessVenue, cityClock, filterTonight } from "../lib/tonight.js";
-import { loadTonightCities, loadTonightCity } from "../lib/tonightData.js";
+import { tonightBarPath } from "../lib/barAnchor.js";
+import { loadTonightCities, tonightCityParam } from "../lib/tonightData.js";
+import { publicBarCard, sevenDaySchedule, tonightHoursStatus, tonightLocalTime } from "../lib/tonight.js";
+import { httpUrl } from "../lib/sources.js";
+import { useLocalNow } from "../lib/useLocalNow.js";
 
 export default function Tonight() {
+  const now = useLocalNow();
   const [params, setParams] = useSearchParams();
-  const cityId = params.get("city") || "hanoi";
+  const cityId = tonightCityParam(params.get("city"));
   const dance = DANCES.some((item) => item.id === params.get("dance")) ? params.get("dance") : null;
   const [cities, setCities] = useState({ status: "loading", rows: [], error: "" });
-  const [city, setCity] = useState({ status: "loading", row: null, error: "" });
-  const [now, setNow] = useState(() => new Date());
+  const [city, setCity] = useState({ id: cityId, status: cityId ? "loading" : "ready", row: null, error: "" });
+  const shown = city.id === cityId ? city : { id: cityId, status: "loading", row: null, error: "" };
 
   useEffect(() => {
     let live = true;
@@ -27,32 +32,23 @@ export default function Tonight() {
   }, []);
 
   useEffect(() => {
+    if (!cityId) {
+      setCity({ id: null, status: "ready", row: null, error: "" });
+      return undefined;
+    }
     let live = true;
-    setCity({ status: "loading", row: null, error: "" });
-    loadTonightCity(cityId)
+    setCity({ id: cityId, status: "loading", row: null, error: "" });
+    loadCapital(cityId)
       .then((row) => {
-        if (live) setCity({ status: "ready", row, error: "" });
+        if (live) setCity({ id: cityId, status: "ready", row, error: "" });
       })
       .catch((error) => {
-        if (live) setCity({ status: "error", row: null, error: error.message });
+        if (live) setCity({ id: cityId, status: "error", row: null, error: error.message });
       });
     return () => {
       live = false;
     };
   }, [cityId]);
-
-  useEffect(() => {
-    let timer;
-    const schedule = () => {
-      const delay = 60000 - (Date.now() % 60000) || 60000;
-      timer = setTimeout(() => {
-        setNow(new Date());
-        schedule();
-      }, delay);
-    };
-    schedule();
-    return () => clearTimeout(timer);
-  }, []);
 
   function setCityId(value) {
     const next = new URLSearchParams(params);
@@ -67,24 +63,37 @@ export default function Tonight() {
     setParams(next);
   }
 
-  const selected = cities.rows.find((item) => item.id === cityId) ?? city.row;
-  const clock = selected?.timezone ? cityClock(selected.timezone, now) : null;
-  const cards = clock
-    ? (city.row?.venues ?? []).map((venue) => ({
-        ...venue,
-        ...assessVenue(venue, clock),
-      }))
-    : [];
-  const visible = filterTonight(cards, dance);
+  const selected = cities.rows.find((item) => item.id === cityId) ?? shown.row;
+  const clock = tonightLocalTime(shown.row, now);
+  const cards = (shown.row?.venues ?? []).flatMap((venue) => {
+    const card = publicBarCard(venue);
+    if (!card) return [];
+    return [{
+      ...venue,
+      dances: card.dances,
+      website: httpUrl(venue.website),
+      instagram: httpUrl(venue.instagram),
+      statusText: card.statusText,
+      tonight: tonightHoursStatus(venue, clock),
+      schedule: sevenDaySchedule(venue, clock),
+    }];
+  });
+  const visible = dance ? cards.filter((card) => card.dances.includes(dance)) : cards;
 
   return (
     <main className="wrap tonight">
       <p className="kicker">Tonight</p>
-      <h1>Tonight</h1>
-      <p className="lede">Latin bars you can reach tonight.</p>
+      <h1>Explore Latin Bars</h1>
+      <p className="lede">Local opening hours and the next 7 days. Check the official page for changes.</p>
+      {shown.status === "ready" && shown.row ? (
+        <p className="count">
+          Local time: {clock ? `${clock.label} · ${clock.time} (${clock.timeZone})` : "Not confirmed"}
+        </p>
+      ) : null}
       <label className="tonight-city">
         City
-        <select value={cityId} onChange={(event) => setCityId(event.target.value)}>
+        <select value={cityId && selected ? cityId : ""} onChange={(event) => setCityId(event.target.value)}>
+          {selected ? null : <option value="" disabled hidden />}
           {cities.rows.map((item) => (
             <option key={item.id} value={item.id}>
               {item.city}
@@ -92,8 +101,7 @@ export default function Tonight() {
           ))}
         </select>
       </label>
-      {clock ? <p className="count">{selected.city} · {clock.label}</p> : null}
-      <div className="pills" role="group" aria-label="Dance">
+      <div className="pills dance-pills" role="group" aria-label="Dance">
         <button type="button" aria-pressed={dance === null} onClick={() => setDance(null)}>
           All
         </button>
@@ -104,18 +112,18 @@ export default function Tonight() {
         ))}
       </div>
       {cities.status === "error" ? <p className="empty">{cities.error}</p> : null}
-      {city.status === "error" ? (
-        <p className="empty">{city.error}</p>
-      ) : city.status !== "ready" ? (
+      {shown.status === "error" ? (
+        <p className="empty">{shown.error}</p>
+      ) : shown.status !== "ready" ? (
         <p className="count">Loading tonight.</p>
-      ) : !city.row ? (
+      ) : !cityId ? (
+        <p className="empty">Choose a city.</p>
+      ) : !shown.row ? (
         <p className="empty">This capital is not in the directory.</p>
-      ) : !clock ? (
-        <p className="count">Loading tonight.</p>
       ) : visible.length === 0 ? (
         <p className="empty">
-          {city.row?.venues.length
-            ? `No ${DANCES.find((item) => item.id === dance)?.name} schedule is confirmed in ${selected.city} tonight.`
+          {cards.length
+            ? `No ${DANCES.find((item) => item.id === dance)?.name} floor is listed in ${selected.city}.`
             : `No bar is listed in ${selected.city} yet.`}
         </p>
       ) : (
@@ -124,16 +132,40 @@ export default function Tonight() {
             <li key={card.id}>
               <h2>{card.name}</h2>
               <p>{selected.country}</p>
-              {card.badge ? <p className={card.badge === "OPEN NOW" ? "tonight-now" : "tonight-later"}>{card.badge}</p> : null}
-              {card.hoursLabel ? <p>{card.hoursLabel}</p> : null}
               {card.statusText ? <p>{card.statusText}</p> : null}
-              {card.danceText ? <p>{card.danceText}</p> : null}
-              {card.danceConfirmed ? <p className="kicker">Confirmed</p> : null}
-              <Link to={`/c/${selected.id}`}>View bar</Link>
+              {card.tonight.badge ? (
+                <p className={card.tonight.openNow ? "tonight-now" : "tonight-later"}>
+                  {card.tonight.badge}{card.tonight.hoursLabel ? ` · ${card.tonight.hoursLabel}` : ""}
+                </p>
+              ) : card.tonight.statusText !== card.statusText ? (
+                <p>Tonight: {card.tonight.statusText}</p>
+              ) : null}
+              {card.dances.length > 0 ? <p>{card.dances.map(danceName).join(" · ")}</p> : null}
+              {card.schedule.length > 0 ? (
+                <details>
+                  <summary>7-day opening schedule</summary>
+                  <dl>
+                    {card.schedule.map((day) => (
+                      <div key={day.date}>
+                        <dt><time dateTime={day.date}>{day.label}</time></dt>
+                        <dd>{day.hoursLabel}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                  <p>Hours are local; (+1 day) means closing after midnight. Recurring hours, not confirmed event dates.</p>
+                </details>
+              ) : null}
+              {card.website ? <p><a href={card.website} target="_blank" rel="noreferrer">Website</a></p> : null}
+              {card.instagram ? <p><a href={card.instagram} target="_blank" rel="noreferrer">Instagram</a></p> : null}
+              <Link to={tonightBarPath(selected.id, card.id, dance)} state={{ from: `/tonight?${params}` }}>View bar</Link>
             </li>
           ))}
         </ul>
       )}
     </main>
   );
+}
+
+function danceName(id) {
+  return DANCES.find((dance) => dance.id === id)?.name ?? id;
 }

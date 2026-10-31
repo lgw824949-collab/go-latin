@@ -95,6 +95,7 @@ function assertVenue(venue, fail) {
 }
 
 function opensPlace(url) {
+  if (/^https:\/\/www\.google\.com\/maps\?cid=[1-9]\d*$/.test(url)) return true;
   return url.startsWith("https://www.google.com/maps/place/") && (url.includes("@") || url.includes("!3m1!4b1"));
 }
 

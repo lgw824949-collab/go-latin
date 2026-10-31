@@ -1,0 +1,10 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/country", "destination": "/index" },
+    { "source": "/country/:slug", "destination": "/index" },
+    { "source": "/admin", "destination": "/index" },
+    { "source": "/admin/:id", "destination": "/index" }
+  ]
+}

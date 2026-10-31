@@ -1,7 +1,9 @@
 import { createClient } from "@supabase/supabase-js";
+import { cityVenueList } from "./venueList.js";
 
-const url = import.meta.env.VITE_SUPABASE_URL;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const env = import.meta.env ?? {};
+const url = env.VITE_SUPABASE_URL;
+const anonKey = env.VITE_SUPABASE_ANON_KEY;
 let supabase;
 
 function client() {
@@ -10,6 +12,12 @@ function client() {
   }
   if (!supabase) supabase = createClient(url, anonKey);
   return supabase;
+}
+
+export function tonightCityParam(value) {
+  if (typeof value !== "string") return null;
+  const id = value.trim();
+  return id === "" ? null : id;
 }
 
 export async function loadTonightCities() {
@@ -24,7 +32,7 @@ export async function loadTonightCity(id) {
     .select(`
       id, city, country, timezone,
       venues (
-        id, name, status, source_checked,
+        id, capital_id, name, status, source_checked,
         venue_hours (weekday, hours_text, opens, closes, is_closed),
         venue_night_dances (weekday, dance)
       )
@@ -38,7 +46,7 @@ export async function loadTonightCity(id) {
     city: data.city,
     country: data.country,
     timezone: data.timezone,
-    venues: (data.venues ?? []).map(shapeVenue).sort((a, b) => a.name.localeCompare(b.name)),
+    venues: cityVenueList(data.id, data.venues).map(shapeVenue),
   };
 }
 

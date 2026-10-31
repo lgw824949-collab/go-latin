@@ -1,9 +1,14 @@
-import { HOURS_FRESH_DAYS } from "./hoursFreshness.js";
+import { hoursAreCurrent } from "./hoursFreshness.js";
 
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const WEEKDAY_INDEX = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
 const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 const DANCE_NAMES = { bachata: "Bachata", kizomba: "Kizomba", salsa: "Salsa" };
+
+export function cityCalendarDate(timeZone, date = new Date()) {
+  const clock = cityClock(timeZone, date);
+  return new Date(clock.year, clock.month - 1, clock.day);
+}
 
 export function cityClock(timeZone, date = new Date()) {
   const parts = Object.fromEntries(
@@ -37,13 +42,82 @@ export function cityClock(timeZone, date = new Date()) {
   };
 }
 
+const TONIGHT_TIMEZONES = {
+  seoul: "Asia/Seoul",
+  bangkok: "Asia/Bangkok",
+  hanoi: "Asia/Ho_Chi_Minh",
+};
+
+export function tonightLocalTime(city, date = new Date()) {
+  const timeZone = TONIGHT_TIMEZONES[city?.id] ?? city?.timezone;
+  if (!timeZone) return null;
+  try {
+    const clock = cityClock(timeZone, date);
+    return { ...clock, timeZone, time: formatMinutes(clock.minutes) };
+  } catch {
+    return null;
+  }
+}
+
+// Calendar arithmetic uses UTC only as a date container, never as the city's clock.
+export function sevenDaySchedule(venue, clock) {
+  if (!clock) return [];
+  const current = hoursCurrent(venue?.sourceChecked, clock);
+  return Array.from({ length: 7 }, (_, offset) => {
+    const date = new Date(Date.UTC(clock.year, clock.month - 1, clock.day + offset));
+    const weekday = date.getUTCDay();
+    const day = dayHours(venue?.hours, weekday);
+    let hoursLabel = "Not confirmed";
+    if (venue?.status === "temporarily_closed" || venue?.status === "permanently_closed") {
+      hoursLabel = "Closed";
+    } else if (venue?.status === "operating" && current) {
+      if (day.closed) hoursLabel = "Closed";
+      else if (day.allDay) hoursLabel = "00:00–24:00";
+      else if (day.windows.length) {
+        hoursLabel = day.windows.map((window) =>
+          `${formatWindow(window.opens, window.closes)}${window.overnight ? " (+1 day)" : ""}`,
+        ).join(", ");
+      }
+    }
+    return {
+      date: date.toISOString().slice(0, 10),
+      label: `${WEEKDAYS[weekday]} · ${date.getUTCDate()} ${MONTHS[date.getUTCMonth()]}`,
+      hoursLabel,
+    };
+  });
+}
+
+export function tonightHoursStatus(venue, clock) {
+  if (!clock) return { badge: null, openNow: false, hoursLabel: null, statusText: "Not confirmed" };
+  const assessment = assessVenue(venue, clock);
+  if (assessment.statusText?.toLowerCase().includes("not confirmed")) {
+    return { ...assessment, statusText: "Not confirmed" };
+  }
+  if (venue?.status === "temporarily_closed") return { ...assessment, statusText: "Closed" };
+  if (assessment.badge && assessment.hoursLabel) {
+    const door = assessDoor(venue?.hours, clock.weekday, clock.minutes);
+    if (door.closes < door.opens) {
+      return { ...assessment, hoursLabel: `${assessment.hoursLabel} (+1 day)` };
+    }
+  }
+  return assessment;
+}
+
 export function assessVenue(venue, clock) {
   const statusText = statusLabel(venue?.status);
   if (statusText) {
     return { openNow: false, badge: null, hoursLabel: null, statusText, danceText: null, danceConfirmed: false, dances: [] };
   }
   if (!hoursCurrent(venue?.sourceChecked, clock)) {
-    return { openNow: false, badge: null, hoursLabel: null, statusText: "Opening hours not confirmed", ...danceInfo(venue, clock.weekday, true) };
+    return {
+      openNow: false,
+      badge: null,
+      hoursLabel: null,
+      statusText: "Opening hours not confirmed",
+      danceText: "Dance schedule not confirmed",
+      danceConfirmed: false,
+      dances: [],
+    };
   }
 
   const door = assessDoor(venue?.hours, clock.weekday, clock.minutes);
@@ -61,6 +135,17 @@ export function assessVenue(venue, clock) {
   }
   if (door.kind === "unknown") {
     return { openNow: false, badge: null, hoursLabel: null, statusText: "Opening hours not confirmed", ...danceInfo(venue, door.sessionWeekday, true) };
+  }
+  if (door.kind === "shut") {
+    return {
+      openNow: false,
+      badge: null,
+      hoursLabel: null,
+      statusText: "Closed",
+      danceText: null,
+      danceConfirmed: false,
+      dances: [],
+    };
   }
   const keepDance = door.kind === "ended";
   return {
@@ -106,7 +191,7 @@ function statusLabel(status) {
   if (status === "operating") return null;
   if (status === "temporarily_closed") return "Temporarily closed";
   if (status === "planned") return "Opening soon";
-  if (status === "permanently_closed") return "Closed";
+  if (status === "permanently_closed") return "Permanently closed";
   return "Venue status not confirmed";
 }
 
@@ -134,10 +219,20 @@ function danceLine(venue, weekday) {
 function dayHours(hours, weekday) {
   const row = (hours ?? []).find((item) => item.weekday === weekday);
   if (!row) return { row: null, closed: false, allDay: false, windows: [] };
+  if (String(row.text ?? "").trim().toLowerCase() === "not confirmed") {
+    return { row, closed: false, allDay: false, windows: [] };
+  }
   if (row.closed) return { row, closed: true, allDay: false, windows: [] };
   const structured = clockWindow(row.opens, row.closes);
-  if (structured) return { row, closed: false, allDay: false, windows: [structured] };
   const parsed = parseHoursText(row.text);
+  if (structured) {
+    // Conflicting recorded hours need confirmation; neither source wins by order.
+    if (parsed && (parsed.closed || parsed.allDay || parsed.windows.length !== 1
+      || parsed.windows[0].opens !== structured.opens || parsed.windows[0].closes !== structured.closes)) {
+      return { row, closed: false, allDay: false, windows: [] };
+    }
+    return { row, closed: false, allDay: false, windows: [structured] };
+  }
   if (!parsed) return { row, closed: false, allDay: false, windows: [] };
   if (parsed.closed) return { row, closed: true, allDay: false, windows: [] };
   if (parsed.allDay) return { row, closed: false, allDay: true, windows: [] };
@@ -233,11 +328,24 @@ function formatMinutes(minutes) {
   return `${String(hour).padStart(2, "0")}:${String(minute).padStart(2, "0")}`;
 }
 
+const PUBLIC_DANCES = ["bachata", "kizomba", "salsa"];
+
+export function publicBarCard(venue) {
+  if (venue?.status === "permanently_closed") return null;
+  return {
+    dances: PUBLIC_DANCES.filter((dance) => (venue?.dances ?? []).includes(dance)),
+    statusText: publicStatusText(venue?.status),
+  };
+}
+
+function publicStatusText(status) {
+  if (status === "planned") return "Opening soon";
+  if (status === "temporarily_closed") return "Temporarily closed";
+  if (status === "unknown") return "Venue status not confirmed";
+  return "";
+}
+
 function hoursCurrent(iso, clock) {
-  const match = /^(\d{4})-(\d{2})-(\d{2})/.exec(String(iso ?? ""));
-  if (!match || !clock?.year) return false;
-  const checked = Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]));
-  const today = Date.UTC(clock.year, clock.month - 1, clock.day);
-  const days = Math.round((today - checked) / 86400000);
-  return days >= 0 && days <= HOURS_FRESH_DAYS;
+  if (!clock?.year) return false;
+  return hoursAreCurrent(iso, new Date(clock.year, clock.month - 1, clock.day));
 }

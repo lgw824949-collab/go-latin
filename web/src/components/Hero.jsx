@@ -18,13 +18,19 @@ export default function Hero() {
   }
 
   return (
-    <section className="hero">
-      <p className="kicker">Bachata · Kizomba · Salsa</p>
-      <h1>
-        Find the{" "}
-        <button type="button" className="floor-entry" onClick={onFloorClick}>floor</button>.
-      </h1>
-      <p className="lede">Five oceans. Six continents. One night.</p>
+    <section className="hero-b" aria-label="Latin dance night">
+      <div className="hero-b-media">
+        <img src="/hero-latin.png" alt="" />
+      </div>
+      <div className="hero-b-shade" aria-hidden="true" />
+      <div className="hero-b-copy">
+        <h1>Latin Dance Bars Around the World</h1>
+        <p className="lede">
+          Find the best Latin dance bars in cities around the world. Find the{" "}
+          <button type="button" className="floor-entry" onClick={onFloorClick}>floor</button>
+          .
+        </p>
+      </div>
     </section>
   );
 }

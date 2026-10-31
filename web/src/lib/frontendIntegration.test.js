@@ -1,0 +1,228 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { createRequire } from "node:module";
+import path from "node:path";
+import { fileURLToPath, pathToFileURL } from "node:url";
+import test from "node:test";
+import { createElement } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
+import { createMemoryRouter, MemoryRouter, Route, Routes } from "react-router-dom";
+import { transformWithOxc } from "vite";
+import { shapeCityCapital } from "./directory.js";
+import { tonightBarPath, tonightPathForRoute } from "./barAnchor.js";
+
+// Full page composition with DB-shaped fixtures, not live DB or local BAR data.
+// Effects do not run in SSR; every page data hook is explicitly replaced.
+const require = createRequire(import.meta.url);
+const asModule = code => `data:text/javascript;base64,${Buffer.from(code).toString("base64")}`;
+const directory = asModule(`
+  export const useCapitals=()=>({status:globalThis.__frontend.status,capitals:globalThis.__frontend.cities,error:'Offline query failure'});
+  export const useCapital=id=>({status:globalThis.__frontend.status,capital:globalThis.__frontend.cities.find(c=>c.id===id),error:'Offline query failure'});
+  export const loadCapital=()=>{throw Error('Unexpected data request');};
+`);
+const now = asModule(`export const useLocalNow=()=>new Date(globalThis.__frontend.now);`);
+const cache = new Map();
+async function compile(filename) {
+  if (cache.has(filename)) return cache.get(filename);
+  const pending = (async () => {
+    let source = readFileSync(filename, "utf8");
+    const name = path.basename(filename);
+    if (["Home.jsx", "Country.jsx", "Tonight.jsx", "SimpleCityParties.jsx"].includes(name)) {
+      const hooks = asModule(`
+        import * as React from '${pathToFileURL(require.resolve("react")).href}';
+        export const useEffect=React.useEffect, useMemo=React.useMemo;
+        export function useState(init) {
+          let value=typeof init==='function'?init():init;
+          const f=globalThis.__frontend;
+          if ('${name}'==='Home.jsx' || '${name}'==='Country.jsx') {if(value==='') value=f.query;}
+          if ('${name}'==='Tonight.jsx' && value && typeof value==='object') {
+            if('rows' in value) value={status:f.status,rows:f.cities,error:'Offline query failure'};
+            else if('id' in value) value={id:value.id,status:f.status,row:f.cities.find(c=>c.id===value.id),error:'Offline query failure'};
+          }
+          if ('${name}'==='SimpleCityParties.jsx') {
+            if(value==='loading') value=f.partyStatus;
+            else if(Array.isArray(value)) value=f.parties.filter(party=>party.capitalId===f.activeCity);
+            else if(value==='') value=f.partyStatus==='error'?'Offline party failure':'';
+          }
+          return React.useState(value);
+        }
+      `);
+      source = source.replace(/from "react";/, `from "${hooks}";`);
+    }
+    const imports = [...source.matchAll(/from "(\.[^"]+)"/g)].map(match => match[1]);
+    for (const specifier of new Set(imports)) {
+      const resolved = path.resolve(path.dirname(filename), specifier);
+      const replacement = path.basename(resolved) === "directory.js" ? directory
+        : path.basename(resolved) === "useLocalNow.js" ? now
+          : resolved.endsWith(".jsx") ? await compile(resolved) : pathToFileURL(resolved).href;
+      source = source.replaceAll(`from "${specifier}"`, `from "${replacement}"`);
+    }
+    const transformed = await transformWithOxc(source, filename, { jsx: { runtime: "automatic" } });
+    return asModule(transformed.code.replace(/from ["'](react(?:\/jsx-runtime)?|react-router-dom|lucide-react)["']/g,
+      (_, specifier) => `from "${pathToFileURL(require.resolve(specifier)).href}"`));
+  })();
+  cache.set(filename, pending);
+  return pending;
+}
+const pages = {};
+for (const name of ["Home", "Country", "Capital", "Tonight"]) {
+  pages[name] = (await import(await compile(fileURLToPath(new URL(`../pages/${name}.jsx`, import.meta.url))))).default;
+}
+function reset() {
+  const cities = [["seoul", "Seoul", "South Korea", "Asia/Seoul"], ["bangkok", "Bangkok", "Thailand", "Asia/Bangkok"], ["hanoi", "Hanoi", "Vietnam", "Asia/Ho_Chi_Minh"]].map(([id, city, country, timezone]) => shapeCityCapital({
+    id, city, country, timezone, continent: "asia", venues: [{
+      id: `bar-${id}`, capital_id: id, name: `Fixture ${city}`, address: `Address ${city}`, status: "operating",
+      maps_url: "https://example.com/map", website: "https://example.com", instagram_url: "https://example.com/instagram",
+      source_checked: "2026-10-29", source_url: "https://example.com/source", source_note: "Offline fixture only",
+      venue_dances: [{ dance: id === "bangkok" ? "salsa" : "bachata" }],
+      venue_hours: [0, 1, 2, 3, 4, 5, 6].map(weekday => ({ weekday,
+        hours_text: id === "hanoi" && weekday === 1 ? "Not confirmed" : weekday === 2 ? "Closed" : "6 PM–2 AM" })),
+      venue_night_dances: [{ weekday: 3, dance: "bachata" }],
+      venue_sources: [{ kind: "website", url: "https://example.com/source", checked_at: "2026-10-29" }],
+    }],
+  }));
+  globalThis.__frontend = { cities, status: "ready", query: "", now: "2026-10-29T12:00:00Z", partyStatus: "ready",
+    parties: ["seoul", "bangkok", "hanoi"].map(capitalId => ({ id: `party-${capitalId}`, capitalId,
+      venueName: "Fixture Party", startsAt: "2026-10-30T13:30:00Z",
+      posterUrl: "https://example.com/poster.png", snsUrl: "https://example.com/social", genre: "bachata" })) };
+  return globalThis.__frontend;
+}
+function render(name, route, pattern) {
+  globalThis.__frontend.activeCity = /\/c\/([^?#]+)/.exec(typeof route === "string" ? route : route.pathname)?.[1] ?? "";
+  return renderToStaticMarkup(createElement(MemoryRouter, { initialEntries: [route] },
+    createElement(Routes, null, createElement(Route, { path: pattern, element: createElement(pages[name]) }))));
+}
+
+test("home search and country city lists produce real BAR/detail route links for the three cities", () => {
+  const f = reset();
+  const home = render("Home", "/", "/");
+  for (const id of ["seoul", "bangkok", "hanoi"]) assert.match(home, new RegExp(`href="/c/${id}"`));
+  f.query = "Fixture Hanoi";
+  assert.match(render("Home", "/?q=Fixture%20Hanoi", "/"), /href="\/c\/hanoi#bar-bar-hanoi"/);
+  f.query = "";
+  assert.match(render("Country", "/country/thailand", "/country/:slug"), /href="\/c\/bangkok"/);
+});
+
+test("all three detail pages compose contact links, hours, sources and read-only party panels", () => {
+  reset();
+  for (const id of ["seoul", "bangkok", "hanoi"]) {
+    const html = render("Capital", `/c/${id}`, "/c/:id");
+    assert.match(html, /7-day opening hours/);
+    assert.match(html, /18:00–02:00 \(\+1 day\)/);
+    assert.match(html, /<dd>Closed<\/dd>/);
+    assert.match(html, /href="https:\/\/example.com\/source"/);
+    assert.match(html, /29 Oct 2026/);
+    assert.match(html, /Fixture Party/);
+    assert.match(html, /https:\/\/example.com\/social/);
+    assert.doesNotMatch(html, /Register a party|Save party/);
+    if (id === "hanoi") assert.match(html, /Monday[^<]*<\/time><\/dt><dd>Not confirmed/);
+  }
+});
+
+test("city detail genre query filters the actual page rather than only helper data", () => {
+  reset();
+  const html = render("Capital", "/c/bangkok?dance=bachata", "/c/:id");
+  assert.match(html, /No Bachata floor listed/);
+  assert.doesNotMatch(html, /<h2>Fixture Bangkok<\/h2>/);
+});
+
+test("Tonight page composes city timezone, overnight badge, seven-day schedule and genre filter", () => {
+  reset();
+  for (const [id, zone] of [["seoul", "Asia/Seoul"], ["bangkok", "Asia/Bangkok"], ["hanoi", "Asia/Ho_Chi_Minh"]]) {
+    const html = render("Tonight", `/tonight?city=${id}`, "/tonight");
+    assert.match(html, new RegExp(zone)); assert.match(html, /OPEN NOW/);
+    assert.match(html, /18:00–02:00 \(\+1 day\)/);
+    assert.equal((html.match(/<time /g) ?? []).length, 7);
+  }
+  const filtered = render("Tonight", "/tonight?city=bangkok&dance=bachata", "/tonight");
+  assert.match(filtered, /No Bachata floor is listed in Bangkok/);
+  assert.doesNotMatch(filtered, /OPEN NOW/);
+});
+
+test("full public detail distinguishes party query failure from an empty list", () => {
+  const f = reset(); f.parties = []; f.partyStatus = "error";
+  const error = render("Capital", "/c/hanoi", "/c/:id");
+  assert.match(error, /role="alert">Offline party failure/);
+  assert.doesNotMatch(error, /No upcoming parties listed/);
+  f.partyStatus = "ready";
+  assert.match(render("Capital", "/c/hanoi", "/c/:id"), /No upcoming parties listed/);
+});
+
+test("page loading, query errors and unknown city remain distinct in composed pages", () => {
+  const f = reset(); f.status = "loading";
+  assert.match(render("Capital", "/c/hanoi", "/c/:id"), /Loading the directory/);
+  assert.match(render("Tonight", "/tonight?city=hanoi", "/tonight"), /Loading tonight/);
+  f.status = "error";
+  for (const [name, route, pattern] of [["Home", "/", "/"], ["Capital", "/c/hanoi", "/c/:id"], ["Tonight", "/tonight?city=hanoi", "/tonight"]]) {
+    assert.match(render(name, route, pattern), /Offline query failure/);
+  }
+  f.status = "ready";
+  assert.match(render("Capital", "/c/missing", "/c/:id"), /Not on the list/);
+  assert.match(render("Tonight", "/tonight?city=missing", "/tonight"), /This capital is not in the directory/);
+});
+
+test("Tonight without selection prompts for a city and future opening is not OPEN NOW", () => {
+  const f = reset();
+  assert.match(render("Tonight", "/tonight", "/tonight"), /Choose a city/);
+  f.now = "2026-10-29T08:00:00Z";
+  const html = render("Tonight", "/tonight?city=bangkok", "/tonight");
+  assert.match(html, /OPEN TONIGHT/);
+  assert.doesNotMatch(html, /OPEN NOW/);
+});
+
+test("search state is restored from direct home and country URLs", () => {
+  reset();
+  const home = render("Home", "/?q=Fixture%20Hanoi", "/");
+  assert.match(home, /value="Fixture Hanoi"/);
+  assert.match(home, /Search results/);
+  assert.match(render("Country", "/country/thailand?q=Bangkok", "/country/:slug"), /value="Bangkok"/);
+  const empty = render("Country", "/country/thailand?q=Seoul", "/country/:slug");
+  assert.match(empty, /No match/);
+  assert.doesNotMatch(empty, /href="\/c\/bangkok"/);
+});
+
+test("detail return links preserve the originating search or Tonight state after route reconstruction", () => {
+  reset();
+  for (const from of ["/?q=Fixture%20Hanoi", "/country/vietnam?q=Hanoi", "/tonight?city=hanoi&dance=bachata"]) {
+    const html = render("Capital", { pathname: "/c/hanoi", search: "?dance=bachata", state: { from } }, "/c/:id");
+    assert.ok(html.includes(`href="${from.replaceAll("&", "&amp;")}"`));
+    assert.match(html, /Fixture Hanoi/);
+  }
+  assert.match(render("Capital", "/c/hanoi?dance=bachata", "/c/:id"), /class="back" href="\/"/);
+});
+
+test("Tonight-to-detail genre links and successive city URLs never render a prior city's BAR", () => {
+  reset();
+  const tonight = render("Tonight", "/tonight?city=bangkok&dance=salsa", "/tonight");
+  assert.match(tonight, /href="\/c\/bangkok\?dance=salsa#bar-bar-bangkok"/);
+  for (const id of ["seoul", "bangkok", "hanoi", "seoul"]) {
+    const html = render("Capital", `/c/${id}`, "/c/:id");
+    for (const [other, name] of [["seoul", "Seoul"], ["bangkok", "Bangkok"], ["hanoi", "Hanoi"]]) {
+      assert.equal(html.includes(`<h2>Fixture ${name}</h2>`), other === id);
+    }
+  }
+});
+
+test("router back/forward and reconstructed URLs retain city, dance and originating search", async () => {
+  const router = createMemoryRouter([{ path: "*", element: null }], { initialEntries: ["/?q=Havana"] });
+  try {
+    await router.navigate("/c/bangkok?dance=salsa", { state: { from: "/?q=Havana" } });
+    await router.navigate(tonightPathForRoute(router.state.location.pathname, router.state.location.search));
+    const from = router.state.location.pathname + router.state.location.search;
+    await router.navigate(tonightBarPath("bangkok", "fixture", "salsa"), { state: { from } });
+    assert.equal(router.state.location.search, "?dance=salsa");
+    assert.equal(router.state.location.hash, "#bar-fixture");
+    assert.equal(router.state.location.state.from, "/tonight?city=bangkok&dance=salsa");
+    await router.navigate(-1);
+    assert.equal(router.state.location.search, "?city=bangkok&dance=salsa");
+    await router.navigate(-1);
+    assert.equal(router.state.location.state.from, "/?q=Havana");
+    await router.navigate(-1);
+    assert.equal(router.state.location.search, "?q=Havana");
+    await router.navigate(1);
+    assert.equal(router.state.location.pathname, "/c/bangkok");
+    assert.equal(router.state.location.search, "?dance=salsa");
+  } finally { router.dispose(); }
+});
+
+test.after(() => { delete globalThis.__frontend; });

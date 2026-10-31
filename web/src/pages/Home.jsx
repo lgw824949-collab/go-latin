@@ -1,29 +1,39 @@
-import { useSearchParams } from "react-router-dom";
-import CapitalGrid from "../components/CapitalGrid.jsx";
-import Filters from "../components/Filters.jsx";
+import { useMemo } from "react";
+import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
+import BrowseSteps from "../components/BrowseSteps.jsx";
+import ContinentCards from "../components/ContinentCards.jsx";
 import Hero from "../components/Hero.jsx";
+import NearYou from "../components/NearYou.jsx";
+import PopularCities from "../components/PopularCities.jsx";
+import { countrySearchTarget, listCountries, searchDirectory } from "../lib/countries.js";
 import { useCapitals } from "../lib/directory.js";
-import { CONTINENTS, DANCES, filterCapitals, readFilters, writeFilters } from "../lib/filterCapitals.js";
 
 export default function Home() {
   const [params, setParams] = useSearchParams();
-  const { status, capitals, error } = useCapitals();
-  const filters = readFilters(params);
-  const visible = filterCapitals(capitals, filters);
-  const danceName = DANCES.find((item) => item.id === filters.dance)?.name;
-  const continentName = CONTINENTS.find((item) => item.id === filters.continent)?.name;
-
-  function setDance(value) {
-    setParams(writeFilters(params, "dance", value));
+  const query = params.get("q") ?? "";
+  function setQuery(value) {
+    const next = new URLSearchParams(params);
+    if (value) next.set("q", value); else next.delete("q");
+    setParams(next, { replace: true });
   }
+  const navigate = useNavigate();
+  const { status, capitals, error } = useCapitals();
+  const countries = useMemo(() => listCountries(capitals), [capitals]);
+  const found = useMemo(
+    () => searchDirectory(capitals, query),
+    [capitals, query],
+  );
+  const searching = query.trim() !== "";
 
-  function setContinent(value) {
-    setParams(writeFilters(params, "continent", value));
+  function onSearch(event) {
+    event.preventDefault();
+    const target = countrySearchTarget(countries, query);
+    if (target) navigate(target);
   }
 
   if (status !== "ready") {
     return (
-      <main className="wrap">
+      <main className="wrap home home-b">
         <Hero />
         <p className={status === "error" ? "empty" : "count"}>
           {status === "error" ? error : "Loading the directory."}
@@ -33,36 +43,81 @@ export default function Home() {
   }
 
   return (
-    <main className="wrap">
+    <main className="wrap home home-b">
       <Hero />
-      <Filters
-        dance={filters.dance}
-        continent={filters.continent}
-        onDance={setDance}
-        onContinent={setContinent}
-      />
-      <p className="count">{resultLabel(visible.length, danceName, continentName)}</p>
-      {visible.length === 0 ? (
-        <p className="empty">
-          No {danceName} floor listed{continentName ? ` in ${continentName}` : ""}. A capital
-          shows up here after the bar is confirmed.
-        </p>
-      ) : (
-        <CapitalGrid capitals={visible} />
-      )}
+      <div className="home-core">
+        <NearYou capitals={capitals} />
+        <form className="home-search" onSubmit={onSearch}>
+          <label className="city-search finder">
+            <span className="visually-hidden">Country, city, or bar</span>
+            <input
+              type="search"
+              value={query}
+              placeholder="Search country, city or bar..."
+              autoComplete="off"
+              onChange={(event) => setQuery(event.target.value)}
+            />
+          </label>
+        </form>
+        {searching ? (
+          <SearchResults query={query} found={found} />
+        ) : null}
+      </div>
+      <section className="browse" aria-labelledby="browse-title">
+        <div className="section-head">
+          <h2 id="browse-title">Explore by Continent</h2>
+          <Link to="/country">View All &gt;</Link>
+        </div>
+        <BrowseSteps current="Continent" />
+        <ContinentCards capitals={capitals} />
+      </section>
+      <PopularCities capitals={capitals} />
     </main>
   );
 }
 
-function resultLabel(count, danceName, continentName) {
-  const noun = danceName
-    ? count === 1
-      ? "floor"
-      : "floors"
-    : count === 1
-      ? "capital"
-      : "capitals";
-  const what = danceName ? `${danceName} ${noun}` : noun;
-  const where = continentName ? `in ${continentName}` : "across six continents";
-  return `${count} ${what} ${where}`;
+function SearchResults({ query, found }) {
+  const { pathname, search } = useLocation();
+  const state = { from: `${pathname}${search}` };
+  const hits = found.countries.length + found.cities.length + found.bars.length;
+  if (hits === 0) {
+    return <p className="empty">No match for "{query.trim()}".</p>;
+  }
+  return (
+    <section className="search-results" aria-label="Search results">
+      <SearchGroup title="BAR" items={found.bars.map((bar) => (
+        <li key={`${bar.cityId}-${bar.id}`}>
+          <Link to={bar.href} state={state}>
+            <span className="place-name">{bar.name}</span>
+            <span>{bar.city}, {bar.country}</span>
+          </Link>
+        </li>
+      ))} />
+      <SearchGroup title="City" items={found.cities.map((city) => (
+        <li key={city.id}>
+          <Link to={`/c/${city.id}`} state={state}>
+            <span className="place-name">{city.city}</span>
+            {city.showCountry ? <span>{city.country}</span> : null}
+          </Link>
+        </li>
+      ))} />
+      <SearchGroup title="Country" items={found.countries.map((country) => (
+        <li key={country.slug}>
+          <Link to={`/country/${country.slug}`}>
+            <span className="place-name">{country.name}</span>
+          </Link>
+        </li>
+      ))} />
+    </section>
+  );
+}
+
+function SearchGroup({ title, items }) {
+  if (!items.length) return null;
+  return (
+    <>
+      <h2 className="search-kind">{title}</h2>
+      <ul className="country-list">{items}</ul>
+    </>
+  );
 }

@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build && node scripts/prerender-seoul.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "preview:offline": "node scripts/offline-preview.mjs",
+    "check:offline": "node scripts/offline-preview.mjs --check"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.117.2",

@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import {
   ADMIN_DANCES,
   ADMIN_DAYS,
+  countryForCapital,
   loadAdminBar,
   loadAdminCities,
   saveAdminBar,
@@ -10,6 +11,7 @@ import {
   signOutAdmin,
   watchAdminSession,
 } from "../lib/admin.js";
+import { citiesForCountry, countrySlug, listCountries } from "../lib/countries.js";
 
 const DAY_NAME = {
   1: "Monday",
@@ -36,6 +38,8 @@ export default function Admin() {
   const [duplicate, setDuplicate] = useState("");
   const [confirmDuplicate, setConfirmDuplicate] = useState(false);
   const [access, setAccess] = useState("checking");
+  const countries = useMemo(() => listCountries(cities), [cities]);
+  const countryCities = citiesForCountry(countries, countrySlug(country));
 
   useEffect(() => watchAdminSession(setAccess), []);
 
@@ -102,8 +106,19 @@ export default function Admin() {
         setMessage("");
         return;
       }
+      setDuplicate("");
+      setConfirmDuplicate(false);
       setMessage(error.message);
     }
+  }
+
+  function chooseCountry(slug) {
+    const picked = countries.find((item) => item.slug === slug);
+    const name = picked?.name ?? "";
+    const kept = (picked?.cities ?? []).some((city) => city.id === capitalId);
+    if (!kept) setCapitalId("");
+    setCountry(name);
+    setOriginalCountry(name);
   }
 
   if (access !== "admin") {
@@ -123,20 +138,34 @@ export default function Admin() {
       </button>
       <form onSubmit={onSave}>
         <label>
+          Country
+          <select
+            value={countrySlug(country)}
+            onChange={(event) => chooseCountry(event.target.value)}
+          >
+            <option value="">Select a country</option>
+            {countries.map((item) => (
+              <option key={item.slug} value={item.slug}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </label>
+        <label>
           City
           <select
-            value={capitalId}
+            value={countryCities.some((city) => city.id === capitalId) ? capitalId : ""}
+            disabled={countryCities.length === 0}
             onChange={(event) => {
               const next = event.target.value;
+              const nextCountry = countryForCapital(cities, next);
               setCapitalId(next);
-              if (!isNew) return;
-              const city = cities.find((item) => item.id === next);
-              setCountry(city?.country ?? "");
-              setOriginalCountry(city?.country ?? "");
+              setCountry(nextCountry);
+              setOriginalCountry(nextCountry);
             }}
           >
             <option value="">Select a city</option>
-            {cities.map((city) => (
+            {countryCities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.city}
               </option>
@@ -146,7 +175,7 @@ export default function Admin() {
         {form ? (
           <>
             <Text label="BAR name" value={form.name} onChange={(name) => setForm({ ...form, name })} />
-            <Text label="Country" value={country} onChange={setCountry} />
+            <Text label="Country" value={country} readOnly />
             <Text label="Address" value={form.address} onChange={(address) => setForm({ ...form, address })} />
             <Text label="Phone" value={form.phone} onChange={(phone) => setForm({ ...form, phone })} />
             <Text label="Website" value={form.website} onChange={(website) => setForm({ ...form, website })} />
@@ -308,11 +337,16 @@ function SignIn({ access }) {
   );
 }
 
-function Text({ label, value, onChange, type = "text" }) {
+function Text({ label, value, onChange, type = "text", readOnly = false }) {
   return (
     <label>
       {label}
-      <input type={type} value={value} onChange={(event) => onChange(event.target.value)} />
+      <input
+        type={type}
+        value={value}
+        readOnly={readOnly}
+        onChange={readOnly ? undefined : (event) => onChange(event.target.value)}
+      />
     </label>
   );
 }

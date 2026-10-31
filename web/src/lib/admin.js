@@ -1,8 +1,10 @@
 import { createClient } from "@supabase/supabase-js";
 import { DANCES } from "./filterCapitals.js";
+import { buildSourceRows, httpUrl, sourceKindsToRemove, venueSourceFields } from "./sources.js";
 
-const url = import.meta.env.VITE_SUPABASE_URL;
-const anonKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+const env = import.meta.env ?? {};
+const url = env.VITE_SUPABASE_URL;
+const anonKey = env.VITE_SUPABASE_ANON_KEY;
 
 const DAY_ORDER = [1, 2, 3, 4, 5, 6, 0];
 
@@ -44,16 +46,21 @@ export async function signOutAdmin() {
   if (error) throw new Error(error.message);
 }
 
-function adminAccess(session) {
+export function adminAccess(session) {
   if (!session?.user) return "signedOut";
   if (session.user.app_metadata?.role === "admin") return "admin";
   return "forbidden";
 }
 
-async function requireAdmin() {
-  const { data, error } = await adminClient().auth.getSession();
+export async function requireAdmin(supabase) {
+  const { data, error } = await supabase.auth.getSession();
   if (error) throw new Error(error.message);
   if (adminAccess(data.session) !== "admin") throw new Error("Admin sign-in is required.");
+}
+
+export function countryForCapital(cities, capitalId) {
+  const city = (cities ?? []).find((item) => item.id === capitalId);
+  return city?.country ?? "";
 }
 
 export async function loadAdminCities() {
@@ -103,88 +110,116 @@ export function validateBar(form) {
     ["Instagram", form.instagram],
     ["Google Maps", form.mapsUrl],
   ]) {
-    if (value?.trim() && !isHttpUrl(value.trim())) errors.push(`${label} must be an http or https URL.`);
+    if (value?.trim() && !httpUrl(value)) errors.push(`${label} must be an http or https URL.`);
   }
   return errors;
 }
 
-export async function findSimilarVenues(form) {
-  const supabase = adminClient();
-  const { data, error } = await supabase
-    .from("venues")
-    .select("id, name, address, status, capitals(city)")
-    .eq("capital_id", form.capitalId);
-  if (error) throw new Error(error.message);
+export function classifyVenueDuplicates(form, rows) {
   const wantedName = normalizeVenue(form.name);
   const wantedAddress = normalizeVenue(form.address);
-  return (data ?? [])
-    .filter((row) => row.id !== form.venueId)
-    .filter((row) => {
-      const sameName = wantedName !== "" && normalizeVenue(row.name) === wantedName;
-      const sameAddress = wantedAddress !== "" && normalizeVenue(row.address) === wantedAddress;
-      return sameName || sameAddress;
-    })
-    .map((row) => {
-      const city = Array.isArray(row.capitals) ? row.capitals[0] : row.capitals;
-      return { id: row.id, name: row.name, city: city?.city ?? "", status: row.status };
-    });
+  const blocks = [];
+  const warnings = [];
+  for (const row of rows ?? []) {
+    if (form.venueId && row.id === form.venueId) continue;
+    if (row.capital_id && form.capitalId && row.capital_id !== form.capitalId) continue;
+    const sameName = wantedName !== "" && normalizeVenue(row.name) === wantedName;
+    const sameAddress = wantedAddress !== "" && normalizeVenue(row.address) === wantedAddress;
+    const match = {
+      id: row.id,
+      name: row.name,
+      city: venueCity(row),
+      status: row.status,
+    };
+    if (sameName && wantedAddress === "") blocks.push({ ...match, reason: "missing-address" });
+    else if (sameName && sameAddress) blocks.push({ ...match, reason: "same-name-address" });
+    else if (sameAddress) warnings.push({ ...match, reason: "same-address" });
+  }
+  return { blocks, warnings };
+}
+
+export function venueDuplicateAction(classification, confirmDuplicate) {
+  if (classification.blocks.length > 0) return { action: "block", match: classification.blocks[0] };
+  if (classification.warnings.length > 0 && !confirmDuplicate) {
+    return { action: "warn", match: classification.warnings[0] };
+  }
+  return { action: "allow", match: null };
+}
+
+let pendingNewVenue = null;
+
+export async function findSimilarVenues(form) {
+  return findSimilarVenuesWith(adminClient(), form);
+}
+
+async function findSimilarVenuesWith(supabase, form) {
+  const { data, error } = await supabase
+    .from("venues")
+    .select("id, capital_id, name, address, status, capitals(city)")
+    .eq("capital_id", form.capitalId);
+  if (error) throw new Error(error.message);
+  return classifyVenueDuplicates(form, data ?? []);
 }
 
 export async function saveAdminBar(form) {
-  await requireAdmin();
+  return saveAdminBarWith(adminClient(), form);
+}
+
+export async function saveAdminBarWith(supabase, form) {
+  await requireAdmin(supabase);
   const errors = validateBar(form);
   if (errors.length > 0) throw new Error(errors.join(" "));
-  if (!form.confirmDuplicate) {
-    const similar = await findSimilarVenues(form);
-    if (similar.length > 0) {
-      const duplicate = new Error(`A similar venue already exists in ${similar[0].city}.`);
-      duplicate.code = "duplicate";
-      throw duplicate;
-    }
-  }
-  const supabase = adminClient();
-  const venueId = form.venueId ?? crypto.randomUUID();
-  const instagram = blankToNull(form.instagram);
-  const website = blankToNull(form.website);
-  const mapsUrl = blankToNull(form.mapsUrl);
+  const decision = venueDuplicateAction(await findSimilarVenuesWith(supabase, form), form.confirmDuplicate);
+  if (decision.action !== "allow") throw duplicateError(decision);
+  const venue = venueIdForSave(form);
+  const sources = venueSourceFields(form);
+  const sourceRows = buildSourceRows({
+    mapsUrl: sources.maps_url,
+    website: sources.website,
+    instagram: sources.instagram_url,
+    checked: sources.source_checked,
+  });
+  const capitalCountry = form.country.trim();
   const payload = {
+    venue_id: venue.id,
+    is_new: venue.isNew,
     capital_id: form.capitalId,
     name: form.name.trim(),
     address: blankToNull(form.address),
     phone: blankToNull(form.phone),
-    website,
-    instagram_url: instagram,
-    maps_url: mapsUrl,
-    source_url: mapsUrl,
-    source_checked: form.lastChecked || null,
+    website: sources.website,
+    instagram_url: sources.instagram_url,
+    maps_url: sources.maps_url,
+    source_url: sources.source_url,
+    source_checked: sources.source_checked,
     source_note: blankToNull(form.notes),
     status: form.status,
     confidence: form.confidence || null,
+    country: capitalCountry,
+    original_country: capitalCountry,
+    dances: form.dances,
+    hours: form.hours.map((day) => buildHourRow(day)),
+    schedule: form.schedule.flatMap((day) => day.dances.map((dance) => ({ weekday: day.weekday, dance }))),
+    sources: sourceRows,
+    remove_source_kinds: sourceKindsToRemove(sourceRows),
   };
+  const { data, error } = await supabase.rpc("save_admin_bar", { payload });
+  if (error) throw venueWriteError(error, form.name);
+  if (!data) throw new Error("The database did not apply the save.");
+  pendingNewVenue = null;
+  return data;
+}
 
-  const write = form.venueId
-    ? supabase.from("venues").update(payload).eq("id", form.venueId)
-    : supabase.from("venues").insert({ id: venueId, ...payload });
-  const { data, error } = await write.select("id");
-  if (error) throw new Error(error.message);
-  if (!data?.length) throw new Error("The database did not apply the save.");
-  const id = data[0].id;
-
-  if (form.country.trim() !== form.originalCountry) {
-    const { data: city, error: cityError } = await supabase
-      .from("capitals")
-      .update({ country: form.country.trim() })
-      .eq("id", form.capitalId)
-      .select("id");
-    if (cityError) throw new Error(cityError.message);
-    if (!city?.length) throw new Error("The database did not apply the country.");
+function venueIdForSave(form) {
+  if (form.venueId) {
+    pendingNewVenue = null;
+    return { id: form.venueId, isNew: false };
   }
-
-  await syncDances(supabase, id, form.dances);
-  await syncHours(supabase, id, form.hours);
-  await syncSchedule(supabase, id, form.schedule);
-  await syncSources(supabase, id, { mapsUrl, website, instagram, checked: form.lastChecked || null });
-  return id;
+  const key = `${form.capitalId}\0${normalizeVenue(form.name)}\0${normalizeVenue(form.address)}`;
+  if (!pendingNewVenue || pendingNewVenue.key !== key) {
+    pendingNewVenue = { key, id: crypto.randomUUID() };
+  }
+  return { id: pendingNewVenue.id, isNew: true };
 }
 
 function toForm(venue) {
@@ -223,86 +258,23 @@ function toForm(venue) {
   };
 }
 
-async function syncDances(supabase, venueId, dances) {
-  const next = new Set(dances);
-  const { data: existing, error } = await supabase
-    .from("venue_dances")
-    .select("dance")
-    .eq("venue_id", venueId);
-  if (error) throw new Error(error.message);
-  const have = new Set((existing ?? []).map((row) => row.dance));
-  const remove = [...have].filter((dance) => !next.has(dance));
-  const add = [...next].filter((dance) => !have.has(dance));
-  if (remove.length > 0) {
-    const { error: deleteError } = await supabase
-      .from("venue_dances")
-      .delete()
-      .eq("venue_id", venueId)
-      .in("dance", remove);
-    if (deleteError) throw new Error(deleteError.message);
-  }
-  if (add.length > 0) {
-    const { error: insertError } = await supabase
-      .from("venue_dances")
-      .insert(add.map((dance) => ({ venue_id: venueId, dance })));
-    if (insertError) throw new Error(insertError.message);
-  }
-}
-
-async function syncHours(supabase, venueId, hours) {
-  const rows = hours.map((day) => ({
-    venue_id: venueId,
+export function buildHourRow(day) {
+  const closed = day.closed === true;
+  return {
     weekday: day.weekday,
-    is_closed: day.closed,
-    opens: day.closed ? null : day.opens || null,
-    closes: day.closed ? null : day.closes || null,
-    hours_text: day.closed ? "Closed" : hoursText(day),
-  }));
-  const { error } = await supabase.from("venue_hours").upsert(rows, { onConflict: "venue_id,weekday" });
-  if (error) throw new Error(error.message);
-}
-
-async function syncSchedule(supabase, venueId, schedule) {
-  const { error: deleteError } = await supabase.from("venue_night_dances").delete().eq("venue_id", venueId);
-  if (deleteError) throw new Error(deleteError.message);
-  const rows = schedule.flatMap((day) =>
-    day.dances.map((dance) => ({ venue_id: venueId, weekday: day.weekday, dance })),
-  );
-  if (rows.length === 0) return;
-  const { error } = await supabase.from("venue_night_dances").insert(rows);
-  if (error) throw new Error(error.message);
-}
-
-async function syncSources(supabase, venueId, { mapsUrl, website, instagram, checked }) {
-  const wanted = [
-    mapsUrl ? { kind: "google_maps", url: mapsUrl } : null,
-    website ? { kind: "website", url: website } : null,
-    instagram ? { kind: "instagram", url: instagram } : null,
-  ].filter(Boolean);
-  const managed = ["google_maps", "website", "instagram"];
-  const keep = new Set(wanted.map((row) => row.kind));
-  const remove = managed.filter((kind) => !keep.has(kind));
-  if (remove.length > 0) {
-    const { error } = await supabase
-      .from("venue_sources")
-      .delete()
-      .eq("venue_id", venueId)
-      .in("kind", remove);
-    if (error) throw new Error(error.message);
-  }
-  if (wanted.length === 0) return;
-  const { error } = await supabase.from("venue_sources").upsert(
-    wanted.map((row) => ({ venue_id: venueId, kind: row.kind, url: row.url, checked_at: checked })),
-    { onConflict: "venue_id,kind" },
-  );
-  if (error) throw new Error(error.message);
+    is_closed: closed,
+    opens: closed ? null : day.opens || null,
+    closes: closed ? null : day.closes || null,
+    hours_text: closed ? "Closed" : hoursText(day),
+  };
 }
 
 function hoursText(day) {
   const unchanged = timeInput(day.opens) === timeInput(day.originalOpens)
     && timeInput(day.closes) === timeInput(day.originalCloses);
-  if (day.text && unchanged) return day.text;
-  if (!day.opens || !day.closes) return day.text || "";
+  const kept = day.text && day.text !== "Closed" ? day.text : "";
+  if (kept && unchanged) return kept;
+  if (!day.opens || !day.closes) return kept;
   return `${clock(day.opens)}–${clock(day.closes)}`;
 }
 
@@ -326,21 +298,52 @@ function blankToNull(value) {
   return text === "" ? null : text;
 }
 
+function venueCity(row) {
+  if (row.city) return row.city;
+  const capital = Array.isArray(row.capitals) ? row.capitals[0] : row.capitals;
+  return capital?.city ?? "";
+}
+
+export function venueWriteError(error, name) {
+  const text = `${error?.message ?? ""} ${error?.details ?? ""}`;
+  const label = name?.trim() || "This venue";
+  if (error?.code === "23505" && text.includes("venues_name_without_address_key")) {
+    const blocked = new Error(`"${label}" already exists in this city. Enter a different address or keep the existing venue.`);
+    blocked.code = "blocked";
+    return blocked;
+  }
+  if (error?.code === "23505" && text.includes("venues_name_address_key")) {
+    const blocked = new Error(`"${label}" already uses this name and address in this city.`);
+    blocked.code = "blocked";
+    return blocked;
+  }
+  return new Error(error?.message ?? "");
+}
+
+export function duplicateError(decision) {
+  const name = decision.match.name;
+  const city = decision.match.city || "this city";
+  if (decision.action === "block" && decision.match.reason === "missing-address") {
+    const error = new Error(`"${name}" already exists in ${city}. Enter a different address or keep the existing venue.`);
+    error.code = "blocked";
+    return error;
+  }
+  if (decision.action === "block") {
+    const error = new Error(`"${name}" already uses this name and address in ${city}.`);
+    error.code = "blocked";
+    return error;
+  }
+  const error = new Error(`Another venue, "${name}", uses this address in ${city}.`);
+  error.code = "duplicate";
+  return error;
+}
+
 function normalizeVenue(value) {
   return (value ?? "")
     .trim()
     .toLowerCase()
     .replace(/[“”"']/g, "")
     .replace(/\s+/g, " ");
-}
-
-function isHttpUrl(value) {
-  try {
-    const parsed = new URL(value);
-    return parsed.protocol === "http:" || parsed.protocol === "https:";
-  } catch {
-    return false;
-  }
 }
 
 export const ADMIN_DANCES = DANCES;

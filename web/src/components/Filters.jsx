@@ -3,7 +3,7 @@ import { CONTINENTS, DANCES } from "../lib/filterCapitals.js";
 export default function Filters({ dance, continent, onDance, onContinent }) {
   return (
     <div className="filters">
-      <FilterGroup label="Dance" value={dance} options={DANCES} onChange={onDance} />
+      <FilterGroup label="Dance" value={dance} options={DANCES} onChange={onDance} pillsClass="dance-pills" />
       <FilterGroup
         label="Continent"
         value={continent}
@@ -14,11 +14,11 @@ export default function Filters({ dance, continent, onDance, onContinent }) {
   );
 }
 
-function FilterGroup({ label, value, options, onChange }) {
+function FilterGroup({ label, value, options, onChange, pillsClass = "" }) {
   return (
     <fieldset className="filter">
       <legend>{label}</legend>
-      <div className="pills">
+      <div className={pillsClass ? `pills ${pillsClass}` : "pills"}>
         <button type="button" aria-pressed={value == null} onClick={() => onChange(null)}>
           All
         </button>

@@ -48,6 +48,7 @@ export function filterBars(bars, filters, today = new Date()) {
     const name = (bar.name ?? "").toLowerCase();
     const city = (bar.city ?? "").toLowerCase();
     if (query && !name.includes(query) && !city.includes(query)) return false;
+    if (filters.country && (bar.country ?? "") !== filters.country) return false;
     if (filters.city && bar.capitalId !== filters.city) return false;
     if (filters.dance && !bar.dances.includes(filters.dance)) return false;
     if (filters.status && bar.status !== filters.status) return false;

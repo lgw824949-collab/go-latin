@@ -14,7 +14,7 @@ import {
   verificationOf,
 } from "../lib/manage.js";
 
-const EMPTY = { query: "", city: "", dance: "", status: "", verification: "" };
+const EMPTY = { query: "", country: "", city: "", dance: "", status: "", verification: "" };
 
 export default function Manage() {
   const [access, setAccess] = useState("checking");
@@ -45,16 +45,21 @@ export default function Manage() {
   }, [access]);
 
   const visible = useMemo(() => filterBars(bars, filters), [bars, filters]);
-  const cities = useMemo(() => {
-    const seen = new Map();
-    for (const bar of bars) {
-      if (bar.capitalId) seen.set(bar.capitalId, bar.city);
-    }
-    return [...seen.entries()].sort((a, b) => a[1].localeCompare(b[1]));
-  }, [bars]);
+  const groupedCities = useMemo(() => groupBarsByCountry(bars), [bars]);
+  const cityGroups = filters.country
+    ? groupedCities.filter((group) => group.name === filters.country)
+    : groupedCities;
 
   function setFilter(key, value) {
-    setFilters((current) => ({ ...current, [key]: value }));
+    setFilters((current) => {
+      const next = { ...current, [key]: value };
+      if (key === "country" && value) {
+        const group = groupedCities.find((item) => item.name === value);
+        const kept = group?.cities.some(([id]) => id === current.city);
+        if (!kept) next.city = "";
+      }
+      return next;
+    });
   }
 
   if (access !== "admin") {
@@ -75,6 +80,7 @@ export default function Manage() {
       <p className="count">{bars.length} venues</p>
       <p>
         <Link className="save" to="/admin/new">+ Add BAR</Link>
+        {" · "}<Link to="/admin/party">Quick Parties admin</Link>
       </p>
       {status === "error" ? <p className="venue-note">{message}</p> : null}
       <label>
@@ -87,10 +93,20 @@ export default function Manage() {
         />
       </label>
       <div className="filters">
+        <Filter label="Country" value={filters.country} onChange={(value) => setFilter("country", value)}>
+          <option value="">All</option>
+          {groupedCities.map((group) => (
+            <option key={group.name} value={group.name}>{group.name}</option>
+          ))}
+        </Filter>
         <Filter label="City" value={filters.city} onChange={(value) => setFilter("city", value)}>
           <option value="">All</option>
-          {cities.map(([id, city]) => (
-            <option key={id} value={id}>{city}</option>
+          {cityGroups.map((group) => (
+            <optgroup key={group.name} label={group.name}>
+              {group.cities.map(([id, city]) => (
+                <option key={id} value={id}>{city}</option>
+              ))}
+            </optgroup>
           ))}
         </Filter>
         <Filter label="Dance" value={filters.dance} onChange={(value) => setFilter("dance", value)}>
@@ -191,6 +207,22 @@ function SignIn({ access }) {
       {message ? <p className="venue-note">{message}</p> : null}
     </form>
   );
+}
+
+function groupBarsByCountry(bars) {
+  const grouped = new Map();
+  for (const bar of bars) {
+    if (!bar.capitalId || !bar.country) continue;
+    const cities = grouped.get(bar.country) ?? new Map();
+    cities.set(bar.capitalId, bar.city);
+    grouped.set(bar.country, cities);
+  }
+  return [...grouped.entries()]
+    .sort((a, b) => a[0].localeCompare(b[0], "en"))
+    .map(([name, cities]) => ({
+      name,
+      cities: [...cities.entries()].sort((a, b) => a[1].localeCompare(b[1], "en")),
+    }));
 }
 
 function Filter({ label, value, onChange, children }) {
