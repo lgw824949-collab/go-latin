@@ -4,7 +4,7 @@ import { httpUrl } from "./sources.js";
 const DAY = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
 const CITY_PATH = /^\/c\/([a-z0-9_]+)\/?$/;
-export const SITE_ORIGIN = "https://go-latin.vercel.app";
+export const SITE_ORIGIN = "https://latinwhere.com";
 
 export function cityPath(pathname) {
   const match = CITY_PATH.exec(pathname ?? "");

@@ -1,8 +1,15 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { cityCanonical, cityHead, cityRobots, headAction, pageDescription } from "./routeHead.js";
+import { SITE_ORIGIN, cityCanonical, cityHead, cityRobots, headAction, pageDescription } from "./routeHead.js";
 
 const SEOUL = "https://go-latin.vercel.app/c/seoul";
+
+test("client city metadata uses the approved production domain for all MVP cities", () => {
+  assert.equal(SITE_ORIGIN, "https://latinwhere.com");
+  for (const id of ["seoul", "bangkok", "hanoi"]) {
+    assert.equal(cityCanonical(id), `https://latinwhere.com/c/${id}`);
+  }
+});
 
 test("the current city keeps its own canonical", () => {
   assert.equal(headAction("/c/seoul", SEOUL), "keep");

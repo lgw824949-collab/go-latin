@@ -9,10 +9,9 @@ import Manage from "./pages/Manage.jsx";
 import SimplePartyManage from "./pages/SimplePartyManage.jsx";
 import Tonight from "./pages/Tonight.jsx";
 import { countryDocument } from "./lib/countries.js";
-import { headAction } from "./lib/routeHead.js";
+import { headAction, SITE_ORIGIN } from "./lib/routeHead.js";
 import { tonightPathForRoute } from "./lib/barAnchor.js";
 
-const SITE_ORIGIN = "https://go-latin.vercel.app";
 const PAGE_META = {
   "/": {
     title: "Latin bars in capital cities | Go Latin",

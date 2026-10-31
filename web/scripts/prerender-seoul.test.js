@@ -217,7 +217,7 @@ test("the home canonical stays off city pages and sitemap urls stay extensionles
   const webRoot = dirname(dirname(fileURLToPath(import.meta.url)));
   const home = readFileSync(join(webRoot, "index.html"), "utf8");
   const hosting = JSON.parse(readFileSync(join(webRoot, "vercel.json"), "utf8"));
-  assert.match(home, /<link rel="canonical" href="https:\/\/go-latin\.vercel\.app\/" \/>/);
+  assert.match(home, /<link rel="canonical" href="https:\/\/latinwhere\.com\/" \/>/);
   assert.equal(hosting.cleanUrls, true);
   assert.equal(hosting.trailingSlash, false);
   for (const source of ["/country", "/country/:slug", "/admin", "/admin/:id"]) {
