@@ -10,18 +10,19 @@ import { isSimplePartyCity } from "../lib/simpleParty.js";
 import { httpUrl } from "../lib/sources.js";
 import SimpleCityParties from "../components/SimpleCityParties.jsx";
 import BarDetails from "../components/BarDetails.jsx";
+import BarProfile from "../components/BarProfile.jsx";
 import { releaseFeatureEnabled } from "../lib/releaseFeatures.js";
 
 export default function Capital() {
   const { id } = useParams();
-  const { hash } = useLocation();
+  const { hash, search, state } = useLocation();
   const [params] = useSearchParams();
   const dance = readFilters(params).dance;
   const { status, capital, error } = useCapital(id);
   const allVenues = useMemo(() => listedVenues(capital), [capital]);
   const venues = useMemo(() => venuesForDance(allVenues, dance), [allVenues, dance]);
   const venueKey = venues.map((venue) => venue.id ?? "").join("\n");
-  const currentAnchor = matchingBarAnchor(hash, venues.map((venue) => venue.id));
+  const currentAnchor = matchingBarAnchor(hash, allVenues.map((venue) => venue.id));
 
   useEffect(() => {
     if (status !== "ready" || !capital) return undefined;
@@ -31,11 +32,11 @@ export default function Capital() {
 
   useEffect(() => {
     if (status !== "ready") return undefined;
-    const anchor = matchingBarAnchor(hash, venues.map((venue) => venue.id));
+    const anchor = matchingBarAnchor(hash, allVenues.map((venue) => venue.id));
     if (!anchor) return undefined;
     document.getElementById(anchor)?.scrollIntoView({ block: "start" });
     return undefined;
-  }, [status, hash, venueKey, venues]);
+  }, [status, hash, venueKey, allVenues]);
 
   if (status === "loading") {
     return (
@@ -65,6 +66,10 @@ export default function Capital() {
       </main>
     );
   }
+
+  const selectedVenue = currentAnchor ? allVenues.find(venue => barAnchor(venue.id) === currentAnchor) : null;
+  if (selectedVenue) return <BarProfile key={selectedVenue.id} venue={selectedVenue} capital={capital}
+    venues={allVenues} search={search} from={state?.from} />;
 
   const continent = CONTINENTS.find((item) => item.id === capital.continent);
 
@@ -143,6 +148,7 @@ function ComingSoon() {
 }
 
 function Venue({ venue, capital, current = false }) {
+  const location = useLocation();
   const dances = confirmedDanceNames(venue.dances).join(" · ");
   const website = httpUrl(venue.website);
   const instagram = httpUrl(venue.instagram);
@@ -152,7 +158,7 @@ function Venue({ venue, capital, current = false }) {
   return (
     <section className={current ? "venue is-current" : "venue"} id={anchor || undefined}>
       {label ? <p className="kicker">{label}</p> : null}
-      <h2>{venue.name}</h2>
+      <h2><Link className="venue-detail-link" to={`${location.pathname}${location.search}#${anchor}`} state={location.state}>{venue.name}</Link></h2>
       {dances ? <p className="venue-dances">{dances}</p> : null}
       {venue.address ? <p className="venue-address">{venue.address}</p> : null}
       {venue.phone ? <p className="venue-address">{venue.phone}</p> : null}

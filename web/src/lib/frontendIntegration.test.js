@@ -227,7 +227,7 @@ test("Tonight-to-detail genre links and successive city URLs never render a prio
   for (const id of ["seoul", "bangkok", "hanoi", "seoul"]) {
     const html = render("Capital", `/c/${id}`, "/c/:id");
     for (const [other, name] of [["seoul", "Seoul"], ["bangkok", "Bangkok"], ["hanoi", "Hanoi"]]) {
-      assert.equal(html.includes(`<h2>Fixture ${name}</h2>`), other === id);
+      assert.equal(new RegExp(`<h2><a[^>]*>Fixture ${name}</a></h2>`).test(html), other === id);
     }
   }
 });
@@ -252,6 +252,19 @@ test("router back/forward and reconstructed URLs retain city, dance and originat
     assert.equal(router.state.location.pathname, "/c/bangkok");
     assert.equal(router.state.location.search, "?dance=salsa");
   } finally { router.dispose(); }
+});
+
+test("BAR anchor opens the individual profile and preserves its city/genre return link", () => {
+  reset();
+  const html = render("Capital", "/c/hanoi?dance=bachata#bar-bar-hanoi", "/c/:id");
+  assert.match(html, /class="bar-profile"/);
+  assert.match(html, /<h1>Fixture Hanoi<\/h1>/);
+  assert.match(html, /href="\/c\/hanoi\?dance=bachata"/);
+  assert.match(html, /오늘 밤/);
+  assert.doesNotMatch(html, /class="detail-hero"|Fixture Party/);
+  const otherGenre = render("Capital", "/c/hanoi?dance=salsa#bar-bar-hanoi", "/c/:id");
+  assert.match(otherGenre, /<h1>Fixture Hanoi<\/h1>/);
+  assert.match(otherGenre, /href="\/c\/hanoi\?dance=salsa"/);
 });
 
 test.after(() => { delete globalThis.__frontend; });
