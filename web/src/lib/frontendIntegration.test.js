@@ -6,10 +6,38 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import test from "node:test";
 import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { createMemoryRouter, MemoryRouter, Route, Routes } from "react-router-dom";
+import { createMemoryRouter, matchRoutes, MemoryRouter, Route, Routes } from "react-router-dom";
 import { transformWithOxc } from "vite";
 import { shapeCityCapital } from "./directory.js";
 import { tonightBarPath, tonightPathForRoute } from "./barAnchor.js";
+import { releaseFeatureEnabled } from "./releaseFeatures.js";
+
+test("direct city party requests reach the disabled SPA route without broadening existing rewrites", () => {
+  const config = JSON.parse(readFileSync(new URL("../../vercel.json", import.meta.url), "utf8"));
+  assert.deepEqual(config, {
+    cleanUrls: true,
+    trailingSlash: false,
+    rewrites: [
+      { source: "/country", destination: "/index" },
+      { source: "/country/:slug", destination: "/index" },
+      { source: "/c/:id/party", destination: "/index" },
+      { source: "/admin", destination: "/index" },
+      { source: "/admin/:id", destination: "/index" },
+    ],
+  });
+  const app = readFileSync(new URL("../App.jsx", import.meta.url), "utf8");
+  assert.match(app, /path="\/c\/:id\/party" element=\{releaseFeatureEnabled\("quickParties"\)[\s\S]*?<ComingSoon \/>/);
+  assert.equal(releaseFeatureEnabled("quickParties"), false);
+  const rewrite = config.rewrites.find(rule => rule.source === "/c/:id/party");
+  for (const city of ["seoul", "bangkok", "hanoi"]) {
+    const matched = matchRoutes([{ path: rewrite.source }], `/c/${city}/party`);
+    assert.equal(matched[0].params.id, city);
+    assert.equal(rewrite.destination, "/index");
+  }
+  for (const route of ["/", "/c/hanoi", "/tonight", "/admin", "/country/vietnam"]) {
+    assert.equal(matchRoutes([{ path: rewrite.source }], route), null);
+  }
+});
 
 // Full page composition with DB-shaped fixtures, not live DB or local BAR data.
 // Effects do not run in SSR; every page data hook is explicitly replaced.
