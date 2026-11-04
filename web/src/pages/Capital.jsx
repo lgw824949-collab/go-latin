@@ -10,6 +10,7 @@ import { isSimplePartyCity } from "../lib/simpleParty.js";
 import { httpUrl } from "../lib/sources.js";
 import SimpleCityParties from "../components/SimpleCityParties.jsx";
 import BarDetails from "../components/BarDetails.jsx";
+import { releaseFeatureEnabled } from "../lib/releaseFeatures.js";
 
 export default function Capital() {
   const { id } = useParams();
@@ -95,7 +96,8 @@ export default function Capital() {
           : allVenues.length > 0
             ? <p className="empty">No {DANCES.find((item) => item.id === dance)?.name} floor listed.</p>
             : <ComingSoon />}
-        {isSimplePartyCity(capital.id) ? <SimpleCityParties capitalId={capital.id} /> : null}
+        {releaseFeatureEnabled("quickParties") && isSimplePartyCity(capital.id)
+          ? <SimpleCityParties capitalId={capital.id} /> : null}
       </div>
     </main>
   );

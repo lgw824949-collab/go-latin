@@ -103,7 +103,7 @@ test("home search and country city lists produce real BAR/detail route links for
   assert.match(render("Country", "/country/thailand", "/country/:slug"), /href="\/c\/bangkok"/);
 });
 
-test("all three detail pages compose contact links, hours, sources and read-only party panels", () => {
+test("BAR MVP detail pages compose contact links, hours and sources without party panels", () => {
   reset();
   for (const id of ["seoul", "bangkok", "hanoi"]) {
     const html = render("Capital", `/c/${id}`, "/c/:id");
@@ -112,8 +112,7 @@ test("all three detail pages compose contact links, hours, sources and read-only
     assert.match(html, /<dd>Closed<\/dd>/);
     assert.match(html, /href="https:\/\/example.com\/source"/);
     assert.match(html, /29 Oct 2026/);
-    assert.match(html, /Fixture Party/);
-    assert.match(html, /https:\/\/example.com\/social/);
+    assert.doesNotMatch(html, /Fixture Party|https:\/\/example.com\/social|No upcoming parties listed/);
     assert.doesNotMatch(html, /Register a party|Save party/);
     if (id === "hanoi") assert.match(html, /Monday[^<]*<\/time><\/dt><dd>Not confirmed/);
   }
@@ -139,13 +138,15 @@ test("Tonight page composes city timezone, overnight badge, seven-day schedule a
   assert.doesNotMatch(filtered, /OPEN NOW/);
 });
 
-test("full public detail distinguishes party query failure from an empty list", () => {
+test("disabled public parties expose neither query errors nor empty party panels", () => {
   const f = reset(); f.parties = []; f.partyStatus = "error";
   const error = render("Capital", "/c/hanoi", "/c/:id");
-  assert.match(error, /role="alert">Offline party failure/);
-  assert.doesNotMatch(error, /No upcoming parties listed/);
+  assert.doesNotMatch(error, /Offline party failure|No upcoming parties listed/);
+  assert.match(error, /Fixture Hanoi/);
   f.partyStatus = "ready";
-  assert.match(render("Capital", "/c/hanoi", "/c/:id"), /No upcoming parties listed/);
+  const ready = render("Capital", "/c/hanoi", "/c/:id");
+  assert.doesNotMatch(ready, /Offline party failure|No upcoming parties listed/);
+  assert.match(ready, /Fixture Hanoi/);
 });
 
 test("page loading, query errors and unknown city remain distinct in composed pages", () => {

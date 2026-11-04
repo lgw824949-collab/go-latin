@@ -12,6 +12,7 @@ import Tonight from "./pages/Tonight.jsx";
 import { countryDocument } from "./lib/countries.js";
 import { headAction, SITE_ORIGIN } from "./lib/routeHead.js";
 import { tonightPathForRoute } from "./lib/barAnchor.js";
+import { releaseFeatureEnabled } from "./lib/releaseFeatures.js";
 
 const PAGE_META = {
   "/": {
@@ -79,6 +80,16 @@ function NotFound() {
   );
 }
 
+function ComingSoon() {
+  return (
+    <main className="wrap detail">
+      <h1>Coming soon</h1>
+      <p className="lede">This feature is not available during the BAR MVP.</p>
+      <Link to="/">Explore bars</Link>
+    </main>
+  );
+}
+
 function HomeSkin() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -110,14 +121,18 @@ export default function App() {
         <Route path="/tonight" element={<Tonight />} />
         <Route path="/country" element={<Countries />} />
         <Route path="/country/:slug" element={<Country />} />
-        <Route path="/c/:id/party" element={<Navigate to="/admin/party" replace />} />
+        <Route path="/c//party" element={<ComingSoon />} />
+        <Route path="/c/:id/party" element={releaseFeatureEnabled("quickParties")
+          ? <Navigate to="/admin/party" replace /> : <ComingSoon />} />
         <Route path="/c/:id" element={<Capital />} />
         <Route path="/parties" element={<NotFound />} />
         <Route path="/parties/:id" element={<NotFound />} />
         <Route path="/p/:id" element={<NotFound />} />
         <Route path="/admin" element={<Manage />} />
-        <Route path="/admin/reset-password" element={<PasswordRecovery />} />
-        <Route path="/admin/party" element={<SimplePartyManage />} />
+        <Route path="/admin/reset-password" element={releaseFeatureEnabled("passwordRecovery")
+          ? <PasswordRecovery /> : <ComingSoon />} />
+        <Route path="/admin/party" element={releaseFeatureEnabled("quickParties")
+          ? <SimplePartyManage /> : <ComingSoon />} />
         <Route path="/admin/ads" element={<NotFound />} />
         <Route path="/admin/:id" element={<Admin />} />
       </Routes>

@@ -244,5 +244,47 @@ test("SQL dependency gate rejects missing Auth/Storage, disabled RLS and bypass 
   assert.match(gate, /<> 2/);
   assert.match(sql, /set local search_path = '';/);
   assert.match(sql, /default pg_catalog\.gen_random_uuid\(\)/);
-  assert.doesNotMatch(gate, /alter table|create policy/i);
+  assert.doesNotMatch(sqlExecutableText(gate), /alter\s+table|create\s+policy|\bexecute\b/i);
+});
+
+// Inspect the PL/pgSQL gate body, retaining executable tokens and line boundaries.
+// Dynamic EXECUTE is forbidden separately so hiding its string never bypasses the gate.
+function sqlExecutableText(sql) {
+  let output = "", i = 0;
+  while (i < sql.length) {
+    if (sql.startsWith("--", i)) {
+      while (i < sql.length && sql[i] !== "\n") i++;
+      output += "\n";
+    } else if (sql.startsWith("/*", i)) {
+      let depth = 1; i += 2;
+      while (i < sql.length && depth) {
+        if (sql.startsWith("/*", i)) { depth++; i += 2; }
+        else if (sql.startsWith("*/", i)) { depth--; i += 2; }
+        else i++;
+      }
+      if (depth) throw new Error("Unterminated SQL comment");
+      output += " ";
+    } else if (sql[i] === "'") {
+      const escaped = /(?:^|[^a-zA-Z0-9_$])[eE]$/.test(sql.slice(0, i));
+      i++; let closed = false;
+      while (i < sql.length) {
+        if (escaped && sql[i] === "\\") { i += 2; }
+        else if (sql.startsWith("''", i)) { i += 2; }
+        else if (sql[i++] === "'") { closed = true; break; }
+      }
+      if (!closed) throw new Error("Unterminated SQL string");
+      output += " ";
+    } else { output += sql[i++]; }
+  }
+  return output;
+}
+
+test("SQL gate scanner ignores quoted messages and nested comments without hiding executable DDL", () => {
+  const forbidden = /alter\s+table|create\s+policy|\bexecute\b/i;
+  assert.doesNotMatch(sqlExecutableText("raise exception 'CREATE POLICY isn''t allowed'; /* outer /* CREATE POLICY */ end */ -- ALTER TABLE\nselect 1;"), forbidden);
+  for (const sql of ["CREATE POLICY example ON storage.objects;", "ALTER /* comment */ TABLE storage.objects;", "EXECUTE 'CREATE POLICY example ON storage.objects';", "EXECUTE $$CREATE POLICY example ON storage.objects$$;"]) {
+    assert.match(sqlExecutableText(sql), forbidden);
+  }
+  assert.throws(() => sqlExecutableText("'unterminated"), /Unterminated/);
+  assert.throws(() => sqlExecutableText("/* unterminated"), /Unterminated/);
 });

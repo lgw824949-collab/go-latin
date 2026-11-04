@@ -157,16 +157,17 @@ test("a matching image url on another city shows no photo credit", () => {
   assert.equal(imageCreditHtml("beirut", `${CREDITS[2].image}?size=large`), "");
 });
 
-test("the local capital seed uses the replacement images and keeps every other photo", () => {
+test("Preview seed preserves stored images including Beirut and never attaches unrelated replacement credits", () => {
   const path = join(dirname(fileURLToPath(import.meta.url)), "../../../data/capitals.json");
   const capitals = JSON.parse(readFileSync(path, "utf8"));
   assert.equal(capitals.length, 195);
   const credited = capitals.filter((capital) => CAPITAL_IMAGE_CREDITS[capital.id]);
   assert.deepEqual(credited.map((capital) => capital.id).sort(), CREDITS.map((credit) => credit.id).sort());
   for (const capital of credited) {
-    assert.equal(capital.image, CAPITAL_IMAGE_CREDITS[capital.id].image);
-    assert.equal(imageCredit(capital.id, capital.image)?.author, CAPITAL_IMAGE_CREDITS[capital.id].author);
-    assert.match(imageCreditHtml(capital.id, capital.image), /^<p class="lede">Photo: /);
+    const expected = CREDITS.find(credit => credit.id === capital.id);
+    assert.equal(capital.image, expected.previous);
+    assert.equal(imageCredit(capital.id, capital.image), null);
+    assert.equal(imageCreditHtml(capital.id, capital.image), "");
   }
   const others = capitals.filter((capital) => !CAPITAL_IMAGE_CREDITS[capital.id]);
   assert.equal(others.length, 182);
