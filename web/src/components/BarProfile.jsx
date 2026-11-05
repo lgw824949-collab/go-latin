@@ -52,7 +52,7 @@ export default function BarProfile({ venue, capital, venues = [], search = "", f
       <section className="bar-profile-section" aria-labelledby="bar-week-title">
         <h2 id="bar-week-title">{t.week}</h2>
         <dl className="bar-profile-week">{model.week.map(day => <div key={day.weekday} className={day.today ? "is-today" : ""} aria-current={day.today ? "date" : undefined}>
-          <dt>{t.weekdays[day.weekday]}{day.today ? <span>{t.today}</span> : null}</dt>
+          <dt><abbr title={t.weekdays[day.weekday]}>{t.weekdays[day.weekday].slice(0, 3)}</abbr>{day.today ? <span>{t.today}</span> : null}</dt>
           <dd>{day.closed ? t.closed : day.dances.length ? day.dances.join(" · ") : t.unknown}</dd>
         </div>)}</dl>
       </section>

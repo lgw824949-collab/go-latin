@@ -76,7 +76,7 @@ test("profile preserves all eight sections and explicit placeholders without inv
   assert.equal((html.match(/Music start times have not been confirmed\./g) ?? []).length, 1);
   assert.match(html, /lang="en"/);
   assert.match(html, /aria-pressed="true">EN/);
-  assert.equal((html.match(/<dt>(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/g) ?? []).length, 14);
+  assert.equal((html.match(/<abbr title="(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"/g) ?? []).length, 7);
   assert.doesNotMatch(html, /Closed tonight/);
   assert.match(html, /No other bars listed in this city yet./);
 });

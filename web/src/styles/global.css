@@ -1602,3 +1602,5 @@ body.theme-b .card {
 .bar-profile-photos [role="img"]{aspect-ratio:auto;min-height:76px;padding:14px 8px;text-align:center}
 .bar-profile-photos img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px}
 @media(min-width:900px){.bar-profile{margin-top:20px;margin-bottom:40px}.bar-profile-section{margin-top:22px}.bar-profile-week>div{padding:9px 12px}.bar-profile-tonight{padding:16px 20px}}
+
+.bar-profile-week abbr{border:0;text-decoration:none}
