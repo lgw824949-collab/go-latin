@@ -4,7 +4,7 @@ import test from "node:test";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderSitemap } from "../../scripts/prerender-seoul.mjs";
-import { BROWSE_CONTINENTS, citiesForCountry, continentName, countriesInContinent, countryDocument, countryPlaceCounts, countrySearchTarget, countrySlug, listCountries, matchingCities, matchingCountries, popularListedCities, searchDirectory } from "./countries.js";
+import { BROWSE_CONTINENTS, countryCityCategories, citiesForCountry, continentName, countriesInContinent, countryDocument, countryPlaceCounts, countrySearchTarget, countrySlug, listCountries, matchingCities, matchingCountries, popularListedCities, searchDirectory } from "./countries.js";
 import { filterBars } from "./manage.js";
 import { headAction } from "./routeHead.js";
 
@@ -220,4 +220,23 @@ test("country pages are noindex and stay out of the sitemap", () => {
   const sitemap = renderSitemap("https://go-latin.vercel.app", [{ id: "seoul" }]);
   assert.equal(sitemap.includes("/country"), false);
   assert.match(sitemap, /\/c\/seoul</);
+});
+
+
+test("shared city categories use registered records for every country and only approved Vietnam placeholders", () => {
+  for (const country of listCountries(capitals)) {
+    const categories = countryCityCategories(country);
+    if (country.slug !== "vietnam") {
+      assert.equal(categories.length, country.cities.length);
+      assert.deepEqual(categories.map(category => category.id), country.cities.map(city => city.id));
+      assert.ok(categories.every(category => country.cities.includes(category.registered)));
+    } else {
+      assert.deepEqual(categories.slice(0, 3).map(category => category.id), ["hanoi", "ho-chi-minh-city", "da-nang"]);
+    }
+  }
+  const extra = { id: "actual-other-city", city: "Hai Phong", venues: [] };
+  const options = countryCityCategories({ slug: "vietnam", cities: [extra] });
+  assert.equal(options[3].registered, extra);
+  assert.equal(options[3].id, extra.id);
+  assert.deepEqual(countryCityCategories({ slug: "no-data", cities: [] }), []);
 });

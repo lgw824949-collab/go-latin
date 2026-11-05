@@ -45,6 +45,25 @@ export function matchingCities(cities, query) {
   return (cities ?? []).filter((city) => matchesCapitalQuery(city, needle));
 }
 
+// Only Vietnam has explicitly requested placeholder categories. Everywhere else
+// categories come exclusively from the country's registered city records.
+const VIETNAM_CATEGORIES = [
+  { id: "hanoi", name: "Hanoi", aliases: ["hanoi"] },
+  { id: "ho-chi-minh-city", name: "Ho Chi Minh City", aliases: ["hochiminhcity", "hochiminh", "hcmc"] },
+  { id: "da-nang", name: "Da Nang", aliases: ["danang"] },
+];
+function cityCategoryKey(value) {
+  return String(value ?? "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
+}
+export function countryCityCategories(country) {
+  const cities = country?.cities ?? [];
+  const categories = country?.slug === "vietnam" ? VIETNAM_CATEGORIES.map(category => ({
+    ...category, registered: cities.find(city => category.aliases.includes(cityCategoryKey(city.id)) || category.aliases.includes(cityCategoryKey(city.city))),
+  })) : [];
+  const used = new Set(categories.map(category => category.registered?.id));
+  return [...categories, ...cities.filter(city => !used.has(city.id)).map(city => ({ id: city.id, name: city.city, registered: city }))];
+}
+
 export const BROWSE_CONTINENTS = [
   "asia",
   "europe",

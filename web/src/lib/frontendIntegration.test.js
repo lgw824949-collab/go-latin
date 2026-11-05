@@ -128,7 +128,8 @@ test("home search and country city lists produce real BAR/detail route links for
   f.query = "Fixture Hanoi";
   assert.match(render("Home", "/?q=Fixture%20Hanoi", "/"), /href="\/c\/hanoi#bar-bar-hanoi"/);
   f.query = "";
-  assert.match(render("Country", "/country/thailand", "/country/:slug"), /href="\/c\/bangkok"/);
+  assert.match(render("Country", "/country/thailand", "/country/:slug"), /aria-pressed="false">Bangkok/);
+  assert.match(render("Country", "/country/thailand?city=bangkok", "/country/:slug"), /href="\/c\/bangkok#bar-bar-bangkok"/);
 });
 
 test("city BAR lists stay compact and link the existing profiles without raw schedules or sources", () => {
@@ -180,6 +181,25 @@ test("Vietnam city selection shows only the selected city's real BAR cards and k
   }
   const profile = render("Capital", { pathname: "/c/hanoi", hash: "#bar-bar-hanoi", state: { from: "/country/vietnam?city=hanoi" } }, "/c/:id");
   assert.match(profile, /class="bar-profile-back" href="\/country\/vietnam\?city=hanoi"/);
+});
+
+test("shared country categories isolate BARs and preserve each selected country/city on profile return", () => {
+  const f = reset();
+  f.cities.push({ id: "abuja", city: "Abuja", country: "Nigeria", venues: [{ id: "abuja-bar", name: "Fixture Abuja", dances: ["salsa"] }] });
+  f.cities.push({ id: "luanda", city: "Luanda", country: "Angola", venues: [] });
+  for (const [slug, id, name] of [["vietnam", "hanoi", "Hanoi"], ["thailand", "bangkok", "Bangkok"], ["south-korea", "seoul", "Seoul"], ["nigeria", "abuja", "Abuja"]]) {
+    const route = `/country/${slug}?city=${id}`;
+    const country = render("Country", route, "/country/:slug");
+    assert.match(country, new RegExp(`aria-pressed="true">${name}`));
+    assert.match(country, new RegExp(`href="/c/${id}#bar-`));
+    assert.doesNotMatch(country, /7-day opening|Sources|Offline fixture only/);
+    const venue = f.cities.find(city => city.id === id).venues[0];
+    const profile = render("Capital", { pathname: `/c/${id}`, hash: `#bar-${venue.id}`, state: { from: route } }, "/c/:id");
+    assert.match(profile, new RegExp(`class="bar-profile-back" href="/country/${slug}\\?city=${id}"`));
+  }
+  assert.match(render("Country", "/country/angola?city=luanda", "/country/:slug"), /Coming soon/);
+  const wrongCity = render("Country", "/country/thailand?city=seoul", "/country/:slug");
+  assert.doesNotMatch(wrongCity, /Fixture Seoul|Fixture Bangkok|#bar-/);
 });
 
 test("city detail genre query filters the actual page rather than only helper data", () => {

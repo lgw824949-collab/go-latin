@@ -59,3 +59,13 @@ test("explicit return links preserve known directory routes and reject unrelated
   }
   for (const from of [null, "https://example.com", "//example.com", "/admin", "/\\example.com"]) assert.equal(barReturnPath(from), "/");
 });
+
+
+test("profile returns to the matching registered city in any country without accepting a cross-country origin", () => {
+  for (const [id, country, slug] of [["seoul", "South Korea", "south-korea"], ["bangkok", "Thailand", "thailand"], ["abuja", "Nigeria", "nigeria"], ["sao_tome", "São Tomé and Príncipe", "sao-tome-and-principe"]]) {
+    const target = `/country/${slug}?q=city&city=${id}`;
+    assert.equal(profileCityReturnPath({ id, country }, "", target), target);
+    assert.equal(profileCityReturnPath({ id, country }, "", `/country/other?city=${id}`), `/c/${id}`);
+    assert.equal(profileCityReturnPath({ id, country }, "", `/country/${slug}?city=another-city`), `/c/${id}`);
+  }
+});

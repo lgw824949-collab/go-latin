@@ -1,3 +1,5 @@
+import { countrySlug } from "./countries.js";
+
 export function barAnchor(venueId) {
   if (typeof venueId !== "string") return "";
   const id = venueId.trim();
@@ -32,8 +34,9 @@ export function profileCityReturnPath(capital, search, from) {
   const safe = barReturnPath(from);
   const [path, query = ""] = safe.split("?");
   const selected = new URLSearchParams(query).get("city");
-  if (capital.country === "Vietnam" && path === "/country/vietnam"
-    && ["hanoi", "ho-chi-minh-city", "da-nang"].includes(selected)) return safe;
+  if (path === `/country/${countrySlug(capital.country)}` && selected
+    && (selected === capital.id || (capital.country === "Vietnam"
+      && ["hanoi", "ho-chi-minh-city", "da-nang"].includes(selected)))) return safe;
   return `/c/${capital.id}${search}`;
 }
 
