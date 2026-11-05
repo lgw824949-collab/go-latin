@@ -1672,3 +1672,16 @@ body.theme-b .home-b .browse{margin-top:28px}
 body.theme-b .home-b .section-head>a{display:inline-flex;align-items:center;min-height:44px;font-size:14px}
 body.theme-b .home-mobile-tonight:focus-visible,body.theme-b .mvp-country-links a:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
 }
+
+/* Approved city artwork: mobile only; labels are already embedded in the PNGs. */
+.home-mobile-cities{display:none}
+@media(max-width:800px){
+body.theme-b .desktop-popular-cities{display:none}
+body.theme-b .home-mobile-cities{display:block;margin-top:28px}
+body.theme-b .mobile-city-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;list-style:none;margin:16px 0 0;padding:0}
+body.theme-b .mobile-city-grid>li{min-width:0}
+body.theme-b .mobile-city-grid>li:last-child:nth-child(odd){grid-column:1/-1;justify-self:center;width:calc((100% - 12px)/2)}
+body.theme-b .mobile-city-grid a{display:block;min-height:44px;overflow:hidden;border-radius:12px}
+body.theme-b .mobile-city-grid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
+body.theme-b .mobile-city-grid a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+}

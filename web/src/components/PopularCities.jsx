@@ -6,7 +6,8 @@ export default function PopularCities({ capitals }) {
   const cities = popularListedCities(capitals, 6);
   if (cities.length === 0) return null;
   return (
-    <section className="popular-cities" aria-labelledby="popular-cities-title">
+    <>
+    <section className="popular-cities desktop-popular-cities" aria-labelledby="popular-cities-title">
       <div className="section-head">
         <h2 id="popular-cities-title">Cities with listed bars</h2>
       </div>
@@ -23,5 +24,28 @@ export default function PopularCities({ capitals }) {
         ))}
       </ul>
     </section>
+    <MobileCityCards capitals={capitals} />
+    </>
   );
+}
+
+const MOBILE_CITY_IMAGES = {
+  seoul: "/cities/go-latin-017-seoul.png",
+  bangkok: "/cities/go-latin-017-bangkok.png",
+  hanoi: "/cities/go-latin-017-hanoi.png",
+};
+
+function MobileCityCards({ capitals }) {
+  const cities = Object.keys(MOBILE_CITY_IMAGES).map(id => capitals.find(city => city.id === id)).filter(Boolean);
+  if (!cities.length) return null;
+  return <section className="home-mobile-cities" aria-labelledby="mobile-cities-title">
+    <div className="section-head"><h2 id="mobile-cities-title">Explore Cities</h2></div>
+    <ul className="mobile-city-grid">
+      {cities.map(city => <li key={city.id}>
+        <Link to={cityCardPath(city.id)} aria-label={`${city.city}, ${city.country}`}>
+          <img src={MOBILE_CITY_IMAGES[city.id]} alt="" width="724" height="724" loading="lazy" decoding="async" />
+        </Link>
+      </li>)}
+    </ul>
+  </section>;
 }

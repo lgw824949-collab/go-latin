@@ -178,6 +178,24 @@ test("missing genres stay absent in compact rows and all-Seoul access follows th
   assert.equal((html.match(/href="\/c\/seoul#bar-/g) ?? []).length, 1);
 });
 
+test("approved mobile city artwork keeps real city routes and avoids duplicate visible city labels", () => {
+  const f = reset();
+  const home = render("Home", "/", "/");
+  const mobile = home.match(/<section class="home-mobile-cities"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(mobile);
+  assert.equal((mobile.match(/<img /g) ?? []).length, 3);
+  for (const [id, city, country] of [["seoul", "Seoul", "South Korea"], ["bangkok", "Bangkok", "Thailand"], ["hanoi", "Hanoi", "Vietnam"]]) {
+    assert.match(mobile, new RegExp(`href="/c/${id}"`));
+    assert.match(mobile, new RegExp(`aria-label="${city}, ${country}"`));
+    assert.match(mobile, new RegExp(`/cities/go-latin-017-${id}\\.png`));
+  }
+  assert.doesNotMatch(mobile, /<(?:span|strong|p)[^>]*>(?:Seoul|Bangkok|Hanoi|South Korea|Thailand|Vietnam)</);
+  assert.equal((mobile.match(/alt=""/g) ?? []).length, 3);
+  f.cities = f.cities.filter(city => city.id !== "hanoi");
+  const remaining = render("Home", "/", "/").match(/<section class="home-mobile-cities"[\s\S]*?<\/section>/)[0];
+  assert.doesNotMatch(remaining, /href="\/c\/hanoi"/);
+});
+
 test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
   const f = reset();
   const home = render("Home", "/", "/");
