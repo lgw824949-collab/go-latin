@@ -32,8 +32,8 @@ export function useBarLanguage() {
 
 export const BAR_COPY = {
   en: {
-    unknown: "Not available yet", back: city => `Back to ${city}`, native: "Local name", tonight: "Tonight", localTime: "Local time", closedTonight: "Closed tonight", closed: "Closed",
-    recurring: "Recorded weekly schedule · Check with the venue before visiting.", startMissing: "Music start times have not been confirmed.", directions: "Directions", instagram: "Instagram", week: "This Week",
+    unknown: "Not available yet", back: city => `Back to ${city}`, native: "Local name", tonight: "Tonight", localTime: "Local time", closedTonight: "Closed", closed: "Closed",
+    noSchedule: "No confirmed schedule for today.", visitNote: "Check with the venue before visiting.", cityLocalTime: city => `${city} local time`, directions: "Directions", instagram: "Instagram", week: "This Week",
     facts: "Good to Know", fee: "Entry fee", lessons: "Beginner lessons", english: "English spoken", address: "Address", phone: "Phone", website: "Website", photos: "Photos", entrance: "Entrance", interior: "Interior", noPhoto: "No photo available",
     verified: "Last Verified", today: "Today", ago: days => `${days} days ago`, verificationNote: "Source check date; individual details may still need confirmation.", suggest: "Suggest an Update", reportQuestion: "What needs updating?",
     reportOptions: ["Opening hours or music schedule", "Address or location", "Entry fee or lesson information", "Closed venue or other incorrect information"], reportNote: "Sending is not connected yet. Your selections are not saved or sent.", send: "Send · Coming soon",
@@ -42,7 +42,7 @@ export const BAR_COPY = {
   },
   ko: {
     unknown: "아직 정보가 없어요", back: city => `${city}으로 돌아가기`, native: "현지어 이름", tonight: "오늘 밤", localTime: "현지 시간", closedTonight: "오늘은 쉬어요", closed: "쉬어요",
-    recurring: "등록된 반복 일정 · 방문 전 업소에 확인해 주세요.", startMissing: "음악 시작 시간은 아직 확인되지 않았어요.", directions: "길찾기", instagram: "인스타그램", week: "이번 주 음악",
+    noSchedule: "오늘 확인된 일정이 없어요.", visitNote: "방문 전 BAR에 확인해 주세요.", cityLocalTime: city => `${city} 현지 시간`, directions: "길찾기", instagram: "인스타그램", week: "이번 주 음악",
     facts: "알아두면 좋은 것", fee: "입장료", lessons: "초보 레슨", english: "영어 소통", address: "주소", phone: "전화", website: "홈페이지", photos: "BAR 사진", entrance: "입구", interior: "내부", noPhoto: "사진 없음",
     verified: "마지막 정보 확인", today: "오늘", ago: days => `${days}일 전`, verificationNote: "출처에 저장된 확인일이며, 항목별 재확인이 필요할 수 있어요.", suggest: "정보가 틀려요", reportQuestion: "어떤 정보가 다른가요?",
     reportOptions: ["영업시간 또는 음악 일정이 달라요", "주소 또는 위치가 달라요", "입장료 또는 레슨 정보가 달라요", "폐업했거나 기타 정보가 틀려요"], reportNote: "아직 제보 전송이 연결되지 않았어요. 선택한 내용은 저장되거나 전송되지 않아요.", send: "알려주기 · 준비 중",

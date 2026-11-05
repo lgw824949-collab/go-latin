@@ -35,15 +35,14 @@ export default function BarProfile({ venue, capital, venues = [], search = "", f
         </div>
         <p className="bar-profile-breadcrumb">{capital.country || t.unknown} · {capital.city || t.unknown}</p>
         <h1>{venue.name || t.unknown}</h1>
-        <p>{t.native} · {t.unknown}</p>
+        <p className="bar-profile-muted">{t.native} · {t.unknown}</p>
         <p>{DANCES.filter(d => (venue.dances ?? []).includes(d.id)).map(d => d.name).join(" · ") || t.unknown}</p>
       </header>
       <section className="bar-profile-tonight" aria-labelledby="bar-tonight-title">
-        <p className="bar-profile-eyebrow">{model.today ? t.weekdays[model.today.weekday] : t.unknown} · {t.localTime} {model.clock?.time ?? t.unknown}</p>
         <h2 id="bar-tonight-title">{t.tonight}</h2>
-        <p className="bar-profile-music">{model.today?.closed ? t.closedTonight : model.today?.dances.length ? model.today.dances.join(" · ") : t.unknown}</p>
-        <p className="bar-profile-muted bar-profile-start-note" id="bar-start-note">{t.startMissing}</p>
-        <p className="bar-profile-muted">{model.clock?.timeZone ?? t.unknown} · {t.recurring}</p>
+        <p className="bar-profile-music">{model.today?.closed ? t.closedTonight : model.today?.dances.length ? model.today.dances.join(" · ") : t.noSchedule}</p>
+        <p className="bar-profile-muted bar-profile-local-clock">{t.cityLocalTime(capital.city)} · {model.today ? t.weekdays[model.today.weekday] : t.unknown} {model.clock?.time ?? t.unknown}</p>
+        <p className="bar-profile-muted">{t.visitNote}</p>
       </section>
       <div className="bar-profile-actions">
         <Action href={model.mapsUrl} primary t={t}>{t.directions}</Action>
@@ -59,10 +58,10 @@ export default function BarProfile({ venue, capital, venues = [], search = "", f
       <section className="bar-profile-section" aria-labelledby="bar-facts-title">
         <h2 id="bar-facts-title">{t.facts}</h2>
         <dl className="bar-profile-facts">
-          <div><dt>{t.fee}</dt><dd>{t.unknown}</dd></div>
-          <div><dt>{t.lessons}</dt><dd>{t.unknown}</dd></div>
-          <div><dt>{t.english}</dt><dd>{t.unknown}</dd></div>
-          <div><dt>{t.address}</dt><dd>{venue.address || t.unknown}</dd></div>
+          <div><dt>{t.fee}</dt><dd className="bar-profile-muted">{t.unknown}</dd></div>
+          <div><dt>{t.lessons}</dt><dd className="bar-profile-muted">{t.unknown}</dd></div>
+          <div><dt>{t.english}</dt><dd className="bar-profile-muted">{t.unknown}</dd></div>
+          <div><dt>{t.address}</dt><dd className={venue.address ? undefined : "bar-profile-muted"}>{venue.address || t.unknown}</dd></div>
         </dl>
         <p>{t.phone} · {venue.phone || t.unknown}</p>
         <p>{t.website} · {website ? <a href={website} target="_blank" rel="noreferrer" aria-label={`${t.website} · ${t.newTab}`}>{website}</a> : t.unknown}</p>

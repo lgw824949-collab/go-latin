@@ -70,10 +70,12 @@ test("profile preserves all eight sections and explicit placeholders without inv
   const html = render();
   const labels = ["Local name", "Tonight", "Directions", "This Week", "Good to Know", "Photos", "Last Verified", "More Bars in Hanoi"];
   for (let i = 1; i < labels.length; i++) assert.ok(html.indexOf(labels[i - 1]) < html.indexOf(labels[i]));
-  for (const label of ["Entry fee", "Beginner lessons", "English spoken", "Address"]) assert.match(html, new RegExp(`<dt>${label}</dt><dd>Not available yet`));
+  for (const label of ["Entry fee", "Beginner lessons", "English spoken", "Address"]) assert.match(html, new RegExp(`<dt>${label}</dt><dd class="bar-profile-muted">Not available yet`));
   assert.equal((html.match(/No photo available<\/div>/g) ?? []).length, 2);
-  assert.match(html, /Music start times have not been confirmed./);
-  assert.equal((html.match(/Music start times have not been confirmed\./g) ?? []).length, 1);
+  assert.match(html, /No confirmed schedule for today\./);
+  assert.equal((html.match(/Check with the venue before visiting\./g) ?? []).length, 1);
+  assert.match(html, /Hanoi local time/);
+  assert.doesNotMatch(html, /Asia\/Ho_Chi_Minh|Music start times have not been confirmed/);
   assert.match(html, /lang="en"/);
   assert.match(html, /aria-pressed="true">EN/);
   assert.equal((html.match(/<abbr title="(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)"/g) ?? []).length, 7);
@@ -86,6 +88,16 @@ test("city return keeps filters; other BAR links stay in the city and exclude se
   assert.match(html, /href="\/c\/hanoi\?dance=salsa"/);
   assert.match(html, /href="\/c\/hanoi\?dance=salsa#bar-two"/);
   assert.doesNotMatch(html, /#bar-one|#bar-closed/);
+});
+
+test("compact Tonight distinguishes confirmed closure, registered dances and missing schedules", () => {
+  const closed = render({ hours: [{ weekday: 3, closed: true }] });
+  assert.match(closed, /bar-profile-music">Closed</);
+  assert.doesNotMatch(closed, /No confirmed schedule for today/);
+  const scheduled = render({ nightDances: [{ weekday: 3, dance: "salsa" }] });
+  assert.match(scheduled, /bar-profile-music">Salsa</);
+  assert.doesNotMatch(scheduled, /No confirmed schedule for today|18:00/);
+  assert.match(render({ sourceChecked: "2026-09-01", hours: [{ weekday: 3, closed: true }] }), /No confirmed schedule for today/);
 });
 
 test("stale verification exposes report entry while never rendering a submit request", () => {
