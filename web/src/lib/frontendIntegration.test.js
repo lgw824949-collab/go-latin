@@ -150,6 +150,24 @@ test("city BAR lists stay compact and link the existing profiles without raw sch
   }
 });
 
+test("BAR list visual cards keep long names, real genres, existing URLs and honest photo placeholders", () => {
+  const f = reset();
+  for (const [slug, id] of [["south-korea", "seoul"], ["thailand", "bangkok"], ["vietnam", "hanoi"]]) {
+    const venue = f.cities.find(city => city.id === id).venues[0];
+    venue.name = "A Long Registered BAR Name That Must Remain Complete";
+    const href = `/c/${id}#bar-${venue.id}`;
+    const country = render("Country", `/country/${slug}?city=${id}`, "/country/:slug");
+    assert.match(country, /A Long Registered BAR Name That Must Remain Complete/);
+    assert.match(country, /role="img" aria-label="No photo available"/);
+    assert.equal((country.match(new RegExp(`href="${href}"`, "g")) ?? []).length, 1);
+    assert.doesNotMatch(country, /<img/);
+    assert.match(country, new RegExp(id === "bangkok" ? "Salsa" : "Bachata"));
+    const city = render("Capital", `/c/${id}`, "/c/:id");
+    assert.match(city, /role="img" aria-label="No photo available"/);
+    assert.equal((city.match(new RegExp(`href="${href}"`, "g")) ?? []).length, 2);
+  }
+});
+
 test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
   const f = reset();
   const home = render("Home", "/", "/");

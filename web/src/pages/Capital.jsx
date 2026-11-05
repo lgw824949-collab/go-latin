@@ -10,12 +10,15 @@ import { isSimplePartyCity } from "../lib/simpleParty.js";
 import SimpleCityParties from "../components/SimpleCityParties.jsx";
 import { tonightHoursStatus, tonightLocalTime } from "../lib/tonight.js";
 import { useLocalNow } from "../lib/useLocalNow.js";
+import { BAR_COPY, useBarLanguage } from "../lib/barLanguage.js";
 import BarProfile from "../components/BarProfile.jsx";
 import { releaseFeatureEnabled } from "../lib/releaseFeatures.js";
 
 export default function Capital() {
   const { id } = useParams();
   const now = useLocalNow();
+  const [language] = useBarLanguage();
+  const labels = BAR_COPY[language];
   const { hash, search, state } = useLocation();
   const [params] = useSearchParams();
   const dance = readFilters(params).dance;
@@ -91,15 +94,16 @@ export default function Capital() {
       <div className="wrap">
         <PhotoCredit id={capital.id} image={capital.image} />
         {venues.length > 0
-          ? venues.map((venue, index) => (
+          ? <div className="bar-card-grid">{venues.map((venue, index) => (
               <Venue
                 key={venue.id ?? `${venue.name}-${index}`}
                 venue={venue}
                 capital={capital}
                 now={now}
+                labels={labels}
                 current={currentAnchor !== "" && currentAnchor === barAnchor(venue.id)}
               />
-            ))
+            ))}</div>
           : allVenues.length > 0
             ? <p className="empty">No {DANCES.find((item) => item.id === dance)?.name} floor listed.</p>
             : <ComingSoon />}
@@ -149,7 +153,7 @@ function ComingSoon() {
   );
 }
 
-function Venue({ venue, capital, now, current = false }) {
+function Venue({ venue, capital, now, labels, current = false }) {
   const location = useLocation();
   const dances = confirmedDanceNames(venue.dances).join(" · ");
   const tonight = tonightHoursStatus(venue, tonightLocalTime(capital, now));
@@ -157,12 +161,15 @@ function Venue({ venue, capital, now, current = false }) {
   const anchor = barAnchor(venue.id);
   return (
     <section className={current ? "venue is-current" : "venue"} id={anchor || undefined}>
+      <div className="bar-list-media" role="img" aria-label={labels.noPhoto}>{labels.noPhoto}</div>
+      <div className="bar-list-body">
       {label ? <p className="kicker">{label}</p> : null}
       <h2><Link className="venue-detail-link" to={`${location.pathname}${location.search}#${anchor}`} state={location.state}>{venue.name}</Link></h2>
       {dances ? <p className="venue-dances">{dances}</p> : null}
       {tonight.badge ? <p>{tonight.badge}{tonight.hoursLabel ? ` · ${tonight.hoursLabel}` : ""}</p> : null}
       {tonight.danceConfirmed && tonight.dances.length ? <p>Music tonight: {confirmedDanceNames(tonight.dances).join(" · ")}</p> : null}
       <Link className="venue-open" to={`${location.pathname}${location.search}#${anchor}`} state={location.state} aria-label={`View details: ${venue.name}`}>View details →</Link>
+      </div>
     </section>
   );
 }

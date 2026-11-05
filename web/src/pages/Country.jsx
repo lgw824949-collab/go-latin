@@ -93,9 +93,12 @@ function CountryCities({ country, query, setQuery }) {
       <h2>{label(selected)}</h2>
       {!bars.length ? <p role="status">{language === "ko" ? "준비 중 · Coming soon" : "Coming soon"}</p> : <ul className="country-bar-list">
         {bars.map(bar => <li key={bar.id}><Link to={tonightBarPath(registered.id, bar.id)} state={{ from: `${pathname}${search}` }}>
-          <strong>{bar.name}</strong>
-          <span>{DANCES.filter(dance => (bar.dances ?? []).includes(dance.id)).map(dance => dance.name).join(" · ") || t.unknown}</span>
-          <span>{t.details} →</span>
+          <span className="bar-list-media" role="img" aria-label={t.noPhoto}>{t.noPhoto}</span>
+          <span className="bar-list-body">
+            <strong>{bar.name}</strong>
+            <span className="bar-list-genres">{DANCES.filter(dance => (bar.dances ?? []).includes(dance.id)).map(dance => dance.name).join(" · ") || t.unknown}</span>
+            <span className="bar-list-cta">{t.details} →</span>
+          </span>
         </Link></li>)}
       </ul>}
     </>}
