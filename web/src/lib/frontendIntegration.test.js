@@ -166,6 +166,18 @@ test("Tonight page composes city timezone, overnight badge, seven-day schedule a
   assert.doesNotMatch(filtered, /OPEN NOW/);
 });
 
+test("Tonight separates registered genres from the local night's confirmed music", () => {
+  const f = reset();
+  const missing = render("Tonight", "/tonight?city=bangkok", "/tonight");
+  assert.match(missing, /Registered genres: Salsa/);
+  assert.match(missing, /Music tonight: Dance schedule not confirmed/);
+  f.now = "2026-10-28T12:00:00Z";
+  f.cities.find(city => city.id === "bangkok").venues[0].sourceChecked = "2026-10-28";
+  const confirmed = render("Tonight", "/tonight?city=bangkok", "/tonight");
+  assert.match(confirmed, /Music tonight: Bachata/);
+  assert.match(confirmed, /Registered genres: Salsa/);
+});
+
 test("disabled public parties expose neither query errors nor empty party panels", () => {
   const f = reset(); f.parties = []; f.partyStatus = "error";
   const error = render("Capital", "/c/hanoi", "/c/:id");

@@ -140,7 +140,8 @@ export default function Tonight() {
               ) : card.tonight.statusText !== card.statusText ? (
                 <p>Tonight: {card.tonight.statusText}</p>
               ) : null}
-              {card.dances.length > 0 ? <p>{card.dances.map(danceName).join(" · ")}</p> : null}
+              <p>Music tonight: {card.tonight.danceText || "Not confirmed"}</p>
+              {card.dances.length > 0 ? <p>Registered genres: {card.dances.map(danceName).join(" · ")}</p> : null}
               {card.schedule.length > 0 ? (
                 <details>
                   <summary>7-day opening schedule</summary>
