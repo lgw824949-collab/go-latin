@@ -28,6 +28,15 @@ export function barReturnPath(from) {
     && /^\/(?:\?|$|tonight(?:\?|$)|country(?:\/[a-z-]+)?(?:\?|$))/.test(from) ? from : "/";
 }
 
+export function profileCityReturnPath(capital, search, from) {
+  const safe = barReturnPath(from);
+  const [path, query = ""] = safe.split("?");
+  const selected = new URLSearchParams(query).get("city");
+  if (capital.country === "Vietnam" && path === "/country/vietnam"
+    && ["hanoi", "ho-chi-minh-city", "da-nang"].includes(selected)) return safe;
+  return `/c/${capital.id}${search}`;
+}
+
 export function barAnchorFromHash(hash) {
   if (typeof hash !== "string" || !hash.startsWith("#bar-")) return "";
   return barAnchor(hash.slice("#bar-".length));

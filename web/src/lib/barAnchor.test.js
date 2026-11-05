@@ -1,9 +1,18 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { barAnchorFromHash, barReturnPath, matchingBarAnchor, tonightBarPath, tonightPathForRoute } from "./barAnchor.js";
+import { barAnchorFromHash, barReturnPath, matchingBarAnchor, profileCityReturnPath, tonightBarPath, tonightPathForRoute } from "./barAnchor.js";
 
 const seoulBar = "8d6c2e3a-6e2b-4d4a-9c1e-1a2b3c4d5e6f";
 const otherBar = "11111111-2222-4333-8444-555555555555";
+
+test("Vietnam profile return keeps the selected category while rejecting external or unrelated origins", () => {
+  const capital = { id: "hanoi", country: "Vietnam" };
+  assert.equal(profileCityReturnPath(capital, "", "/country/vietnam?city=hanoi"), "/country/vietnam?city=hanoi");
+  for (const from of ["https://example.com/country/vietnam?city=hanoi", "//example.com/country/vietnam?city=hanoi", "/country/vietnam?city=unknown", "/country/thailand?city=hanoi", "/country/vietnam?q=Hanoi"]) {
+    assert.equal(profileCityReturnPath(capital, "?dance=salsa", from), "/c/hanoi?dance=salsa");
+  }
+  assert.equal(profileCityReturnPath({ id: "seoul", country: "South Korea" }, "", "/country/vietnam?city=hanoi"), "/c/seoul");
+});
 
 test("a tonight bar link keeps the city path and adds that bar anchor", () => {
   assert.equal(tonightBarPath("seoul", seoulBar), `/c/seoul#bar-${seoulBar}`);

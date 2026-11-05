@@ -1619,3 +1619,13 @@ body.theme-b .card {
 .mvp-country-links a,.venue .venue-open,.venue .venue-detail-link{display:inline-flex;align-items:center;min-height:44px;max-width:100%;overflow-wrap:anywhere}
 .mvp-country-links a{color:inherit;font-size:14px}
 .venue .venue-open{font-size:14px;margin-top:4px}
+
+/* Vietnam city categories use real BAR records; unregistered cities stay empty. */
+.vietnam-cities{--profile-coral:#d85338;font-size:16px;min-width:0;overflow-wrap:anywhere}
+.vietnam-city-options{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px}
+.vietnam-city-options button{min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
+.vietnam-city-options button[aria-pressed="true"]{border-color:#d85338;background:#f9e5dc;color:var(--ink);font-weight:600}
+.vietnam-bar-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:720px}
+.vietnam-bar-list a{display:flex;flex-direction:column;gap:8px;min-height:44px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none;font-size:14px;overflow-wrap:anywhere}
+.vietnam-bar-list strong{font-family:"Fraunces",Georgia,serif;font-size:24px;line-height:1.25}
+.vietnam-bar-list a:focus-visible,.vietnam-city-options button:focus-visible{outline:2px solid #d85338;outline-offset:3px}

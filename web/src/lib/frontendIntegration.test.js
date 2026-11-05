@@ -155,9 +155,31 @@ test("home country choices use registered countries and preserve expansion witho
   for (const [slug, label] of [["vietnam", "Vietnam"], ["thailand", "Thailand"], ["south-korea", "Korea"]]) {
     assert.match(home, new RegExp(`href="/country/${slug}"[^>]*>${label}</a>`));
   }
-  assert.doesNotMatch(render("Country", "/country/vietnam", "/country/:slug"), /Ho Chi Minh City/);
-  f.cities.push({ id: "registered-second-city", city: "Fixture second city", country: "Vietnam", venues: [] });
-  assert.match(render("Country", "/country/vietnam", "/country/:slug"), /href="\/c\/registered-second-city"/);
+  const empty = render("Country", "/country/vietnam?city=ho-chi-minh-city", "/country/:slug");
+  assert.match(empty, /Coming soon/);
+  assert.doesNotMatch(empty, /href="\/c\/ho-chi-minh-city/);
+  f.cities.push({ id: "registered-second-city", city: "Ho Chi Minh City", country: "Vietnam", venues: [{ id: "registered-bar", name: "Registered fixture", dances: ["salsa"] }] });
+  const expanded = render("Country", "/country/vietnam?city=ho-chi-minh-city", "/country/:slug");
+  assert.match(expanded, /href="\/c\/registered-second-city#bar-registered-bar"/);
+  assert.doesNotMatch(expanded, /Coming soon/);
+});
+
+test("Vietnam city selection shows only the selected city's real BAR cards and keeps the profile return route", () => {
+  reset();
+  const home = render("Country", "/country/vietnam", "/country/:slug");
+  for (const label of ["Hanoi", "Ho Chi Minh City", "Da Nang"]) assert.match(home, new RegExp(label));
+  assert.doesNotMatch(home, /Fixture Hanoi/);
+  const selected = render("Country", "/country/vietnam?city=hanoi", "/country/:slug");
+  assert.match(selected, /aria-pressed="true">Hanoi/);
+  assert.match(selected, /href="\/c\/hanoi#bar-bar-hanoi"/);
+  assert.doesNotMatch(selected, /7-day opening|Sources|Offline fixture only|OPEN NOW/);
+  for (const city of ["ho-chi-minh-city", "da-nang"]) {
+    const html = render("Country", `/country/vietnam?city=${city}`, "/country/:slug");
+    assert.match(html, /Coming soon/);
+    assert.doesNotMatch(html, /Fixture Hanoi|#bar-/);
+  }
+  const profile = render("Capital", { pathname: "/c/hanoi", hash: "#bar-bar-hanoi", state: { from: "/country/vietnam?city=hanoi" } }, "/c/:id");
+  assert.match(profile, /class="bar-profile-back" href="\/country\/vietnam\?city=hanoi"/);
 });
 
 test("city detail genre query filters the actual page rather than only helper data", () => {

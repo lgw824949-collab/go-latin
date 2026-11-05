@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useLocalNow } from "../lib/useLocalNow.js";
 import { profileModel } from "../lib/barProfile.js";
 import { BAR_COPY, profileHoursLabel, useBarLanguage } from "../lib/barLanguage.js";
-import { barAnchor, tonightBarPath, tonightPathForRoute } from "../lib/barAnchor.js";
+import { barAnchor, profileCityReturnPath, tonightBarPath, tonightPathForRoute } from "../lib/barAnchor.js";
 import { DANCES } from "../lib/filterCapitals.js";
 import { httpUrl } from "../lib/sources.js";
 
@@ -14,7 +14,7 @@ export default function BarProfile({ venue, capital, venues = [], search = "", f
   const t = BAR_COPY[language];
   const [reportOpen, setReportOpen] = useState(false);
   const others = venues.filter(other => other.id !== venue.id && other.status !== "permanently_closed");
-  const cityPath = `/c/${capital.id}${search}`;
+  const cityPath = profileCityReturnPath(capital, search, from);
   const dance = new URLSearchParams(search).get("dance");
   const website = httpUrl(venue.website);
   const sources = (venue.sources ?? []).map(source => ({ ...source, url: httpUrl(source.url) }));
