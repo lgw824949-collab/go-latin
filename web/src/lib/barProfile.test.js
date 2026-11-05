@@ -48,6 +48,20 @@ test("verification ages use local calendar dates, reject invalid/future dates an
   assert.equal(checkedAge("2026-11-04", profileModel(venue, { id: "seoul" }, now).clock), 1);
 });
 
+test("profile Tonight reuses freshness and the active overnight session without changing the calendar week", () => {
+  const stale = { ...venue, sourceChecked: "2026-09-30", nightDances: [{ weekday: 3, dance: "salsa" }] };
+  const old = profileModel(stale, capital, now);
+  assert.deepEqual(old.today.dances, []);
+  assert.deepEqual(old.week.find(day => day.weekday === 3).dances, ["Salsa"]);
+  const overnight = { ...venue, sourceChecked: "2026-11-03", nightDances: [{ weekday: 0, dance: "salsa" }],
+    hours: [{ weekday: 0, opens: "18:00", closes: "02:00" }, { weekday: 1, closed: true }] };
+  const active = profileModel(overnight, { id: "bangkok" }, new Date("2026-11-08T18:30:00Z"));
+  assert.equal(active.clock.weekday, 1);
+  assert.deepEqual(active.today.dances, ["Salsa"]);
+  assert.equal(active.today.closed, false);
+  assert.equal(active.week.find(day => day.weekday === 1).closed, true);
+});
+
 test("maps use recorded links or the actual address and never fabricate a venue location", () => {
   assert.equal(profileModel(venue, capital, now).mapsUrl, "");
   assert.equal(profileModel({ ...venue, mapsUrl: "https://example.com/map" }, capital, now).mapsUrl, "https://example.com/map");

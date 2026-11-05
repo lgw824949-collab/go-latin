@@ -1,4 +1,4 @@
-import { sevenDaySchedule, tonightLocalTime } from "./tonight.js";
+import { sevenDaySchedule, tonightHoursStatus, tonightLocalTime } from "./tonight.js";
 import { DANCES } from "./filterCapitals.js";
 import { httpUrl } from "./sources.js";
 
@@ -29,6 +29,11 @@ export function profileModel(venue, capital, now = new Date()) {
   });
   const mapsUrl = httpUrl(venue.mapsUrl) || (venue.address?.trim()
     ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${venue.name ?? ""}, ${venue.address}`)}` : "");
-  return { clock, week, today: week.find(day => day.today), mapsUrl,
+  const today = week.find(day => day.today);
+  const tonight = tonightHoursStatus(venue, clock);
+  return { clock, week, today: today ? { ...today,
+    closed: today.closed && !tonight.openNow,
+    dances: DANCES.filter(dance => (tonight.dances ?? []).includes(dance.id)).map(dance => dance.name),
+  } : undefined, mapsUrl,
     instagram: httpUrl(venue.instagram), age: checkedAge(venue.sourceChecked, clock) };
 }
