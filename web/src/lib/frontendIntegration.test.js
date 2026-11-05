@@ -131,19 +131,33 @@ test("home search and country city lists produce real BAR/detail route links for
   assert.match(render("Country", "/country/thailand", "/country/:slug"), /href="\/c\/bangkok"/);
 });
 
-test("BAR MVP detail pages compose contact links, hours and sources without party panels", () => {
+test("city BAR lists stay compact and link the existing profiles without raw schedules or sources", () => {
   reset();
   for (const id of ["seoul", "bangkok", "hanoi"]) {
     const html = render("Capital", `/c/${id}`, "/c/:id");
-    assert.match(html, /7-day opening hours/);
-    assert.match(html, /18:00–02:00 \(\+1 day\)/);
-    assert.match(html, /<dd>Closed<\/dd>/);
-    assert.match(html, /href="https:\/\/example.com\/source"/);
-    assert.match(html, /29 Oct 2026/);
+    assert.match(html, /OPEN NOW · 18:00–02:00 \(\+1 day\)/);
+    assert.match(html, new RegExp(`href="/c/${id}#bar-bar-${id}"`));
+    assert.match(html, /View details/);
+    assert.doesNotMatch(html, /7-day opening hours|Recorded weekly dance schedule|Sources|Offline fixture only|Address /);
     assert.doesNotMatch(html, /Fixture Party|https:\/\/example.com\/social|No upcoming parties listed/);
     assert.doesNotMatch(html, /Register a party|Save party/);
-    if (id === "hanoi") assert.match(html, /Monday[^<]*<\/time><\/dt><dd>Not confirmed/);
+    const profile = render("Capital", `/c/${id}#bar-bar-${id}`, "/c/:id");
+    assert.match(profile, /class="bar-profile"/);
+    assert.match(profile, /Good to Know|This Week/);
+    assert.match(profile, /Offline fixture only/);
+    assert.match(profile, /href="https:\/\/example.com\/source"/);
   }
+});
+
+test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
+  const f = reset();
+  const home = render("Home", "/", "/");
+  for (const [slug, label] of [["vietnam", "Vietnam"], ["thailand", "Thailand"], ["south-korea", "Korea"]]) {
+    assert.match(home, new RegExp(`href="/country/${slug}"[^>]*>${label}</a>`));
+  }
+  assert.doesNotMatch(render("Country", "/country/vietnam", "/country/:slug"), /Ho Chi Minh City/);
+  f.cities.push({ id: "registered-second-city", city: "Fixture second city", country: "Vietnam", venues: [] });
+  assert.match(render("Country", "/country/vietnam", "/country/:slug"), /href="\/c\/registered-second-city"/);
 });
 
 test("city detail genre query filters the actual page rather than only helper data", () => {

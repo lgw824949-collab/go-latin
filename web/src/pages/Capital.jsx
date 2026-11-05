@@ -1,5 +1,5 @@
 import { useEffect, useMemo } from "react";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import { barAnchor, barReturnPath, matchingBarAnchor } from "../lib/barAnchor.js";
 import { imageCredit } from "../lib/capitalImageCredits.js";
@@ -7,14 +7,15 @@ import { applyCityHead } from "../lib/routeHead.js";
 import { useCapital } from "../lib/directory.js";
 import { CONTINENTS, DANCES, readFilters, venuesForDance } from "../lib/filterCapitals.js";
 import { isSimplePartyCity } from "../lib/simpleParty.js";
-import { httpUrl } from "../lib/sources.js";
 import SimpleCityParties from "../components/SimpleCityParties.jsx";
-import BarDetails from "../components/BarDetails.jsx";
+import { tonightHoursStatus, tonightLocalTime } from "../lib/tonight.js";
+import { useLocalNow } from "../lib/useLocalNow.js";
 import BarProfile from "../components/BarProfile.jsx";
 import { releaseFeatureEnabled } from "../lib/releaseFeatures.js";
 
 export default function Capital() {
   const { id } = useParams();
+  const now = useLocalNow();
   const { hash, search, state } = useLocation();
   const [params] = useSearchParams();
   const dance = readFilters(params).dance;
@@ -95,6 +96,7 @@ export default function Capital() {
                 key={venue.id ?? `${venue.name}-${index}`}
                 venue={venue}
                 capital={capital}
+                now={now}
                 current={currentAnchor !== "" && currentAnchor === barAnchor(venue.id)}
               />
             ))
@@ -147,12 +149,10 @@ function ComingSoon() {
   );
 }
 
-function Venue({ venue, capital, current = false }) {
+function Venue({ venue, capital, now, current = false }) {
   const location = useLocation();
   const dances = confirmedDanceNames(venue.dances).join(" · ");
-  const website = httpUrl(venue.website);
-  const instagram = httpUrl(venue.instagram);
-  const mapsUrl = httpUrl(venue.mapsUrl);
+  const tonight = tonightHoursStatus(venue, tonightLocalTime(capital, now));
   const label = statusText(venue.status);
   const anchor = barAnchor(venue.id);
   return (
@@ -160,25 +160,9 @@ function Venue({ venue, capital, current = false }) {
       {label ? <p className="kicker">{label}</p> : null}
       <h2><Link className="venue-detail-link" to={`${location.pathname}${location.search}#${anchor}`} state={location.state}>{venue.name}</Link></h2>
       {dances ? <p className="venue-dances">{dances}</p> : null}
-      {venue.address ? <p className="venue-address">{venue.address}</p> : null}
-      {venue.phone ? <p className="venue-address">{venue.phone}</p> : null}
-      {website ? (
-        <p>
-          <a href={website}>{website.replace(/^https:\/\//, "")}</a>
-        </p>
-      ) : null}
-      {instagram ? (
-        <p>
-          <a href={instagram}>{instagram.replace(/^https:\/\//, "")}</a>
-        </p>
-      ) : null}
-      {mapsUrl ? (
-        <a className="map-link" href={mapsUrl} target="_blank" rel="noreferrer">
-          <MapPin size={16} aria-hidden="true" />
-          Open in Google Maps
-        </a>
-      ) : null}
-      <BarDetails venue={venue} capital={capital} />
+      {tonight.badge ? <p>{tonight.badge}{tonight.hoursLabel ? ` · ${tonight.hoursLabel}` : ""}</p> : null}
+      {tonight.danceConfirmed && tonight.dances.length ? <p>Music tonight: {confirmedDanceNames(tonight.dances).join(" · ")}</p> : null}
+      <Link className="venue-open" to={`${location.pathname}${location.search}#${anchor}`} state={location.state} aria-label={`View details: ${venue.name}`}>View details →</Link>
     </section>
   );
 }

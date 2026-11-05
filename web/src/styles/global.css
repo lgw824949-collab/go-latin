@@ -1613,3 +1613,9 @@ body.theme-b .card {
 .bar-profile .bar-profile-muted{color:var(--muted)}
 .bar-profile-facts>div{padding:9px 0}
 .bar-profile-heading>p.bar-profile-muted{margin:6px 0}
+
+/* Compact city-to-BAR navigation; the BAR profile remains unchanged. */
+.mvp-country-links{display:flex;flex-wrap:wrap;gap:8px 16px;margin-bottom:12px}
+.mvp-country-links a,.venue .venue-open,.venue .venue-detail-link{display:inline-flex;align-items:center;min-height:44px;max-width:100%;overflow-wrap:anywhere}
+.mvp-country-links a{color:inherit;font-size:14px}
+.venue .venue-open{font-size:14px;margin-top:4px}

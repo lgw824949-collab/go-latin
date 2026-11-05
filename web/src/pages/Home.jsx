@@ -46,6 +46,12 @@ export default function Home() {
     <main className="wrap home home-b">
       <Hero />
       <div className="home-core">
+        <nav className="mvp-country-links" aria-label="Choose a country">
+          {[["hanoi", "Vietnam"], ["bangkok", "Thailand"], ["seoul", "Korea"]].map(([id, label]) => {
+            const country = countries.find(item => item.cities.some(city => city.id === id));
+            return country ? <Link key={id} to={`/country/${country.slug}`}>{label}</Link> : null;
+          })}
+        </nav>
         <NearYou capitals={capitals} />
         <form className="home-search" onSubmit={onSearch}>
           <label className="city-search finder">
