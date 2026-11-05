@@ -79,6 +79,7 @@ export default function Home() {
         <ContinentCards capitals={capitals} />
       </section>
       <PopularCities capitals={capitals} />
+      <Link className="home-mobile-all-countries" to="/country">Explore All Countries</Link>
     </main>
   );
 }

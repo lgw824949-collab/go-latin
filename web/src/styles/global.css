@@ -1685,3 +1685,20 @@ body.theme-b .mobile-city-grid a{display:block;min-height:44px;overflow:hidden;b
 body.theme-b .mobile-city-grid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain}
 body.theme-b .mobile-city-grid a:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
 }
+
+/* Mobile home hierarchy; desktop composition and routes stay unchanged. */
+.home-mobile-all-countries{display:none}
+@media(max-width:800px){
+body.theme-b .home-b{display:flex;flex-direction:column}
+body.theme-b .home-b>.hero-b{order:0}
+body.theme-b .home-b>.home-core{display:contents}
+body.theme-b .home-b .mvp-country-links{order:1;margin-top:16px}
+body.theme-b .home-b .home-search{order:2;margin-top:12px}
+body.theme-b .home-b .search-results,body.theme-b .home-b .home-core>.empty{order:3}
+body.theme-b .home-b .home-mobile-tonight{order:4;margin-top:12px}
+body.theme-b .home-b>.browse,body.theme-b .home-b>.desktop-popular-cities{display:none}
+body.theme-b .home-b>.home-mobile-cities{order:5}
+body.theme-b .home-b>.home-mobile-all-countries{order:6;display:flex;align-items:center;justify-content:center;min-height:48px;margin-top:24px;padding:10px 16px;border:1px solid rgba(212,175,55,.45);border-radius:12px;color:var(--gold);font-size:14px;text-decoration:none}
+body.theme-b .home-b .home-core>.locate{order:7;margin-top:16px}
+body.theme-b .home-mobile-all-countries:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
+}

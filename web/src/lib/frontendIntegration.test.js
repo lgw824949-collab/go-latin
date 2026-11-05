@@ -196,6 +196,24 @@ test("approved mobile city artwork keeps real city routes and avoids duplicate v
   assert.doesNotMatch(remaining, /href="\/c\/hanoi"/);
 });
 
+test("mobile home keeps country browsing and location below the approved city artwork", () => {
+  reset();
+  const html = render("Home", "/", "/");
+  assert.match(html, /class="home-mobile-all-countries" href="\/country"[^>]*>Explore All Countries<\/a>/);
+  assert.equal((html.match(/Use My Location/g) ?? []).length, 1);
+  assert.match(html, /class="home-mobile-tonight" href="\/tonight"/);
+  assert.match(html, /Explore by Continent/);
+  assert.match(html, /Cities with listed bars/);
+  const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
+  const hierarchy = css.slice(css.indexOf("/* Mobile home hierarchy;"));
+  assert.match(hierarchy, /@media\(max-width:800px\)/);
+  assert.match(hierarchy, /\.home-core\{display:contents\}/);
+  assert.match(hierarchy, /\.browse,[^{]*\.desktop-popular-cities\{display:none\}/);
+  for (const [selector, order] of [["home-search", 2], ["home-mobile-tonight", 4], ["home-mobile-cities", 5], ["home-mobile-all-countries", 6], ["locate", 7]]) {
+    assert.ok(hierarchy.includes(selector + "{order:" + order));
+  }
+});
+
 test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
   const f = reset();
   const home = render("Home", "/", "/");
