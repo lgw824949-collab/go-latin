@@ -45,23 +45,42 @@ export function matchingCities(cities, query) {
   return (cities ?? []).filter((city) => matchesCapitalQuery(city, needle));
 }
 
-// Only Vietnam has explicitly requested placeholder categories. Everywhere else
-// categories come exclusively from the country's registered city records.
+// Display categories never create cities or BAR records in the database.
 const VIETNAM_CATEGORIES = [
-  { id: "hanoi", name: "Hanoi", aliases: ["hanoi"] },
-  { id: "ho-chi-minh-city", name: "Ho Chi Minh City", aliases: ["hochiminhcity", "hochiminh", "hcmc"] },
-  { id: "da-nang", name: "Da Nang", aliases: ["danang"] },
+  { id: "hanoi", name: "Hanoi", koName: "하노이", aliases: ["hanoi"] },
+  { id: "ho-chi-minh-city", name: "Ho Chi Minh City", koName: "호찌민", aliases: ["hochiminhcity", "hochiminh", "hcmc"] },
+  { id: "da-nang", name: "Da Nang", koName: "다낭", aliases: ["danang"] },
 ];
 function cityCategoryKey(value) {
   return String(value ?? "").normalize("NFD").replace(/\p{Diacritic}/gu, "").toLowerCase().replace(/đ/g, "d").replace(/[^a-z0-9]/g, "");
 }
 export function countryCityCategories(country) {
   const cities = country?.cities ?? [];
+  if (country?.slug === "south-korea") {
+    const seoul = cities.find(city => city.id === "seoul");
+    const busan = cities.find(city => cityCategoryKey(city.id) === "busan" || cityCategoryKey(city.city) === "busan");
+    const areas = [
+      { id: "hongdae", name: "Hongdae", koName: "홍대", address: /\bHongdae\b|홍대/i },
+      { id: "gangnam", name: "Gangnam", koName: "강남", address: /\bGangnam(?:\s+District|-gu)\b|강남구/i },
+    ].map(({ address, ...area }) => ({ ...area, kind: "area", registered: seoul ? { ...seoul,
+      venues: (seoul.venues ?? []).filter(bar => address.test(bar.address ?? "")),
+    } : undefined }));
+    return [...areas, { id: "busan", name: "Busan", koName: "부산", kind: "city", registered: busan },
+      ...cities.filter(city => city !== seoul && city !== busan).map(city => ({ id: city.id, name: city.city, registered: city }))];
+  }
   const categories = country?.slug === "vietnam" ? VIETNAM_CATEGORIES.map(category => ({
     ...category, registered: cities.find(city => category.aliases.includes(cityCategoryKey(city.id)) || category.aliases.includes(cityCategoryKey(city.city))),
   })) : [];
   const used = new Set(categories.map(category => category.registered?.id));
-  return [...categories, ...cities.filter(city => !used.has(city.id)).map(city => ({ id: city.id, name: city.city, registered: city }))];
+  return [...categories, ...cities.filter(city => !used.has(city.id)).map(city => ({ id: city.id, name: city.city, koName: city.id === "bangkok" ? "방콕" : undefined, registered: city }))];
+}
+
+export function countryCategorySelection(country, id) {
+  const selected = countryCityCategories(country).find(category => category.id === id);
+  if (selected) return selected;
+  // Preserve the existing Seoul URL and access to BARs without area evidence.
+  const seoul = country?.slug === "south-korea" && id === "seoul" ? country.cities.find(city => city.id === "seoul") : null;
+  return seoul ? { id: "seoul", name: seoul.city, koName: "서울", registered: seoul } : undefined;
 }
 
 export const BROWSE_CONTINENTS = [

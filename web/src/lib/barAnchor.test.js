@@ -69,3 +69,9 @@ test("profile returns to the matching registered city in any country without acc
     assert.equal(profileCityReturnPath({ id, country }, "", `/country/${slug}?city=another-city`), `/c/${id}`);
   }
 });
+
+
+test("Seoul BAR profiles return to selected Seoul areas without treating Busan as a Seoul area", () => {
+  for (const area of ["hongdae", "gangnam"]) assert.equal(profileCityReturnPath({ id: "seoul", country: "South Korea" }, "", `/country/south-korea?city=${area}`), `/country/south-korea?city=${area}`);
+  assert.equal(profileCityReturnPath({ id: "seoul", country: "South Korea" }, "", "/country/south-korea?city=busan"), "/c/seoul");
+});

@@ -4,7 +4,7 @@ import test from "node:test";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { renderSitemap } from "../../scripts/prerender-seoul.mjs";
-import { BROWSE_CONTINENTS, countryCityCategories, citiesForCountry, continentName, countriesInContinent, countryDocument, countryPlaceCounts, countrySearchTarget, countrySlug, listCountries, matchingCities, matchingCountries, popularListedCities, searchDirectory } from "./countries.js";
+import { BROWSE_CONTINENTS, countryCategorySelection, countryCityCategories, citiesForCountry, continentName, countriesInContinent, countryDocument, countryPlaceCounts, countrySearchTarget, countrySlug, listCountries, matchingCities, matchingCountries, popularListedCities, searchDirectory } from "./countries.js";
 import { filterBars } from "./manage.js";
 import { headAction } from "./routeHead.js";
 
@@ -226,12 +226,14 @@ test("country pages are noindex and stay out of the sitemap", () => {
 test("shared city categories use registered records for every country and only approved Vietnam placeholders", () => {
   for (const country of listCountries(capitals)) {
     const categories = countryCityCategories(country);
-    if (country.slug !== "vietnam") {
+    if (!["vietnam", "south-korea"].includes(country.slug)) {
       assert.equal(categories.length, country.cities.length);
       assert.deepEqual(categories.map(category => category.id), country.cities.map(city => city.id));
       assert.ok(categories.every(category => country.cities.includes(category.registered)));
-    } else {
+    } else if (country.slug === "vietnam") {
       assert.deepEqual(categories.slice(0, 3).map(category => category.id), ["hanoi", "ho-chi-minh-city", "da-nang"]);
+    } else {
+      assert.deepEqual(categories.slice(0, 3).map(category => category.id), ["hongdae", "gangnam", "busan"]);
     }
   }
   const extra = { id: "actual-other-city", city: "Hai Phong", venues: [] };
@@ -239,4 +241,30 @@ test("shared city categories use registered records for every country and only a
   assert.equal(options[3].registered, extra);
   assert.equal(options[3].id, extra.id);
   assert.deepEqual(countryCityCategories({ slug: "no-data", cities: [] }), []);
+});
+
+
+test("Korean areas use explicit stored addresses, never BAR names, Mapo guesses, or invented cities", () => {
+  const bars = [
+    { id: "gangnam-en", address: "616-2 Sinsa-dong, Gangnam District, Seoul" },
+    { id: "gangnam-gu", address: "17 Yeoksam-ro 3-gil, Gangnam-gu, Seoul" },
+    { id: "gangnam-ko", address: "서울특별시 강남구" },
+    { id: "mapo", address: "191 Donggyo-ro, Mapo-gu, Seoul" },
+    { id: "unknown", name: "Hongdae Salsa", address: "" },
+    { id: "road-only", address: "Gangnam-daero" },
+  ];
+  const seoul = { id: "seoul", city: "Seoul", venues: bars };
+  const country = { slug: "south-korea", cities: [seoul] };
+  const options = countryCityCategories(country);
+  assert.deepEqual(options[0].registered.venues, []);
+  assert.deepEqual(options[1].registered.venues.map(bar => bar.id), ["gangnam-en", "gangnam-gu", "gangnam-ko"]);
+  assert.equal(options[2].registered, undefined);
+  assert.equal(options[1].registered.id, "seoul");
+  assert.equal(countryCategorySelection(country, "seoul").registered, seoul);
+  assert.equal(countryCategorySelection(country, "seoul").registered.venues.length, bars.length);
+  assert.equal(seoul.venues, bars);
+  const busan = { id: "busan", city: "Busan", venues: [{ id: "real-busan" }] };
+  assert.equal(countryCityCategories({ ...country, cities: [seoul, busan] })[2].registered, busan);
+  const explicitHongdae = { ...seoul, venues: [{ id: "explicit", address: "Hongdae, Seoul" }] };
+  assert.equal(countryCityCategories({ ...country, cities: [explicitHongdae] })[0].registered.venues[0].id, "explicit");
 });

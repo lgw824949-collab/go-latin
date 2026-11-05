@@ -10,7 +10,7 @@ const anonKey = env.VITE_SUPABASE_ANON_KEY;
 export const HOME_CAPITAL_SELECT = `
   id, city, country, iso2, continent, image,
   venues (
-    id, capital_id, name, status,
+    id, capital_id, name, address, status,
     venue_dances (dance)
   )
 `;
@@ -160,6 +160,7 @@ function shapeHomeVenue(venue) {
   return {
     id: venue.id,
     name: venue.name ?? "",
+    ...(typeof venue.address === "string" && venue.address.trim() ? { address: venue.address } : {}),
     status: venue.status,
     dances: danceIds(venue.venue_dances),
   };

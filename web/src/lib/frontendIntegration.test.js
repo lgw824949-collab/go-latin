@@ -190,7 +190,10 @@ test("shared country categories isolate BARs and preserve each selected country/
   for (const [slug, id, name] of [["vietnam", "hanoi", "Hanoi"], ["thailand", "bangkok", "Bangkok"], ["south-korea", "seoul", "Seoul"], ["nigeria", "abuja", "Abuja"]]) {
     const route = `/country/${slug}?city=${id}`;
     const country = render("Country", route, "/country/:slug");
-    assert.match(country, new RegExp(`aria-pressed="true">${name}`));
+    if (id === "seoul") {
+      assert.match(country, /View all Seoul bars/);
+      assert.match(country, /<h2>Seoul<\/h2>/);
+    } else assert.match(country, new RegExp(`aria-pressed="true">${name}`));
     assert.match(country, new RegExp(`href="/c/${id}#bar-`));
     assert.doesNotMatch(country, /7-day opening|Sources|Offline fixture only/);
     const venue = f.cities.find(city => city.id === id).venues[0];
@@ -200,6 +203,31 @@ test("shared country categories isolate BARs and preserve each selected country/
   assert.match(render("Country", "/country/angola?city=luanda", "/country/:slug"), /Coming soon/);
   const wrongCity = render("Country", "/country/thailand?city=seoul", "/country/:slug");
   assert.doesNotMatch(wrongCity, /Fixture Seoul|Fixture Bangkok|#bar-/);
+});
+
+test("Korean location cards show only address-supported area BARs and preserve area return links", () => {
+  const f = reset();
+  const seoul = f.cities.find(city => city.id === "seoul");
+  seoul.venues = [
+    { id: "gangnam", name: "Address-confirmed BAR", status: "operating", dances: ["salsa"], address: "Gangnam District, Seoul" },
+    { id: "mapo", name: "Unclassified BAR", status: "operating", dances: ["bachata"], address: "Mapo-gu, Seoul" },
+  ];
+  const initial = render("Country", "/country/south-korea", "/country/:slug");
+  for (const name of ["Hongdae", "Gangnam", "Busan"]) assert.match(initial, new RegExp(`aria-pressed="false">${name}`));
+  assert.doesNotMatch(initial, /Address-confirmed BAR|Unclassified BAR/);
+  const area = render("Country", "/country/south-korea?city=gangnam", "/country/:slug");
+  assert.match(area, /Address-confirmed BAR/);
+  assert.doesNotMatch(area, /Unclassified BAR|7-day opening|Sources/);
+  for (const id of ["hongdae", "busan"]) {
+    const empty = render("Country", `/country/south-korea?city=${id}`, "/country/:slug");
+    assert.match(empty, /Coming soon/);
+    assert.doesNotMatch(empty, /Address-confirmed BAR|Unclassified BAR/);
+  }
+  const all = render("Country", "/country/south-korea?city=seoul", "/country/:slug");
+  assert.match(all, /Address-confirmed BAR/);
+  assert.match(all, /Unclassified BAR/);
+  const profile = render("Capital", { pathname: "/c/seoul", hash: "#bar-gangnam", state: { from: "/country/south-korea?city=gangnam" } }, "/c/:id");
+  assert.match(profile, /class="bar-profile-back" href="\/country\/south-korea\?city=gangnam"/);
 });
 
 test("city detail genre query filters the actual page rather than only helper data", () => {

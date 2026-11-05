@@ -36,7 +36,8 @@ export function profileCityReturnPath(capital, search, from) {
   const selected = new URLSearchParams(query).get("city");
   if (path === `/country/${countrySlug(capital.country)}` && selected
     && (selected === capital.id || (capital.country === "Vietnam"
-      && ["hanoi", "ho-chi-minh-city", "da-nang"].includes(selected)))) return safe;
+      && ["hanoi", "ho-chi-minh-city", "da-nang"].includes(selected))
+      || (capital.country === "South Korea" && capital.id === "seoul" && ["hongdae", "gangnam"].includes(selected)))) return safe;
   return `/c/${capital.id}${search}`;
 }
 

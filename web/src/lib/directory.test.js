@@ -189,3 +189,11 @@ test("a failed request can be tried again", async () => {
   }), "ok");
   assert.equal(calls, 2);
 });
+
+
+test("list data carries only the actual address needed for evidence-based area filtering", () => {
+  assert.match(HOME_CAPITAL_SELECT, /name, address, status/);
+  const row = shapeHomeCapital({ id: "seoul", venues: [{ id: "one", capital_id: "seoul", name: "One", status: "operating", address: "Gangnam District, Seoul" }] });
+  assert.equal(row.venues[0].address, "Gangnam District, Seoul");
+  assert.equal("region" in row.venues[0], false);
+});

@@ -1622,10 +1622,13 @@ body.theme-b .card {
 
 /* Shared country city categories use real BAR records; unregistered cities stay empty. */
 .country-cities{--profile-coral:#d85338;font-size:16px;min-width:0;overflow-wrap:anywhere}
-.country-city-options{display:flex;flex-wrap:wrap;gap:10px;margin:12px 0 20px}
-.country-city-options button{min-height:44px;padding:10px 16px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);font:inherit;font-size:14px;cursor:pointer}
-.country-city-options button[aria-pressed="true"]{border-color:#d85338;background:#f9e5dc;color:var(--ink);font-weight:600}
+.country-city-options{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0 20px;max-width:720px}
+.country-city-options button{display:flex;align-items:center;justify-content:center;width:100%;min-width:0;min-height:80px;padding:12px 8px;border:1px solid var(--line);border-radius:3px;background:var(--card);color:var(--ink);font:inherit;font-size:clamp(14px,1.5vw,16px);text-align:center;white-space:normal;overflow-wrap:anywhere;cursor:pointer}
+.country-city-options button[aria-pressed="true"]{border:2px solid #d85338;background:var(--card);color:var(--ink);font-weight:600}
 .country-bar-list{list-style:none;margin:0;padding:0;display:grid;gap:12px;max-width:720px}
 .country-bar-list a{display:flex;flex-direction:column;gap:8px;min-height:44px;padding:18px;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink);text-decoration:none;font-size:14px;overflow-wrap:anywhere}
 .country-bar-list strong{font-family:"Fraunces",Georgia,serif;font-size:24px;line-height:1.25}
 .country-bar-list a:focus-visible,.country-city-options button:focus-visible{outline:2px solid #d85338;outline-offset:3px}
+
+.country-area-note{max-width:720px;font-size:14px;color:var(--muted)}
+.country-area-note button{display:inline-flex;align-items:center;min-height:44px;max-width:100%;padding:8px 0;background:none;border:0;color:var(--ink);text-decoration:underline;font:inherit;font-size:14px;overflow-wrap:anywhere;cursor:pointer}
