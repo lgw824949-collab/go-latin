@@ -86,22 +86,23 @@ function CountryCities({ country, query, setQuery }) {
       {visible.map(city => <button key={city.id} type="button" aria-pressed={selected?.id === city.id} onClick={() => choose(city.id)}>{label(city)}</button>)}
     </div>
     {korea ? <div className="country-area-note">
-      <p>{language === "ko" ? "홍대·강남은 서울 내 지역이며, 부산은 별도 도시예요. 주소에서 확인된 지역만 분류했어요." : "Hongdae and Gangnam are areas of Seoul; Busan is a separate city. Areas are matched only when explicitly recorded in the address."}</p>
-      {country.cities.some(city => city.id === "seoul") ? <button type="button" onClick={() => { const next = new URLSearchParams(params); next.delete("q"); next.set("city", "seoul"); setParams(next); }}>{language === "ko" ? "서울 전체 BAR 보기 · 지역 미확인 포함" : "View all Seoul bars · includes unclassified areas"}</button> : null}
+      <p>{language === "ko" ? "홍대·강남은 서울 내 지역, 부산은 별도 도시예요." : "Seoul areas: Hongdae · Gangnam. Busan is a separate city."}</p>
     </div> : null}
     {!selected ? <p>{language === "ko" ? "아직 지역을 선택하지 않았어요." : "Select a location above."}</p> : <>
       <h2>{label(selected)}</h2>
       {!bars.length ? <p role="status">{language === "ko" ? "준비 중 · Coming soon" : "Coming soon"}</p> : <ul className="country-bar-list">
-        {bars.map(bar => <li key={bar.id}><Link to={tonightBarPath(registered.id, bar.id)} state={{ from: `${pathname}${search}` }}>
-          <span className="bar-list-media" role="img" aria-label={t.noPhoto}>{t.noPhoto}</span>
-          <span className="bar-list-body">
+        {bars.map(bar => {
+          const genres = DANCES.filter(dance => (bar.dances ?? []).includes(dance.id)).map(dance => dance.name).join(" · ");
+          return <li key={bar.id}><Link to={tonightBarPath(registered.id, bar.id)} state={{ from: `${pathname}${search}` }}>
+          <span className="bar-row-copy">
             <strong>{bar.name}</strong>
-            <span className="bar-list-genres">{DANCES.filter(dance => (bar.dances ?? []).includes(dance.id)).map(dance => dance.name).join(" · ") || t.unknown}</span>
-            <span className="bar-list-cta">{t.details} →</span>
+            {genres ? <span className="bar-list-genres">{genres}</span> : null}
           </span>
-        </Link></li>)}
+          <span className="bar-row-arrow" aria-hidden="true">→</span>
+        </Link></li>;})}
       </ul>}
     </>}
+    {korea && country.cities.some(city => city.id === "seoul") ? <div className="country-all-bars"><button type="button" onClick={() => { const next = new URLSearchParams(params); next.delete("q"); next.set("city", "seoul"); setParams(next); }}>{language === "ko" ? "서울 전체 BAR 보기" : "View all Seoul bars"}</button><span>{language === "ko" ? "지역 미확인 BAR 포함" : "Includes BARs without a confirmed area"}</span></div> : null}
   </section>;
 }
 

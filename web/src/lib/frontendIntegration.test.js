@@ -136,9 +136,9 @@ test("city BAR lists stay compact and link the existing profiles without raw sch
   reset();
   for (const id of ["seoul", "bangkok", "hanoi"]) {
     const html = render("Capital", `/c/${id}`, "/c/:id");
-    assert.match(html, /OPEN NOW · 18:00–02:00 \(\+1 day\)/);
     assert.match(html, new RegExp(`href="/c/${id}#bar-bar-${id}"`));
-    assert.match(html, /View details/);
+    assert.match(html, /class="bar-row-arrow" aria-hidden="true">→/);
+    assert.doesNotMatch(html, /OPEN NOW|View details|No photo available|bar-list-media/);
     assert.doesNotMatch(html, /7-day opening hours|Recorded weekly dance schedule|Sources|Offline fixture only|Address /);
     assert.doesNotMatch(html, /Fixture Party|https:\/\/example.com\/social|No upcoming parties listed/);
     assert.doesNotMatch(html, /Register a party|Save party/);
@@ -150,7 +150,7 @@ test("city BAR lists stay compact and link the existing profiles without raw sch
   }
 });
 
-test("BAR list visual cards keep long names, real genres, existing URLs and honest photo placeholders", () => {
+test("compact whole-row links keep complete BAR names, real genres and existing URLs without photo or repeated action text", () => {
   const f = reset();
   for (const [slug, id] of [["south-korea", "seoul"], ["thailand", "bangkok"], ["vietnam", "hanoi"]]) {
     const venue = f.cities.find(city => city.id === id).venues[0];
@@ -158,14 +158,24 @@ test("BAR list visual cards keep long names, real genres, existing URLs and hone
     const href = `/c/${id}#bar-${venue.id}`;
     const country = render("Country", `/country/${slug}?city=${id}`, "/country/:slug");
     assert.match(country, /A Long Registered BAR Name That Must Remain Complete/);
-    assert.match(country, /role="img" aria-label="No photo available"/);
+    assert.match(country, /class="bar-row-arrow" aria-hidden="true">→/);
+    assert.doesNotMatch(country, /No photo available|bar-list-media|View details/);
     assert.equal((country.match(new RegExp(`href="${href}"`, "g")) ?? []).length, 1);
     assert.doesNotMatch(country, /<img/);
     assert.match(country, new RegExp(id === "bangkok" ? "Salsa" : "Bachata"));
     const city = render("Capital", `/c/${id}`, "/c/:id");
-    assert.match(city, /role="img" aria-label="No photo available"/);
-    assert.equal((city.match(new RegExp(`href="${href}"`, "g")) ?? []).length, 2);
+    assert.doesNotMatch(city, /No photo available|bar-list-media|View details/);
+    assert.equal((city.match(new RegExp(`href="${href}"`, "g")) ?? []).length, 1);
   }
+});
+
+test("missing genres stay absent in compact rows and all-Seoul access follows the regional list", () => {
+  const f = reset();
+  f.cities.find(city => city.id === "seoul").venues[0].dances = [];
+  const html = render("Country", "/country/south-korea?city=seoul", "/country/:slug");
+  assert.doesNotMatch(html, /class="bar-list-genres"|Not available yet|View details|No photo available/);
+  assert.ok(html.indexOf('class="country-all-bars"') > html.indexOf('class="country-bar-list"'));
+  assert.equal((html.match(/href="\/c\/seoul#bar-/g) ?? []).length, 1);
 });
 
 test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
@@ -341,7 +351,7 @@ test("Tonight-to-detail genre links and successive city URLs never render a prio
   for (const id of ["seoul", "bangkok", "hanoi", "seoul"]) {
     const html = render("Capital", `/c/${id}`, "/c/:id");
     for (const [other, name] of [["seoul", "Seoul"], ["bangkok", "Bangkok"], ["hanoi", "Hanoi"]]) {
-      assert.equal(new RegExp(`<h2><a[^>]*>Fixture ${name}</a></h2>`).test(html), other === id);
+      assert.equal(new RegExp(`<h2>Fixture ${name}</h2>`).test(html), other === id);
     }
   }
 });
