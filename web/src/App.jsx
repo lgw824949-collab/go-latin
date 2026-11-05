@@ -13,6 +13,7 @@ import { countryDocument } from "./lib/countries.js";
 import { headAction, SITE_ORIGIN } from "./lib/routeHead.js";
 import { tonightPathForRoute } from "./lib/barAnchor.js";
 import { releaseFeatureEnabled } from "./lib/releaseFeatures.js";
+import { BAR_COPY, useBarLanguage } from "./lib/barLanguage.js";
 
 const PAGE_META = {
   "/": {
@@ -101,19 +102,22 @@ function HomeSkin() {
 }
 
 export default function App() {
-  const { pathname, search } = useLocation();
+  const { pathname, search, hash } = useLocation();
+  const [barLanguage] = useBarLanguage();
+  const isBarProfile = /^\/c\/[^/]+$/.test(pathname) && hash.startsWith("#bar-");
+  const menu = BAR_COPY[isBarProfile ? barLanguage : "en"];
   return (
     <>
       <RouteHead />
       <HomeSkin />
-      <header className="top">
+      <header className="top" lang={isBarProfile ? barLanguage : "en"}>
         <Link to="/" className="brand-link">
           <span className="brand-name">GO LATIN</span>
           <span className="brand-tag">Global Latin Dance Night</span>
         </Link>
         <span>
-          <span className="top-note">Capital bars</span>
-          <Link className="top-tonight" to={tonightPathForRoute(pathname, search)}>Tonight</Link>
+          <span className="top-note">{menu.menuBars}</span>
+          <Link className="top-tonight" to={tonightPathForRoute(pathname, search)}>{menu.tonight}</Link>
         </span>
       </header>
       <Routes>

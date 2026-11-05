@@ -68,13 +68,17 @@ function render(extra = {}, venues = []) {
 
 test("profile preserves all eight sections and explicit placeholders without invented fields", () => {
   const html = render();
-  const labels = ["현지어 이름", "오늘 밤", "길찾기", "이번 주 음악", "알아두면 좋은 것", "BAR 사진", "마지막 정보 확인", "Hanoi의 다른 BAR"];
+  const labels = ["Local name", "Tonight", "Directions", "This Week", "Good to Know", "Photos", "Last Verified", "More Bars in Hanoi"];
   for (let i = 1; i < labels.length; i++) assert.ok(html.indexOf(labels[i - 1]) < html.indexOf(labels[i]));
-  for (const label of ["입장료", "초보 레슨", "영어 소통", "주소"]) assert.match(html, new RegExp(`<dt>${label}</dt><dd>아직 정보가 없어요`));
-  assert.equal((html.match(/사진 없음<\/div>/g) ?? []).length, 2);
-  assert.match(html, /시작 시간 · 아직 정보가 없어요/);
-  assert.doesNotMatch(html, /오늘은 쉬어요/);
-  assert.match(html, /아직 등록된 다른 BAR가 없어요/);
+  for (const label of ["Entry fee", "Beginner lessons", "English spoken", "Address"]) assert.match(html, new RegExp(`<dt>${label}</dt><dd>Not available yet`));
+  assert.equal((html.match(/No photo available<\/div>/g) ?? []).length, 2);
+  assert.match(html, /Music start times have not been confirmed./);
+  assert.equal((html.match(/Music start times have not been confirmed\./g) ?? []).length, 1);
+  assert.match(html, /lang="en"/);
+  assert.match(html, /aria-pressed="true">EN/);
+  assert.equal((html.match(/<dt>(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)/g) ?? []).length, 14);
+  assert.doesNotMatch(html, /Closed tonight/);
+  assert.match(html, /No other bars listed in this city yet./);
 });
 
 test("city return keeps filters; other BAR links stay in the city and exclude self and closed venues", () => {
@@ -85,10 +89,10 @@ test("city return keeps filters; other BAR links stay in the city and exclude se
 });
 
 test("stale verification exposes report entry while never rendering a submit request", () => {
-  assert.doesNotMatch(render(), /정보가 틀려요/);
+  assert.doesNotMatch(render(), /Suggest an Update/);
   const html = render({ sourceChecked: "2026-09-01" });
   assert.match(html, /is-stale/);
-  assert.match(html, /64일 전/);
-  assert.match(html, /정보가 틀려요/);
+  assert.match(html, /64 days ago/);
+  assert.match(html, /Suggest an Update/);
   assert.doesNotMatch(html, /<form|action=/);
 });

@@ -260,7 +260,7 @@ test("BAR anchor opens the individual profile and preserves its city/genre retur
   assert.match(html, /class="bar-profile"/);
   assert.match(html, /<h1>Fixture Hanoi<\/h1>/);
   assert.match(html, /href="\/c\/hanoi\?dance=bachata"/);
-  assert.match(html, /오늘 밤/);
+  assert.match(html, /Tonight/);
   assert.doesNotMatch(html, /class="detail-hero"|Fixture Party/);
   const otherGenre = render("Capital", "/c/hanoi?dance=salsa#bar-bar-hanoi", "/c/:id");
   assert.match(otherGenre, /<h1>Fixture Hanoi<\/h1>/);
