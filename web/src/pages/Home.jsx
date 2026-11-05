@@ -68,6 +68,7 @@ export default function Home() {
         {searching ? (
           <SearchResults query={query} found={found} />
         ) : null}
+        <Link className="home-mobile-tonight" to="/tonight">Tonight <span aria-hidden="true">→</span></Link>
       </div>
       <section className="browse" aria-labelledby="browse-title">
         <div className="section-head">
