@@ -146,7 +146,7 @@ const PHASE2_CITIES = ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"];
 function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, found, filters, setFilter }) {
   const countries = listCountries(capitals);
   const cities = PHASE2_CITIES.map(id => capitals.find(city => city.id === id));
-  const scoped = cities.filter(city => (!city && !filters.continent && !filters.dance) || (city && (!filters.continent || city.continent === filters.continent) && (!filters.dance || venuesForDance(city.venues, filters.dance).length)));
+  const scoped = cities.filter(city => (!filters.continent && !filters.dance) || (city && ["seoul", "bangkok", "hanoi"].includes(city.id) && (!filters.continent || city.continent === filters.continent) && (!filters.dance || venuesForDance(city.venues, filters.dance).length)));
   return <div className="phase2-desktop-home">
     <section className="p2-hero">
       <p className="p2-kicker">Bachata · Kizomba · Salsa</p>

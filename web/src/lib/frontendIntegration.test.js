@@ -517,6 +517,8 @@ test("phase2 PC home preserves six original continent cards and six data-backed 
   for (const city of ["Tokyo", "Paris", "Madrid"]) {
     assert.match(html, new RegExp('class="p2-city-name">' + city + '[\\s\\S]*?class="p2-dances">Coming soon'));
   }
+  const filtered = render("Home", "/?dance=salsa", "/").match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
+  assert.doesNotMatch(filtered, /Tokyo|Paris|Madrid|Coming soon/);
   assert.match(html, /Photo by Vyacheslav Argenberg/);
   assert.match(html, /Photo by Heather Powell/);
   assert.match(html, /class="p2-is-graphic|p2-continent-card p2-is-graphic/);
