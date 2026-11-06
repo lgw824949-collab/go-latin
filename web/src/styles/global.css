@@ -1942,4 +1942,35 @@ body.theme-b .p2-continent-status{position:static;display:block;flex:0 0 28px}
 body.theme-b .phase2-desktop-home .pills button:disabled{opacity:.5;cursor:not-allowed}
 body.theme-b .p2-city-card .p2-city-name{display:flex;align-items:center;justify-content:space-between;gap:12px}
 body.theme-b .p2-city-status{color:#d4b483;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+}/* Homepage readability: PC-only rhythm and typography; mobile A stays unchanged. */
+@media(min-width:801px){
+body.theme-b:has(.phase2-desktop-home){font-family:Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;line-height:1.5;--muted:#c0b8aa}
+body.theme-b .phase2-desktop-home{font-family:inherit}
+body.theme-b .p2-lede,body.theme-b .p2-intro{color:var(--muted);line-height:1.5}
+body.theme-b .p2-finder{margin-top:20px}
+body.theme-b .p2-finder label>span,body.theme-b .phase2-desktop-home .filter legend{font-size:14px;line-height:1.5;letter-spacing:.06em}
+body.theme-b .p2-finder input{font:400 16px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+body.theme-b .p2-block{padding-top:28px}
+body.theme-b .p2-block h2{font-size:28px;line-height:1.2}
+body.theme-b .phase2-desktop-home .steps{font-size:14px;letter-spacing:.04em;margin-top:8px}
+body.theme-b .phase2-desktop-home .steps li{color:var(--muted)}
+body.theme-b .p2-continent-grid,body.theme-b .p2-city-grid{gap:16px;margin-top:16px;align-items:stretch}
+body.theme-b .p2-continent-card,body.theme-b .p2-city-card{border-radius:16px}
+body.theme-b .p2-continent-status{height:36px;flex-basis:36px;padding:0 16px;font-size:14px;line-height:36px;letter-spacing:0;color:#e6e0d6}
+body.theme-b a.p2-continent-card .p2-continent-status{color:#e3c493}
+body.theme-b .phase2-desktop-home .filters{gap:16px;margin-top:20px}
+body.theme-b .phase2-desktop-home .filter legend{color:var(--muted)}
+body.theme-b .phase2-desktop-home .pills button{font:500 14px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+body.theme-b .phase2-desktop-home .pills button:disabled{opacity:1;color:#b2adab;border-color:rgba(246,241,232,.18)}
+body.theme-b .p2-city-card{min-width:0;min-height:116px;padding:16px;justify-content:flex-start;gap:0}
+body.theme-b .p2-city-name{font-size:20px;font-weight:600;line-height:1.3;overflow-wrap:anywhere}
+body.theme-b .p2-city-card .p2-city-name{flex-wrap:wrap;gap:4px 12px}
+body.theme-b .p2-city-status{font-size:14px;line-height:1.5;letter-spacing:0;text-transform:none;color:#e3c493;flex-shrink:0}
+body.theme-b .p2-city-country{margin-top:4px;font-size:14px;line-height:1.5;color:var(--muted)}
+body.theme-b .p2-dances{margin-top:8px;font-size:14px;line-height:1.5;letter-spacing:0;text-transform:none;overflow-wrap:anywhere}
+body.theme-b .home-b:has(.phase2-desktop-home)>.home-core{margin-top:28px;font-family:inherit}
+body.theme-b .home-b:has(.phase2-desktop-home) .locate-btn{min-height:52px;border-color:#d4b483;background:#d4b483;color:#1a140c;font:600 16px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif}
+body.theme-b .home-b:has(.phase2-desktop-home) .locate .hint{margin-top:12px;font:400 14px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--muted)}
+body.theme-b .home-b:has(.phase2-desktop-home)>.hero-b{width:calc(100% - 56px);max-width:none;margin:20px 28px 0;padding-top:12px;border-top:1px solid rgba(246,241,232,.12);text-align:right}
+body.theme-b .home-b:has(.phase2-desktop-home) .floor-entry{font:400 14px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--muted)}
 }
