@@ -501,7 +501,7 @@ test("mobile atlas preserves loading and query errors without inventing availabl
   assert.doesNotMatch(atlas, /0 bars/);
 });
 
-test("phase2 PC home preserves six original continent cards and six data-backed city slots", () => {
+test("phase2 PC home preserves six continent cards and six data-backed city slots", () => {
   const f = reset();
   for (const [id, city, country, continent] of [["tokyo", "Tokyo", "Japan", "asia"], ["paris", "Paris", "France", "europe"], ["madrid", "Madrid", "Spain", "europe"]]) {
     f.cities.push({ id, city, country, continent, venues: [{ id: `outside-${id}`, name: `Existing ${city} BAR`, dances: ["salsa"] }] });
@@ -519,11 +519,33 @@ test("phase2 PC home preserves six original continent cards and six data-backed 
   }
   const filtered = render("Home", "/?dance=salsa", "/").match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
   assert.doesNotMatch(filtered, /Tokyo|Paris|Madrid|Coming soon/);
-  assert.match(html, /Photo by Vyacheslav Argenberg/);
-  assert.match(html, /Photo by Heather Powell/);
-  assert.match(html, /class="p2-is-graphic|p2-continent-card p2-is-graphic/);
+  assert.match(html, /Continent images supplied for GO LATIN/);
+  assert.doesNotMatch(html, /Photo by Heather Powell|Photo by Vyacheslav Argenberg/);
+  assert.doesNotMatch(html, /p2-continent-card p2-is-graphic/);
   const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
   const pc = css.slice(css.indexOf("/* Restore main-phase2.html on PC only."));
   assert.match(pc, /@media\(min-width:801px\)/);
   assert.doesNotMatch(pc, /max-width:800px/);
+});
+test("approved continent PNGs stay in order, with only Asia interactive and no duplicate text overlay", () => {
+  reset();
+  const html = render("Home", "/", "/");
+  const grid = html.match(/<ul class="p2-continent-grid">([\s\S]*?)<\/ul>/)?.[1];
+  assert.ok(grid);
+  const images = [...grid.matchAll(/<img[^>]*src="([^"]+)"/g)].map(match => match[1]);
+  const files = ["GO_LATIN_01_ASIA.png", "GO_LATIN_02_EUROPE.png", "GO_LATIN_03_AFRICA.png", "GO_LATIN_04_NORTH_AMERICA.png", "GO_LATIN_05_SOUTH_AMERICA.png", "GO_LATIN_06_OCEANIA.png"];
+  assert.deepEqual(images, files.map(name => `/continents-approved/${name}`));
+  const links = [...grid.matchAll(/<a\b[^>]*>/g)].map(match => match[0]);
+  assert.equal(links.length, 1);
+  assert.match(links[0], /href="\/country\?continent=asia"/);
+  assert.match(links[0], /aria-label="ASIA, Active"/);
+  assert.equal((grid.match(/aria-disabled="true"/g) ?? []).length, 5);
+  assert.equal((grid.match(/>Coming soon<\/span>/g) ?? []).length, 5);
+  assert.doesNotMatch(grid, /<button|onclick|p2-place|p2-shade|p2-copy|upload\.wikimedia/);
+  const sizes = [[546,461], [542,461], [568,461], [546,472], [542,472], [568,472]];
+  files.forEach((name,index) => {
+    const png = readFileSync(new URL(`../../public/continents-approved/${name}`, import.meta.url));
+    assert.equal(png.subarray(0,8).toString("hex"), "89504e470d0a1a0a");
+    assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], sizes[index]);
+  });
 });

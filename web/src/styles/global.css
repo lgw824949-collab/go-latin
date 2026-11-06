@@ -1926,3 +1926,11 @@ body.theme-b .hero-b-copy{padding:0;max-width:none}
 body.theme-b .hero-b-copy .hero-desktop-copy{font-size:0;line-height:1;margin:0;max-width:none}
 body.theme-b .hero-desktop-copy .floor-entry{font:14px/20px "Outfit",sans-serif;min-height:44px;min-width:44px;color:#b3a898}
 }
+/* Approved individual continent PNGs and MVP status; PC card dimensions stay unchanged. */
+@media(min-width:801px){
+body.theme-b .p2-continent-card img{inset:0 0 28px;width:100%;height:calc(100% - 28px);object-fit:contain;object-position:center}
+body.theme-b .p2-continent-status{position:absolute;inset:auto 0 0;height:28px;padding:0 14px;background:#1c2536;color:#fff;font-size:13px;font-weight:600;line-height:28px;letter-spacing:.03em}
+body.theme-b .p2-continent-card[aria-disabled=true]{cursor:default}
+body.theme-b .p2-continent-card[aria-disabled=true]:hover{border-color:rgba(212,180,131,.28)}
+body.theme-b .p2-credits p{margin:0}
+}

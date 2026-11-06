@@ -140,11 +140,10 @@ function SearchGroup({ title, items }) {
   );
 }
 
-// Original main-phase2 continent artwork and attribution, not venue data.
-const PHASE2_CONTINENTS = [{"frame":"frame-beirut","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Beirut_skyline%2C_Beirut%2C_Lebanon.jpg/960px-Beirut_skyline%2C_Beirut%2C_Lebanon.jpg","id":"asia","full":"https://upload.wikimedia.org/wikipedia/commons/e/e8/Beirut_skyline%2C_Beirut%2C_Lebanon.jpg","name":"Asia"},{"frame":"","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/Warsaw_07-13_img30_View_from_Palace_of_Culture_and_Science.jpg/960px-Warsaw_07-13_img30_View_from_Palace_of_Culture_and_Science.jpg","id":"europe","full":"https://upload.wikimedia.org/wikipedia/commons/2/2b/Warsaw_07-13_img30_View_from_Palace_of_Culture_and_Science.jpg","name":"Europe"},{"frame":"","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Skyline_of_the_Great_Tegucigalpa%2C_Honduras.jpg/960px-Skyline_of_the_Great_Tegucigalpa%2C_Honduras.jpg","id":"north_america","full":"https://upload.wikimedia.org/wikipedia/commons/c/ce/Skyline_of_the_Great_Tegucigalpa%2C_Honduras.jpg","name":"North America"},{"frame":"","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Onafhankelijkheidsplein_%2815357070803%29.jpg/960px-Onafhankelijkheidsplein_%2815357070803%29.jpg","id":"south_america","full":"https://upload.wikimedia.org/wikipedia/commons/a/ae/Onafhankelijkheidsplein_%2815357070803%29.jpg","name":"South America"},{"frame":"frame-yaounde","image":"https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Hillside_Yaounde_View.jpg/960px-Hillside_Yaounde_View.jpg","id":"africa","full":"https://upload.wikimedia.org/wikipedia/commons/3/3a/Hillside_Yaounde_View.jpg","name":"Africa"},{"frame":"","image":"","id":"oceania","full":"","name":"Oceania"}];
+// User-approved continent PNGs; only Asia is active in the current MVP.
+const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-approved/GO_LATIN_01_ASIA.png"},{"name":"EUROPE","id":"europe","image":"/continents-approved/GO_LATIN_02_EUROPE.png"},{"name":"AFRICA","id":"africa","image":"/continents-approved/GO_LATIN_03_AFRICA.png"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-approved/GO_LATIN_04_NORTH_AMERICA.png"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-approved/GO_LATIN_05_SOUTH_AMERICA.png"},{"name":"OCEANIA","id":"oceania","image":"/continents-approved/GO_LATIN_06_OCEANIA.png"}];
 const PHASE2_CITIES = ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"];
 function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, found, filters, setFilter }) {
-  const countries = listCountries(capitals);
   const cities = PHASE2_CITIES.map(id => capitals.find(city => city.id === id));
   const scoped = cities.filter(city => (!filters.continent && !filters.dance) || (city && ["seoul", "bangkok", "hanoi"].includes(city.id) && (!filters.continent || city.continent === filters.continent) && (!filters.dance || venuesForDance(city.venues, filters.dance).length)));
   return <div className="phase2-desktop-home">
@@ -160,11 +159,13 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       <p className="p2-intro">Choose a continent, then a country, then a city.</p>
       <BrowseSteps current="Continent" />
       <ul className="p2-continent-grid">{PHASE2_CONTINENTS.map(item => {
-        const count = countries.filter(country => country.cities.some(city => city.continent === item.id)).length;
-        return <li key={item.id}><Link className={`p2-continent-card${item.image ? "" : " p2-is-graphic"}`} to={`/country?continent=${item.id}`}>
-          {item.image ? <img className={item.frame} src={item.image} alt="" loading="lazy" decoding="async" onError={event => { const image = event.currentTarget; if (!image.dataset.tried) { image.dataset.tried = "1"; image.src = item.full; } else { image.style.visibility = "hidden"; } }} /> : null}
-          <span className="p2-shade" aria-hidden="true" /><span className="p2-copy"><span className="p2-place">{item.name}</span><span className="p2-meta">{status === "ready" ? `${count} ${count === 1 ? "country" : "countries"}` : "Not confirmed"}</span></span>
-        </Link></li>;
+        const active = item.id === "asia";
+        const content = <><img src={item.image} alt="" loading="lazy" decoding="async" /><span className="p2-continent-status">{active ? "Active" : "Coming soon"}</span></>;
+        const label = `${item.name}, ${active ? "Active" : "Coming soon"}`;
+        return <li key={item.id}>{active
+          ? <Link className="p2-continent-card" to="/country?continent=asia" aria-label={label}>{content}</Link>
+          : <div className="p2-continent-card" role="group" aria-disabled="true" aria-label={label}>{content}</div>}
+        </li>;
       })}</ul>
     </section>
     <section className="p2-block" aria-labelledby="p2-cities-title"><h2 id="p2-cities-title">Cities</h2>
@@ -178,13 +179,7 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
         })}</ul>{!scoped.length ? <p className="empty">No matching cities.</p> : null}
       </>}
     </section>
-    <section className="p2-credits" aria-labelledby="p2-credits-title"><h2 id="p2-credits-title">Photographs</h2><ul>
-            <li id="credit-asia">Asia, Beirut. Photo by Vyacheslav Argenberg, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Beirut_skyline,_Beirut,_Lebanon.jpg">Beirut skyline on Wikimedia Commons</a>.</li>
-            <li id="credit-europe">Europe, Warsaw. Photo by A.Savin, <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Warsaw_07-13_img30_View_from_Palace_of_Culture_and_Science.jpg">Warsaw view on Wikimedia Commons</a>.</li>
-            <li id="credit-north-america">North America, Tegucigalpa. Photo by I Love Honduras, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Skyline_of_the_Great_Tegucigalpa,_Honduras.jpg">Tegucigalpa skyline on Wikimedia Commons</a>.</li>
-            <li id="credit-south-america">South America, Paramaribo. Photo by Maarten van der Bent, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Onafhankelijkheidsplein_(15357070803).jpg">Paramaribo square on Wikimedia Commons</a>.</li>
-            <li id="credit-africa">Africa, Yaoundé. Photo by Heather Powell, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Hillside_Yaounde_View.jpg">Yaoundé hillside on Wikimedia Commons</a>.</li>
-          </ul></section>
+    <section className="p2-credits" aria-labelledby="p2-credits-title"><h2 id="p2-credits-title">Photographs</h2><p>Continent images supplied for GO LATIN.</p></section>
 
   </div>;
 }
