@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { Link, Navigate, Route, Routes, useLocation } from "react-router-dom";
 import Admin from "./pages/Admin.jsx";
 import Capital from "./pages/Capital.jsx";
@@ -93,7 +93,7 @@ function ComingSoon() {
 
 function HomeSkin() {
   const { pathname } = useLocation();
-  useEffect(() => {
+  useLayoutEffect(() => {
     const onHome = pathname === "/";
     document.body.classList.toggle("theme-b", onHome);
     return () => document.body.classList.remove("theme-b");
