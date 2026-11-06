@@ -1860,3 +1860,69 @@ body.theme-b .hero-b-copy .hero-desktop-copy{margin:0;max-width:none;font-size:0
 body.theme-b .hero-desktop-copy .floor-entry{min-width:44px;min-height:44px;font:14px/20px Arial,sans-serif;color:#a9adb4}
 body.theme-b .atlas-footer a:focus-visible,body.theme-b .atlas-footer button:focus-visible,body.theme-b .atlas-city-grid a:focus-visible{outline:2px solid #d4af37;outline-offset:3px}
 }
+/* Restore main-phase2.html on PC only. Existing mobile A rules stay intact. */
+.phase2-desktop-home{display:none}
+@media(min-width:801px){
+body.theme-b:has(.phase2-desktop-home){--paper:#0c1220;--card:#1c2536;--ink:#f6f1e8;--muted:#b3a898;--gold:#d4b483;--line:rgba(212,180,131,.34);background:#070b14;color:var(--ink);font-family:"Outfit",sans-serif;font-size:16px;line-height:1.45}
+body.theme-b:has(.phase2-desktop-home) .top{max-width:1120px;width:calc(100% - 32px);min-height:54px;margin:24px auto 0;padding:10px 28px 0;background:radial-gradient(900px 360px at 8% -8%,rgba(212,180,131,.12),transparent 55%),#0c1220;border:1px solid rgba(246,241,232,.08);border-bottom:0;border-radius:28px 28px 0 0;align-items:center}
+body.theme-b:has(.phase2-desktop-home) .top .brand-name{font:600 13px/1.45 "Outfit",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#f6f1e8;-webkit-text-fill-color:#f6f1e8;background:none}
+body.theme-b:has(.phase2-desktop-home) .top .brand-tag,body.theme-b:has(.phase2-desktop-home) .top .top-note{display:none}
+body.theme-b:has(.phase2-desktop-home) .top .top-tonight{display:inline-flex;align-items:center;min-height:44px;color:#b3a898;font:500 13px/1.45 "Outfit",sans-serif;letter-spacing:.08em;text-transform:uppercase}
+body.theme-b .wrap.home-b:has(.phase2-desktop-home){display:flex;flex-direction:column;width:calc(100% - 32px);max-width:1120px;margin:0 auto 48px;padding:0 0 28px;overflow:hidden;background:#0c1220;border:1px solid rgba(246,241,232,.08);border-top:0;border-radius:0 0 28px 28px}
+body.theme-b .home-b>.phase2-desktop-home{display:block;order:0;min-width:0}
+body.theme-b .home-b>.atlas-mobile-home,body.theme-b .home-b>.browse,body.theme-b .home-b>.desktop-popular-cities,body.theme-b .home-b>.home-mobile-cities,body.theme-b .home-b>.home-mobile-all-countries{display:none}
+body.theme-b .phase2-desktop-home a{color:inherit;text-decoration:none}
+body.theme-b .phase2-desktop-home h1,body.theme-b .phase2-desktop-home h2,body.theme-b .p2-place{font-family:"Fraunces",Georgia,serif;font-weight:560;letter-spacing:-.03em}
+body.theme-b .p2-hero,body.theme-b .p2-block,body.theme-b .p2-credits,body.theme-b .p2-location{padding-left:28px;padding-right:28px}
+body.theme-b .p2-hero{padding-top:4px}
+body.theme-b .p2-kicker{margin:0;color:#d4b483;font:600 12px/1.45 "Outfit",sans-serif;letter-spacing:.18em;text-transform:uppercase}
+body.theme-b .phase2-desktop-home h1{margin:6px 0 0;font-size:56px;line-height:.92}
+body.theme-b .p2-lede{max-width:34rem;margin:8px 0 0;color:#b3a898;font-size:16px}
+body.theme-b .p2-finder{margin:12px 0 0}
+body.theme-b .p2-finder label>span{display:block;margin-bottom:8px;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.theme-b .p2-finder input{width:100%;min-height:56px;margin:0;padding:0 18px;border:1px solid rgba(212,180,131,.34);border-radius:16px;background:#151c2a;color:#f6f1e8;font:16px "Outfit",sans-serif}
+body.theme-b .p2-block{padding-top:18px}
+body.theme-b .p2-block h2{margin:0;font-size:28px;line-height:1}
+body.theme-b .p2-intro{margin:8px 0 0;color:#b3a898}
+body.theme-b .phase2-desktop-home .steps{display:flex;flex-wrap:wrap;margin:6px 0 0;padding:0;list-style:none;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.theme-b .phase2-desktop-home .steps li{display:flex;align-items:center;min-height:28px;color:#b3a898}
+body.theme-b .phase2-desktop-home .steps li[aria-current=step]{color:#f6f1e8}
+body.theme-b .phase2-desktop-home .steps li:not(:last-child)::after{content:"→";margin:0 10px;color:#d4b483;letter-spacing:0}
+body.theme-b .p2-continent-grid,body.theme-b .p2-city-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:10px 0 0;padding:0;list-style:none}
+body.theme-b .p2-continent-card{position:relative;display:flex;align-items:flex-end;min-height:132px;aspect-ratio:8/5;overflow:hidden;border:1px solid rgba(212,180,131,.28);border-radius:20px;background:#1c2536}
+body.theme-b .p2-continent-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 42%}
+body.theme-b .p2-continent-card img.frame-beirut{object-position:center 32%}
+body.theme-b .p2-continent-card img.frame-yaounde{inset:auto 0 0;height:185%;object-position:center bottom}
+body.theme-b .p2-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,12,20,0) 40%,rgba(8,12,20,.78) 72%,rgba(8,12,20,.94) 100%)}
+body.theme-b .p2-copy{position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 14px}
+body.theme-b .p2-place{color:#fff;font-size:28px;line-height:1.05;text-shadow:0 1px 2px rgba(0,0,0,.85),0 8px 16px rgba(0,0,0,.45)}
+body.theme-b .p2-meta{color:#fff;font-size:13px;font-weight:600;letter-spacing:.03em;text-shadow:0 1px 2px rgba(0,0,0,.9)}
+body.theme-b .p2-is-graphic{background:radial-gradient(90px 64px at 78% 22%,rgba(212,180,131,.28),transparent 72%),linear-gradient(165deg,#243044 0%,#10182a 68%)}
+body.theme-b .p2-is-graphic::before{content:"";position:absolute;left:18px;right:18px;top:46%;height:1px;background:linear-gradient(90deg,transparent,#d4b483,transparent)}
+body.theme-b .phase2-desktop-home .filters{display:grid;gap:14px;margin-top:18px}
+body.theme-b .phase2-desktop-home .filter{display:block;margin:0;padding:0;border:0}
+body.theme-b .phase2-desktop-home .filter legend{margin-bottom:8px;min-width:0;color:#b3a898;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.theme-b .phase2-desktop-home .pills{display:flex;flex-wrap:wrap;gap:8px}
+body.theme-b .phase2-desktop-home .pills button{min-height:44px;padding:0 16px;border:1px solid rgba(212,180,131,.34);border-radius:999px;background:transparent;color:#f6f1e8;font:inherit}
+body.theme-b .phase2-desktop-home .pills button[aria-pressed=true]{background:#d4b483;border-color:#d4b483;color:#1a140c;font-weight:600}
+body.theme-b .p2-city-card{display:flex;flex-direction:column;justify-content:center;min-height:72px;padding:12px 14px;border:1px solid rgba(246,241,232,.1);border-radius:14px;background:rgba(28,37,54,.55)}
+body.theme-b .p2-city-card:hover,body.theme-b .p2-continent-card:hover{border-color:#d4b483}
+body.theme-b .p2-city-name{font-size:17px;font-weight:600;letter-spacing:-.02em;line-height:1.2}
+body.theme-b .p2-city-country{margin-top:2px;color:#b3a898;font-size:13px}
+body.theme-b .p2-dances{margin-top:6px;color:#d4b483;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+body.theme-b .p2-credits{margin:8px 0 0;padding-top:22px;padding-bottom:28px;color:#d9d0c4;font-size:14px}
+body.theme-b .p2-credits h2{margin:0 0 8px;font-size:20px}
+body.theme-b .p2-credits ul{margin:0;padding:0;list-style:none}
+body.theme-b .p2-credits li{margin-top:6px}
+body.theme-b .p2-credits a{color:#d4b483;text-decoration:underline;text-underline-offset:2px}
+body.theme-b .p2-location{margin-top:8px}
+body.theme-b .p2-location .locate-btn{font-size:16px;min-height:48px;border:1px solid rgba(212,180,131,.34);background:#151c2a;color:#d4b483;box-shadow:none}
+body.theme-b .phase2-desktop-home :is(a,button,input):focus-visible{outline:2px solid #d4b483;outline-offset:3px}
+body.theme-b .home-b>.home-core{display:block;order:1;max-width:none;width:100%;padding:0 28px;margin:8px 0 0}
+body.theme-b .home-core .locate-btn{border-color:rgba(212,180,131,.34);background:#151c2a;color:#d4b483}
+body.theme-b .home-b>.hero-b{order:2;min-height:0;height:auto;margin:12px auto 0;padding:0;overflow:visible;background:none}
+body.theme-b .hero-b-media,body.theme-b .hero-b-shade,body.theme-b .hero-b-copy h1,body.theme-b .hero-mobile-copy{display:none}
+body.theme-b .hero-b-copy{padding:0;max-width:none}
+body.theme-b .hero-b-copy .hero-desktop-copy{font-size:0;line-height:1;margin:0;max-width:none}
+body.theme-b .hero-desktop-copy .floor-entry{font:14px/20px "Outfit",sans-serif;min-height:44px;min-width:44px;color:#b3a898}
+}

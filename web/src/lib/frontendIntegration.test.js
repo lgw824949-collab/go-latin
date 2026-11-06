@@ -500,3 +500,27 @@ test("mobile atlas preserves loading and query errors without inventing availabl
   assert.match(atlas, /Offline query failure/);
   assert.doesNotMatch(atlas, /0 bars/);
 });
+
+test("phase2 PC home preserves six original continent cards and six data-backed city slots", () => {
+  const f = reset();
+  for (const [id, city, country, continent] of [["tokyo", "Tokyo", "Japan", "asia"], ["paris", "Paris", "France", "europe"], ["madrid", "Madrid", "Spain", "europe"]]) {
+    f.cities.push({ id, city, country, continent, venues: [] });
+  }
+  const html = render("Home", "/", "/");
+  assert.match(html, /Find the floor\. Five oceans\. Six continents\. One night\./);
+  assert.equal((html.match(/class="p2-continent-card/g) ?? []).length, 6);
+  assert.equal((html.match(/class="p2-city-card"/g) ?? []).length, 6);
+  for (const id of ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"]) {
+    assert.match(html, new RegExp('class="p2-city-card" href="/c/' + id + '"'));
+  }
+  for (const city of ["Tokyo", "Paris", "Madrid"]) {
+    assert.match(html, new RegExp('class="p2-city-name">' + city + '[\\s\\S]*?class="p2-dances">Coming soon'));
+  }
+  assert.match(html, /Photo by Vyacheslav Argenberg/);
+  assert.match(html, /Photo by Heather Powell/);
+  assert.match(html, /class="p2-is-graphic|p2-continent-card p2-is-graphic/);
+  const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
+  const pc = css.slice(css.indexOf("/* Restore main-phase2.html on PC only."));
+  assert.match(pc, /@media\(min-width:801px\)/);
+  assert.doesNotMatch(pc, /max-width:800px/);
+});
