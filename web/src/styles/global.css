@@ -1934,3 +1934,12 @@ body.theme-b .p2-continent-card[aria-disabled=true]{cursor:default}
 body.theme-b .p2-continent-card[aria-disabled=true]:hover{border-color:rgba(212,180,131,.28)}
 body.theme-b .p2-credits p{margin:0}
 }
+/* Second PC review: fill the card width while retaining every supplied image pixel. */
+@media(min-width:801px){
+body.theme-b .p2-continent-card{aspect-ratio:auto;flex-direction:column;align-items:stretch}
+body.theme-b .p2-continent-card img{position:static;inset:auto;display:block;width:100%;height:auto;aspect-ratio:542/472;flex:0 0 auto;object-fit:contain;object-position:center}
+body.theme-b .p2-continent-status{position:static;display:block;flex:0 0 28px}
+body.theme-b .phase2-desktop-home .pills button:disabled{opacity:.5;cursor:not-allowed}
+body.theme-b .p2-city-card .p2-city-name{display:flex;align-items:center;justify-content:space-between;gap:12px}
+body.theme-b .p2-city-status{color:#d4b483;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+}

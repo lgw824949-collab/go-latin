@@ -1,6 +1,6 @@
 import { CONTINENTS, DANCES } from "../lib/filterCapitals.js";
 
-export default function Filters({ dance, continent, onDance, onContinent }) {
+export default function Filters({ dance, continent, onDance, onContinent, disabledContinents = [] }) {
   return (
     <div className="filters">
       <FilterGroup label="Dance" value={dance} options={DANCES} onChange={onDance} pillsClass="dance-pills" />
@@ -8,13 +8,14 @@ export default function Filters({ dance, continent, onDance, onContinent }) {
         label="Continent"
         value={continent}
         options={CONTINENTS}
+        disabledOptions={disabledContinents}
         onChange={onContinent}
       />
     </div>
   );
 }
 
-function FilterGroup({ label, value, options, onChange, pillsClass = "" }) {
+function FilterGroup({ label, value, options, onChange, pillsClass = "", disabledOptions = [] }) {
   return (
     <fieldset className="filter">
       <legend>{label}</legend>
@@ -27,7 +28,9 @@ function FilterGroup({ label, value, options, onChange, pillsClass = "" }) {
             key={option.id}
             type="button"
             aria-pressed={value === option.id}
-            onClick={() => onChange(option.id)}
+            disabled={disabledOptions.includes(option.id)}
+            title={disabledOptions.includes(option.id) ? "Coming soon" : undefined}
+            onClick={() => { if (!disabledOptions.includes(option.id)) onChange(option.id); }}
           >
             {option.name}
           </button>

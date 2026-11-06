@@ -27,8 +27,12 @@ export default function Home() {
     [capitals, query],
   );
   const searching = query.trim() !== "";
-  const desktopFilters = readFilters(params);
-  const setDesktopFilter = (key, value) => setParams(writeFilters(params, key, value));
+  const requestedDesktopFilters = readFilters(params);
+  const desktopFilters = { ...requestedDesktopFilters, continent: requestedDesktopFilters.continent === "asia" ? "asia" : null };
+  const setDesktopFilter = (key, value) => {
+    if (key === "continent" && value && value !== "asia") return;
+    setParams(writeFilters(params, key, value));
+  };
 
   function onSearch(event) {
     event.preventDefault();
@@ -169,17 +173,17 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       })}</ul>
     </section>
     <section className="p2-block" aria-labelledby="p2-cities-title"><h2 id="p2-cities-title">Cities</h2>
-      <Filters dance={filters.dance} continent={filters.continent} onDance={value => setFilter("dance", value)} onContinent={value => setFilter("continent", value)} />
+      <Filters dance={filters.dance} continent={filters.continent} disabledContinents={PHASE2_CONTINENTS.filter(item => item.id !== "asia").map(item => item.id)} onDance={value => setFilter("dance", value)} onContinent={value => setFilter("continent", value)} />
       {status === "error" ? <p role="alert">{error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
         <ul className="p2-city-grid">{scoped.map((city, index) => {
           if (!city) return <li key={`empty-${index}`}><div className="p2-city-card"><span className="p2-city-name">Coming soon</span></div></li>;
           if (!["seoul", "bangkok", "hanoi"].includes(city.id)) return <li key={city.id}><div className="p2-city-card" aria-disabled="true"><span className="p2-city-name">{city.city}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">Coming soon</span></div></li>;
           const genres = [...new Set((city.venues ?? []).flatMap(bar => bar.dances ?? []))];
-          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
+          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}{city.venues?.length ? <span className="p2-city-status">Active</span> : null}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
         })}</ul>{!scoped.length ? <p className="empty">No matching cities.</p> : null}
       </>}
     </section>
-    <section className="p2-credits" aria-labelledby="p2-credits-title"><h2 id="p2-credits-title">Photographs</h2><p>Continent images supplied for GO LATIN.</p></section>
+
 
   </div>;
 }

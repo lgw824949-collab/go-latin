@@ -519,7 +519,7 @@ test("phase2 PC home preserves six continent cards and six data-backed city slot
   }
   const filtered = render("Home", "/?dance=salsa", "/").match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
   assert.doesNotMatch(filtered, /Tokyo|Paris|Madrid|Coming soon/);
-  assert.match(html, /Continent images supplied for GO LATIN/);
+  assert.doesNotMatch(html, /Continent images supplied for GO LATIN|p2-credits-title/);
   assert.doesNotMatch(html, /Photo by Heather Powell|Photo by Vyacheslav Argenberg/);
   assert.doesNotMatch(html, /p2-continent-card p2-is-graphic/);
   const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
@@ -548,4 +548,23 @@ test("approved continent PNGs stay in order, with only Asia interactive and no d
     assert.equal(png.subarray(0,8).toString("hex"), "89504e470d0a1a0a");
     assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], sizes[index]);
   });
+});
+test("PC MVP continent filters disable non-Asia choices and tolerate old non-operating URLs", async () => {
+  reset();
+  for (const continent of ["europe", "africa", "north_america", "south_america", "oceania"]) {
+    const html = render("Home", `/?continent=${continent}`, "/");
+    const grid = html.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
+    assert.equal((grid.match(/class="p2-city-card"/g) ?? []).length, 6);
+    for (const id of ["seoul", "bangkok", "hanoi"]) assert.match(grid, new RegExp('href="/c/' + id + '"'));
+    assert.equal((html.match(/<button[^>]*disabled=""/g) ?? []).length, 5);
+    assert.equal((grid.match(/class="p2-city-status">Active/g) ?? []).length, 3);
+    assert.doesNotMatch(html, /No matching cities|p2-credits-title|Continent images supplied/);
+    assert.match(html, /class="floor-entry"/);
+    assert.match(html, /Use My Location/);
+  }
+  const asia = render("Home", "/?continent=asia&dance=salsa", "/");
+  assert.match(asia, /href="\/c\/bangkok\?dance=salsa"/);
+  const { default: FiltersView } = await import(await compile(fileURLToPath(new URL("../components/Filters.jsx", import.meta.url))));
+  const unchanged = renderToStaticMarkup(createElement(FiltersView, { dance:null, continent:null, onDance:()=>{}, onContinent:()=>{} }));
+  assert.doesNotMatch(unchanged, /disabled=/);
 });
