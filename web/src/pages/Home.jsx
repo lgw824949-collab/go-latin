@@ -153,8 +153,8 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
   return <div className="phase2-desktop-home">
     <section className="p2-hero">
       <p className="p2-kicker">Bachata · Kizomba · Salsa</p>
-      <h1>GO LATIN</h1>
-      <p className="p2-lede">Find the floor. Five oceans. Six continents. One night.</p>
+      <h1><span className="p2-desktop-copy">GO LATIN</span><span className="p2-mobile-copy">Find the floor.</span></h1>
+      <p className="p2-lede"><span className="p2-desktop-copy">Find the floor. Five oceans. Six continents. One night.</span><span className="p2-mobile-copy">Five oceans. Six continents. One night.</span></p>
       <form className="p2-finder" onSubmit={onSearch}><label><span>Country, city, or bar</span><input type="search" placeholder="South Korea, Seoul, or a bar" autoComplete="off" value={query} onChange={event => setQuery(event.target.value)} disabled={status !== "ready"} /></label></form>
       {query.trim() && status === "ready" ? <SearchResults query={query} found={found} /> : null}
     </section>
