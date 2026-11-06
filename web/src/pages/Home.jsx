@@ -172,6 +172,7 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       {status === "error" ? <p role="alert">{error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
         <ul className="p2-city-grid">{scoped.map((city, index) => {
           if (!city) return <li key={`empty-${index}`}><div className="p2-city-card"><span className="p2-city-name">Coming soon</span></div></li>;
+          if (!["seoul", "bangkok", "hanoi"].includes(city.id)) return <li key={city.id}><div className="p2-city-card" aria-disabled="true"><span className="p2-city-name">{city.city}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">Coming soon</span></div></li>;
           const genres = [...new Set((city.venues ?? []).flatMap(bar => bar.dances ?? []))];
           return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
         })}</ul>{!scoped.length ? <p className="empty">No matching cities.</p> : null}
