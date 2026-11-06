@@ -1702,3 +1702,21 @@ body.theme-b .home-b>.home-mobile-all-countries{order:6;display:flex;align-items
 body.theme-b .home-b .home-core>.locate{order:7;margin-top:16px}
 body.theme-b .home-mobile-all-countries:focus-visible{outline:2px solid var(--gold-hi);outline-offset:3px}
 }
+
+/* DESIGN-IMPLEMENT-004: mobile B layout; full artwork stays visible. */
+@media(max-width:800px){
+body.theme-b .home-b>.hero-b .hero-b-copy{padding-top:88px}
+body.theme-b .home-b>.hero-b h1{font-size:30px}
+body.theme-b .home-b>.hero-b .lede{font-size:16px;line-height:1.5}
+body.theme-b .home-b .floor-entry{min-height:48px}
+body.theme-b .home-b .mvp-country-links a,body.theme-b .home-b>.home-mobile-all-countries,body.theme-b .home-b .locate-btn{min-height:48px;font-size:16px}
+body.theme-b .home-b>.home-mobile-cities{margin-top:20px}
+body.theme-b .home-b>.home-mobile-cities h2{font-size:26px;line-height:1.25}
+body.theme-b .home-b .mobile-city-grid{gap:12px;margin-top:12px}
+body.theme-b .home-b .mobile-city-grid a{border:1px solid rgba(212,175,55,.3);border-radius:12px;background:rgba(255,255,255,.025)}
+body.theme-b .home-b .mobile-city-grid>li:last-child:nth-child(odd){grid-column:1/-1;justify-self:stretch;width:100%}
+body.theme-b .home-b .mobile-city-grid>li:last-child:nth-child(odd)>a{display:flex;align-items:center;justify-content:center;height:clamp(208px,60vw,240px)}
+body.theme-b .home-b .mobile-city-grid>li:last-child:nth-child(odd) img{width:100%;height:100%;min-height:0;object-fit:contain}
+body.theme-b .home-b>.home-mobile-all-countries{margin-top:20px}
+body.theme-b .home-b .home-core>.locate{margin-top:12px}
+}

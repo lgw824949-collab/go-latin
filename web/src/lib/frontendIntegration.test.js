@@ -214,6 +214,23 @@ test("mobile home keeps country browsing and location below the approved city ar
   }
 });
 
+test("mobile B layout spans the last card without cropping original artwork or changing desktop rules", () => {
+  const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
+  const mobile = css.slice(css.indexOf("/* DESIGN-IMPLEMENT-004:"));
+  assert.match(mobile, /@media\(max-width:800px\)/);
+  assert.match(mobile, /grid-column:1\/-1;justify-self:stretch;width:100%/);
+  assert.match(mobile, /height:clamp\(208px,60vw,240px\)/);
+  assert.match(mobile, /img\{width:100%;height:100%;min-height:0;object-fit:contain\}/);
+  assert.match(mobile, /min-height:48px;font-size:16px/);
+  assert.doesNotMatch(mobile, /object-fit:cover|@media\(min-width:/);
+  reset();
+  const html = render("Home", "/", "/");
+  assert.equal((html.match(/class="locate-btn"/g) ?? []).length, 1);
+  for (const city of ["seoul", "bangkok", "hanoi"]) {
+    assert.match(html, new RegExp('src="/cities/go-latin-017-' + city + '\\.png"'));
+  }
+});
+
 test("home country choices use registered countries and preserve expansion without fabricating a city", () => {
   const f = reset();
   const home = render("Home", "/", "/");
