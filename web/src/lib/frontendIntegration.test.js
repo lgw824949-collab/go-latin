@@ -472,11 +472,11 @@ test("approved mobile atlas connects the existing search, Tonight and three real
   const html = render("Home", "/", "/");
   const atlas = html.match(/<section class="atlas-mobile-home"[\s\S]*?<\/section>/)?.[0];
   assert.ok(atlas);
-  assert.match(atlas, /Find Latin Dance/);
-  assert.match(atlas, /Bars Worldwide/);
-  assert.match(atlas, /Search city or bar/);
-  assert.match(atlas, /href="\/tonight"/);
-  assert.match(atlas, /src="\/mobile-atlas\/world-map-a.png"/);
+  assert.match(atlas, /The world, in rhythm\./);
+  assert.match(atlas, /6 continents\. 5 oceans\./);
+  assert.match(html, /Search city or bar/);
+  assert.match(html, /href="\/tonight"/);
+  assert.match(atlas, /class="atlas-map-panel"><img src="data:image\/png;base64,/);
   for (const [id, name] of [["seoul", "Seoul"], ["bangkok", "Bangkok"], ["hanoi", "Hanoi"]]) {
     assert.match(atlas, new RegExp('href="/c/' + id + '"'));
     assert.match(atlas, new RegExp('src="/mobile-atlas/GO_LATIN_CITY_' + name + '\\.png"'));
