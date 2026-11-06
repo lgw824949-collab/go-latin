@@ -25,10 +25,14 @@ export default function Hero() {
       <div className="hero-b-shade" aria-hidden="true" />
       <div className="hero-b-copy">
         <h1>Latin Dance Bars Around the World</h1>
-        <p className="lede">
+        <p className="lede hero-desktop-copy">
           Find the best Latin dance bars in cities around the world. Find the{" "}
           <button type="button" className="floor-entry" onClick={onFloorClick}>floor</button>
           .
+        </p>
+        <p className="lede hero-mobile-copy">
+          Find the best Latin dance bars in cities around the world.{" "}
+          <span className="hero-floor-sentence">Find the <button type="button" className="floor-entry" onClick={onFloorClick}>floor.</button></span>
         </p>
       </div>
     </section>

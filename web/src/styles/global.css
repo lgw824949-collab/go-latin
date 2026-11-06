@@ -1720,3 +1720,29 @@ body.theme-b .home-b .mobile-city-grid>li:last-child:nth-child(odd) img{width:10
 body.theme-b .home-b>.home-mobile-all-countries{margin-top:20px}
 body.theme-b .home-b .home-core>.locate{margin-top:12px}
 }
+
+/* MOBILE-HOME-008: presentation and preview are restricted to the mobile home. */
+.hero-mobile-copy,.brand-tag-mobile,body.theme-b .brand-tag-mobile,.home-mobile-location-note{display:none}
+@media(max-width:800px){
+body.theme-b .home-b .hero-desktop-copy,body.theme-b .top .brand-tag:not(.brand-tag-mobile),body.theme-b .home-b .location-note-original{display:none}
+body.theme-b .home-b .hero-mobile-copy,body.theme-b .home-b .home-mobile-location-note{display:block}
+body.theme-b .top .brand-tag-mobile{display:block}
+body.theme-b .home-b .hero-floor-sentence{white-space:nowrap}
+body.theme-b .home-b .floor-entry{font:inherit;letter-spacing:inherit;line-height:inherit;padding:0;vertical-align:baseline}
+body.theme-b .home-b>.hero-b .hero-b-shade{background:linear-gradient(180deg,rgba(5,7,12,.12) 0%,rgba(5,7,12,.4) 35%,rgba(5,7,12,.96) 78%,var(--paper) 100%),linear-gradient(90deg,rgba(5,7,12,.68),rgba(5,7,12,.08))}
+body.theme-b .home-b .mobile-city-grid a{position:relative;isolation:isolate}
+body.theme-b .home-b .mobile-city-artwork{position:absolute;inset:0;overflow:hidden;z-index:-1;border-radius:11px}
+body.theme-b .home-b>.home-mobile-cities .mobile-city-grid>li .mobile-city-artwork img{position:absolute;left:0;top:0;width:100%;height:160%;max-width:none;object-fit:cover;object-position:center top;aspect-ratio:auto}
+body.theme-b .home-b .mobile-city-grid>li:not(:last-child)>a{aspect-ratio:1;min-height:0}
+body.theme-b .home-b .mobile-city-copy{position:absolute;inset:auto 0 0;display:flex;flex-direction:column;gap:3px;padding:24px 10px 10px;background:linear-gradient(transparent,rgba(5,7,12,.94) 42%);color:#fff;text-align:left}
+body.theme-b .home-b .mobile-city-copy strong{font-family:"Playfair Display",Georgia,serif;font-size:22px;line-height:1.15}
+body.theme-b .home-b .mobile-city-copy>span{font-size:14px;line-height:1.25}
+body.theme-b .home-b .home-tonight-preview{order:4;margin-top:10px;font-size:14px;color:var(--muted)}
+body.theme-b .home-tonight-preview p{margin:0}
+body.theme-b .home-tonight-preview ul{list-style:none;margin:0;padding:0;border:1px solid rgba(212,175,55,.25);border-radius:10px;overflow:hidden}
+body.theme-b .home-tonight-preview li+li{border-top:1px solid rgba(212,175,55,.2)}
+body.theme-b .home-tonight-preview a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;padding:10px 12px;font-size:14px;color:var(--ink);text-decoration:none}
+body.theme-b .home-tonight-preview a>span{min-width:0;overflow-wrap:anywhere}
+body.theme-b .home-tonight-preview time{white-space:nowrap;color:var(--gold)}
+body.theme-b .home-tonight-preview .home-tonight-note{margin-top:6px;font-size:14px}
+}

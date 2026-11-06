@@ -114,6 +114,7 @@ export default function App() {
         <Link to="/" className="brand-link">
           <span className="brand-name">GO LATIN</span>
           <span className="brand-tag">Global Latin Dance Night</span>
+          {pathname === "/" ? <span className="brand-tag brand-tag-mobile">GLOBAL LATIN BAR DIRECTORY</span> : null}
         </Link>
         <span>
           <span className="top-note">{menu.menuBars}</span>

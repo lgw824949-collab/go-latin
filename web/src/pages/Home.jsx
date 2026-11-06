@@ -5,6 +5,7 @@ import ContinentCards from "../components/ContinentCards.jsx";
 import Hero from "../components/Hero.jsx";
 import NearYou from "../components/NearYou.jsx";
 import PopularCities from "../components/PopularCities.jsx";
+import HomeTonightPreview, { MobileHomeOnly } from "../components/HomeTonightPreview.jsx";
 import { countrySearchTarget, listCountries, searchDirectory } from "../lib/countries.js";
 import { useCapitals } from "../lib/directory.js";
 
@@ -69,6 +70,7 @@ export default function Home() {
           <SearchResults query={query} found={found} />
         ) : null}
         <Link className="home-mobile-tonight" to="/tonight">Tonight <span aria-hidden="true">→</span></Link>
+        <MobileHomeOnly><HomeTonightPreview /></MobileHomeOnly>
       </div>
       <section className="browse" aria-labelledby="browse-title">
         <div className="section-head">

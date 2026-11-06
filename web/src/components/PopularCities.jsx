@@ -43,7 +43,8 @@ function MobileCityCards({ capitals }) {
     <ul className="mobile-city-grid">
       {cities.map(city => <li key={city.id}>
         <Link to={cityCardPath(city.id)} aria-label={`${city.city}, ${city.country}`}>
-          <img src={MOBILE_CITY_IMAGES[city.id]} alt="" width="724" height="724" loading="lazy" decoding="async" />
+          <span className="mobile-city-artwork" aria-hidden="true"><img src={MOBILE_CITY_IMAGES[city.id]} alt="" width="724" height="724" loading="lazy" decoding="async" /></span>
+          <span className="mobile-city-copy"><strong>{city.city}</strong><span>{city.country}</span><span>{city.venues.length === 1 ? "1 bar" : `${city.venues.length} bars`}</span></span>
         </Link>
       </li>)}
     </ul>

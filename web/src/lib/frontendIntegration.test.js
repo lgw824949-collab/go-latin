@@ -96,6 +96,7 @@ const pages = {};
 for (const name of ["Home", "Country", "Capital", "Tonight"]) {
   pages[name] = (await import(await compile(fileURLToPath(new URL(`../pages/${name}.jsx`, import.meta.url))))).default;
 }
+const { HomeTonightPreviewView } = await import(await compile(fileURLToPath(new URL("../components/HomeTonightPreview.jsx", import.meta.url))));
 function reset() {
   const cities = [["seoul", "Seoul", "South Korea", "Asia/Seoul"], ["bangkok", "Bangkok", "Thailand", "Asia/Bangkok"], ["hanoi", "Hanoi", "Vietnam", "Asia/Ho_Chi_Minh"]].map(([id, city, country, timezone]) => shapeCityCapital({
     id, city, country, timezone, continent: "asia", venues: [{
@@ -178,7 +179,7 @@ test("missing genres stay absent in compact rows and all-Seoul access follows th
   assert.equal((html.match(/href="\/c\/seoul#bar-/g) ?? []).length, 1);
 });
 
-test("approved mobile city artwork keeps real city routes and avoids duplicate visible city labels", () => {
+test("mobile city overlays keep real routes and derive BAR counts from queried venues", () => {
   const f = reset();
   const home = render("Home", "/", "/");
   const mobile = home.match(/<section class="home-mobile-cities"[\s\S]*?<\/section>/)?.[0];
@@ -189,7 +190,10 @@ test("approved mobile city artwork keeps real city routes and avoids duplicate v
     assert.match(mobile, new RegExp(`aria-label="${city}, ${country}"`));
     assert.match(mobile, new RegExp(`/cities/go-latin-017-${id}\\.png`));
   }
-  assert.doesNotMatch(mobile, /<(?:span|strong|p)[^>]*>(?:Seoul|Bangkok|Hanoi|South Korea|Thailand|Vietnam)</);
+  for (const city of ["Seoul", "Bangkok", "Hanoi"]) assert.equal((mobile.match(new RegExp(`<strong>${city}</strong>`, "g")) ?? []).length, 1);
+  assert.equal((mobile.match(/>1 bar</g) ?? []).length, 3);
+  f.cities[0].venues.push(...[1,2,3,4].map(id => ({ id: `extra-${id}`, name: "Fixture" })));
+  assert.match(render("Home", "/", "/"), />5 bars</);
   assert.equal((mobile.match(/alt=""/g) ?? []).length, 3);
   f.cities = f.cities.filter(city => city.id !== "hanoi");
   const remaining = render("Home", "/", "/").match(/<section class="home-mobile-cities"[\s\S]*?<\/section>/)[0];
@@ -216,7 +220,7 @@ test("mobile home keeps country browsing and location below the approved city ar
 
 test("mobile B layout spans the last card without cropping original artwork or changing desktop rules", () => {
   const css = readFileSync(new URL("../styles/global.css", import.meta.url), "utf8");
-  const mobile = css.slice(css.indexOf("/* DESIGN-IMPLEMENT-004:"));
+  const mobile = css.slice(css.indexOf("/* DESIGN-IMPLEMENT-004:"), css.indexOf("/* MOBILE-HOME-008:"));
   assert.match(mobile, /@media\(max-width:800px\)/);
   assert.match(mobile, /grid-column:1\/-1;justify-self:stretch;width:100%/);
   assert.match(mobile, /height:clamp\(208px,60vw,240px\)/);
@@ -445,3 +449,20 @@ test("BAR anchor opens the individual profile and preserves its city/genre retur
 });
 
 test.after(() => { delete globalThis.__frontend; });
+
+test("home Tonight preview distinguishes loading, empty, error and actual city/bar/time rows", () => {
+  const f = reset();
+  const view = state => renderToStaticMarkup(createElement(MemoryRouter, null, createElement(HomeTonightPreviewView, { state, now: new Date(f.now) })));
+  assert.match(view({ status: "loading", cities: [] }), /불러오는 중/);
+  const empty = view({ status: "ready", cities: [] });
+  assert.match(empty, /오늘 등록된 곳이 아직 없어요/);
+  const error = view({ status: "error", cities: [] });
+  assert.match(error, /role="alert"/);
+  assert.doesNotMatch(error, /오늘 등록된 곳/);
+  for (const city of f.cities) for (const venue of city.venues) venue.nightDances.push({ weekday: 4, dance: "salsa" });
+  const rows = view({ status: "ready", cities: f.cities });
+  assert.equal((rows.match(/<li>/g) ?? []).length, 3);
+  assert.match(rows, /Seoul \/ Fixture Seoul/);
+  assert.match(rows, /18:00/);
+  assert.match(rows, /현지 영업 시작/);
+});

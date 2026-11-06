@@ -36,7 +36,7 @@ export default function NearYou({ capitals }) {
         </svg>
         {phase === "pending" ? "Checking location" : "Use My Location"}
       </button>
-      <p className="hint">The browser asks only after this click. The city lookup is not saved.</p>
+      <p className="hint"><span className="location-note-original">The browser asks only after this click. The city lookup is not saved.</span><span className="home-mobile-location-note">버튼을 누르면 위치 권한을 물어봐요. 위치는 저장되지 않아요.</span></p>
       {phase === "denied" ? <p className="empty">Location wasn't allowed. Search by city or bar.</p> : null}
       {phase === "failed" ? <p className="empty">Location couldn't be used. Search by city or bar.</p> : null}
       {match ? <LocationResult match={match} /> : null}
