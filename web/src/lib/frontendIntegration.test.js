@@ -466,3 +466,37 @@ test("home Tonight preview distinguishes loading, empty, error and actual city/b
   assert.match(rows, /18:00/);
   assert.match(rows, /현지 영업 시작/);
 });
+
+test("approved mobile atlas connects the existing search, Tonight and three real city cards", () => {
+  const f = reset();
+  const html = render("Home", "/", "/");
+  const atlas = html.match(/<section class="atlas-mobile-home"[\s\S]*?<\/section>/)?.[0];
+  assert.ok(atlas);
+  assert.match(atlas, /Find Latin Dance/);
+  assert.match(atlas, /Bars Worldwide/);
+  assert.match(atlas, /Search city or bar/);
+  assert.match(atlas, /href="\/tonight"/);
+  assert.match(atlas, /src="\/mobile-atlas\/world-map-a.png"/);
+  for (const [id, name] of [["seoul", "Seoul"], ["bangkok", "Bangkok"], ["hanoi", "Hanoi"]]) {
+    assert.match(atlas, new RegExp('href="/c/' + id + '"'));
+    assert.match(atlas, new RegExp('src="/mobile-atlas/GO_LATIN_CITY_' + name + '\\.png"'));
+  }
+  assert.equal((atlas.match(/>1 bar</g) ?? []).length, 3);
+  f.cities[0].venues.push(...[1,2,3,4].map(id => ({ id: String(id) })));
+  assert.match(render("Home", "/", "/"), /class="atlas-city-info"><strong>Seoul<\/strong><span>5 bars/);
+  f.query = "Hanoi";
+  assert.match(render("Home", "/?q=Hanoi", "/"), /atlas-search-results[\s\S]*href="\/c\/hanoi"/);
+});
+
+test("mobile atlas preserves loading and query errors without inventing available cities", () => {
+  const f = reset();
+  f.status = "loading";
+  let atlas = render("Home", "/", "/").match(/<section class="atlas-mobile-home"[\s\S]*?<\/section>/)[0];
+  assert.match(atlas, /Loading the directory/);
+  assert.doesNotMatch(atlas, /atlas-city-info/);
+  f.status = "error";
+  atlas = render("Home", "/", "/").match(/<section class="atlas-mobile-home"[\s\S]*?<\/section>/)[0];
+  assert.match(atlas, /role="alert"/);
+  assert.match(atlas, /Offline query failure/);
+  assert.doesNotMatch(atlas, /0 bars/);
+});

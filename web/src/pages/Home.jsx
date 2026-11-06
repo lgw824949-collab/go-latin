@@ -5,7 +5,7 @@ import ContinentCards from "../components/ContinentCards.jsx";
 import Hero from "../components/Hero.jsx";
 import NearYou from "../components/NearYou.jsx";
 import PopularCities from "../components/PopularCities.jsx";
-import HomeTonightPreview, { MobileHomeOnly } from "../components/HomeTonightPreview.jsx";
+import MobileAtlasHome from "../components/MobileAtlasHome.jsx";
 import { countrySearchTarget, listCountries, searchDirectory } from "../lib/countries.js";
 import { useCapitals } from "../lib/directory.js";
 
@@ -36,6 +36,7 @@ export default function Home() {
     return (
       <main className="wrap home home-b">
         <Hero />
+        <MobileAtlasHome capitals={[]} status={status} error={error} query={query} onQueryChange={setQuery} onSearch={onSearch} />
         <p className={status === "error" ? "empty" : "count"}>
           {status === "error" ? error : "Loading the directory."}
         </p>
@@ -46,6 +47,7 @@ export default function Home() {
   return (
     <main className="wrap home home-b">
       <Hero />
+      <MobileAtlasHome capitals={capitals} status={status} error={error} query={query} onQueryChange={setQuery} onSearch={onSearch} searchResults={searching ? <SearchResults query={query} found={found} /> : null} />
       <div className="home-core">
         <nav className="mvp-country-links" aria-label="Choose a country">
           {[["hanoi", "Vietnam"], ["bangkok", "Thailand"], ["seoul", "Korea"]].map(([id, label]) => {
@@ -70,7 +72,7 @@ export default function Home() {
           <SearchResults query={query} found={found} />
         ) : null}
         <Link className="home-mobile-tonight" to="/tonight">Tonight <span aria-hidden="true">→</span></Link>
-        <MobileHomeOnly><HomeTonightPreview /></MobileHomeOnly>
+
       </div>
       <section className="browse" aria-labelledby="browse-title">
         <div className="section-head">
