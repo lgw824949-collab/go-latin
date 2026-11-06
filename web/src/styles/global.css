@@ -1752,6 +1752,7 @@ body.theme-b .home-tonight-preview .home-tonight-note{margin-top:6px;font-size:1
 @media(max-width:800px){
 body.theme-b{background:#05070c;min-height:100vh;min-height:100svh}
 body.theme-b .top{height:60px;padding:20px 20px 0;align-items:flex-start}
+body.theme-b .top .brand-link{align-items:flex-start;padding-top:3px}
 body.theme-b .top .brand-name{font-family:Georgia,serif;font-size:23px;line-height:28px;font-weight:700;letter-spacing:0;background:none;-webkit-text-fill-color:var(--gold);color:var(--gold)}
 body.theme-b .top .brand-tag,body.theme-b .top .brand-tag-mobile,body.theme-b .top .top-tonight,body.theme-b .top .top-note{display:none}
 body.theme-b .wrap.home-b{display:block;margin:0;padding:0 20px 24px;overflow-x:visible}
@@ -1767,9 +1768,9 @@ body.theme-b .atlas-search input::placeholder{color:#b9bdc4;opacity:1}
 body.theme-b .atlas-tonight{display:flex;align-items:center;justify-content:space-between;box-sizing:border-box;min-height:48px;margin-top:12px;padding:0 18px;border-radius:12px;background:#d4af37;color:#171209;font-size:16px;font-weight:700;text-decoration:none}
 body.theme-b .atlas-tonight>span{font-size:22px;font-weight:400}
 body.theme-b .atlas-world-map{display:block;width:calc(100% + 16px);height:auto;max-width:none;aspect-ratio:366/218;object-fit:contain;margin:24px -8px 0}
-body.theme-b .atlas-active{margin-top:20px}
+body.theme-b .atlas-active{margin-top:24px}
 body.theme-b .atlas-active h2{font:700 12px/15px Arial,sans-serif;letter-spacing:0;margin:0;color:#d4af37}
-body.theme-b .atlas-city-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:16px 0 0}
+body.theme-b .atlas-city-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;list-style:none;padding:0;margin:13px 0 0}
 body.theme-b .atlas-city-grid>li{min-width:0}
 body.theme-b .atlas-city-grid a{display:block;overflow:hidden;border:1px solid #303337;border-radius:10px;background:#11151b;color:#f7f4ed;text-decoration:none;text-align:center}
 body.theme-b .atlas-city-photo{display:flex;align-items:center;justify-content:center;width:100%;aspect-ratio:4/3;overflow:hidden}
