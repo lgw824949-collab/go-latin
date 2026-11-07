@@ -144,8 +144,8 @@ function SearchGroup({ title, items }) {
   );
 }
 
-// Licensed real city photographs; only Asia is active in the current MVP.
-const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-photos/seoul.jpg","alt":"Seoul skyline and Namsan Tower with illuminated buildings and bridge at dusk","credit":"Photo: Hyeok Jang / Pexels"},{"name":"EUROPE","id":"europe","image":"/continents-photos/barcelona.jpg","alt":"Daylight on a narrow stone street and historic architecture in Barcelona Gothic Quarter","credit":"Photo: Renato Rocca / Pexels"},{"name":"AFRICA","id":"africa","image":"/continents-photos/cairo.jpg","alt":"Historic Cairo market street, shop awnings and a minaret in natural daylight","credit":"Photo: Aymane Hanni / Pexels"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-photos/new-york.jpg","alt":"Yellow taxi and tall Manhattan buildings photographed from street level","credit":"Photo: Iliana Gram / Pexels"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-photos/rio.jpg","alt":"Green Sugarloaf Mountain and Rio de Janeiro buildings in daylight","credit":"Photo: Jonathan Borba / Pexels"},{"name":"OCEANIA","id":"oceania","image":"/continents-photos/sydney.jpg","alt":"Sydney Opera House, harbour ferry and city skyline in daylight","credit":"Photo: Mark Direen / Pexels"}];
+// User-approved continent PNGs; only Asia is active in the current MVP.
+const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-approved/GO_LATIN_01_ASIA.png"},{"name":"EUROPE","id":"europe","image":"/continents-approved/GO_LATIN_02_EUROPE.png"},{"name":"AFRICA","id":"africa","image":"/continents-approved/GO_LATIN_03_AFRICA.png"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-approved/GO_LATIN_04_NORTH_AMERICA.png"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-approved/GO_LATIN_05_SOUTH_AMERICA.png"},{"name":"OCEANIA","id":"oceania","image":"/continents-approved/GO_LATIN_06_OCEANIA.png"}];
 const PHASE2_CITIES = ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"];
 function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, found, filters, setFilter }) {
   const cities = PHASE2_CITIES.map(id => capitals.find(city => city.id === id));
@@ -164,7 +164,7 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       <BrowseSteps current="Continent" />
       <ul className="p2-continent-grid">{PHASE2_CONTINENTS.map(item => {
         const active = item.id === "asia";
-        const content = <><span className="p2-continent-media"><img src={item.image} alt={item.alt} title={item.credit} loading="lazy" decoding="async" /><span className="p2-continent-name">{item.name}</span></span><span className="p2-continent-status">{active ? "Active" : "Coming soon"}</span></>;
+        const content = <><span className="p2-continent-media"><img src={item.image} alt="" loading="lazy" decoding="async" /></span><span className="p2-continent-status">{active ? "Active" : "Coming soon"}</span></>;
         const label = `${item.name}, ${active ? "Active" : "Coming soon"}`;
         return <li key={item.id}>{active
           ? <Link className="p2-continent-card" to="/country?continent=asia" aria-label={label}>{content}</Link>

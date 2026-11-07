@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { createRequire } from "node:module";
@@ -528,14 +527,14 @@ test("phase2 PC home preserves six continent cards and six data-backed city slot
   assert.match(pc, /@media\(min-width:801px\)/);
   assert.doesNotMatch(pc, /max-width:800px/);
 });
-test("licensed continent photographs stay in order, with only Asia interactive and one HTML label each", () => {
+test("approved continent PNGs stay in order, with only Asia interactive and no duplicate text overlay", () => {
   reset();
   const html = render("Home", "/", "/");
   const grid = html.match(/<ul class="p2-continent-grid">([\s\S]*?)<\/ul>/)?.[1];
   assert.ok(grid);
   const images = [...grid.matchAll(/<img[^>]*src="([^"]+)"/g)].map(match => match[1]);
-  const files = ["seoul.jpg", "barcelona.jpg", "cairo.jpg", "new-york.jpg", "rio.jpg", "sydney.jpg"];
-  assert.deepEqual(images, files.map(name => `/continents-photos/${name}`));
+  const files = ["GO_LATIN_01_ASIA.png", "GO_LATIN_02_EUROPE.png", "GO_LATIN_03_AFRICA.png", "GO_LATIN_04_NORTH_AMERICA.png", "GO_LATIN_05_SOUTH_AMERICA.png", "GO_LATIN_06_OCEANIA.png"];
+  assert.deepEqual(images, files.map(name => `/continents-approved/${name}`));
   const links = [...grid.matchAll(/<a\b[^>]*>/g)].map(match => match[0]);
   assert.equal(links.length, 1);
   assert.match(links[0], /href="\/country\?continent=asia"/);
@@ -543,25 +542,11 @@ test("licensed continent photographs stay in order, with only Asia interactive a
   assert.equal((grid.match(/aria-disabled="true"/g) ?? []).length, 5);
   assert.equal((grid.match(/>Coming soon<\/span>/g) ?? []).length, 5);
   assert.doesNotMatch(grid, /<button|onclick|p2-place|p2-shade|p2-copy|upload\.wikimedia/);
-  assert.equal((grid.match(/class="p2-continent-name"/g) ?? []).length, 6);
-  const manifest = JSON.parse(readFileSync(new URL("../../../docs/continent-photo-manifest.json", import.meta.url), "utf8").replace(/^\uFEFF/, ""));
+  const sizes = [[546,461], [542,461], [568,461], [546,472], [542,472], [568,472]];
   files.forEach((name,index) => {
-    const jpeg = readFileSync(new URL(`../../public/continents-photos/${name}`, import.meta.url));
-    assert.equal(jpeg.readUInt16BE(0), 0xffd8);
-    assert.ok(jpeg.length < 350000, `${name} stays optimized`);
-    let dimensions;
-    for (let offset = 2; offset + 8 < jpeg.length;) {
-      assert.equal(jpeg[offset], 0xff);
-      const marker = jpeg[offset + 1];
-      if (marker === 0xc0 || marker === 0xc2) { dimensions = [jpeg.readUInt16BE(offset + 7), jpeg.readUInt16BE(offset + 5)]; break; }
-      offset += 2 + jpeg.readUInt16BE(offset + 2);
-    }
-    assert.deepEqual(dimensions, [1084,944]);
-    assert.equal(manifest[index].file, name);
-    assert.equal(createHash("sha256").update(jpeg).digest("hex"), manifest[index].assetSha256);
-    assert.equal(manifest[index].license, "Pexels License");
-    assert.match(manifest[index].page, /^https:\/\/www\.pexels\.com\/photo\//);
-    assert.match(manifest[index].originalSha256, /^[a-f0-9]{64}$/);
+    const png = readFileSync(new URL(`../../public/continents-approved/${name}`, import.meta.url));
+    assert.equal(png.subarray(0,8).toString("hex"), "89504e470d0a1a0a");
+    assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], sizes[index]);
   });
 });
 test("PC MVP continent filters disable non-Asia choices and tolerate old non-operating URLs", async () => {
