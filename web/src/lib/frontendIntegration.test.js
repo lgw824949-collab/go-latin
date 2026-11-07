@@ -534,7 +534,7 @@ test("approved continent PNGs stay in order, with only Asia interactive and no d
   assert.ok(grid);
   const images = [...grid.matchAll(/<img[^>]*src="([^"]+)"/g)].map(match => match[1]);
   const files = ["GO_LATIN_01_ASIA.png", "GO_LATIN_02_EUROPE.png", "GO_LATIN_03_AFRICA.png", "GO_LATIN_04_NORTH_AMERICA.png", "GO_LATIN_05_SOUTH_AMERICA.png", "GO_LATIN_06_OCEANIA.png"];
-  assert.deepEqual(images, files.map(name => `/continents-approved/${name}`));
+  assert.deepEqual(images, files.map(name => `/continents-graded/${name}`));
   const links = [...grid.matchAll(/<a\b[^>]*>/g)].map(match => match[0]);
   assert.equal(links.length, 1);
   assert.match(links[0], /href="\/country\?continent=asia"/);
@@ -544,7 +544,7 @@ test("approved continent PNGs stay in order, with only Asia interactive and no d
   assert.doesNotMatch(grid, /<button|onclick|p2-place|p2-shade|p2-copy|upload\.wikimedia/);
   const sizes = [[546,461], [542,461], [568,461], [546,472], [542,472], [568,472]];
   files.forEach((name,index) => {
-    const png = readFileSync(new URL(`../../public/continents-approved/${name}`, import.meta.url));
+    const png = readFileSync(new URL(`../../public/continents-graded/${name}`, import.meta.url));
     assert.equal(png.subarray(0,8).toString("hex"), "89504e470d0a1a0a");
     assert.deepEqual([png.readUInt32BE(16), png.readUInt32BE(20)], sizes[index]);
   });

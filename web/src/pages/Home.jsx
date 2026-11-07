@@ -145,7 +145,7 @@ function SearchGroup({ title, items }) {
 }
 
 // User-approved continent PNGs; only Asia is active in the current MVP.
-const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-approved/GO_LATIN_01_ASIA.png"},{"name":"EUROPE","id":"europe","image":"/continents-approved/GO_LATIN_02_EUROPE.png"},{"name":"AFRICA","id":"africa","image":"/continents-approved/GO_LATIN_03_AFRICA.png"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-approved/GO_LATIN_04_NORTH_AMERICA.png"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-approved/GO_LATIN_05_SOUTH_AMERICA.png"},{"name":"OCEANIA","id":"oceania","image":"/continents-approved/GO_LATIN_06_OCEANIA.png"}];
+const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-graded/GO_LATIN_01_ASIA.png"},{"name":"EUROPE","id":"europe","image":"/continents-graded/GO_LATIN_02_EUROPE.png"},{"name":"AFRICA","id":"africa","image":"/continents-graded/GO_LATIN_03_AFRICA.png"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-graded/GO_LATIN_04_NORTH_AMERICA.png"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-graded/GO_LATIN_05_SOUTH_AMERICA.png"},{"name":"OCEANIA","id":"oceania","image":"/continents-graded/GO_LATIN_06_OCEANIA.png"}];
 const PHASE2_CITIES = ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"];
 function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, found, filters, setFilter }) {
   const cities = PHASE2_CITIES.map(id => capitals.find(city => city.id === id));
