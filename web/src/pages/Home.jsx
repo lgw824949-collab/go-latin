@@ -1,3 +1,4 @@
+import { publicCityOverview } from "../lib/publicCities.js";
 import { useMemo } from "react";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import BrowseSteps from "../components/BrowseSteps.jsx";
@@ -146,10 +147,9 @@ function SearchGroup({ title, items }) {
 
 // User-approved continent PNGs; only Asia is active in the current MVP.
 const PHASE2_CONTINENTS = [{"name":"ASIA","id":"asia","image":"/continents-approved/GO_LATIN_01_ASIA.png"},{"name":"EUROPE","id":"europe","image":"/continents-approved/GO_LATIN_02_EUROPE.png"},{"name":"AFRICA","id":"africa","image":"/continents-approved/GO_LATIN_03_AFRICA.png"},{"name":"NORTH AMERICA","id":"north_america","image":"/continents-approved/GO_LATIN_04_NORTH_AMERICA.png"},{"name":"SOUTH AMERICA","id":"south_america","image":"/continents-approved/GO_LATIN_05_SOUTH_AMERICA.png"},{"name":"OCEANIA","id":"oceania","image":"/continents-approved/GO_LATIN_06_OCEANIA.png"}];
-const PHASE2_CITIES = ["seoul", "bangkok", "hanoi", "tokyo", "paris", "madrid"];
 function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, found, filters, setFilter }) {
-  const cities = PHASE2_CITIES.map(id => capitals.find(city => city.id === id));
-  const scoped = cities.filter(city => (!filters.continent && !filters.dance) || (city && ["seoul", "bangkok", "hanoi"].includes(city.id) && (!filters.continent || city.continent === filters.continent) && (!filters.dance || venuesForDance(city.venues, filters.dance).length)));
+  const { featured: cities, showAll } = publicCityOverview(capitals);
+  const scoped = cities.filter(city => (!filters.continent && !filters.dance) || (city && (!filters.continent || city.continent === filters.continent) && (!filters.dance || venuesForDance(city.venues, filters.dance).length)));
   return <div className="phase2-desktop-home">
     <section className="p2-hero">
       <p className="p2-kicker">Bachata · Kizomba · Salsa</p>
@@ -176,11 +176,9 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       <Filters dance={filters.dance} continent={filters.continent} disabledContinents={PHASE2_CONTINENTS.filter(item => item.id !== "asia").map(item => item.id)} onDance={value => setFilter("dance", value)} onContinent={value => setFilter("continent", value)} />
       {status === "error" ? <p role="alert">{error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
         <ul className="p2-city-grid">{scoped.map((city, index) => {
-          if (!city) return <li key={`empty-${index}`}><div className="p2-city-card"><span className="p2-city-name">Coming soon</span></div></li>;
-          if (!["seoul", "bangkok", "hanoi"].includes(city.id)) return <li key={city.id}><div className="p2-city-card" aria-disabled="true"><span className="p2-city-name">{city.city}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">Coming soon</span></div></li>;
           const genres = [...new Set((city.venues ?? []).flatMap(bar => bar.dances ?? []))];
-          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}{city.venues?.length ? <span className="p2-city-status">Active</span> : null}</span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
-        })}</ul>{!scoped.length ? <p className="empty">No matching cities.</p> : null}
+          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}<span className="p2-city-status">Active</span></span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
+        })}</ul>{showAll ? <Link to="/country?published=1">View All Cities</Link> : null}{!scoped.length ? <p className="empty">No matching cities.</p> : null}
       </>}
     </section>
 

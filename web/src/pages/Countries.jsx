@@ -1,3 +1,4 @@
+import { publicCities } from "../lib/publicCities.js";
 import { useMemo } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import BrowseSteps from "../components/BrowseSteps.jsx";
@@ -30,6 +31,20 @@ export default function Countries() {
     const scoped = continent ? countriesInContinent(listed, continent) : listed;
     return query.trim() ? matchingCountries(scoped, query) : scoped;
   }, [capitals, continent, query]);
+
+  // This opt-in mode leaves the existing directory unchanged.
+  if (params.get("published") === "1") {
+    const cities = publicCities(capitals).filter(city => !query.trim() || (city.city + " " + city.country).toLowerCase().includes(query.trim().toLowerCase()));
+    return <main className="wrap country-page">
+      <p className="crumb"><Link to="/">Directory</Link></p>
+      <h1 className="country-title">Cities</h1>
+      <form onSubmit={event => event.preventDefault()}><label className="city-search finder">Country or city<input type="search" value={query} onChange={event => setQuery(event.target.value)} /></label></form>
+      {status === "loading" ? <p className="count">Loading the directory.</p> : status === "error" ? <p role="alert">{error}</p> : <>
+        <ul className="country-list">{cities.map(city => <li key={city.id}><Link to={"/c/" + city.id} state={{ from: "/country?" + params.toString() }}><span className="place-name">{city.city}</span><span>{city.country}</span></Link></li>)}</ul>
+        {!cities.length ? <p className="empty">{query.trim() ? 'No match for "' + query.trim() + '".' : "No public cities available."}</p> : null}
+      </>}
+    </main>;
+  }
 
   return (
     <main className="wrap country-page">

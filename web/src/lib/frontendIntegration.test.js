@@ -80,7 +80,8 @@ async function compile(filename) {
     const imports = [...source.matchAll(/from "(\.[^"]+)"/g)].map(match => match[1]);
     for (const specifier of new Set(imports)) {
       const resolved = path.resolve(path.dirname(filename), specifier);
-      const replacement = path.basename(resolved) === "directory.js" ? directory
+      const replacement = path.basename(resolved) === "publicCities.js" ? asModule(`import {publicCities as list, publicCityOverview as overview} from "${pathToFileURL(resolved).href}"; export const publicCities=rows=>list(rows,globalThis.__frontend.publicIds); export const publicCityOverview=rows=>overview(rows,globalThis.__frontend.publicIds);`)
+        : path.basename(resolved) === "directory.js" ? directory
         : path.basename(resolved) === "useLocalNow.js" ? now
           : resolved.endsWith(".jsx") ? await compile(resolved) : pathToFileURL(resolved).href;
       source = source.replaceAll(`from "${specifier}"`, `from "${replacement}"`);
@@ -93,7 +94,7 @@ async function compile(filename) {
   return pending;
 }
 const pages = {};
-for (const name of ["Home", "Country", "Capital", "Tonight"]) {
+for (const name of ["Home", "Countries", "Country", "Capital", "Tonight"]) {
   pages[name] = (await import(await compile(fileURLToPath(new URL(`../pages/${name}.jsx`, import.meta.url))))).default;
 }
 const { HomeTonightPreviewView } = await import(await compile(fileURLToPath(new URL("../components/HomeTonightPreview.jsx", import.meta.url))));
@@ -501,7 +502,7 @@ test("mobile atlas preserves loading and query errors without inventing availabl
   assert.doesNotMatch(atlas, /0 bars/);
 });
 
-test("phase2 PC home preserves six continent cards and six data-backed city slots", () => {
+test("phase2 PC home preserves six continent cards and only explicitly published cities", () => {
   const f = reset();
   for (const [id, city, country, continent] of [["tokyo", "Tokyo", "Japan", "asia"], ["paris", "Paris", "France", "europe"], ["madrid", "Madrid", "Spain", "europe"]]) {
     f.cities.push({ id, city, country, continent, venues: [{ id: `outside-${id}`, name: `Existing ${city} BAR`, dances: ["salsa"] }] });
@@ -509,14 +510,13 @@ test("phase2 PC home preserves six continent cards and six data-backed city slot
   const html = render("Home", "/", "/");
   assert.match(html, /Find the floor\. Five oceans\. Six continents\. One night\./);
   assert.equal((html.match(/class="p2-continent-card/g) ?? []).length, 6);
-  assert.equal((html.match(/class="p2-city-card"/g) ?? []).length, 6);
+  assert.equal((html.match(/class="p2-city-card"/g) ?? []).length, 3);
   for (const id of ["seoul", "bangkok", "hanoi"]) {
     assert.match(html, new RegExp('class="p2-city-card" href="/c/' + id + '"'));
   }
-  assert.equal((html.match(/class="p2-city-card" aria-disabled="true"/g) ?? []).length, 3);
-  for (const city of ["Tokyo", "Paris", "Madrid"]) {
-    assert.match(html, new RegExp('class="p2-city-name">' + city + '[\\s\\S]*?class="p2-dances">Coming soon'));
-  }
+  const publicGrid = html.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
+  assert.doesNotMatch(publicGrid, /Tokyo|Paris|Madrid|Coming soon|\d+ bars?/);
+  assert.doesNotMatch(html, /View All Cities/);
   const filtered = render("Home", "/?dance=salsa", "/").match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
   assert.doesNotMatch(filtered, /Tokyo|Paris|Madrid|Coming soon/);
   assert.doesNotMatch(html, /Continent images supplied for GO LATIN|p2-credits-title/);
@@ -554,7 +554,7 @@ test("PC MVP continent filters disable non-Asia choices and tolerate old non-ope
   for (const continent of ["europe", "africa", "north_america", "south_america", "oceania"]) {
     const html = render("Home", `/?continent=${continent}`, "/");
     const grid = html.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1] ?? "";
-    assert.equal((grid.match(/class="p2-city-card"/g) ?? []).length, 6);
+    assert.equal((grid.match(/class="p2-city-card"/g) ?? []).length, 3);
     for (const id of ["seoul", "bangkok", "hanoi"]) assert.match(grid, new RegExp('href="/c/' + id + '"'));
     assert.equal((html.match(/<button[^>]*disabled=""/g) ?? []).length, 5);
     assert.equal((grid.match(/class="p2-city-status">Active/g) ?? []).length, 3);
@@ -567,4 +567,25 @@ test("PC MVP continent filters disable non-Asia choices and tolerate old non-ope
   const { default: FiltersView } = await import(await compile(fileURLToPath(new URL("../components/Filters.jsx", import.meta.url))));
   const unchanged = renderToStaticMarkup(createElement(FiltersView, { dance:null, continent:null, onDance:()=>{}, onContinent:()=>{} }));
   assert.doesNotMatch(unchanged, /disabled=/);
+});
+test("public directory is opt-in and excludes unpublished operating cities", () => {
+ const f=reset();f.cities.push({id:"tokyo",city:"Tokyo",country:"Japan",continent:"asia",venues:[{id:"t",dances:["salsa"]}]});
+ const html=render("Countries","/country?published=1","/country");
+ for(const id of ["seoul","bangkok","hanoi"]) assert.ok(html.includes('href="/c/'+id+'"'));
+ assert.doesNotMatch(html,/Tokyo|Japan/);
+ assert.match(render("Countries","/country?continent=asia","/country"),/Japan/);
+});
+
+for (const count of [3,6,7,20]) test('rendered published city navigation '+count,()=>{
+ const f=reset();
+ for(let i=3;i<count;i++) f.cities.push({id:'approved-'+i,city:'Approved '+i,country:'Fixture Country',continent:'asia',venues:[]});
+ f.publicIds=f.cities.map(c=>c.id);
+ f.cities.push({id:'private',city:'Private City',country:'Private Country',continent:'asia',venues:[{dances:['salsa']}]});
+ const home=render('Home','/','/');const grid=home.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.equal((grid.match(/class="p2-city-card"/g)??[]).length,Math.min(count,6));
+ assert.equal(home.includes('href="/country?published=1"'),count>6);
+ assert.doesNotMatch(grid,/Private City|\d+ bars?/);
+ const all=render('Countries','/country?published=1','/country');
+ for(const id of f.publicIds) assert.ok(all.includes('href="/c/'+id+'"'));
+ assert.doesNotMatch(all,/Private City/);
 });
