@@ -2040,3 +2040,31 @@ body.theme-b .p2-continent-grid>li{min-width:0;display:flex}
 body.theme-b .p2-continent-grid .p2-continent-card{width:100%;height:100%;min-height:0;aspect-ratio:auto}
 body.theme-b .p2-continent-card .p2-continent-media{position:relative;display:block;flex:0 0 auto;width:100%;aspect-ratio:542/472;overflow:hidden;background:#1c2536}
 body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;transform:scale(1.02)}
+/* PC final review: preserve mobile, continent artwork and directory behavior. */
+@media (min-width: 801px) {
+  body.theme-b .phase2-desktop-home .filters {
+    grid-template-columns: minmax(260px, 1fr) minmax(0, 2fr);
+    align-items: start;
+    column-gap: 28px;
+  }
+  body.theme-b .phase2-desktop-home .filter { min-width: 0; }
+  body.theme-b .p2-city-card .p2-dances { margin-top: auto; padding-top: 8px; }
+  body.theme-b .home-b:has(.phase2-desktop-home) .locate {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+  }
+  body.theme-b .home-b:has(.phase2-desktop-home) .locate-btn {
+    flex: 0 0 auto;
+    width: auto;
+    min-width: 248px;
+  }
+  body.theme-b .home-b:has(.phase2-desktop-home) .locate .hint {
+    flex: 1 1 280px;
+    margin: 0;
+  }
+  body.theme-b .home-b:has(.phase2-desktop-home) .locate > :is(.empty, .locate-result) {
+    flex-basis: 100%;
+  }
+}
