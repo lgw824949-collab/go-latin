@@ -1,4 +1,4 @@
-import { publicCityOverview } from "../lib/publicCities.js";
+import { publicCities, publicCityOverview } from "../lib/publicCities.js";
 import { useMemo } from "react";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
 import BrowseSteps from "../components/BrowseSteps.jsx";
@@ -104,7 +104,7 @@ function SearchResults({ query, found }) {
   const state = { from: `${pathname}${search}` };
   const hits = found.countries.length + found.cities.length + found.bars.length;
   if (hits === 0) {
-    return <p className="empty">No match for "{query.trim()}".</p>;
+    return <p className="empty" role="status">No match for "{query.trim()}". Check the spelling or try part of a country, city, or bar name.</p>;
   }
   return (
     <section className="search-results" aria-label="Search results">
@@ -112,7 +112,7 @@ function SearchResults({ query, found }) {
         <li key={`${bar.cityId}-${bar.id}`}>
           <Link to={bar.href} state={state}>
             <span className="place-name">{bar.name}</span>
-            <span>{bar.city}, {bar.country}</span>
+            <span>{bar.city}, {bar.country}{publicCities([{ id: bar.cityId }]).length ? "" : " · Coming soon — not publicly launched"}</span>
           </Link>
         </li>
       ))} />
@@ -121,6 +121,7 @@ function SearchResults({ query, found }) {
           <Link to={`/c/${city.id}`} state={state}>
             <span className="place-name">{city.city}</span>
             {city.showCountry ? <span>{city.country}</span> : null}
+            {publicCities([city]).length ? null : <span>Coming soon — not publicly launched</span>}
           </Link>
         </li>
       ))} />
@@ -174,10 +175,10 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
     </section>
     <section className="p2-block" aria-labelledby="p2-cities-title"><h2 id="p2-cities-title">Cities</h2>
       <Filters dance={filters.dance} continent={filters.continent} disabledContinents={PHASE2_CONTINENTS.filter(item => item.id !== "asia").map(item => item.id)} onDance={value => setFilter("dance", value)} onContinent={value => setFilter("continent", value)} />
-      {status === "error" ? <p role="alert">{error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
+      {status === "error" ? <p role="alert">The directory could not be loaded. Refresh the page to try again. {error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
         <ul className="p2-city-grid">{scoped.map((city, index) => {
           const genres = [...new Set((city.venues ?? []).flatMap(bar => bar.dances ?? []))];
-          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}<span className="p2-city-status">Active</span></span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Coming soon"}</span></Link></li>;
+          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}<span className="p2-city-status" title="Public city directory; check Tonight for opening hours." aria-label="Active city directory, not an open-now status">Active</span></span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Not confirmed"}</span></Link></li>;
         })}</ul>{showAll ? <Link to="/country?published=1">View All Cities</Link> : null}{!scoped.length ? <p className="empty">No matching cities.</p> : null}
       </>}
     </section>

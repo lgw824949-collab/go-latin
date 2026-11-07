@@ -557,7 +557,7 @@ test("PC MVP continent filters disable non-Asia choices and tolerate old non-ope
     assert.equal((grid.match(/class="p2-city-card"/g) ?? []).length, 3);
     for (const id of ["seoul", "bangkok", "hanoi"]) assert.match(grid, new RegExp('href="/c/' + id + '"'));
     assert.equal((html.match(/<button[^>]*disabled=""/g) ?? []).length, 5);
-    assert.equal((grid.match(/class="p2-city-status">Active/g) ?? []).length, 3);
+    assert.equal((grid.match(/class="p2-city-status"[^>]*>Active/g) ?? []).length, 3);
     assert.doesNotMatch(html, /No matching cities|p2-credits-title|Continent images supplied/);
     assert.match(html, /class="floor-entry"/);
     assert.match(html, /Use My Location/);
@@ -588,4 +588,15 @@ for (const count of [3,6,7,20]) test('rendered published city navigation '+count
  const all=render('Countries','/country?published=1','/country');
  for(const id of f.publicIds) assert.ok(all.includes('href="/c/'+id+'"'));
  assert.doesNotMatch(all,/Private City/);
+});
+
+test('home search labels unpublished cities and bars without changing their URLs',()=>{
+ const f=reset();f.cities.push({id:'tokyo',city:'Tokyo',country:'Japan',continent:'asia',venues:[{id:'private-bar',name:'Private Fixture',dances:['salsa']}]});
+ const city=render('Home','/?q=Tokyo','/');assert.match(city,/Coming soon — not publicly launched/);assert.match(city,/href="\/c\/tokyo"/);
+ const bar=render('Home','/?q=Private','/');assert.match(bar,/Coming soon — not publicly launched/);assert.match(bar,/href="\/c\/tokyo#bar-private-bar"/);
+ const launched=render('Home','/?q=Hanoi','/');assert.doesNotMatch(launched,/not publicly launched/);
+});
+test('home empty and failed searches have distinct actionable UI',()=>{
+ const f=reset();const empty=render('Home','/?q=Seol','/');assert.match(empty,/Check the spelling or try part/);assert.match(empty,/role="status"/);
+ f.status='error';const failed=render('Home','/?q=Hanoi','/');assert.match(failed,/could not be loaded/);assert.match(failed,/role="alert"/);assert.doesNotMatch(failed,/No match for/);
 });
