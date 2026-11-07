@@ -2034,3 +2034,9 @@ body.theme-b .home-b:has(.phase2-desktop-home) .locate .hint{margin-top:12px;fon
 body.theme-b .home-b:has(.phase2-desktop-home)>.hero-b{width:calc(100% - 56px);max-width:none;margin:20px 28px 0;padding-top:12px;border-top:1px solid rgba(246,241,232,.12);text-align:right}
 body.theme-b .home-b:has(.phase2-desktop-home) .floor-entry{font:400 14px/1.5 Inter,"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;color:var(--muted)}
 }
+
+/* Equal continent photo frames; hide baked-in scan edges without changing assets. */
+body.theme-b .p2-continent-grid>li{min-width:0;display:flex}
+body.theme-b .p2-continent-grid .p2-continent-card{width:100%;height:100%;min-height:0;aspect-ratio:auto}
+body.theme-b .p2-continent-card .p2-continent-media{position:relative;display:block;flex:0 0 auto;width:100%;aspect-ratio:542/472;overflow:hidden;background:#1c2536}
+body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:0;display:block;width:100%;height:100%;aspect-ratio:auto;object-fit:cover;object-position:center;transform:scale(1.02)}

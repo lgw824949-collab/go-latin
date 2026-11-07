@@ -164,7 +164,7 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       <BrowseSteps current="Continent" />
       <ul className="p2-continent-grid">{PHASE2_CONTINENTS.map(item => {
         const active = item.id === "asia";
-        const content = <><img src={item.image} alt="" loading="lazy" decoding="async" /><span className="p2-continent-status">{active ? "Active" : "Coming soon"}</span></>;
+        const content = <><span className="p2-continent-media"><img src={item.image} alt="" loading="lazy" decoding="async" /></span><span className="p2-continent-status">{active ? "Active" : "Coming soon"}</span></>;
         const label = `${item.name}, ${active ? "Active" : "Coming soon"}`;
         return <li key={item.id}>{active
           ? <Link className="p2-continent-card" to="/country?continent=asia" aria-label={label}>{content}</Link>
