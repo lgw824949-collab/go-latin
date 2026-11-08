@@ -1,3 +1,6 @@
+import { CITY_ARTWORK as ASIA_CITY_ART } from "../lib/cityArtwork.js";
+import { ASIA_COUNTRY_PHOTOS } from "../lib/asiaCountryPhotos.js";
+import AsiaCountryPhoto from "../components/AsiaCountryPhoto.jsx";
 import { httpUrl } from "../lib/sources.js";
 import { publicCities } from "../lib/publicCities.js";
 import { useMemo } from "react";
@@ -82,17 +85,23 @@ export default function Countries() {
           {countries.length === 0 ? (
             <p className="empty">No match for "{query.trim()}".</p>
           ) : (
-            <ul className="country-list">
+            <ul className={`country-list${continent === "asia" ? " asia-country-grid" : ""}`}>
               {countries.map((country) => (
                 <li key={country.slug}>
-                  <Link to={`/country/${country.slug}`}>
+                  <Link to={`/country/${country.slug}`} className={continent === "asia" ? "asia-country-card" : undefined}>
+                    {continent === "asia" ? <AsiaCountryPhoto photo={ASIA_COUNTRY_PHOTOS[country.cities[0]?.id]} city={country.cities[0]?.city} /> : null}
                     <span className="place-name">{country.name}</span>
-                    <span>{placeLabel(country)}</span>
+                    <span className="country-place-count">{placeLabel(country)}</span>
+                    {continent === "asia" && countryPlaceCounts(country).bars === 0 ? <span className="asia-country-coming-soon">Coming soon</span> : null}
                   </Link>
                 </li>
               ))}
             </ul>
           )}
+          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Existing Wikimedia photographs, displayed with a 4:5 crop. Licenses apply to the photos.</p><ul>{countries.map(country => {
+            const photo = ASIA_COUNTRY_PHOTOS[country.cities[0]?.id];
+            return photo?.src ? <li key={country.slug}>{country.name}: <a href={photo.source} target="_blank" rel="noreferrer">{photo.author}</a> · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noreferrer">{photo.license}</a></li> : null;
+          })}</ul></details> : null}
         </>
       ) : null}
     </main>
@@ -106,11 +115,6 @@ function placeLabel(country) {
   return `${cityText} · ${barText}`;
 }
 
-const ASIA_CITY_ART = {
-  seoul: { src: "/mobile-atlas/GO_LATIN_CITY_Seoul.png", position: "57% center" },
-  bangkok: { src: "/mobile-atlas/GO_LATIN_CITY_Bangkok.png", position: "50% center" },
-  hanoi: { src: "/mobile-atlas/GO_LATIN_CITY_Hanoi.png", position: "55% center" },
-};
 function AsiaCityCards({ cities, status, error, params }) {
   const pages = Math.max(1, Math.ceil(cities.length / 18));
   const requested = Number(params.get("cityPage") ?? 1);

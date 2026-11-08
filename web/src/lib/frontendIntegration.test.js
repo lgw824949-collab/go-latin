@@ -629,3 +629,23 @@ test('Asia cards retain approved images and leave other continent views unchange
  assert.match(render('Countries','/country?continent=asia&cityPage=-2','/country'),/Seoul/);
  f.status='error';assert.match(render('Countries','/country?continent=asia','/country'),/role="alert"/);
 });
+
+test('Asia country gallery preserves 46 country links and existing alphabetical order',()=>{
+ const f=reset();
+ const source=JSON.parse(readFileSync(new URL('../../../data/capitals.json',import.meta.url),'utf8')).filter(c=>c.continent==='asia');
+ f.cities=source.map(c=>({...c,venues:[]}));
+ const html=render('Countries','/country?continent=asia','/country');
+ const gallery=html.match(/class="country-list asia-country-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.equal((gallery.match(/class="asia-country-card"/g)??[]).length,46);
+ assert.equal((gallery.match(/Coming soon/g)??[]).length,46);
+ assert.equal((gallery.match(/<img class="asia-country-photo"/g)??[]).length,43);
+ assert.equal((gallery.match(/Photo pending review/g)??[]).length,3);
+ assert.ok(gallery.indexOf('Afghanistan')<gallery.indexOf('Armenia'));
+ assert.match(gallery,/href="\/country\/south-korea"/);
+ assert.doesNotMatch(render('Countries','/country?continent=europe','/country'),/asia-country-grid|asia-country-photo/);
+});
+test('homepage city artwork uses the original approved files',()=>{
+ reset();const html=render('Home','/','/');const grid=html.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.equal((grid.match(/class="p2-city-art"/g)??[]).length,3);
+ for(const name of ['Seoul','Bangkok','Hanoi'])assert.ok(grid.includes('/mobile-atlas/GO_LATIN_CITY_'+name+'.png'));
+});

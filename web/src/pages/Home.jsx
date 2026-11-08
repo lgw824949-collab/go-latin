@@ -1,3 +1,4 @@
+import { CITY_ARTWORK } from "../lib/cityArtwork.js";
 import { publicCities, publicCityOverview } from "../lib/publicCities.js";
 import { useMemo } from "react";
 import { Link, useLocation, useNavigate, useSearchParams } from "react-router-dom";
@@ -178,7 +179,7 @@ function Phase2Desktop({ capitals, status, error, query, setQuery, onSearch, fou
       {status === "error" ? <p role="alert">The directory could not be loaded. Refresh the page to try again. {error}</p> : status !== "ready" ? <p>Loading the directory.</p> : <>
         <ul className="p2-city-grid">{scoped.map((city, index) => {
           const genres = [...new Set((city.venues ?? []).flatMap(bar => bar.dances ?? []))];
-          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}><span className="p2-city-name">{city.city}<span className="p2-city-status" title="Public city directory; check Tonight for opening hours." aria-label="Active city directory, not an open-now status">Active</span></span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Not confirmed"}</span></Link></li>;
+          return <li key={city.id}><Link className="p2-city-card" to={cityCardPath(city.id, filters.dance)}>{CITY_ARTWORK[city.id] ? <img className="p2-city-art" src={CITY_ARTWORK[city.id].src} alt="" style={{ objectPosition: CITY_ARTWORK[city.id].position }} /> : null}<span className="p2-city-name">{city.city}<span className="p2-city-status" title="Public city directory; check Tonight for opening hours." aria-label="Active city directory, not an open-now status">Active</span></span><span className="p2-city-country">{city.country}</span><span className="p2-dances">{city.venues?.length ? genres.map(id => DANCES.find(dance => dance.id === id)?.name ?? id).join(" · ") || "Not confirmed" : "Not confirmed"}</span></Link></li>;
         })}</ul>{showAll ? <Link to="/country?published=1">View All Cities</Link> : null}{!scoped.length ? <p className="empty">No matching cities.</p> : null}
       </>}
     </section>

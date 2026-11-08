@@ -2094,3 +2094,22 @@ body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:
   .asia-country-page .lede, .asia-country-page .count { color: #c0b8aa; }
   .asia-country-page .country-list a { background: #111a29; border-color: #263044; color: #f6f1e8; }
 }
+
+/* Image repair and Asia country gallery: desktop only, mobile directory preserved. */
+.p2-city-art, .asia-country-photo, .asia-country-coming-soon, .asia-country-photo-credits { display: none; }
+@media (min-width: 801px) {
+ body.theme-b .p2-city-art { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; margin-bottom: 14px; }
+ body.theme-b .p2-city-card { justify-content: flex-start; }
+ .asia-country-page .asia-country-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; padding: 0; list-style: none; align-items: stretch; }
+ .asia-country-grid > li { min-width: 0; display: flex; }
+ .asia-country-page .asia-country-grid .asia-country-card { display: flex; flex-direction: column; align-items: stretch; width: 100%; height: 100%; padding: 0 0 14px; overflow: hidden; border-radius: 12px; text-align: center; text-decoration: none; }
+ .asia-country-page .asia-country-photo { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; flex: 0 0 auto; }
+ .asia-country-page .asia-country-photo-empty { display: grid; place-items: center; background: #1c2536; color: #c0b8aa; font-size: 14px; padding: 12px; }
+ .asia-country-card .place-name { margin: 12px 10px 0; font-size: 16px; line-height: 1.4; color: #e3c493; overflow-wrap: anywhere; }
+ .asia-country-card .country-place-count { display: none; }
+ .asia-country-coming-soon { display: block; margin: 6px 10px 0; font-size: 12px; color: #c0b8aa; }
+ .asia-country-card:focus-visible { outline: 2px solid #d4b483; outline-offset: 3px; }
+ .asia-country-photo-credits { display: block; margin-top: 28px; color: #c0b8aa; font-size: 14px; }
+ .asia-country-photo-credits summary { min-height: 44px; cursor: pointer; }
+ .asia-country-photo-credits a { color: #d4b483; }
+}
