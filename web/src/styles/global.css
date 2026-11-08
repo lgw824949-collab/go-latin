@@ -2068,3 +2068,29 @@ body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:
     flex-basis: 100%;
   }
 }
+
+/* Asia public city cards: preserve the existing mobile country directory. */
+.asia-public-cities, .asia-country-heading { display: none; }
+@media (min-width: 801px) {
+  body:has(.asia-country-page) { background: #080d16; color: #f6f1e8; min-height: 100vh; }
+  body:has(.asia-country-page) > #root > .top { color: #d4b483; border-color: #263044; }
+  .asia-country-page { max-width: 1200px; color: #f6f1e8; }
+  .asia-public-cities { display: block; margin: 28px 0 48px; }
+  .asia-city-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
+  .asia-city-heading h2 { margin: 0; font-size: 28px; }
+  .asia-city-heading a { color: #d4b483; min-height: 44px; display: inline-flex; align-items: center; }
+  .asia-city-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 0; list-style: none; }
+  .asia-city-grid li { min-width: 0; }
+  .asia-city-card { display: flex; height: 100%; flex-direction: column; text-align: center; text-decoration: none; border: 1px solid #263044; border-radius: 16px; overflow: hidden; background: #111a29; padding-bottom: 20px; }
+  .asia-city-card:hover { border-color: #d4b483; }
+  .asia-city-card:focus-visible { outline: 2px solid #d4b483; outline-offset: 4px; }
+  .asia-city-photo { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .asia-photo-empty { display: grid; place-items: center; color: #c0b8aa; background: #1c2536; }
+  .asia-city-name { margin: 18px 12px 4px; color: #e3c493; font-size: 22px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; overflow-wrap: anywhere; }
+  .asia-city-country { margin: 0 12px; color: #c0b8aa; font-size: 16px; overflow-wrap: anywhere; }
+  .asia-city-pages { display: flex; justify-content: center; align-items: center; gap: 24px; margin-top: 24px; }
+  .asia-city-pages a { display: inline-flex; align-items: center; min-height: 44px; color: #d4b483; }
+  .asia-country-heading { display: block; margin-top: 32px; }
+  .asia-country-page .lede, .asia-country-page .count { color: #c0b8aa; }
+  .asia-country-page .country-list a { background: #111a29; border-color: #263044; color: #f6f1e8; }
+}

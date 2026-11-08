@@ -600,3 +600,32 @@ test('home empty and failed searches have distinct actionable UI',()=>{
  const f=reset();const empty=render('Home','/?q=Seol','/');assert.match(empty,/Check the spelling or try part/);assert.match(empty,/role="status"/);
  f.status='error';const failed=render('Home','/?q=Hanoi','/');assert.match(failed,/could not be loaded/);assert.match(failed,/role="alert"/);assert.doesNotMatch(failed,/No match for/);
 });
+
+for(const count of [3,6,9,18,20]) test('Asia public city grid '+count,()=>{
+ const f=reset();
+ for(let i=3;i<count;i++) f.cities.push({id:'public-'+i,city:'Public '+i,country:'Fixture country',continent:'asia',venues:[]});
+ f.publicIds=f.cities.map(c=>c.id);
+ f.cities.push({id:'private',city:'Private city',country:'Japan',continent:'asia',venues:[{dances:['salsa']}]});
+ const html=render('Countries','/country?continent=asia','/country');
+ const grid=html.match(/class="asia-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.equal((grid.match(/class="asia-city-card"/g)??[]).length,Math.min(count,18));
+ assert.doesNotMatch(grid,/Private city/);
+ for(const city of f.cities.slice(0,Math.min(count,18))) assert.ok(grid.includes('href="/c/'+city.id+'"'));
+ assert.equal(html.includes('Next cities'),count>18);
+ assert.match(html,/href="\/country\/south-korea"/);
+ if(count>18) {
+  const next=render('Countries','/country?continent=asia&cityPage=2','/country');
+  const rest=next.match(/class="asia-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+  assert.equal((rest.match(/class="asia-city-card"/g)??[]).length,2);
+  assert.match(rest,/public-18/);assert.match(rest,/public-19/);
+ }
+});
+test('Asia cards retain approved images and leave other continent views unchanged',()=>{
+ const f=reset();
+ const asia=render('Countries','/country?continent=asia','/country');
+ for(const city of ['Seoul','Bangkok','Hanoi']) assert.ok(asia.includes('/mobile-atlas/GO_LATIN_CITY_'+city+'.png'));
+ assert.doesNotMatch(render('Countries','/country?continent=europe','/country'),/asia-city-grid|asia-country-page/);
+ assert.doesNotMatch(render('Countries','/country','/country'),/asia-city-grid|asia-country-page/);
+ assert.match(render('Countries','/country?continent=asia&cityPage=-2','/country'),/Seoul/);
+ f.status='error';assert.match(render('Countries','/country?continent=asia','/country'),/role="alert"/);
+});

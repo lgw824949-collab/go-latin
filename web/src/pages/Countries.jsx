@@ -1,3 +1,4 @@
+import { httpUrl } from "../lib/sources.js";
 import { publicCities } from "../lib/publicCities.js";
 import { useMemo } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
@@ -47,10 +48,12 @@ export default function Countries() {
   }
 
   return (
-    <main className="wrap country-page">
+    <main className={`wrap country-page${continent === "asia" ? " asia-country-page" : ""}`}>
       <p className="crumb"><Link to={continent ? "/country" : "/"}>{continent ? "Continents" : "Directory"}</Link></p>
       <BrowseSteps current={continent ? "Country" : "Continent"} />
       <h1 className="country-title">{continent ? continentName(continent) : "Continents"}</h1>
+      {continent === "asia" && !query.trim() ? <AsiaCityCards cities={publicCities(capitals).filter(city => city.continent === "asia")} status={status} error={error} params={params} /> : null}
+      {continent === "asia" ? <h2 className="asia-country-heading" id="asia-countries">Browse countries</h2> : null}
       <p className="lede">
         {continent ? "Choose a country. Each one opens its cities." : "Choose a continent, then a country."}
       </p>
@@ -101,4 +104,37 @@ function placeLabel(country) {
   const cityText = cities === 1 ? "1 city" : `${cities} cities`;
   const barText = bars === 0 ? "No bar listed" : bars === 1 ? "1 bar" : `${bars} bars`;
   return `${cityText} · ${barText}`;
+}
+
+const ASIA_CITY_ART = {
+  seoul: { src: "/mobile-atlas/GO_LATIN_CITY_Seoul.png", position: "57% center" },
+  bangkok: { src: "/mobile-atlas/GO_LATIN_CITY_Bangkok.png", position: "50% center" },
+  hanoi: { src: "/mobile-atlas/GO_LATIN_CITY_Hanoi.png", position: "55% center" },
+};
+function AsiaCityCards({ cities, status, error, params }) {
+  const pages = Math.max(1, Math.ceil(cities.length / 18));
+  const requested = Number(params.get("cityPage") ?? 1);
+  const page = Number.isSafeInteger(requested) && requested > 0 ? Math.min(requested, pages) : 1;
+  const pageLink = value => {
+    const next = new URLSearchParams(params);
+    next.set("cityPage", String(value));
+    return "/country?" + next.toString();
+  };
+  return <section className="asia-public-cities" aria-labelledby="asia-cities-title">
+    <div className="asia-city-heading"><h2 id="asia-cities-title">Public cities</h2><a href="#asia-countries">Browse countries ↓</a></div>
+    {status === "loading" ? <p role="status">Loading cities.</p> : status === "error" ? <p role="alert">{error}</p> : <>
+      <ul className="asia-city-grid">{cities.slice((page - 1) * 18, page * 18).map(city => {
+        const art = ASIA_CITY_ART[city.id];
+        const image = art?.src || httpUrl(city.image);
+        return <li key={city.id}><Link className="asia-city-card" to={"/c/" + city.id} state={{ from: "/country?" + params.toString() }}>
+          {image ? <img className="asia-city-photo" src={image} alt={city.city} style={{ objectPosition: art?.position ?? "center" }} /> : <span className="asia-city-photo asia-photo-empty">No photo available</span>}
+          <span className="asia-city-name">{city.city}</span><span className="asia-city-country">{city.country}</span>
+        </Link></li>;
+      })}</ul>
+      {!cities.length ? <p>No public cities available.</p> : null}
+      {pages > 1 ? <nav className="asia-city-pages" aria-label="City pages">
+        {page > 1 ? <Link to={pageLink(page - 1)}>Previous</Link> : null}<span>Page {page} of {pages}</span>{page < pages ? <Link to={pageLink(page + 1)}>Next cities →</Link> : null}
+      </nav> : null}
+    </>}
+  </section>;
 }
