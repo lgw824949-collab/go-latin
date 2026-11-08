@@ -2113,3 +2113,9 @@ body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:
  .asia-country-photo-credits summary { min-height: 44px; cursor: pointer; }
  .asia-country-photo-credits a { color: #d4b483; }
 }
+
+@media (min-width: 801px) {
+ .asia-country-page .asia-country-grid .asia-country-card { display: grid; grid-template-rows: auto 2.8em 18px; align-content: start; gap: 6px; }
+ .asia-country-card .place-name { display: flex; align-items: center; justify-content: center; margin: 0 10px; }
+ .asia-country-coming-soon { margin: 0 10px; }
+}
