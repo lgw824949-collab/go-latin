@@ -603,7 +603,8 @@ test('home empty and failed searches have distinct actionable UI',()=>{
 
 for(const count of [3,6,9,18,20]) test('Asia public city grid '+count,()=>{
  const f=reset();
- for(let i=3;i<count;i++) f.cities.push({id:'public-'+i,city:'Public '+i,country:'Fixture country',continent:'asia',venues:[]});
+ const available=JSON.parse(readFileSync(new URL('../../../data/capitals.json',import.meta.url),'utf8')).filter(c=>c.continent==='asia'&&!f.cities.some(existing=>existing.id===c.id));
+ for(let i=3;i<count;i++) f.cities.push({...available[i-3],venues:[]});
  f.publicIds=f.cities.map(c=>c.id);
  f.cities.push({id:'private',city:'Private city',country:'Japan',continent:'asia',venues:[{dances:['salsa']}]});
  const html=render('Countries','/country?continent=asia','/country');
@@ -617,7 +618,7 @@ for(const count of [3,6,9,18,20]) test('Asia public city grid '+count,()=>{
   const next=render('Countries','/country?continent=asia&cityPage=2','/country');
   const rest=next.match(/class="asia-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
   assert.equal((rest.match(/class="asia-city-card"/g)??[]).length,2);
-  assert.match(rest,/public-18/);assert.match(rest,/public-19/);
+  for(const city of f.cities.slice(18,20))assert.ok(rest.includes('href="/c/'+city.id+'"'));
  }
 });
 test('Asia cards retain approved images and leave other continent views unchanged',()=>{
@@ -670,4 +671,29 @@ test('Asia image frames reserve a 4:5 box before lazy loading completes',()=>{
  assert.match(html,/class="asia-country-photo"[^>]*width="640" height="800" loading="lazy"/);
  const css=readFileSync(new URL('../styles/global.css',import.meta.url),'utf8');
  assert.match(css,/grid-template-columns: minmax\(0, 1fr\); justify-content: stretch/);
+});
+
+test('PC Asia gallery labels capitals and keeps every unpublished capital coming soon',()=>{
+ const f=reset();const source=JSON.parse(readFileSync(new URL('../../../data/capitals.json',import.meta.url),'utf8')).filter(c=>c.continent==='asia');f.cities=source.map(c=>({...c,venues:[{id:'bar-'+c.id,status:'operating'}]}));
+ const html=render('Countries','/country?continent=asia','/country');const gallery=html.match(/class="country-list asia-country-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ for(const capital of ['Tokyo','Singapore','Kuala Lumpur','Manila','Phnom Penh'])assert.ok(gallery.includes('>'+capital+'<'));
+ assert.equal((gallery.match(/Coming soon/g)??[]).length,10);
+ assert.doesNotMatch(gallery,/Ho Chi Minh City|Da Nang|Busan/);
+});
+test('PC country capital view preserves only approved capital links and mobile legacy categories',()=>{
+ const f=reset();
+ const vietnam=render('Country','/country/vietnam','/country/:slug');
+ const pc=vietnam.match(/class="country-capital-desktop"([\s\S]*?)<\/section>/)?.[1]??'';
+ assert.match(pc,/href="\/c\/hanoi"/);assert.doesNotMatch(pc,/Ho Chi Minh City|Da Nang/);
+ assert.match(vietnam,/country-capital-mobile/);assert.match(vietnam,/Ho Chi Minh City/);
+ f.cities.push({id:'tokyo',city:'Tokyo',country:'Japan',continent:'asia',venues:[{id:'existing',dances:['salsa']}]});
+ const japan=render('Country','/country/japan','/country/:slug');
+ const privateCapital=japan.match(/class="country-capital-desktop"([\s\S]*?)<\/section>/)?.[1]??'';
+ assert.match(privateCapital,/Tokyo/);assert.match(privateCapital,/Coming soon/);assert.doesNotMatch(privateCapital,/href="\/c\/tokyo"/);
+});
+
+test('Asia public city cards do not expose a non-capital even if it is added to a publication fixture',()=>{
+ const f=reset();f.cities.push({id:'ho-chi-minh-city',city:'Ho Chi Minh City',country:'Vietnam',continent:'asia',venues:[]});f.publicIds=f.cities.map(c=>c.id);
+ const html=render('Countries','/country?continent=asia','/country');const top=html.match(/class="asia-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.doesNotMatch(top,/Ho Chi Minh City/);assert.match(top,/Hanoi/);
 });

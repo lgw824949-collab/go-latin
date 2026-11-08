@@ -1,3 +1,4 @@
+import { asiaCapital, isAsiaCapital } from "../lib/asiaCapitals.js";
 import { CITY_ARTWORK as ASIA_CITY_ART } from "../lib/cityArtwork.js";
 import { ASIA_COUNTRY_PHOTOS } from "../lib/asiaCountryPhotos.js";
 import AsiaCountryPhoto from "../components/AsiaCountryPhoto.jsx";
@@ -55,7 +56,7 @@ export default function Countries() {
       <p className="crumb"><Link to={continent ? "/country" : "/"}>{continent ? "Continents" : "Directory"}</Link></p>
       <BrowseSteps current={continent ? "Country" : "Continent"} />
       <h1 className="country-title">{continent ? continentName(continent) : "Continents"}</h1>
-      {continent === "asia" && !query.trim() ? <AsiaCityCards cities={publicCities(capitals).filter(city => city.continent === "asia")} status={status} error={error} params={params} /> : null}
+      {continent === "asia" && !query.trim() ? <AsiaCityCards cities={publicCities(capitals).filter(city => city.continent === "asia" && isAsiaCapital(city))} status={status} error={error} params={params} /> : null}
       {continent === "asia" ? <h2 className="asia-country-heading" id="asia-countries">Browse countries</h2> : null}
       <p className="lede">
         {continent ? "Choose a country. Each one opens its cities." : "Choose a continent, then a country."}
@@ -92,8 +93,8 @@ export default function Countries() {
               </ul>
             </>
           )}
-          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Five pilot photographs use individually positioned crops; other photographs remain fitted without cropping. Licenses apply to the photos.</p><ul>{countries.map(country => {
-            const photo = ASIA_COUNTRY_PHOTOS[country.cities[0]?.id];
+          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Photographs use individually positioned crops in 4:5 frames. Original files are preserved. Licenses apply to the photos.</p><ul>{countries.map(country => {
+            const photo = ASIA_COUNTRY_PHOTOS[asiaCapital(country)?.id];
             return photo?.src ? <li key={country.slug}>{country.name}: <a href={photo.source} target="_blank" rel="noreferrer">{photo.author}</a> · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noreferrer">{photo.license}</a></li> : null;
           })}</ul></details> : null}
         </>
@@ -144,13 +145,15 @@ const COUNTRY_PILOTS = {
   philippines: "55% center",
   cambodia: "45% center",
 };
-function CountryEntry({ country, asia, pilot = false }) {
-  const city = country.cities[0];
-  return <li><Link to={"/country/" + country.slug} className={asia ? "asia-country-card" : undefined} data-pilot={pilot ? "true" : undefined}>
-    {asia ? <AsiaCountryPhoto photo={ASIA_COUNTRY_PHOTOS[city?.id]} city={city?.city} position={pilot ? COUNTRY_PILOTS[country.slug] : undefined} pilot={pilot} /> : null}
+function CountryEntry({ country, asia, pilot = false, capitalOnly = false }) {
+  const city = capitalOnly ? asiaCapital(country) : country.cities[0];
+  const comingSoon = capitalOnly ? !city || publicCities([city]).length === 0 : countryPlaceCounts(country).bars === 0;
+  return <li><Link to={"/country/" + country.slug} className={asia ? "asia-country-card" : undefined} data-pilot={pilot ? "true" : undefined} data-capital-only={capitalOnly ? "true" : undefined}>
+    {asia ? <AsiaCountryPhoto photo={ASIA_COUNTRY_PHOTOS[city?.id]} city={city?.city} position={capitalOnly ? (pilot ? COUNTRY_PILOTS[country.slug] : CAPITAL_PHOTO_POSITIONS[city?.id] ?? "50% center") : undefined} pilot={pilot} /> : null}
     <span className="place-name">{country.name}</span>
+    {capitalOnly ? <span className="asia-country-capital">{city?.city ?? "Capital not confirmed"}</span> : null}
     <span className="country-place-count">{placeLabel(country)}</span>
-    {asia && countryPlaceCounts(country).bars === 0 ? <span className="asia-country-coming-soon">Coming soon</span> : null}
+    {asia && comingSoon ? <span className="asia-country-coming-soon">Coming soon</span> : null}
   </Link></li>;
 }
 function AsiaCountryGallery({ countries }) {
@@ -159,7 +162,22 @@ function AsiaCountryGallery({ countries }) {
   const ordered = [...pilotSlugs.flatMap(slug => countries.filter(country => country.slug === slug)), ...countries.filter(country => !pilotSlugs.includes(country.slug))];
   const visible = ordered.slice(0, shown);
   return <div className="asia-desktop-country-gallery">
-    <ul className="country-list asia-country-grid">{visible.map(country => <CountryEntry key={country.slug} country={country} asia pilot={pilotSlugs.includes(country.slug)} />)}</ul>
+    <ul className="country-list asia-country-grid">{visible.map(country => <CountryEntry key={country.slug} country={country} asia capitalOnly pilot={pilotSlugs.includes(country.slug)} />)}</ul>
     {shown < ordered.length ? <button type="button" className="asia-country-more" onClick={() => setShown(count => Math.min(count + 10, ordered.length))}>Show more countries ({Math.min(shown, ordered.length)} / {ordered.length})</button> : null}
   </div>;
 }
+
+// Display focal points only. Existing capital photograph files are unchanged.
+const CAPITAL_PHOTO_POSITIONS = {
+  manama: "20% center",
+  thimphu: "65% center",
+  beirut: "55% 35%",
+  riyadh: "75% center",
+  abu_dhabi: "70% center",
+  kathmandu: "60% center",
+  ankara: "50% 35%",
+  ashgabat: "55% center",
+  dhaka: "50% 45%",
+  yerevan: "65% center",
+  muscat: "50% 35%",
+};

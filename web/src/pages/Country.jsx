@@ -1,3 +1,5 @@
+import { ASIA_CAPITAL_IDS, asiaCapital } from "../lib/asiaCapitals.js";
+import { publicCities } from "../lib/publicCities.js";
 import { useEffect, useMemo } from "react";
 import { Link, useLocation, useParams, useSearchParams } from "react-router-dom";
 import BrowseSteps from "../components/BrowseSteps.jsx";
@@ -44,7 +46,10 @@ export default function Country() {
         <>
           <BrowseSteps current="City" />
           <h1 className="country-title">{country.name}</h1>
-          <CountryCities country={country} query={query} setQuery={setQuery} />
+          {ASIA_CAPITAL_IDS[country.slug] ? <>
+            <CapitalCountry country={country} query={query} setQuery={setQuery} />
+            <div className="country-capital-mobile"><CountryCities country={country} query={query} setQuery={setQuery} /></div>
+          </> : <CountryCities country={country} query={query} setQuery={setQuery} />}
         </>
       ) : null}
     </main>
@@ -106,3 +111,25 @@ function CountryCities({ country, query, setQuery }) {
   </section>;
 }
 
+
+function CapitalCountry({ country, query, setQuery }) {
+  const capital = asiaCapital(country);
+  const [language, setLanguage] = useBarLanguage();
+  const t = BAR_COPY[language];
+  const { pathname, search } = useLocation();
+  const visible = capital && matchingCities([capital], query).length > 0;
+  const published = capital && publicCities([capital]).length > 0;
+  const content = <><strong>{capital?.city}</strong><span>{published ? "→" : "Coming soon"}</span></>;
+  return <section className="country-capital-desktop" lang={language} aria-label={language === "ko" ? "수도" : "Capital city"}>
+    <div className="bar-profile-toolbar"><p>{language === "ko" ? "MVP는 국가별 수도 한 곳만 제공합니다." : "The MVP covers one capital per country."}</p>
+      <div className="bar-profile-language" role="group" aria-label={t.language}>
+        <button type="button" lang="en" aria-pressed={language === "en"} onClick={() => setLanguage("en")}>EN</button><span aria-hidden="true">|</span>
+        <button type="button" lang="ko" aria-pressed={language === "ko"} onClick={() => setLanguage("ko")}>한국어</button>
+      </div>
+    </div>
+    <label className="city-search finder">{language === "ko" ? "수도 검색" : "Location"}<input type="search" value={query} placeholder={language === "ko" ? "수도" : "Capital city"} autoComplete="off" onChange={event => setQuery(event.target.value)} /></label>
+    {!capital ? <p>Capital not confirmed</p> : !visible ? <p>{language === "ko" ? "검색 결과가 없어요." : 'No match for "' + query.trim() + '".'}</p> : <ul className="country-list">
+      <li>{published ? <Link className="capital-city-link" to={"/c/" + capital.id} state={{ from: pathname + search }}>{content}</Link> : <div className="capital-city-pending" aria-disabled="true">{content}</div>}</li>
+    </ul>}
+  </section>;
+}
