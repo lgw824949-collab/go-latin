@@ -10,7 +10,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 101366
   },
   "ankara": {
@@ -23,7 +23,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 105795
   },
   "amman": {
@@ -36,7 +36,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 683956
   },
   "astana": {
@@ -49,7 +49,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 159203
   },
   "ashgabat": {
@@ -62,7 +62,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 222935
   },
   "baghdad": {
@@ -75,21 +75,8 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 94248
-  },
-  "baku": {
-    "src": "/asia-country-photos/baku.jpg",
-    "city": "Baku",
-    "country": "Azerbaijan",
-    "source": "https://commons.wikimedia.org/wiki/File:Baku_Montage.jpg",
-    "original": "https://upload.wikimedia.org/wikipedia/commons/4/40/Baku_Montage.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-    "author": "See above. Compilation by Interfase",
-    "license": "CC BY-SA 3.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
-    "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
-    "bytes": 426351
   },
   "bandar_seri_begawan": {
     "src": "/asia-country-photos/bandar_seri_begawan.jpg",
@@ -101,7 +88,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "http://creativecommons.org/licenses/by-sa/3.0/",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 136808
   },
   "bangkok": {
@@ -114,7 +101,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 75618
   },
   "beijing": {
@@ -127,7 +114,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 223403
   },
   "bishkek": {
@@ -140,7 +127,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 247825
   },
   "beirut": {
@@ -153,7 +140,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 227040
   },
   "dili": {
@@ -166,7 +153,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 169773
   },
   "damascus": {
@@ -179,7 +166,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 263223
   },
   "dhaka": {
@@ -192,7 +179,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 142005
   },
   "dushanbe": {
@@ -205,7 +192,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 223765
   },
   "hanoi": {
@@ -218,7 +205,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 149077
   },
   "doha": {
@@ -231,7 +218,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 97022
   },
   "jerusalem": {
@@ -244,7 +231,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 286606
   },
   "kabul": {
@@ -257,7 +244,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 165635
   },
   "islamabad": {
@@ -270,7 +257,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 261956
   },
   "kathmandu": {
@@ -283,7 +270,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 166980
   },
   "kuala_lumpur": {
@@ -296,7 +283,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 405757
   },
   "kuwait_city": {
@@ -309,7 +296,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 165191
   },
   "manama": {
@@ -322,7 +309,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 159559
   },
   "male": {
@@ -335,7 +322,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 116388
   },
   "manila": {
@@ -348,7 +335,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 175497
   },
   "muscat": {
@@ -361,7 +348,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 166928
   },
   "new_delhi": {
@@ -374,7 +361,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 161580
   },
   "phnom_penh": {
@@ -387,7 +374,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 169223
   },
   "riyadh": {
@@ -400,7 +387,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 113915
   },
   "sanaa": {
@@ -413,7 +400,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 229246
   },
   "pyongyang": {
@@ -426,7 +413,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 2.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 139652
   },
   "sri_jayawardenepura_kotte": {
@@ -439,7 +426,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC0",
     "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 242310
   },
   "singapore": {
@@ -452,7 +439,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 184859
   },
   "seoul": {
@@ -465,7 +452,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 128634
   },
   "tehran": {
@@ -478,7 +465,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 266949
   },
   "tbilisi": {
@@ -491,7 +478,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 224025
   },
   "tashkent": {
@@ -504,7 +491,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 240279
   },
   "thimphu": {
@@ -517,7 +504,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 3.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 255902
   },
   "ulaanbaatar": {
@@ -530,7 +517,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 276592
   },
   "tokyo": {
@@ -543,7 +530,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 131177
   },
   "yerevan": {
@@ -556,7 +543,7 @@ export const ASIA_COUNTRY_PHOTOS = {
     "license": "CC BY 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
     "checked": "2026-11-08",
-    "changes": "Display cropped to 4:5 with CSS; downloaded Wikimedia thumbnail",
+    "changes": "Wikimedia thumbnail fitted into 4:5 frame without cropping; original file preserved",
     "bytes": 214039
   }
 };

@@ -2119,3 +2119,9 @@ body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:
  .asia-country-card .place-name { display: flex; align-items: center; justify-content: center; margin: 0 10px; }
  .asia-country-coming-soon { margin: 0 10px; }
 }
+
+/* Accuracy review: desktop Cities removal; keep the existing mobile home intact. */
+@media (min-width: 801px) {
+ body.theme-b .phase2-desktop-home > section[aria-labelledby="p2-cities-title"] { display: none; }
+ .asia-city-photo, .asia-country-page .asia-country-photo { object-fit: contain; background: #111a29; }
+}

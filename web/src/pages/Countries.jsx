@@ -98,7 +98,7 @@ export default function Countries() {
               ))}
             </ul>
           )}
-          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Existing Wikimedia photographs, displayed with a 4:5 crop. Licenses apply to the photos.</p><ul>{countries.map(country => {
+          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Existing Wikimedia photographs fitted inside 4:5 frames without cropping. Licenses apply to the photos.</p><ul>{countries.map(country => {
             const photo = ASIA_COUNTRY_PHOTOS[country.cities[0]?.id];
             return photo?.src ? <li key={country.slug}>{country.name}: <a href={photo.source} target="_blank" rel="noreferrer">{photo.author}</a> · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noreferrer">{photo.license}</a></li> : null;
           })}</ul></details> : null}

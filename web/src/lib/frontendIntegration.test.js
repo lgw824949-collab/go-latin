@@ -638,8 +638,8 @@ test('Asia country gallery preserves 46 country links and existing alphabetical 
  const gallery=html.match(/class="country-list asia-country-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
  assert.equal((gallery.match(/class="asia-country-card"/g)??[]).length,46);
  assert.equal((gallery.match(/Coming soon/g)??[]).length,46);
- assert.equal((gallery.match(/<img class="asia-country-photo"/g)??[]).length,43);
- assert.equal((gallery.match(/Photo pending review/g)??[]).length,3);
+ assert.equal((gallery.match(/<img class="asia-country-photo"/g)??[]).length,42);
+ assert.equal((gallery.match(/Photo pending review/g)??[]).length,4);
  assert.ok(gallery.indexOf('Afghanistan')<gallery.indexOf('Armenia'));
  assert.match(gallery,/href="\/country\/south-korea"/);
  assert.doesNotMatch(render('Countries','/country?continent=europe','/country'),/asia-country-grid|asia-country-photo/);
@@ -648,4 +648,13 @@ test('homepage city artwork uses the original approved files',()=>{
  reset();const html=render('Home','/','/');const grid=html.match(/class="p2-city-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
  assert.equal((grid.match(/class="p2-city-art"/g)??[]).length,3);
  for(const name of ['Seoul','Bangkok','Hanoi'])assert.ok(grid.includes('/mobile-atlas/GO_LATIN_CITY_'+name+'.png'));
+});
+
+test('PC home hides the complete Cities section without removing mobile city behavior',()=>{
+ reset();const html=render('Home','/','/');assert.match(html,/aria-labelledby="p2-cities-title"/);
+ const css=readFileSync(new URL('../styles/global.css',import.meta.url),'utf8');
+ const reviewed=css.slice(css.indexOf('/* Accuracy review:'));
+ assert.match(reviewed,/@media \(min-width: 801px\)/);
+ assert.match(reviewed,/section\[aria-labelledby="p2-cities-title"\] \{ display: none;/);
+ assert.match(reviewed,/object-fit: contain/);
 });
