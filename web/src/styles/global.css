@@ -2131,3 +2131,14 @@ body.theme-b .p2-continent-card .p2-continent-media img{position:absolute;inset:
  .asia-country-page .asia-country-grid .asia-country-card { grid-template-columns: minmax(0, 1fr); justify-content: stretch; }
  .asia-country-page .asia-country-photo { min-width: 0; height: auto; }
 }
+
+/* Asia phase-one design pilot: only the three city and five selected country crops. */
+.asia-desktop-country-gallery { display: none; }
+@media (min-width: 801px) {
+ .asia-desktop-country-gallery { display: block; }
+ .asia-country-mobile-list { display: none; }
+ .asia-city-photo { object-fit: cover; }
+ .asia-country-page .asia-country-pilot-photo { object-fit: cover; }
+ .asia-country-more { display: block; min-height: 48px; margin: 28px auto 0; padding: 10px 24px; border: 1px solid #d4b483; border-radius: 10px; background: #111a29; color: #e3c493; font: inherit; cursor: pointer; }
+ .asia-country-more:focus-visible { outline: 2px solid #d4b483; outline-offset: 3px; }
+}

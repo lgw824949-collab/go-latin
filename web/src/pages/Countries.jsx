@@ -3,7 +3,7 @@ import { ASIA_COUNTRY_PHOTOS } from "../lib/asiaCountryPhotos.js";
 import AsiaCountryPhoto from "../components/AsiaCountryPhoto.jsx";
 import { httpUrl } from "../lib/sources.js";
 import { publicCities } from "../lib/publicCities.js";
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import BrowseSteps from "../components/BrowseSteps.jsx";
 import ContinentCards from "../components/ContinentCards.jsx";
@@ -85,20 +85,14 @@ export default function Countries() {
           {countries.length === 0 ? (
             <p className="empty">No match for "{query.trim()}".</p>
           ) : (
-            <ul className={`country-list${continent === "asia" ? " asia-country-grid" : ""}`}>
-              {countries.map((country) => (
-                <li key={country.slug}>
-                  <Link to={`/country/${country.slug}`} className={continent === "asia" ? "asia-country-card" : undefined}>
-                    {continent === "asia" ? <AsiaCountryPhoto photo={ASIA_COUNTRY_PHOTOS[country.cities[0]?.id]} city={country.cities[0]?.city} /> : null}
-                    <span className="place-name">{country.name}</span>
-                    <span className="country-place-count">{placeLabel(country)}</span>
-                    {continent === "asia" && countryPlaceCounts(country).bars === 0 ? <span className="asia-country-coming-soon">Coming soon</span> : null}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <>
+              {continent === "asia" ? <AsiaCountryGallery key={query} countries={countries} /> : null}
+              <ul className={continent === "asia" ? "country-list asia-country-mobile-list" : "country-list"}>
+                {countries.map(country => <CountryEntry key={country.slug} country={country} asia={continent === "asia"} />)}
+              </ul>
+            </>
           )}
-          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Existing Wikimedia photographs fitted inside 4:5 frames without cropping. Licenses apply to the photos.</p><ul>{countries.map(country => {
+          {continent === "asia" ? <details className="asia-country-photo-credits"><summary>Photo credits</summary><p>Five pilot photographs use individually positioned crops; other photographs remain fitted without cropping. Licenses apply to the photos.</p><ul>{countries.map(country => {
             const photo = ASIA_COUNTRY_PHOTOS[country.cities[0]?.id];
             return photo?.src ? <li key={country.slug}>{country.name}: <a href={photo.source} target="_blank" rel="noreferrer">{photo.author}</a> · <a href={photo.licenseUrl || photo.source} target="_blank" rel="noreferrer">{photo.license}</a></li> : null;
           })}</ul></details> : null}
@@ -141,4 +135,31 @@ function AsiaCityCards({ cities, status, error, params }) {
       </nav> : null}
     </>}
   </section>;
+}
+
+const COUNTRY_PILOTS = {
+  japan: "83% center",
+  singapore: "60% center",
+  malaysia: "50% 18%",
+  philippines: "55% center",
+  cambodia: "45% center",
+};
+function CountryEntry({ country, asia, pilot = false }) {
+  const city = country.cities[0];
+  return <li><Link to={"/country/" + country.slug} className={asia ? "asia-country-card" : undefined} data-pilot={pilot ? "true" : undefined}>
+    {asia ? <AsiaCountryPhoto photo={ASIA_COUNTRY_PHOTOS[city?.id]} city={city?.city} position={pilot ? COUNTRY_PILOTS[country.slug] : undefined} pilot={pilot} /> : null}
+    <span className="place-name">{country.name}</span>
+    <span className="country-place-count">{placeLabel(country)}</span>
+    {asia && countryPlaceCounts(country).bars === 0 ? <span className="asia-country-coming-soon">Coming soon</span> : null}
+  </Link></li>;
+}
+function AsiaCountryGallery({ countries }) {
+  const [shown, setShown] = useState(10);
+  const pilotSlugs = Object.keys(COUNTRY_PILOTS);
+  const ordered = [...pilotSlugs.flatMap(slug => countries.filter(country => country.slug === slug)), ...countries.filter(country => !pilotSlugs.includes(country.slug))];
+  const visible = ordered.slice(0, shown);
+  return <div className="asia-desktop-country-gallery">
+    <ul className="country-list asia-country-grid">{visible.map(country => <CountryEntry key={country.slug} country={country} asia pilot={pilotSlugs.includes(country.slug)} />)}</ul>
+    {shown < ordered.length ? <button type="button" className="asia-country-more" onClick={() => setShown(count => Math.min(count + 10, ordered.length))}>Show more countries ({Math.min(shown, ordered.length)} / {ordered.length})</button> : null}
+  </div>;
 }

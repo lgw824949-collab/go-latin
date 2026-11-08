@@ -630,18 +630,24 @@ test('Asia cards retain approved images and leave other continent views unchange
  f.status='error';assert.match(render('Countries','/country?continent=asia','/country'),/role="alert"/);
 });
 
-test('Asia country gallery preserves 46 country links and existing alphabetical order',()=>{
+test('Asia country pilot shows ten desktop entries and preserves all 46 mobile links',()=>{
  const f=reset();
  const source=JSON.parse(readFileSync(new URL('../../../data/capitals.json',import.meta.url),'utf8')).filter(c=>c.continent==='asia');
  f.cities=source.map(c=>({...c,venues:[]}));
  const html=render('Countries','/country?continent=asia','/country');
  const gallery=html.match(/class="country-list asia-country-grid">([\s\S]*?)<\/ul>/)?.[1]??'';
- assert.equal((gallery.match(/class="asia-country-card"/g)??[]).length,46);
- assert.equal((gallery.match(/Coming soon/g)??[]).length,46);
- assert.equal((gallery.match(/<img class="asia-country-photo"/g)??[]).length,42);
- assert.equal((gallery.match(/Photo pending review/g)??[]).length,4);
+ assert.equal((gallery.match(/class="asia-country-card"/g)??[]).length,10);
+ assert.equal((gallery.match(/Coming soon/g)??[]).length,10);
+ assert.equal((gallery.match(/<img class="asia-country-photo(?: asia-country-pilot-photo)?"/g)??[]).length,9);
+ assert.equal((gallery.match(/Photo pending review/g)??[]).length,1);
  assert.ok(gallery.indexOf('Afghanistan')<gallery.indexOf('Armenia'));
- assert.match(gallery,/href="\/country\/south-korea"/);
+ const mobile=html.match(/class="country-list asia-country-mobile-list">([\s\S]*?)<\/ul>/)?.[1]??'';
+ assert.equal((mobile.match(/class="asia-country-card"/g)??[]).length,46);
+ assert.match(mobile,/href="\/country\/south-korea"/);
+ assert.match(html,/Show more countries \(10 \/ 46\)/);
+ assert.equal((gallery.match(/data-pilot="true"/g)??[]).length,5);
+ const expected=['Japan','Singapore','Malaysia','Philippines','Cambodia'];
+ for(let i=1;i<expected.length;i++)assert.ok(gallery.indexOf('>'+expected[i-1]+'<')<gallery.indexOf('>'+expected[i]+'<'));
  assert.doesNotMatch(render('Countries','/country?continent=europe','/country'),/asia-country-grid|asia-country-photo/);
 });
 test('homepage city artwork uses the original approved files',()=>{
