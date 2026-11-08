@@ -658,3 +658,10 @@ test('PC home hides the complete Cities section without removing mobile city beh
  assert.match(reviewed,/section\[aria-labelledby="p2-cities-title"\] \{ display: none;/);
  assert.match(reviewed,/object-fit: contain/);
 });
+
+test('Asia image frames reserve a 4:5 box before lazy loading completes',()=>{
+ reset();const html=render('Countries','/country?continent=asia','/country');
+ assert.match(html,/class="asia-country-photo"[^>]*width="640" height="800" loading="lazy"/);
+ const css=readFileSync(new URL('../styles/global.css',import.meta.url),'utf8');
+ assert.match(css,/grid-template-columns: minmax\(0, 1fr\); justify-content: stretch/);
+});
